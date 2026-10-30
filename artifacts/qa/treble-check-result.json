@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "method": "Measured first-difference energy divided by signal energy: a frequency-weighted waveform metric independent of overall gain. Not a subjective listening claim.",
+  "cases": [
+    {
+      "presence": 0,
+      "rms": 0.051400971269150636,
+      "relativeHighFrequencyEnergy": 0.05258275014271397,
+      "peak": 0.22120369970798492
+    },
+    {
+      "presence": 4.5,
+      "rms": 0.05827287015938148,
+      "relativeHighFrequencyEnergy": 0.09080762168234123,
+      "peak": 0.25612911581993103
+    }
+  ]
+}

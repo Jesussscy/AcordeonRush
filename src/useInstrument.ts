@@ -2,7 +2,7 @@ import {useCallback,useEffect,useRef,useState} from 'react';
 import {allButtons,type BellowsDirection} from './accordion-catalog';
 import {createAccordionAudio,type AccordionAudio} from './recorded-accordion-audio.js';
 
-type Settings={tuning:string;registration:string;volume:number;expression:number;reedWidth?:number;sound?:{brightness:number;body:number;melody:number;bass:number;chord:number;release:number}};
+type Settings={tuning:string;registration:string;volume:number;expression:number;reedWidth?:number;sound?:{brightness:number;body:number;presence?:number;melody:number;bass:number;chord:number;release:number}};
 const emptyMeter={rms:0,peak:0,contextState:'suspended',playingMode:'direct',direction:'push' as BellowsDirection,expression:.7,error:'',notes:[] as number[]};
 export function useInstrument(settings:Settings){
  const settingsRef=useRef(settings);settingsRef.current=settings;

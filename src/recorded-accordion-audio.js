@@ -7,7 +7,8 @@ export async function createAccordionAudio({context,baseURL=new URL('/instrument
  const decoded=new Map(),pending=new Map(),held=new Map(),voices=new Set();
  const master=context.createGain(),expression=context.createGain(),limiter=context.createDynamicsCompressor(),analyser=context.createAnalyser(),body=context.createBiquadFilter(),brightness=context.createBiquadFilter();analyser.fftSize=8192;const waveform=new Float32Array(analyser.fftSize);
  const parts=Object.fromEntries(['melody','bass','chord'].map(id=>[id,context.createGain()]));for(const bus of Object.values(parts))bus.connect(body);
- body.type='lowshelf';body.frequency.value=240;body.gain.value=0;brightness.type='lowpass';brightness.frequency.value=Math.min(20000,context.sampleRate*.45);brightness.Q.value=.45;body.connect(brightness);brightness.connect(master);
+ const presence=context.createBiquadFilter();presence.type='highshelf';presence.frequency.value=2200;presence.gain.value=0;
+ body.type='lowshelf';body.frequency.value=240;body.gain.value=0;brightness.type='lowpass';brightness.frequency.value=Math.min(20000,context.sampleRate*.45);brightness.Q.value=.45;body.connect(brightness);brightness.connect(presence);presence.connect(master);
  master.gain.value=.55;expression.gain.value=0;
  limiter.threshold.value=-3;limiter.knee.value=6;limiter.ratio.value=4;limiter.attack.value=.003;limiter.release.value=.18;
  master.connect(expression);expression.connect(limiter);limiter.connect(analyser);analyser.connect(context.destination);
@@ -72,7 +73,7 @@ export async function createAccordionAudio({context,baseURL=new URL('/instrument
   getDiagnostics(){analyser.getFloatTimeDomainData(waveform);let sum=0,peak=0;for(const n of waveform){sum+=n*n;peak=Math.max(peak,Math.abs(n));}return {rms:Math.sqrt(sum/waveform.length),peak,contextState:context.state,playingMode,direction,expression:playingMode==='direct'?expressionLevel:pressure,error:lastError,notes:[...new Set([...voices].filter(v=>!v.cancelled&&context.currentTime>=v.startsAt&&context.currentTime<v.endsAt).map(v=>v.midi))]};},
   scheduleNote(name,dir,when,duration,velocity=1){const key=name.startsWith('BTN_')?name:'BTN_'+name,mapping=manifest.buttons[key];if(!mapping||!['push','pull'].includes(dir)||!Number.isFinite(when)||!(duration>0))throw Error('Invalid scheduled note');const notes=mapping[dir],bass=key.includes('Bass'),part=bass?(notes.length>1?'chord':'bass'):'melody',level=(bass?(notes.length>1?.34:.65):.9)*velocity;for(const midi of notes)for(const r of reedPlan(notes,part))rank(midi,r,{level,when,duration,part});},
   setReedWidth(value){const next=Math.max(0,Math.min(1,value));if(Math.abs(reedWidth-next)<.0001)return;reedWidth=next;if(profile.id==='vallenato')restart();},
-  setSound({brightness:bright=1,body:bodyDb=0,melody=1,bass=1,chord=1,release=.018}={}){const at=context.currentTime;brightness.frequency.setTargetAtTime(Math.min(context.sampleRate*.45,2500*8**Math.max(0,Math.min(1,bright))),at,.025);body.gain.setTargetAtTime(Math.max(-6,Math.min(6,bodyDb)),at,.025);for(const [id,level] of Object.entries({melody,bass,chord}))parts[id].gain.setTargetAtTime(Math.max(0,Math.min(1,level)),at,.012);releaseTime=Math.max(.008,Math.min(.06,release));},
+  setSound({brightness:bright=1,body:bodyDb=0,presence:presenceDb=0,melody=1,bass=1,chord=1,release=.018}={}){const at=context.currentTime;brightness.frequency.setTargetAtTime(Math.min(context.sampleRate*.45,2500*8**Math.max(0,Math.min(1,bright))),at,.025);body.gain.setTargetAtTime(Math.max(-6,Math.min(6,bodyDb)),at,.025);presence.gain.setTargetAtTime(Math.max(0,Math.min(6,presenceDb)),at,.025);for(const [id,level] of Object.entries({melody,bass,chord}))parts[id].gain.setTargetAtTime(Math.max(0,Math.min(1,level)),at,.012);releaseTime=Math.max(.008,Math.min(.06,release));},
   async preload(){await Promise.all(manifest.regions.flatMap(r=>[load(r.file),load(r.releaseFile)]));},
   async unlock(){if(context.state==='suspended'&&typeof context.startRendering!=='function')await context.resume();},
   noteOn(name){if(disposed)throw Error('Audio controller disposed');const key=name.startsWith('BTN_')?name:'BTN_'+name;if(held.has(key))return;const mapping=manifest.buttons[key];if(!mapping)throw Error(`Unknown button ${name}`);const state={mapping,bass:key.includes('Bass'),voices:[]};held.set(key,state);start(state);},
@@ -82,7 +83,7 @@ export async function createAccordionAudio({context,baseURL=new URL('/instrument
   setTuning(id){const next=manifest.tunings.find(t=>t.id===id);if(!next)throw Error('Unknown tuning');if(tuningId===id)return;tuningId=id;tuning=next.semitones;restart();},
   setVolume(value){master.gain.setTargetAtTime(.55*Math.max(0,Math.min(1,value)),context.currentTime,.02);},
   allNotesOff(){for(const state of held.values())stop(state);held.clear();for(const voice of voices)voice.stop(true);},
-  dispose(){api.allNotesOff();disposed=true;for(const bus of Object.values(parts))bus.disconnect();body.disconnect();brightness.disconnect();master.disconnect();expression.disconnect();limiter.disconnect();analyser.disconnect();},
+  dispose(){api.allNotesOff();disposed=true;for(const bus of Object.values(parts))bus.disconnect();body.disconnect();brightness.disconnect();presence.disconnect();master.disconnect();expression.disconnect();limiter.disconnect();analyser.disconnect();},
  };
  return api;
 }

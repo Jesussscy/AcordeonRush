@@ -1,7 +1,7 @@
 declare module '*accordion-audio.js' {
  export type AccordionAudio={context:AudioContext;
  setPlayingMode(mode:'direct'|'manual'):void;setDirection(direction:'push'|'pull'):void;setExpression(value:number):void;
- setSound(settings:{brightness?:number;body?:number;melody?:number;bass?:number;chord?:number;release?:number}):void;
+ setSound(settings:{brightness?:number;body?:number;presence?:number;melody?:number;bass?:number;chord?:number;release?:number}):void;
  setReedWidth(value:number):void;
  scheduleNote(name:string,direction:'push'|'pull',when:number,duration:number,velocity?:number):void;
  getDiagnostics():{rms:number;peak:number;contextState:string;playingMode:string;direction:'push'|'pull';expression:number;error:string;notes:number[]};
