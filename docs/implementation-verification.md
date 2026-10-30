@@ -38,6 +38,18 @@ Songs now opens the original reference rather than a generated exercise. Referen
 
 Results: `sound-and-guides-result.json` passed 20 checks, including real rendered mute/output for all three parts, pre-play phrase seeking, automatic output and simulated reference controls. `live-ui-audio-revision-result.json` passed the actual mounted keyboard route: closed MIDI 55/RMS 0.081385 and open MIDI 57/RMS 0.063334. Build and deterministic transport checks passed. During the separate live reference check, the official video did not become available in this browser's embedded player; its direct official link remains accessible in the interface. Reference playback is therefore not claimed as verified here.
 
-## Remaining limits
+## Reed and sample-loop revision — 2026-10-30
+
+`Vallenato` is now the initial registration. Its melody uses three virtual ranks with a pitch-dependent frequency spread; its bass uses sampled octave ranks and its chords retain a dry central rank. Width zero collapses the melody to one rank. Pressure changes brightness in addition to gain. The manufacturer documents three treble voices for the [Corona III](https://hohner.de/es/instrumentos/acordeones/diatonicas/corona/corona-iii); this informed the virtual ensemble, but does not document this bank as a Corona III recording or validate the chosen virtual detuning values.
+
+The source [SFZ loop end is inclusive](https://sfzformat.com/opcodes/loop_end/). The rebuilt browser bank converts that endpoint to Web Audio's exclusive boundary. It searches a short stereo phase-matching window before an 18 ms blend, preserving all 34 original FLAC hashes. The measured sustain level produces bounded gain compensation for Vallenato only. `loop-quality.json` records before/after correlations and the gain factors; waveform checks are not a listening judgment. The preparation script writes atomically and rebuilds deterministically from the original SFZ/FLAC.
+
+Two in-app preview buttons use the real input controller and model animation. Stop, physical keyboard interruption, blur and section changes cancel pending preview notes. An equal-RMS original C–E–G exercise compares Natural first and Vallenato second in `artifacts/audio/acordeon-natural-vallenato.wav`. It uses production Web Audio rendering, not commercial song audio. The downloadable browser fixture is `artifacts/qa/reed-realism.html`; interaction validation is `reed-input.html`.
+
+Validation: `reed-realism-result.json` passed 24 rendering checks, including both directions, extreme registers, release silence and a pressure-dependent timbre change after loudness normalization. `reed-input-result.json` passed nine mounted-app checks for preview animation, stop and physical keyboard interruption. Source/PCM checks passed for all 34 files and 17 loops. Build and deterministic musical transport checks passed.
+
+The new registration is still based on transposed melody samples, including its bass ranks. A dedicated multi-dynamic diatonic/bass recording bank would be required to remove that source limitation. Subjective similarity remains for the listener to assess.
+
+## Remaining content and device limits
 
 Commercial song charts remain generated teaching material unless explicitly imported; see `las-locuras-mias-status.md`. No original recording's exact transcription or tuning is certified. Speaker/headphone latency, device-specific touch behavior and subjective timbre authenticity require listening and physical-device review. The application exposes latency compensation and actual output metering without claiming those reviews happened.

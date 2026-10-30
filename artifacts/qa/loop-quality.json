@@ -1,0 +1,159 @@
+{
+  "passed": true,
+  "method": "Stereo waveform correlation before loop crossfade; unchanged pitches and source hashes. Not a subjective listening test.",
+  "loops": [
+    {
+      "root": 47,
+      "before": 0.9867359105228227,
+      "after": 0.9999926947292176,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2427962356696152,
+      "performanceGain": 0.9472964000684605
+    },
+    {
+      "root": 50,
+      "before": 0.9849154145840788,
+      "after": 0.9999946406050431,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.20642792311929864,
+      "performanceGain": 1.1141903504356754
+    },
+    {
+      "root": 54,
+      "before": 0.9770264138377301,
+      "after": 0.9999741162311906,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2298656820270691,
+      "performanceGain": 1.0005843324316461
+    },
+    {
+      "root": 55,
+      "before": 0.9813368832121653,
+      "after": 0.9998771890240324,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2234576378654795,
+      "performanceGain": 1.0292778631198947
+    },
+    {
+      "root": 57,
+      "before": 0.9727907524597242,
+      "after": 0.9995535786765379,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.21194515836979713,
+      "performanceGain": 1.08518638391683
+    },
+    {
+      "root": 59,
+      "before": 0.9697672232457769,
+      "after": 0.9999993618965315,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2436621783641006,
+      "performanceGain": 0.9439298357429712
+    },
+    {
+      "root": 60,
+      "before": 0.9613422502066465,
+      "after": 0.9999904275576621,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2126248722965543,
+      "performanceGain": 1.081717286956025
+    },
+    {
+      "root": 62,
+      "before": 0.961650458902247,
+      "after": 0.9999918197433243,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2103564093598543,
+      "performanceGain": 1.093382420340431
+    },
+    {
+      "root": 64,
+      "before": 0.9545808159689074,
+      "after": 0.9999983574173414,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.2592862319048811,
+      "performanceGain": 0.8870505707544676
+    },
+    {
+      "root": 66,
+      "before": 0.9444492732981753,
+      "after": 0.9999980924815461,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.24550344413140873,
+      "performanceGain": 0.9368504006684716
+    },
+    {
+      "root": 67,
+      "before": 0.9382991225648241,
+      "after": 0.9999991389172439,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.26459276112884283,
+      "performanceGain": 0.8692603645645545
+    },
+    {
+      "root": 69,
+      "before": 0.9773157000409185,
+      "after": 0.9999987715646803,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.3344850088128905,
+      "performanceGain": 0.6876242400706845
+    },
+    {
+      "root": 71,
+      "before": 0.9895559948114931,
+      "after": 0.9999926186952798,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.40902915228737946,
+      "performanceGain": 0.65
+    },
+    {
+      "root": 72,
+      "before": 0.9736164634683727,
+      "after": 0.9999950653389831,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.3632355861736459,
+      "performanceGain": 0.65
+    },
+    {
+      "root": 74,
+      "before": 0.9743064327384193,
+      "after": 0.999997839465539,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.3824575389038517,
+      "performanceGain": 0.65
+    },
+    {
+      "root": 76,
+      "before": 0.9407839453098844,
+      "after": 0.9999855817109248,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.35752280615923515,
+      "performanceGain": 0.65
+    },
+    {
+      "root": 79,
+      "before": 0.9840188703060707,
+      "after": 0.9999610591858831,
+      "shiftFrames": 0,
+      "inclusiveEndCorrected": true,
+      "sustainRms": 0.43252234740050655,
+      "performanceGain": 0.65
+    }
+  ]
+}

@@ -37,6 +37,8 @@ Audio uses real FreePats Hohner recordings; Natural retains the recorded voice a
 
 Under **Sonido · timbre y balance**, choose close, dry or warm articulation/EQ, adjust melody/bass/chord levels, or isolate the melody. These controls process the same attributed samples; they do not claim a new sampled instrument or make a generated melody match the original recording. The close preset preserves the sample attack with a shorter valve release, and the source's sustained dynamics replace the earlier artificial decay.
 
+The initial **Vallenato** registration adds a virtual reed ensemble with pitch-dependent beating, adjustable voice spread, pressure-sensitive brightness and distinct bass/chord treatment. **Natural** keeps the single-bank reference. Use **Probar Natural / Probar Vallenato** to compare the same short phrase with animated buttons; physical input cancels the preview. The sample build now converts inclusive SFZ loop endpoints correctly, aligns stereo loop phases and measures per-sample sustain levels. The Vallenato registration uses those measurements to reduce uneven note volumes. It is a virtual arrangement of the same Hohner recordings, not a separately sampled Corona III.
+
 ## Validation
 
 ```bash

@@ -2,7 +2,7 @@ import {useCallback,useEffect,useRef,useState} from 'react';
 import {allButtons,type BellowsDirection} from './accordion-catalog';
 import {createAccordionAudio,type AccordionAudio} from './recorded-accordion-audio.js';
 
-type Settings={tuning:string;registration:string;volume:number;expression:number;sound?:{brightness:number;body:number;melody:number;bass:number;chord:number;release:number}};
+type Settings={tuning:string;registration:string;volume:number;expression:number;reedWidth?:number;sound?:{brightness:number;body:number;melody:number;bass:number;chord:number;release:number}};
 const emptyMeter={rms:0,peak:0,contextState:'suspended',playingMode:'direct',direction:'push' as BellowsDirection,expression:.7,error:'',notes:[] as number[]};
 export function useInstrument(settings:Settings){
  const settingsRef=useRef(settings);settingsRef.current=settings;
@@ -12,7 +12,7 @@ export function useInstrument(settings:Settings){
  const [status,setStatus]=useState('Cargando grabaciones Hohner…'),[ready,setReady]=useState(false),[meter,setMeter]=useState(emptyMeter);
  const configure=useCallback((audio:AccordionAudio)=>{
   const s=settingsRef.current;
-  audio.setTuning(s.tuning);audio.setProfile(s.registration);audio.setVolume(s.volume);audio.setExpression(s.expression);
+  audio.setTuning(s.tuning);audio.setReedWidth(s.reedWidth??.55);audio.setProfile(s.registration);audio.setVolume(s.volume);audio.setExpression(s.expression);
   if(s.sound)audio.setSound(s.sound);
   audio.setPlayingMode(manualRef.current?'manual':'direct');audio.setDirection(directionRef.current);
   if(manualRef.current)audio.setBellows(directionRef.current,manualAir.current?s.expression:0);
@@ -61,7 +61,7 @@ export function useInstrument(settings:Settings){
   if(!held.current.size&&!manualRef.current)setAir(false);return id;
  },[]);
  useEffect(()=>{alive.current=true;void prepare(false).catch(()=>undefined);return()=>{alive.current=false;held.current.clear();engine.current?.dispose();engine.current=undefined;loading.current=undefined;const old=context.current;context.current=undefined;void old?.close().catch(()=>undefined);};},[prepare]);
- useEffect(()=>{if(engine.current)configure(engine.current);},[settings.tuning,settings.registration,settings.volume,settings.expression,settings.sound,configure]);
+ useEffect(()=>{if(engine.current)configure(engine.current);},[settings.tuning,settings.registration,settings.volume,settings.expression,settings.sound,settings.reedWidth,configure]);
  useEffect(()=>{const timer=setInterval(()=>{if(engine.current){const value=engine.current.getDiagnostics();setMeter(value);if(value.error)setStatus(value.error);else setStatus(value.contextState==='running'?'Hohner grabado · audio activo':'Grabaciones listas · pulsa para activar');}},70);return()=>clearInterval(timer);},[]);
  return {engine,prepare,press,release,stopAll,chooseDirection,setManualMode,setManualBellows,active,direction,manual,air,ready,status,meter};
 }

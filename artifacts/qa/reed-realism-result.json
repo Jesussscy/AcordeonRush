@@ -1,0 +1,189 @@
+{
+  "passed": true,
+  "checks": 24,
+  "scope": "Production Web Audio renders and waveform measurements. A/B demo has equal RMS. Human authenticity remains for listener evaluation.",
+  "results": [
+    {
+      "label": "melody push: salida",
+      "passed": true,
+      "details": {
+        "rms": 0.05269491059620337,
+        "peak": 0.2127351462841034
+      }
+    },
+    {
+      "label": "melody push: sin recorte",
+      "passed": true,
+      "details": {
+        "rms": 0.05269491059620337,
+        "peak": 0.2127351462841034
+      }
+    },
+    {
+      "label": "melody push: silencio tras soltar",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "bass push: salida",
+      "passed": true,
+      "details": {
+        "rms": 0.05671229999432116,
+        "peak": 0.23435507714748383
+      }
+    },
+    {
+      "label": "bass push: sin recorte",
+      "passed": true,
+      "details": {
+        "rms": 0.05671229999432116,
+        "peak": 0.23435507714748383
+      }
+    },
+    {
+      "label": "bass push: silencio tras soltar",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "chord push: salida",
+      "passed": true,
+      "details": {
+        "rms": 0.07394002565855343,
+        "peak": 0.2925052046775818
+      }
+    },
+    {
+      "label": "chord push: sin recorte",
+      "passed": true,
+      "details": {
+        "rms": 0.07394002565855343,
+        "peak": 0.2925052046775818
+      }
+    },
+    {
+      "label": "chord push: silencio tras soltar",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "melody pull: salida",
+      "passed": true,
+      "details": {
+        "rms": 0.05289004421115426,
+        "peak": 0.20913547277450562
+      }
+    },
+    {
+      "label": "melody pull: sin recorte",
+      "passed": true,
+      "details": {
+        "rms": 0.05289004421115426,
+        "peak": 0.20913547277450562
+      }
+    },
+    {
+      "label": "melody pull: silencio tras soltar",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "bass pull: salida",
+      "passed": true,
+      "details": {
+        "rms": 0.057219373221420185,
+        "peak": 0.23711755871772766
+      }
+    },
+    {
+      "label": "bass pull: sin recorte",
+      "passed": true,
+      "details": {
+        "rms": 0.057219373221420185,
+        "peak": 0.23711755871772766
+      }
+    },
+    {
+      "label": "bass pull: silencio tras soltar",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "chord pull: salida",
+      "passed": true,
+      "details": {
+        "rms": 0.06776508403851451,
+        "peak": 0.29637622833251953
+      }
+    },
+    {
+      "label": "chord pull: sin recorte",
+      "passed": true,
+      "details": {
+        "rms": 0.06776508403851451,
+        "peak": 0.29637622833251953
+      }
+    },
+    {
+      "label": "chord pull: silencio tras soltar",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "DGC-low: registro extremo",
+      "passed": true,
+      "details": {
+        "rms": 0.06515018791427586,
+        "peak": 0.22054772078990936
+      }
+    },
+    {
+      "label": "BEA: registro extremo",
+      "passed": true,
+      "details": {
+        "rms": 0.07092656997808834,
+        "peak": 0.19346004724502563
+      }
+    },
+    {
+      "label": "Natural y Vallenato generan señales distintas",
+      "passed": true,
+      "details": {
+        "differenceRms": 0.0457759308136139
+      }
+    },
+    {
+      "label": "Comparación normalizada sin recorte",
+      "passed": true
+    },
+    {
+      "label": "Apertura de voces modifica el audio",
+      "passed": true
+    },
+    {
+      "label": "La expresión modifica el timbre, además del volumen",
+      "passed": true,
+      "details": {
+        "normalizedDifference": 0.12114712426602732
+      }
+    }
+  ]
+}

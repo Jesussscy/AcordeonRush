@@ -11,11 +11,12 @@
       "high": 49,
       "tune": -34,
       "loopStart": 0.816734693877551,
-      "loopEnd": 1.4207256235827666,
+      "loopEnd": 1.4207482993197278,
       "releaseFile": "rel/Button Accordion HN B3_rel.wav",
       "releaseOffset": 0,
       "releaseTune": -34,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.9472964000684605
     },
     {
       "file": "Button Accordion HN D4.wav",
@@ -24,11 +25,12 @@
       "high": 53,
       "tune": -38,
       "loopStart": 1.128140589569161,
-      "loopEnd": 1.568095238095238,
+      "loopEnd": 1.5681179138321995,
       "releaseFile": "rel/Button Accordion HN D4_rel.wav",
       "releaseOffset": 0.061224489795918366,
       "releaseTune": -38,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 1.1141903504356754
     },
     {
       "file": "Button Accordion HN Fs4.wav",
@@ -37,11 +39,12 @@
       "high": 54,
       "tune": -23,
       "loopStart": 1.0524489795918368,
-      "loopEnd": 1.7997052154195012,
+      "loopEnd": 1.7997278911564625,
       "releaseFile": "rel/Button Accordion HN Fs4_rel.wav",
       "releaseOffset": 0.022675736961451247,
       "releaseTune": -23,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 1.0005843324316461
     },
     {
       "file": "Button Accordion HN G4.wav",
@@ -50,11 +53,12 @@
       "high": 56,
       "tune": -30,
       "loopStart": 1.5089115646258504,
-      "loopEnd": 2.1154195011337866,
+      "loopEnd": 2.115442176870748,
       "releaseFile": "rel/Button Accordion HN G4_rel.wav",
       "releaseOffset": 0.15873015873015872,
       "releaseTune": -30,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 1.0292778631198947
     },
     {
       "file": "Button Accordion HN A4.wav",
@@ -63,11 +67,12 @@
       "high": 58,
       "tune": -32,
       "loopStart": 1.368843537414966,
-      "loopEnd": 1.6903174603174602,
+      "loopEnd": 1.6903401360544217,
       "releaseFile": "rel/Button Accordion HN A4_rel.wav",
       "releaseOffset": 0.05668934240362812,
       "releaseTune": -32,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 1.08518638391683
     },
     {
       "file": "Button Accordion HN B4.wav",
@@ -76,11 +81,12 @@
       "high": 59,
       "tune": -19,
       "loopStart": 1.7264399092970522,
-      "loopEnd": 2.0653514739229024,
+      "loopEnd": 2.065374149659864,
       "releaseFile": "rel/Button Accordion HN B4_rel.wav",
       "releaseOffset": 0.036281179138321996,
       "releaseTune": -19,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.9439298357429712
     },
     {
       "file": "Button Accordion HN C5.wav",
@@ -89,11 +95,12 @@
       "high": 61,
       "tune": -28,
       "loopStart": 1.6536507936507936,
-      "loopEnd": 1.9546485260770976,
+      "loopEnd": 1.954671201814059,
       "releaseFile": "rel/Button Accordion HN C5_rel.wav",
       "releaseOffset": 0.20408163265306123,
       "releaseTune": -28,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 1.081717286956025
     },
     {
       "file": "Button Accordion HN D5.wav",
@@ -102,11 +109,12 @@
       "high": 63,
       "tune": -26,
       "loopStart": 1.6555102040816327,
-      "loopEnd": 1.9560997732426304,
+      "loopEnd": 1.9561224489795919,
       "releaseFile": "rel/Button Accordion HN D5_rel.wav",
       "releaseOffset": 0.06802721088435375,
       "releaseTune": -26,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 1.093382420340431
     },
     {
       "file": "Button Accordion HN E5.wav",
@@ -115,11 +123,12 @@
       "high": 65,
       "tune": -30,
       "loopStart": 1.4945124716553289,
-      "loopEnd": 1.8998639455782314,
+      "loopEnd": 1.8998866213151928,
       "releaseFile": "rel/Button Accordion HN E5_rel.wav",
       "releaseOffset": 0.022675736961451247,
       "releaseTune": -30,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.8870505707544676
     },
     {
       "file": "Button Accordion HN Fs5.wav",
@@ -128,11 +137,12 @@
       "high": 66,
       "tune": -26,
       "loopStart": 1.9277324263038549,
-      "loopEnd": 2.1460997732426303,
+      "loopEnd": 2.146122448979592,
       "releaseFile": "rel/Button Accordion HN Fs5_rel.wav",
       "releaseOffset": 0.034013605442176874,
       "releaseTune": -26,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.9368504006684716
     },
     {
       "file": "Button Accordion HN G5.wav",
@@ -141,11 +151,12 @@
       "high": 68,
       "tune": -29,
       "loopStart": 1.7853287981859411,
-      "loopEnd": 2.204467120181406,
+      "loopEnd": 2.2044897959183674,
       "releaseFile": "rel/Button Accordion HN G5_rel.wav",
       "releaseOffset": 0.011337868480725623,
       "releaseTune": -29,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.8692603645645545
     },
     {
       "file": "Button Accordion HN A5.wav",
@@ -154,11 +165,12 @@
       "high": 70,
       "tune": -20,
       "loopStart": 1.9333786848072563,
-      "loopEnd": 2.1191156462585035,
+      "loopEnd": 2.119138321995465,
       "releaseFile": "rel/Button Accordion HN A5_rel.wav",
       "releaseOffset": 0.07709750566893424,
       "releaseTune": -20,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.6876242400706845
     },
     {
       "file": "Button Accordion HN B5.wav",
@@ -167,11 +179,12 @@
       "high": 71,
       "tune": -7,
       "loopStart": 1.708231292517007,
-      "loopEnd": 1.8656009070294786,
+      "loopEnd": 1.8656235827664398,
       "releaseFile": "rel/Button Accordion HN B5_rel.wav",
       "releaseOffset": 0.09070294784580499,
       "releaseTune": -7,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.65
     },
     {
       "file": "Button Accordion HN C6.wav",
@@ -180,11 +193,12 @@
       "high": 73,
       "tune": -26,
       "loopStart": 2.3111337868480724,
-      "loopEnd": 2.468843537414966,
+      "loopEnd": 2.4688662131519274,
       "releaseFile": "rel/Button Accordion HN C6_rel.wav",
       "releaseOffset": 0.11337868480725624,
       "releaseTune": 66,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.65
     },
     {
       "file": "Button Accordion HN D6.wav",
@@ -193,11 +207,12 @@
       "high": 75,
       "tune": -16,
       "loopStart": 1.1471201814058958,
-      "loopEnd": 1.3487074829931973,
+      "loopEnd": 1.3487301587301588,
       "releaseFile": "rel/Button Accordion HN D6_rel.wav",
       "releaseOffset": 0.022675736961451247,
       "releaseTune": -16,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.65
     },
     {
       "file": "Button Accordion HN E6.wav",
@@ -206,11 +221,12 @@
       "high": 78,
       "tune": -22,
       "loopStart": 1.9646485260770976,
-      "loopEnd": 2.110952380952381,
+      "loopEnd": 2.1109750566893424,
       "releaseFile": "rel/Button Accordion HN E6_rel.wav",
       "releaseOffset": 0.045351473922902494,
       "releaseTune": -22,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.65
     },
     {
       "file": "Button Accordion HN G6.wav",
@@ -219,11 +235,12 @@
       "high": 127,
       "tune": -10,
       "loopStart": 1.3301133786848072,
-      "loopEnd": 1.441156462585034,
+      "loopEnd": 1.4411791383219954,
       "releaseFile": "rel/Button Accordion HN G6_rel.wav",
       "releaseOffset": 0.011337868480725623,
       "releaseTune": -10,
-      "originalSampleRate": 44100
+      "originalSampleRate": 44100,
+      "performanceGain": 0.65
     }
   ],
   "buttons": {
@@ -695,6 +712,30 @@
         }
       ],
       "cutoff": 5200
+    },
+    {
+      "id": "vallenato",
+      "label": "Vallenato · virtual reed ensemble",
+      "cutoff": 12500,
+      "ranks": [
+        {
+          "semitones": 0,
+          "cents": 0,
+          "gain": 0.54
+        },
+        {
+          "semitones": 0,
+          "cents": -6,
+          "gain": 0.23
+        },
+        {
+          "semitones": 0,
+          "cents": 6,
+          "gain": 0.23
+        }
+      ],
+      "rendering": "Runtime frequency-dependent reed spread; separate sampled octave ranks for bass and dry chord voicing. Not an independently recorded Corona III.",
+      "reference": "https://hohner.de/es/instrumentos/acordeones/diatonicas/corona/corona-iii"
     }
   ],
   "tunings": [
@@ -868,6 +909,6 @@
     }
   ],
   "sampleDirectory": "recorded-hn/",
-  "audioRevision": "hn-pcm-natural-2",
-  "processing": "Real Hohner FLAC recordings converted to stereo PCM16 WAV, DC removed, 12 ms sustain-loop blend. Natural registration has no added reed layers or directional lowpass."
+  "audioRevision": "hn-phase-matched-3",
+  "processing": "Original Hohner FLAC preserved; stereo PCM16 with DC removal and 18 ms phase-matched loop blend. Measured sustain gain compensation applies only to the virtual Vallenato profile. Natural has no added reed layers."
 }

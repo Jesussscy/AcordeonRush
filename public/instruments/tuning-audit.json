@@ -30,7 +30,7 @@
     ],
     "sustains": 17,
     "releases": 17,
-    "processing": "Real Hohner FLAC recordings converted to stereo PCM16 WAV, DC removed, 12 ms sustain-loop blend. Natural registration has no added reed layers or directional lowpass."
+    "processing": "Original Hohner FLAC preserved; stereo PCM16 with DC removal and 18 ms phase-matched loop blend. Measured sustain gain compensation applies only to the virtual Vallenato profile. Natural has no added reed layers."
   },
   "families": 12,
   "publishedOptions": 24,
