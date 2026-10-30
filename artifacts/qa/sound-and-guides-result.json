@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "scope": "Production sampler and mounted app. Reference controls use an explicit deterministic player adapter; no commercial transcription or listening claim.",
+  "checks": 20,
+  "results": [
+    {
+      "label": "melody: salida grabada",
+      "passed": true,
+      "details": {
+        "rms": 0.09084131682850387,
+        "peak": 0.3060693144798279
+      }
+    },
+    {
+      "label": "melody: margen de salida",
+      "passed": true
+    },
+    {
+      "label": "melody: mute real",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "melody: margen de salida",
+      "passed": true
+    },
+    {
+      "label": "bass: salida grabada",
+      "passed": true,
+      "details": {
+        "rms": 0.07534145147171963,
+        "peak": 0.2010146975517273
+      }
+    },
+    {
+      "label": "bass: margen de salida",
+      "passed": true
+    },
+    {
+      "label": "bass: mute real",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "bass: margen de salida",
+      "passed": true
+    },
+    {
+      "label": "chord: salida grabada",
+      "passed": true,
+      "details": {
+        "rms": 0.07078806820943441,
+        "peak": 0.2579364776611328
+      }
+    },
+    {
+      "label": "chord: margen de salida",
+      "passed": true
+    },
+    {
+      "label": "chord: mute real",
+      "passed": true,
+      "details": {
+        "rms": 0,
+        "peak": 0
+      }
+    },
+    {
+      "label": "chord: margen de salida",
+      "passed": true
+    },
+    {
+      "label": "Guía divide la sección en frases",
+      "passed": true
+    },
+    {
+      "label": "Seleccionar frase antes de reproducir conserva su posición",
+      "passed": true,
+      "details": {
+        "sought": 3.038
+      }
+    },
+    {
+      "label": "Repetir frase activa bucle A–B",
+      "passed": true
+    },
+    {
+      "label": "El primer inicio respeta la frase elegida",
+      "passed": true
+    },
+    {
+      "label": "La frase automática produce señal en la app",
+      "passed": true
+    },
+    {
+      "label": "Referencia solicita velocidad disponible de 0,5×",
+      "passed": true
+    },
+    {
+      "label": "Bucle de referencia vuelve al inicio marcado (adaptador simulado)",
+      "passed": true
+    },
+    {
+      "label": "La referencia original no recibe notas inventadas",
+      "passed": true
+    }
+  ]
+}

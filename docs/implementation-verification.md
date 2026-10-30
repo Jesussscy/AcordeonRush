@@ -28,6 +28,16 @@ Browser fixtures are served by the development server under `/artifacts/qa/`. Th
 
 Older QA files are retained as historical evidence and may target the former studio. Use the named active-workspace fixtures for the new entry point.
 
-## Limits
+## Sound and phrase-guide revision — 2026-10-30
+
+The sampler now routes melody, bass and chords through separate smooth gain buses. Tone controls offer a low-pass brightness filter, gentle low shelf and adjustable release. Recorded attacks use a 3 ms safety fade; the added long sustain decay was removed. Natural and the existing sample provenance remain available. Sample-release noise is quieter. These are rendering and mix changes, not a replacement bank or a subjective authenticity certification.
+
+Songs now opens the original reference rather than a generated exercise. Reference learning exposes only rates reported by the player, user-marked A–B boundaries and repeat-from-A. Its controls do not display an unverified note overlay. The explicit teaching exercise adds two-bar phrase navigation, per-note positions and durations in beats. Seeking before the first playback now carries the selected offset into the transport. The current-note button/key label uses the sounding melody event.
+
+`artifacts/qa/sound-and-guides.html` exercises production sampler buses and mounted phrase navigation. Its reference-control checks use a declared deterministic YouTube adapter; they do not prove external player availability, listening quality or original transcription accuracy. The live UI audio fixture was rerun for both directions after the audio changes. Older signal values remain historical.
+
+Results: `sound-and-guides-result.json` passed 20 checks, including real rendered mute/output for all three parts, pre-play phrase seeking, automatic output and simulated reference controls. `live-ui-audio-revision-result.json` passed the actual mounted keyboard route: closed MIDI 55/RMS 0.081385 and open MIDI 57/RMS 0.063334. Build and deterministic transport checks passed. During the separate live reference check, the official video did not become available in this browser's embedded player; its direct official link remains accessible in the interface. Reference playback is therefore not claimed as verified here.
+
+## Remaining limits
 
 Commercial song charts remain generated teaching material unless explicitly imported; see `las-locuras-mias-status.md`. No original recording's exact transcription or tuning is certified. Speaker/headphone latency, device-specific touch behavior and subjective timbre authenticity require listening and physical-device review. The application exposes latency compensation and actual output metering without claiming those reviews happened.

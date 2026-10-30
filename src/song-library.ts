@@ -5,7 +5,7 @@ export type MusicalEvent={id:string;start:number;end:number;pitches:number[];rol
 export type FingeringEvent=MusicalEvent&{button:InstrumentKey;direction:BellowsDirection;adapted:boolean};
 export type MusicalChart={version:1;title:string;status:'didactic'|'user-supplied';bpm:number;duration:number;tuning:string;events:MusicalEvent[];provenance:{kind:string;source:string;reviewer:string;notes:string};media?:{filename:string;sha256?:string;offset:number}};
 export const songProfiles=songs.map((song,index)=>({song,tuning:['BEA','GCF','DGC','FBbEb','EAD'][index],recordingTuningVerified:false,referenceKeyVerified:false,
- referenceVersion:`YouTube · ${song.youtubeId}`,review:'No hay transcripción revisada de esta grabación en el proyecto.'}));
+ referenceVersion:`${song.artist} · ${song.title}`,review:'No hay transcripción revisada de esta grabación en el proyecto.'}));
 export function didacticChart(song:Song,tuning:string,difficulty='complete'):MusicalChart{
  const melody=song.events.filter(e=>e.role==='melody').filter((_,i)=>difficulty==='initial'?i%2===0:true);
  const events:MusicalEvent[]=melody.map((e,i)=>({id:`m-${i}`,start:e.time/1000,end:Math.min((e.time+e.duration)/1000,melody[i+1]?.time/1000||Infinity),pitches:[e.note],role:'melody',velocity:.88}));

@@ -20,7 +20,7 @@ Open http://127.0.0.1:5186/#practice. `npm run build` creates the production out
 ## Play and learn
 
 - **Practicar:** choose closed or open notes and press the computer keys, screen pads or 3D buttons. Both directions sound directly without holding Space. Space temporarily selects opening; release restores the selected direction. Manual pressure is optional under the advanced control.
-- **Canciones:** five repertoire entries, automatic exercise tuning, notes with octaves and durations, fingering, practice feedback, sections, tempo, seeking and A–B loops.
+- **Canciones:** opens the original reference first, with supported playback speeds and user-marked A–B listening loops. The separate teaching exercise offers notes with octaves, fingering, durations, repeatable two-bar phrases, sections and practice feedback.
 - **Ver tocar:** the local arrangement plays the accordion automatically with the same clock driving notes, depressed buttons and bellows.
 - **Pantalla grande:** model above the keyboard, direction and transport controls, accessible exit. Native fullscreen has a full-page fallback.
 - Eight designs include four updated Curva models with nine clips each. All 31 melody buttons and 12 bass/chord buttons are represented; the left-hand grid follows the selected model.
@@ -34,6 +34,8 @@ The five named entries are **generated teaching arrangements**, not verified tra
 Import your own timed JSON and optional authorized local audio through the material editor. The importer checks declared filename/hash, pitches, timing and common bellows direction. Imported material is labeled user-supplied, never automatically certified. An original C–D–E template is in `public/charts/chart-template.json`.
 
 Audio uses real FreePats Hohner recordings; Natural retains the recorded voice and other registrations use virtual layering. There are **24 tuning/register options derived from a G/C/F base**, with declared transpositions and sample coverage, rather than 24 independent sampled instruments. See `public/instruments/tuning-audit.json`, `public/instrument/recorded-hn/PROVENANCE.json` and [implementation evidence](docs/implementation-verification.md). No commercial master recording is bundled.
+
+Under **Sonido · timbre y balance**, choose close, dry or warm articulation/EQ, adjust melody/bass/chord levels, or isolate the melody. These controls process the same attributed samples; they do not claim a new sampled instrument or make a generated melody match the original recording. The close preset preserves the sample attack with a shorter valve release, and the source's sustained dynamics replace the earlier artificial decay.
 
 ## Validation
 
