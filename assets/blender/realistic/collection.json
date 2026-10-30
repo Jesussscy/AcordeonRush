@@ -1,0 +1,89 @@
+{
+  "system": "Diatonic 31 melody buttons / 12 bass buttons",
+  "rows": [
+    10,
+    11,
+    10
+  ],
+  "bassLayout": [
+    4,
+    3
+  ],
+  "folds": 20,
+  "estimatedUnits": "metres",
+  "controls": [
+    "CTRL_LADO_BAJO",
+    "CTRL_LADO_MELODIA",
+    "CTRL_FUELLE"
+  ],
+  "actions": [
+    {
+      "name": "Idle_Breath_Loop",
+      "frames": [
+        1,
+        91
+      ]
+    },
+    {
+      "name": "Bellows_OpenClose",
+      "frames": [
+        1,
+        121
+      ]
+    },
+    {
+      "name": "Melody_Button_Press",
+      "frames": [
+        1,
+        49
+      ]
+    },
+    {
+      "name": "Bass_Button_Press",
+      "frames": [
+        1,
+        49
+      ]
+    }
+  ],
+  "fps": 30,
+  "designs": [
+    {
+      "id": "vino-clasico",
+      "name": "Vino Clásico",
+      "description": "Perlado vino y parrilla perforada de níquel.",
+      "tuning": "GCF",
+      "blend": "AcordeonVallenato_Realista.blend",
+      "glb": "AcordeonVallenato_Realista.glb",
+      "preview": "renders/02_three_quarter_open.png"
+    },
+    {
+      "id": "azul-caribe",
+      "name": "Azul Caribe",
+      "description": "Perlado azul profundo, parrilla de rombos y nervaduras en espiga, ribetes de níquel.",
+      "tuning": "ADG",
+      "blend": "variants/azul-caribe/instrument.blend",
+      "glb": "variants/azul-caribe/instrument.glb",
+      "preview": "variants/azul-caribe/preview.png"
+    },
+    {
+      "id": "marfil-artesanal",
+      "name": "Marfil Artesanal",
+      "description": "Perlado marfil cálido, parrilla de ranuras verticales y marquetería geométrica original.",
+      "tuning": "FBbEb",
+      "blend": "variants/marfil-artesanal/instrument.blend",
+      "glb": "variants/marfil-artesanal/instrument.glb",
+      "preview": "variants/marfil-artesanal/preview.png"
+    },
+    {
+      "id": "negro-escenario",
+      "name": "Negro Escenario",
+      "description": "Laca grafito, ranuras horizontales, cantoneras protectoras y acentos vino discretos.",
+      "tuning": "EAD",
+      "blend": "variants/negro-escenario/instrument.blend",
+      "glb": "variants/negro-escenario/instrument.glb",
+      "preview": "variants/negro-escenario/preview.png"
+    }
+  ],
+  "tuningNote": "Tuning is suggested integration metadata. It does not change geometry or identify a newly recorded acoustic instrument."
+}

@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "method": "Deterministic simulated AudioContext clock, same production scheduler. Does not measure physical output latency or certify a commercial transcription.",
+  "cases": [
+    "pause/resume",
+    "seek into sustain",
+    "tempo preserving MIDI",
+    "A-B loop",
+    "finish",
+    "reset",
+    "polyphonic common bellows",
+    "24 unique tuning/register options",
+    "five complete local arrangements"
+  ],
+  "songs": [
+    {
+      "title": "Las locuras mías",
+      "tuning": "BEA",
+      "status": "didactic",
+      "events": 1345,
+      "omittedOrAdapted": 272,
+      "completeSchedulerSimulation": true,
+      "virtualScheduleMaxErrorMs": 1.7763568394002505e-12
+    },
+    {
+      "title": "Mis cinco sentidos",
+      "tuning": "GCF",
+      "status": "didactic",
+      "events": 788,
+      "omittedOrAdapted": 22,
+      "completeSchedulerSimulation": true,
+      "virtualScheduleMaxErrorMs": 1.7763568394002505e-12
+    },
+    {
+      "title": "Amarte más no pude",
+      "tuning": "DGC",
+      "status": "didactic",
+      "events": 837,
+      "omittedOrAdapted": 135,
+      "completeSchedulerSimulation": true,
+      "virtualScheduleMaxErrorMs": 1.1102230246251565e-13
+    },
+    {
+      "title": "El confite",
+      "tuning": "FBbEb",
+      "status": "didactic",
+      "events": 1152,
+      "omittedOrAdapted": 146,
+      "completeSchedulerSimulation": true,
+      "virtualScheduleMaxErrorMs": 3.552713678800501e-12
+    },
+    {
+      "title": "Culpa de los dos",
+      "tuning": "EAD",
+      "status": "didactic",
+      "events": 775,
+      "omittedOrAdapted": 295,
+      "completeSchedulerSimulation": true,
+      "virtualScheduleMaxErrorMs": 1.7763568394002505e-12
+    }
+  ]
+}

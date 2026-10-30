@@ -1,0 +1,430 @@
+{
+  "passed": true,
+  "checks": 94,
+  "results": [
+    {
+      "label": "31 teclas en tres hileras",
+      "passed": true
+    },
+    {
+      "label": "24 opciones sin duplicación enarmónica",
+      "passed": true
+    },
+    {
+      "label": "W cerrada desde UI: GCF",
+      "passed": true,
+      "midi": 55,
+      "rms": 0.001303
+    },
+    {
+      "label": "W cerrada desde UI: GCF-low",
+      "passed": true,
+      "midi": 43,
+      "rms": 0.016315
+    },
+    {
+      "label": "W cerrada desde UI: FBbEb",
+      "passed": true,
+      "midi": 53,
+      "rms": 0.022534
+    },
+    {
+      "label": "W cerrada desde UI: FBbEb-low",
+      "passed": true,
+      "midi": 41,
+      "rms": 0.024059
+    },
+    {
+      "label": "W cerrada desde UI: EAD",
+      "passed": true,
+      "midi": 52,
+      "rms": 0.023111
+    },
+    {
+      "label": "W cerrada desde UI: EAD-low",
+      "passed": true,
+      "midi": 40,
+      "rms": 0.026908
+    },
+    {
+      "label": "W cerrada desde UI: ADG",
+      "passed": true,
+      "midi": 57,
+      "rms": 0.019399
+    },
+    {
+      "label": "W cerrada desde UI: ADG-low",
+      "passed": true,
+      "midi": 45,
+      "rms": 0.025113
+    },
+    {
+      "label": "W cerrada desde UI: BbEbAb",
+      "passed": true,
+      "midi": 58,
+      "rms": 0.027161
+    },
+    {
+      "label": "W cerrada desde UI: BbEbAb-low",
+      "passed": true,
+      "midi": 46,
+      "rms": 0.024582
+    },
+    {
+      "label": "W cerrada desde UI: FsBE",
+      "passed": true,
+      "midi": 54,
+      "rms": 0.028936
+    },
+    {
+      "label": "W cerrada desde UI: FsBE-low",
+      "passed": true,
+      "midi": 42,
+      "rms": 0.02303
+    },
+    {
+      "label": "W cerrada desde UI: CFBb",
+      "passed": true,
+      "midi": 60,
+      "rms": 0.028674
+    },
+    {
+      "label": "W cerrada desde UI: CFBb-low",
+      "passed": true,
+      "midi": 48,
+      "rms": 0.033048
+    },
+    {
+      "label": "W cerrada desde UI: EbAbDb",
+      "passed": true,
+      "midi": 51,
+      "rms": 0.023167
+    },
+    {
+      "label": "W cerrada desde UI: EbAbDb-low",
+      "passed": true,
+      "midi": 39,
+      "rms": 0.022756
+    },
+    {
+      "label": "W cerrada desde UI: DGC",
+      "passed": true,
+      "midi": 50,
+      "rms": 0.020666
+    },
+    {
+      "label": "W cerrada desde UI: DGC-low",
+      "passed": true,
+      "midi": 38,
+      "rms": 0.021118
+    },
+    {
+      "label": "W cerrada desde UI: BEA",
+      "passed": true,
+      "midi": 59,
+      "rms": 0.007572
+    },
+    {
+      "label": "W cerrada desde UI: BEA-low",
+      "passed": true,
+      "midi": 47,
+      "rms": 0.025017
+    },
+    {
+      "label": "W cerrada desde UI: CsFsB",
+      "passed": true,
+      "midi": 61,
+      "rms": 0.027319
+    },
+    {
+      "label": "W cerrada desde UI: CsFsB-low",
+      "passed": true,
+      "midi": 49,
+      "rms": 0.029193
+    },
+    {
+      "label": "W cerrada desde UI: GsCsFs",
+      "passed": true,
+      "midi": 56,
+      "rms": 0.020837
+    },
+    {
+      "label": "W cerrada desde UI: GsCsFs-low",
+      "passed": true,
+      "midi": 44,
+      "rms": 0.021673
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyQ",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyW",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyE",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyR",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyT",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyY",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyU",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyI",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyO",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyP",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyA",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyS",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyD",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyF",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyG",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyH",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyJ",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyK",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyL",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Semicolon",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyZ",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyX",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyC",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyV",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyB",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyN",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: KeyM",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Comma",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Period",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Slash",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Quote",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit1",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit2",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit3",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit4",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit5",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit6",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit7",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit8",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit9",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Digit0",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Minus",
+      "passed": true
+    },
+    {
+      "label": "Tecla conecta con el modelo: Equal",
+      "passed": true
+    },
+    {
+      "label": "Dos orígenes: soltar uno conserva el botón",
+      "passed": true
+    },
+    {
+      "label": "El último origen libera el botón",
+      "passed": true
+    },
+    {
+      "label": "GLB servido actualizado y nueve clips: curva-zafiro",
+      "passed": true
+    },
+    {
+      "label": "GLB servido actualizado y nueve clips: curva-esmeralda",
+      "passed": true
+    },
+    {
+      "label": "GLB servido actualizado y nueve clips: curva-granate",
+      "passed": true
+    },
+    {
+      "label": "GLB servido actualizado y nueve clips: curva-grafito",
+      "passed": true
+    },
+    {
+      "label": "Las locuras mías configura B/E/A para el ejercicio",
+      "passed": true
+    },
+    {
+      "label": "Configuración automática de canción 1",
+      "passed": true
+    },
+    {
+      "label": "Configuración automática de canción 2",
+      "passed": true
+    },
+    {
+      "label": "Configuración automática de canción 3",
+      "passed": true
+    },
+    {
+      "label": "Configuración automática de canción 4",
+      "passed": true
+    },
+    {
+      "label": "Configuración automática de canción 5",
+      "passed": true
+    },
+    {
+      "label": "Ver tocar: audio real, notas y botones sincronizados",
+      "passed": true
+    },
+    {
+      "label": "Ver tocar abre la vista grande",
+      "passed": true
+    },
+    {
+      "label": "Transporte accesible dentro de pantalla grande",
+      "passed": true
+    },
+    {
+      "label": "Pausa congela posición y silencia salida real",
+      "passed": true
+    },
+    {
+      "label": "Buscar reconstruye la posición",
+      "passed": true
+    },
+    {
+      "label": "Continúa a tempo reducido sin cambiar la afinación",
+      "passed": true
+    },
+    {
+      "label": "Reiniciar vuelve a cero",
+      "passed": true
+    },
+    {
+      "label": "Partitura aportada conserva su estado de revisión",
+      "passed": true
+    },
+    {
+      "label": "La partitura aplica su afinación",
+      "passed": true
+    },
+    {
+      "label": "Partitura aportada: Mi4 activa M14 real",
+      "passed": true
+    },
+    {
+      "label": "Buscar dentro de Mi4 reanuda su sonido sostenido",
+      "passed": true
+    },
+    {
+      "label": "Bucle A-B reconstruye reloj, notas y fuelle",
+      "passed": true
+    },
+    {
+      "label": "Sin desbordamiento horizontal del documento",
+      "passed": true
+    }
+  ]
+}

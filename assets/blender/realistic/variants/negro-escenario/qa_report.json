@@ -1,0 +1,53 @@
+{
+  "melody_buttons": 31,
+  "melody_rows": [
+    10,
+    11,
+    10
+  ],
+  "bass_buttons": 12,
+  "bass_rows": 4,
+  "bass_columns": 3,
+  "bellows_folds": 20,
+  "connected_bellows_components": 1,
+  "nonmanifold_bellows_edges": 0,
+  "integer_frames_evaluated": 310,
+  "max_case_translation_error_m": 1.0728836055684532e-08,
+  "max_case_scale_error": 0,
+  "clean_reimport": true,
+  "reimport_fps": 30,
+  "animations": [
+    "Bass_Button_Press",
+    "Bellows_OpenClose",
+    "Idle_Breath_Loop",
+    "Melody_Button_Press"
+  ],
+  "max_sample_deviation_m": 1.212866607147589e-07,
+  "sampled_poses": 17,
+  "sample_errors_m": {
+    "Bass_Button_Press@1": 5.066942776466021e-08,
+    "Bass_Button_Press@9": 5.066942776466021e-08,
+    "Bass_Button_Press@25": 5.066942776466021e-08,
+    "Bass_Button_Press@27": 5.066942776466021e-08,
+    "Bass_Button_Press@49": 5.066942776466021e-08,
+    "Bellows_OpenClose@1": 5.066942776466021e-08,
+    "Bellows_OpenClose@61": 1.212866607147589e-07,
+    "Bellows_OpenClose@121": 5.066942776466021e-08,
+    "Idle_Breath_Loop@1": 5.424104543294561e-08,
+    "Idle_Breath_Loop@46": 5.424104543294561e-08,
+    "Idle_Breath_Loop@91": 5.424104543294561e-08,
+    "Melody_Button_Press@1": 5.066942776466021e-08,
+    "Melody_Button_Press@8": 5.066942776466021e-08,
+    "Melody_Button_Press@21": 5.066942776466021e-08,
+    "Melody_Button_Press@25": 5.066942776466021e-08,
+    "Melody_Button_Press@32": 5.066942776466021e-08,
+    "Melody_Button_Press@49": 5.066942776466021e-08
+  },
+  "triangles": 110804,
+  "mesh_count": 1,
+  "materials": 12,
+  "bytes": 7159144,
+  "studio_excluded": true,
+  "design_id": "negro-escenario",
+  "passed": true
+}

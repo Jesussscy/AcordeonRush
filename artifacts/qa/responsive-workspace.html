@@ -1,0 +1,10 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Práctica vertical final</title><style>body{margin:0;background:#101813;color:#f5e8ce;font:13px system-ui}iframe{display:block;width:390px;height:844px;border:0}pre{white-space:pre-wrap;max-width:390px;padding:12px}button{padding:12px;background:#e9b878;border:0}</style><button id="run">Comprobar vista vertical</button><iframe allow="fullscreen 'none'" src="/#practice" title="390 por 844"></iframe><pre id="report">Lista.</pre><script type="module">
+const frame=document.querySelector('iframe'),out=document.querySelector('#report'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+document.querySelector('#run').onclick=async()=>{try{const win=frame.contentWindow,doc=frame.contentDocument;for(let i=0;i<200&&!doc.querySelector('[data-ready=true]');i++)await sleep(50);
+ doc.querySelector('.p-keyboard').scrollIntoView();await sleep(250);const floating=doc.querySelector('.p-stage').classList.contains('floating');
+ // Keep the physical desktop fullscreen size out of the portrait fixture.
+ Object.defineProperty(win.Element.prototype,'requestFullscreen',{configurable:true,value:()=>Promise.reject(new win.DOMException('Native fullscreen blocked by portrait fixture','NotAllowedError'))});
+ doc.querySelector('.p-focus-launch').click();await sleep(250);const stage=doc.querySelector('.p-stage').getBoundingClientRect(),keys=doc.querySelector('.p-keyboard').getBoundingClientRect(),main=doc.querySelector('.p-main').getBoundingClientRect();
+ const result={passed:win.innerWidth===390&&win.innerHeight===844&&floating&&stage.bottom<=keys.top&&keys.bottom<=win.innerHeight+2&&doc.querySelectorAll('.p-pad').length===31,width:win.innerWidth,height:win.innerHeight,previewFollowsKeyboard:floating,stage:{top:stage.top,bottom:stage.bottom},keyboard:{top:keys.top,bottom:keys.bottom},mainHeight:main.height,scope:'Real app in a 390x844 iframe, native fullscreen explicitly blocked to retain the portrait CSS viewport. Not a physical-phone test.'};out.textContent=JSON.stringify(result,null,2);
+ }catch(error){out.textContent=JSON.stringify({passed:false,error:String(error)},null,2);}};
+</script></html>

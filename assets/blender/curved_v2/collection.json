@@ -1,0 +1,213 @@
+{
+  "collection": "AcordenRush Curva V2",
+  "fps": 30,
+  "units": "meters",
+  "dimensions": "Artistic estimates, not measured from reference photographs",
+  "web_integration": false,
+  "designs": [
+    {
+      "id": "curva-zafiro",
+      "name": "Curva Zafiro",
+      "blend": "curva-zafiro/instrument.blend",
+      "glb": "curva-zafiro/instrument.glb",
+      "preview": "curva-zafiro/preview.png",
+      "qa": "curva-zafiro/qa_report.json",
+      "melody_buttons": 31,
+      "bass_buttons": 12,
+      "folds": 20,
+      "triangles": 131780,
+      "glb_bytes": 10144180,
+      "actions": {
+        "Bass_Anchored_Phrase": [
+          1,
+          181
+        ],
+        "Bass_Button_Press": [
+          1,
+          223
+        ],
+        "Bellows_Expressive_Arc": [
+          1,
+          241
+        ],
+        "Bellows_Fan_Lower": [
+          1,
+          181
+        ],
+        "Bellows_Oblique_Sweep": [
+          1,
+          181
+        ],
+        "Bellows_OpenClose": [
+          1,
+          181
+        ],
+        "Bellows_Short_Accents": [
+          1,
+          97
+        ],
+        "Idle_Breath_Loop": [
+          1,
+          121
+        ],
+        "Melody_Button_Press": [
+          1,
+          565
+        ]
+      }
+    },
+    {
+      "id": "curva-esmeralda",
+      "name": "Curva Esmeralda",
+      "blend": "curva-esmeralda/instrument.blend",
+      "glb": "curva-esmeralda/instrument.glb",
+      "preview": "curva-esmeralda/preview.png",
+      "qa": "curva-esmeralda/qa_report.json",
+      "melody_buttons": 31,
+      "bass_buttons": 12,
+      "folds": 20,
+      "triangles": 131780,
+      "glb_bytes": 10112612,
+      "actions": {
+        "Bass_Anchored_Phrase": [
+          1,
+          181
+        ],
+        "Bass_Button_Press": [
+          1,
+          223
+        ],
+        "Bellows_Expressive_Arc": [
+          1,
+          241
+        ],
+        "Bellows_Fan_Lower": [
+          1,
+          181
+        ],
+        "Bellows_Oblique_Sweep": [
+          1,
+          181
+        ],
+        "Bellows_OpenClose": [
+          1,
+          181
+        ],
+        "Bellows_Short_Accents": [
+          1,
+          97
+        ],
+        "Idle_Breath_Loop": [
+          1,
+          121
+        ],
+        "Melody_Button_Press": [
+          1,
+          565
+        ]
+      }
+    },
+    {
+      "id": "curva-granate",
+      "name": "Curva Granate",
+      "blend": "curva-granate/instrument.blend",
+      "glb": "curva-granate/instrument.glb",
+      "preview": "curva-granate/preview.png",
+      "qa": "curva-granate/qa_report.json",
+      "melody_buttons": 31,
+      "bass_buttons": 12,
+      "folds": 20,
+      "triangles": 131780,
+      "glb_bytes": 10115004,
+      "actions": {
+        "Bass_Anchored_Phrase": [
+          1,
+          181
+        ],
+        "Bass_Button_Press": [
+          1,
+          223
+        ],
+        "Bellows_Expressive_Arc": [
+          1,
+          241
+        ],
+        "Bellows_Fan_Lower": [
+          1,
+          181
+        ],
+        "Bellows_Oblique_Sweep": [
+          1,
+          181
+        ],
+        "Bellows_OpenClose": [
+          1,
+          181
+        ],
+        "Bellows_Short_Accents": [
+          1,
+          97
+        ],
+        "Idle_Breath_Loop": [
+          1,
+          121
+        ],
+        "Melody_Button_Press": [
+          1,
+          565
+        ]
+      }
+    },
+    {
+      "id": "curva-grafito",
+      "name": "Curva Grafito",
+      "blend": "curva-grafito/instrument.blend",
+      "glb": "curva-grafito/instrument.glb",
+      "preview": "curva-grafito/preview.png",
+      "qa": "curva-grafito/qa_report.json",
+      "melody_buttons": 31,
+      "bass_buttons": 12,
+      "folds": 20,
+      "triangles": 131780,
+      "glb_bytes": 10077224,
+      "actions": {
+        "Bass_Anchored_Phrase": [
+          1,
+          181
+        ],
+        "Bass_Button_Press": [
+          1,
+          223
+        ],
+        "Bellows_Expressive_Arc": [
+          1,
+          241
+        ],
+        "Bellows_Fan_Lower": [
+          1,
+          181
+        ],
+        "Bellows_Oblique_Sweep": [
+          1,
+          181
+        ],
+        "Bellows_OpenClose": [
+          1,
+          181
+        ],
+        "Bellows_Short_Accents": [
+          1,
+          97
+        ],
+        "Idle_Breath_Loop": [
+          1,
+          121
+        ],
+        "Melody_Button_Press": [
+          1,
+          565
+        ]
+      }
+    }
+  ]
+}

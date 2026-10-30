@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "width": 390,
+  "height": 844,
+  "stage": {
+    "top": 107.80000305175781,
+    "bottom": 471.6000213623047
+  },
+  "keyboard": {
+    "top": 479.3999938964844,
+    "bottom": 837
+  },
+  "pads": 31,
+  "scope": "Actual application in a 390 × 844 iframe; fullscreen viewport fallback. No physical phone claim."
+}

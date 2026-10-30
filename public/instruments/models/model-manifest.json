@@ -1,0 +1,126 @@
+{
+  "azul-caribe": {
+    "sha256": "444557cc71311e68c601102459837ac1573fcbdb2783905f9e2177fc8f69929b",
+    "bytes": 7396636,
+    "clips": [
+      "Bass_Button_Press",
+      "Bellows_OpenClose",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 4,
+    "bassColumns": 3,
+    "source": "Previous collection, preserved"
+  },
+  "curva-esmeralda": {
+    "sha256": "81d942c94460c957efdbfbc2ff939122707aa3c3bd34c8dcd50d8659ef4542cc",
+    "bytes": 10112612,
+    "clips": [
+      "Bass_Anchored_Phrase",
+      "Bass_Button_Press",
+      "Bellows_Expressive_Arc",
+      "Bellows_Fan_Lower",
+      "Bellows_Oblique_Sweep",
+      "Bellows_OpenClose",
+      "Bellows_Short_Accents",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 6,
+    "bassColumns": 2,
+    "source": "assets/blender/curved_v2/curva-esmeralda/instrument.glb"
+  },
+  "curva-grafito": {
+    "sha256": "d5d4e8742bec0b1ec6884ae99ce9066f73d729e667bbb93d8795d664d768e852",
+    "bytes": 10077224,
+    "clips": [
+      "Bass_Anchored_Phrase",
+      "Bass_Button_Press",
+      "Bellows_Expressive_Arc",
+      "Bellows_Fan_Lower",
+      "Bellows_Oblique_Sweep",
+      "Bellows_OpenClose",
+      "Bellows_Short_Accents",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 6,
+    "bassColumns": 2,
+    "source": "assets/blender/curved_v2/curva-grafito/instrument.glb"
+  },
+  "curva-granate": {
+    "sha256": "9982513a0ab69567f8428a26a0e3e2a80d4dd4800fa007f01d1d17fc9cb1d84c",
+    "bytes": 10115004,
+    "clips": [
+      "Bass_Anchored_Phrase",
+      "Bass_Button_Press",
+      "Bellows_Expressive_Arc",
+      "Bellows_Fan_Lower",
+      "Bellows_Oblique_Sweep",
+      "Bellows_OpenClose",
+      "Bellows_Short_Accents",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 6,
+    "bassColumns": 2,
+    "source": "assets/blender/curved_v2/curva-granate/instrument.glb"
+  },
+  "curva-zafiro": {
+    "sha256": "05f4d350b33278e7e0c28111c5c4ac2a7ce10d462998e50ce3c964b366f0558a",
+    "bytes": 10144180,
+    "clips": [
+      "Bass_Anchored_Phrase",
+      "Bass_Button_Press",
+      "Bellows_Expressive_Arc",
+      "Bellows_Fan_Lower",
+      "Bellows_Oblique_Sweep",
+      "Bellows_OpenClose",
+      "Bellows_Short_Accents",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 6,
+    "bassColumns": 2,
+    "source": "assets/blender/curved_v2/curva-zafiro/instrument.glb"
+  },
+  "marfil-artesanal": {
+    "sha256": "94d71ce28c869799026891fc137b856e752eaa2e95daa1111e772e046e1e521d",
+    "bytes": 7035476,
+    "clips": [
+      "Bass_Button_Press",
+      "Bellows_OpenClose",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 4,
+    "bassColumns": 3,
+    "source": "Previous collection, preserved"
+  },
+  "negro-escenario": {
+    "sha256": "38c6c5316eec4df989e919ce260cc42e12c125c5a32dd7009e978c046e1c1a27",
+    "bytes": 7159144,
+    "clips": [
+      "Bass_Button_Press",
+      "Bellows_OpenClose",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 4,
+    "bassColumns": 3,
+    "source": "Previous collection, preserved"
+  },
+  "vino-clasico": {
+    "sha256": "a7e7f7d2f7114882d574bdfe886a01d9950685fd807782f895597db653763e8d",
+    "bytes": 7698936,
+    "clips": [
+      "Bass_Button_Press",
+      "Bellows_OpenClose",
+      "Idle_Breath_Loop",
+      "Melody_Button_Press"
+    ],
+    "bassRows": 4,
+    "bassColumns": 3,
+    "source": "Previous collection, preserved"
+  }
+}

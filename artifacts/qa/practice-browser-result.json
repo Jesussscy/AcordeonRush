@@ -1,0 +1,286 @@
+{
+  "passed": true,
+  "checks": 70,
+  "results": [
+    {
+      "label": "31 melodías visibles",
+      "passed": true
+    },
+    {
+      "label": "Tres hileras 10/11/10",
+      "passed": true
+    },
+    {
+      "label": "Q hunde y resalta M1",
+      "passed": true
+    },
+    {
+      "label": "La misma pulsación llega al modelo 3D",
+      "passed": true
+    },
+    {
+      "label": "Soltar Q libera el modelo",
+      "passed": true
+    },
+    {
+      "label": "Inicio cerrado sin mantener espacio",
+      "passed": true
+    },
+    {
+      "label": "Nota abierta directa sin espacio",
+      "passed": true
+    },
+    {
+      "label": "Etiquetas inglesas correctas",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyQ: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyW: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyE: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyR: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyT: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyY: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyU: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyI: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyO: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyP: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyA: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyS: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyD: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyF: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyG: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyH: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyJ: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyK: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyL: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Semicolon: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyZ: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyX: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyC: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyV: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyB: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyN: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + KeyM: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Comma: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Period: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Slash: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Quote: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit1: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit2: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit3: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit4: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit5: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit6: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit7: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit8: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit9: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Digit0: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Minus: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Shift + Equal: botón correcto",
+      "passed": true
+    },
+    {
+      "label": "Espacio abre el fuelle manual",
+      "passed": true
+    },
+    {
+      "label": "Mayús cambia el fuelle a cerrar sin soltar espacio",
+      "passed": true
+    },
+    {
+      "label": "Soltar espacio corta el aire",
+      "passed": true
+    },
+    {
+      "label": "Seis bajos en su sección",
+      "passed": true
+    },
+    {
+      "label": "Seis acordes en su sección",
+      "passed": true
+    },
+    {
+      "label": "Afinación visible y actualizada",
+      "passed": true
+    },
+    {
+      "label": "Registro visible y actualizado",
+      "passed": true
+    },
+    {
+      "label": "Modelo texturizado cargado: Curva Zafiro",
+      "passed": true
+    },
+    {
+      "label": "Modelo texturizado cargado: Curva Esmeralda",
+      "passed": true
+    },
+    {
+      "label": "Demo: fuelle y notas sincronizados",
+      "passed": true
+    },
+    {
+      "label": "Demo: botones visuales activos",
+      "passed": true
+    },
+    {
+      "label": "Pausa congela reloj y libera voces y botones",
+      "passed": true
+    },
+    {
+      "label": "Continuar conserva la posición",
+      "passed": true
+    },
+    {
+      "label": "Reiniciar vuelve al inicio",
+      "passed": true
+    },
+    {
+      "label": "Soltar nota sostenida antes muestra una señal comprensible",
+      "passed": true
+    },
+    {
+      "label": "Nota cortada cuenta como error",
+      "passed": true
+    },
+    {
+      "label": "Sostener hasta el final otorga acierto con el reloj de canción",
+      "passed": true
+    },
+    {
+      "label": "Grabaciones WAV decodificadas y audio no silencioso: RMS 0.03353",
+      "passed": true
+    },
+    {
+      "label": "Sin desbordamiento horizontal en escritorio",
+      "passed": true
+    }
+  ]
+}

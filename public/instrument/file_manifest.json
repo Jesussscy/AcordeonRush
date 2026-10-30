@@ -1,0 +1,274 @@
+[
+  {
+    "file": "Button Accordion HN A4.flac",
+    "bytes": 193038,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 74544,
+    "sha256": "9fa7cee44c82c3f0f8b3a30a950ade0449bf3b28231914b0df785064f200f001"
+  },
+  {
+    "file": "Button Accordion HN A5.flac",
+    "bytes": 259654,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 93454,
+    "sha256": "62ab39cbfd471b97ad0505231f72d9f2ae164eda75ecdb20b9c69efe3592e1c6"
+  },
+  {
+    "file": "Button Accordion HN B3.flac",
+    "bytes": 156688,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 62655,
+    "sha256": "11e244ea131b3080cacb2d88257720ed37e8b3140bf298661f10a7e295d1c48b"
+  },
+  {
+    "file": "Button Accordion HN B4.flac",
+    "bytes": 234050,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 91083,
+    "sha256": "743d7fc39df551de2ba320bcbeae28c8904a7a8767995f104fcdf2f26facf788"
+  },
+  {
+    "file": "Button Accordion HN B5.flac",
+    "bytes": 210967,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 82274,
+    "sha256": "a57a68c42ae1bfe59335d79944d35be3a9af0f52123035436f694c6bd08a61bb"
+  },
+  {
+    "file": "Button Accordion HN C5.flac",
+    "bytes": 229419,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 86201,
+    "sha256": "24f31789d716aac1a77d2e496989497510b0a7be9fcc234a83b1f62740c8e60d"
+  },
+  {
+    "file": "Button Accordion HN C6.flac",
+    "bytes": 292127,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 108877,
+    "sha256": "5ed816a960b2d9abc9dc6e18ec35105ec725055e882da1b16a1d9dc859a7fbea"
+  },
+  {
+    "file": "Button Accordion HN D4.flac",
+    "bytes": 167990,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 69154,
+    "sha256": "47a5c2e7cc5591980f5a5436a79ea0c6a39c60d6a1deecc7fca29601e07605ba"
+  },
+  {
+    "file": "Button Accordion HN D5.flac",
+    "bytes": 222919,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 86265,
+    "sha256": "c3a8c7305e61a8aacb310e99cb37c2cb42c89313e05687a833991a560e61180e"
+  },
+  {
+    "file": "Button Accordion HN D6.flac",
+    "bytes": 161065,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 59479,
+    "sha256": "20f3c0f9266f0ee7deb7e77f840557c659b7e764b0ca1523b0f0c4a7ecd6dfa7"
+  },
+  {
+    "file": "Button Accordion HN E5.flac",
+    "bytes": 230077,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 83785,
+    "sha256": "d250bec14ee45c881561df7bf243a97487bb7dc0184fc3603075ca0c8b932fd0"
+  },
+  {
+    "file": "Button Accordion HN E6.flac",
+    "bytes": 257352,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 93094,
+    "sha256": "b437ed39c9f7d7b485360b29df6c19dd5c664be77ceaba2733114677689903f4"
+  },
+  {
+    "file": "Button Accordion HN Fs4.flac",
+    "bytes": 202520,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 79368,
+    "sha256": "c0579dc3b83a6045a4d7b7c20f5a0800cddcd3b0c8161922f7073379b03c6d0a"
+  },
+  {
+    "file": "Button Accordion HN Fs5.flac",
+    "bytes": 262940,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 94644,
+    "sha256": "0c1acd40d37acaad3e69364173f684e69ac29dfb0d78c2d0cbe16e7303df1919"
+  },
+  {
+    "file": "Button Accordion HN G4.flac",
+    "bytes": 232745,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 93291,
+    "sha256": "836629ef91002eda695060221d4401fa1da6038d7c60a649ccfd1d4a44cba2e9"
+  },
+  {
+    "file": "Button Accordion HN G5.flac",
+    "bytes": 264304,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 97218,
+    "sha256": "5bd803db3e141a53b306490692981070681bc47c05db9e95aca411d7a320118e"
+  },
+  {
+    "file": "Button Accordion HN G6.flac",
+    "bytes": 175618,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 63556,
+    "sha256": "2e5875bf952fdacea75f6e62401c3968badd67bd3cc72903dfc9a401a32f015a"
+  },
+  {
+    "file": "rel/Button Accordion HN A4_rel.flac",
+    "bytes": 35125,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 14173,
+    "sha256": "7b52128b98cb7448b652a88fa8ac8aca12d7dc264c90a53ce6c14e410405d8d1"
+  },
+  {
+    "file": "rel/Button Accordion HN A5_rel.flac",
+    "bytes": 39202,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 13611,
+    "sha256": "6904f9cc0c7e3d904aff2de4bef9fca591e47b07307f3958799553fa119a375c"
+  },
+  {
+    "file": "rel/Button Accordion HN B3_rel.flac",
+    "bytes": 31729,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 11677,
+    "sha256": "ef07e8f6bebae02a39c6a737e78b3840b8e571ed7062750badd9a9b3ecb58cb7"
+  },
+  {
+    "file": "rel/Button Accordion HN B4_rel.flac",
+    "bytes": 51506,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 24028,
+    "sha256": "035064d1be7e375b5f444c5a7f91f9e1eec535ad2ac67dd85aa0a36c223a5a8e"
+  },
+  {
+    "file": "rel/Button Accordion HN B5_rel.flac",
+    "bytes": 48230,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 23320,
+    "sha256": "4bbcf955f38509e6c3d4000da109b1fed81b40b98fd9d8b9f7ea578edc929d59"
+  },
+  {
+    "file": "rel/Button Accordion HN C5_rel.flac",
+    "bytes": 55293,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 23999,
+    "sha256": "4fd667d1671975de4957d57e050075f6828499b0d779c82e51b5dca18c4edac1"
+  },
+  {
+    "file": "rel/Button Accordion HN C6_rel.flac",
+    "bytes": 48230,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 23320,
+    "sha256": "4bbcf955f38509e6c3d4000da109b1fed81b40b98fd9d8b9f7ea578edc929d59"
+  },
+  {
+    "file": "rel/Button Accordion HN D4_rel.flac",
+    "bytes": 47403,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 24676,
+    "sha256": "9128584e2c777d47ce7af2aa5b8e9e3732e3d065a7d9c2f8e5dd8ea99082cca0"
+  },
+  {
+    "file": "rel/Button Accordion HN D5_rel.flac",
+    "bytes": 43802,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 19136,
+    "sha256": "36749b3e93dbc37cd1b62df50713af47f2b622ecb9021bf117167b4895d6f664"
+  },
+  {
+    "file": "rel/Button Accordion HN D6_rel.flac",
+    "bytes": 30682,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 12100,
+    "sha256": "b4bfce92d2b7162a6ab4b4c99d93dbd3379c64a11aa37cd017700954456a5c9d"
+  },
+  {
+    "file": "rel/Button Accordion HN E5_rel.flac",
+    "bytes": 35509,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 16625,
+    "sha256": "5fdd22462e8da0d97d2d55e5936d34c76282a9af2a1387ed4045ebdf0bbe202b"
+  },
+  {
+    "file": "rel/Button Accordion HN E6_rel.flac",
+    "bytes": 36159,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 13797,
+    "sha256": "110784d1483ca0e00b79f9eb022bd9186cebad9d3b5436ead49054f9759644ac"
+  },
+  {
+    "file": "rel/Button Accordion HN Fs4_rel.flac",
+    "bytes": 39181,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 17418,
+    "sha256": "7545327783586b1cd1b317749de17635d00a41e57a5589a3b2cc992de736504f"
+  },
+  {
+    "file": "rel/Button Accordion HN Fs5_rel.flac",
+    "bytes": 38995,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 14060,
+    "sha256": "28fffd3bf73ca89e4c627e0c7ecd94ccf9a27a9bf32fa38246c020c246f4404f"
+  },
+  {
+    "file": "rel/Button Accordion HN G4_rel.flac",
+    "bytes": 56324,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 25273,
+    "sha256": "e0a0efb5fe062448b7fbf070deed7c273328d6e8974dad0561978ea52dd88918"
+  },
+  {
+    "file": "rel/Button Accordion HN G5_rel.flac",
+    "bytes": 37925,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 16588,
+    "sha256": "9abf6d4c7ad07f99d6cdf69f82d74129a0de2e3ed75811e8b0bb7f968ab4c918"
+  },
+  {
+    "file": "rel/Button Accordion HN G6_rel.flac",
+    "bytes": 29827,
+    "sampleRate": 44100,
+    "channels": 2,
+    "samples": 12080,
+    "sha256": "7bd935a630c22b194213b517ceeb22a852e86f8a71befc6fdd382f3b4ef86c5c"
+  }
+]

@@ -1,0 +1,11 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Práctica vertical · 390 × 844</title><style>body{margin:0;background:#0b110e;color:#f5e8ce;font:12px system-ui}iframe{display:block;width:390px;height:844px;border:0}pre{white-space:pre-wrap;max-width:390px;padding:10px}</style><iframe src="/#practice" title="Práctica vertical 390 por 844"></iframe><pre id="report">Cargando práctica vertical…</pre><script type="module">
+const iframe=document.querySelector('iframe'),out=document.querySelector('#report');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+iframe.onload=async()=>{try{
+ const win=iframe.contentWindow,doc=iframe.contentDocument;
+ for(let i=0;i<200&&!doc.querySelector('[data-ready=true]');i++)await sleep(50);
+ doc.querySelector('.p-focus-launch').click();await sleep(250);
+ const stage=doc.querySelector('.p-stage').getBoundingClientRect(),keys=doc.querySelector('.p-keyboard').getBoundingClientRect();
+ const result={passed:win.innerWidth===390&&stage.bottom<=keys.top&&keys.bottom<=win.innerHeight+1&&doc.querySelectorAll('.p-pad').length===31,width:win.innerWidth,height:win.innerHeight,stage:{top:stage.top,bottom:stage.bottom},keyboard:{top:keys.top,bottom:keys.bottom},pads:doc.querySelectorAll('.p-pad').length,scope:'Actual application in a 390 × 844 iframe; fullscreen viewport fallback. No physical phone claim.'};out.textContent=JSON.stringify(result,null,2);
+ }catch(error){out.textContent=JSON.stringify({passed:false,error:String(error)},null,2);}};
+</script></html>

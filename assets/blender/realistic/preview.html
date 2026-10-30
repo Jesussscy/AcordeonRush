@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AcordenRush · Instrument review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#131820;color:#f5f1e8;font:14px system-ui}canvas{display:block;width:100%;height:100%}main{height:100vh;display:grid;grid-template-columns:1fr 300px}#view{min-width:0;position:relative}header{position:absolute;top:28px;left:32px;pointer-events:none}header small{letter-spacing:.2em;color:#bd9b75}h1{font-size:25px;margin:8px 0}p{color:#b0b6c0;line-height:1.6}aside{padding:28px;background:#1c222c;overflow:auto;border-left:1px solid #333a45}select,button{color:inherit;background:#2b3441;border:1px solid #4a5464;border-radius:6px;padding:10px;cursor:pointer}select{width:100%;margin:10px 0}button:active,button.held{background:#8f3445}.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.keys button{padding:8px;font-size:12px}.status{font-size:12px;color:#b9c4b3}label{display:block;margin-top:18px}h2{font-size:15px;margin-top:25px}#error{color:#ffb2af}footer{font-size:12px;color:#97a0ae;margin-top:20px} @media(max-width:760px){main{grid-template-columns:1fr;grid-template-rows:60vh auto;height:auto}aside{overflow:visible}#view{height:60vh}.keys{grid-template-columns:repeat(6,1fr)}}
+</style>
+<main><div id="view"><header><small>ACORDENRUSH / ESTUDIO 01</small><h1>Un instrumento. Cada detalle.</h1><p>Arrastra para girar · rueda para acercar</p></header></div><aside><small class="status" id="status">Cargando GLB…</small><label for="clip">Acción de demostración</label><select id="clip" aria-label="Acción"></select><button id="pause">Pausar</button><p>Presiona cualquier botón aquí o sobre el modelo. Mantén para hundirlo; suelta para devolverlo suavemente.</p><h2>Melodía · 31 botones</h2><div class="keys" id="melody"></div><h2>Bajos · 12 botones</h2><div class="keys" id="bass"></div><footer>Modelo con proporciones estimadas. Luz de entorno de Three.js. Audio CC0 de FreePats.<p id="error"></p></footer></aside></main>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {createButtonInteraction} from './button-interaction.js';
+import {createAccordionAudio} from './accordion-audio.js';
+const view=document.querySelector('#view');
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.85;view.append(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#131820');
+const environment=new RoomEnvironment();const pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(environment,.04).texture;environment.dispose();pmrem.dispose();
+const camera=new THREE.PerspectiveCamera(35,1,.005,20);camera.position.set(.65,.35,.95);
+const orbit=new OrbitControls(camera,renderer.domElement);orbit.target.set(.015,0,0);orbit.enableDamping=true;orbit.minDistance=.25;orbit.maxDistance=2.5;orbit.update();
+let mixer,interaction,active,paused=false,root,audio;
+const audioPanel=document.createElement('section');audioPanel.innerHTML=`<h2>Sonido del instrumento</h2><button id="enable-audio">Activar sonido</button><p id="audio-state">Audio bajo demanda · CC0 / FreePats</p><label for="registration">Registro</label><select id="registration" disabled></select><label for="tuning">Afinación virtual</label><select id="tuning" disabled></select><label for="air-direction">Fuelle sonoro manual</label><select id="air-direction"><option value="pull">Halar</option><option value="push">Empujar</option></select><label for="air-pressure">Presión de aire</label><input id="air-pressure" type="range" min="0" max="1" step=".01" value=".65" style="width:100%"><p style="font-size:11px">Cuatro registros sobre una misma grabación. Con presión cero las teclas se mueven sin sonido.</p>`;
+document.querySelector('#clip').after(audioPanel);
+const soundHeld=new Set(),keyboardHeld=new Set(),buttonRest=new Map();
+const updateAir=()=>audio?.setBellows(document.querySelector('#air-direction').value,Number(document.querySelector('#air-pressure').value));
+document.querySelector('#air-direction').onchange=updateAir;document.querySelector('#air-pressure').oninput=updateAir;
+document.querySelector('#enable-audio').onclick=async e=>{e.target.disabled=true;try{audio=await createAccordionAudio();await audio.unlock();await audio.preload();for(const p of audio.manifest.profiles)document.querySelector('#registration').add(new Option(p.label,p.id));for(const t of audio.manifest.tunings)document.querySelector('#tuning').add(new Option(t.label,t.id));for(const id of ['registration','tuning'])document.querySelector('#'+id).disabled=false;document.querySelector('#registration').onchange=e=>audio.setProfile(e.target.value);document.querySelector('#tuning').onchange=e=>audio.setTuning(e.target.value);updateAir();document.querySelector('#audio-state').textContent='Audio listo · 17 ataques + 17 liberaciones';e.target.textContent='Sonido activo';}catch(error){document.querySelector('#audio-state').textContent=String(error);e.target.disabled=false;}};
+const clock=new THREE.Clock();const select=document.querySelector('#clip');
+const raycaster=new THREE.Raycaster();const pointer=new THREE.Vector2();const held=new Map();
+function release(event){const name=held.get(event.pointerId);if(name){interaction.release(name);held.delete(event.pointerId);document.querySelector(`[data-bone="${name}"]`)?.classList.remove('held');}}
+function hold(event,name){event.preventDefault();interaction.press(name);held.set(event.pointerId,name);event.currentTarget.setPointerCapture(event.pointerId);document.querySelector(`[data-bone="${name}"]`)?.classList.add('held');}
+window.addEventListener('pointerup',release);window.addEventListener('pointercancel',release);window.addEventListener('blur',()=>{interaction?.releaseAll();held.clear();keyboardHeld.clear();audio?.allNotesOff();soundHeld.clear();document.querySelectorAll('.held').forEach(b=>b.classList.remove('held'));});
+try {
+ const gltf=await new GLTFLoader().loadAsync('./AcordeonVallenato_Realista.glb');root=gltf.scene;scene.add(root);mixer=new THREE.AnimationMixer(root);interaction=createButtonInteraction(gltf);
+ // Concrete API for a game's keydown/keyup handlers.
+ window.accordionButtons=interaction;
+ for(const name of interaction.names)buttonRest.set(name,root.getObjectByName(name).position.clone());
+ for(const clip of gltf.animations){const option=new Option(clip.name,clip.name);select.add(option);}
+ function play(){active?.stop();active=mixer.clipAction(gltf.animations.find(c=>c.name===select.value));active.reset().play();}
+ select.value='Bellows_OpenClose';select.onchange=play;play();
+ document.querySelector('#pause').onclick=e=>{paused=!paused;e.target.textContent=paused?'Reproducir':'Pausar';};
+ for(const name of interaction.names){const b=document.createElement('button');b.textContent=name.replace('BTN_','').replace('Melody_','M ').replace('Bass_','B ');b.dataset.bone=name;b.setAttribute('aria-label',`Presionar ${b.textContent}`);b.onpointerdown=e=>hold(e,name);b.onlostpointercapture=release;b.onkeydown=e=>{if(['Enter',' '].includes(e.key)){e.preventDefault();keyboardHeld.add(name);interaction.press(name);b.classList.add('held');}};b.onkeyup=e=>{if(['Enter',' '].includes(e.key)){e.preventDefault();keyboardHeld.delete(name);interaction.release(name);b.classList.remove('held');}};b.onblur=()=>{keyboardHeld.delete(name);interaction.release(name);b.classList.remove('held');};document.querySelector(name.includes('Melody')?'#melody':'#bass').append(b);}
+ renderer.domElement.addEventListener('pointerdown',e=>{
+  const rect=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,camera);
+  const hit=raycaster.intersectObject(root,true).find(h=>h.object.isSkinnedMesh);if(!hit?.face)return;
+  const mesh=hit.object;const idx=mesh.geometry.getAttribute('skinIndex');const weights=mesh.geometry.getAttribute('skinWeight');const scores=new Map();
+  for(const v of [hit.face.a,hit.face.b,hit.face.c])for(let k=0;k<4;k++){const i=idx.getComponent(v,k);scores.set(i,(scores.get(i)||0)+weights.getComponent(v,k));}
+  const best=[...scores].sort((a,b)=>b[1]-a[1])[0];const name=mesh.skeleton.bones[best[0]]?.name;
+  if(interaction.names.includes(name))hold(e,name);
+ });
+ document.querySelector('#status').textContent=`GLB listo · ${interaction.names.length} botones · ${gltf.animations.length} acciones`;
+ document.documentElement.dataset.loaded='true';
+}catch(error){document.querySelector('#error').textContent=String(error);console.error(error);}
+new ResizeObserver(()=>{const {width,height}=view.getBoundingClientRect();camera.aspect=width/height;camera.updateProjectionMatrix();const distance=Math.max(.45/(2*Math.tan(THREE.MathUtils.degToRad(17.5))),.70/(2*Math.tan(THREE.MathUtils.degToRad(17.5))*camera.aspect));camera.position.sub(orbit.target).normalize().multiplyScalar(distance).add(orbit.target);renderer.setSize(width,height);}).observe(view);
+renderer.setAnimationLoop(()=>{const dt=Math.min(clock.getDelta(),.1);if(mixer&&!paused)mixer.update(dt);interaction?.update(dt);if(audio&&interaction){const wanted=new Set([...held.values(),...keyboardHeld]);for(const name of interaction.names){if(root.getObjectByName(name).position.distanceTo(buttonRest.get(name))>.00065)wanted.add(name);}for(const name of wanted)if(!soundHeld.has(name)){audio.noteOn(name);soundHeld.add(name);}for(const name of soundHeld)if(!wanted.has(name)){audio.noteOff(name);soundHeld.delete(name);}}orbit.update();renderer.render(scene,camera);});
+</script></html>

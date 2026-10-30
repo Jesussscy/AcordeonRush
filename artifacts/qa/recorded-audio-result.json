@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "engine": "src/recorded-accordion-audio.js",
+  "source": "FreePats Hohner recordings, CC0",
+  "results": [
+    {
+      "profile": "natural",
+      "direction": "push",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.5057213306427002,
+        "rms": 0.1387172810795646
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "natural",
+      "direction": "pull",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.33338746428489685,
+        "rms": 0.09272035409594094
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "double",
+      "direction": "push",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.32436564564704895,
+        "rms": 0.09918772623623934
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "double",
+      "direction": "pull",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.23454061150550842,
+        "rms": 0.06671688748332702
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "musette",
+      "direction": "push",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.21459664404392242,
+        "rms": 0.06120217343058394
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "musette",
+      "direction": "pull",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.18845096230506897,
+        "rms": 0.05414583036093124
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "octave",
+      "direction": "push",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.3475736379623413,
+        "rms": 0.09850912968004209
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "profile": "octave",
+      "direction": "pull",
+      "decodedRecordings": 34,
+      "signal": {
+        "peak": 0.28048816323280334,
+        "rms": 0.07612808969315317
+      },
+      "tail": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    },
+    {
+      "test": "Held button changes closed/open pitch and allNotesOff silences tails",
+      "closed": {
+        "peak": 0.35133227705955505,
+        "rms": 0.12659405754543518
+      },
+      "open": {
+        "peak": 0.21496237814426422,
+        "rms": 0.07853906375196575
+      },
+      "silence": {
+        "peak": 0,
+        "rms": 0
+      },
+      "passed": true
+    }
+  ]
+}

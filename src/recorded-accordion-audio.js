@@ -1,0 +1,71 @@
+/** Real sampled Hohner playback. Direction selects notes; pressure controls expression. */
+export async function createAccordionAudio({context,baseURL=new URL('/instrument/',globalThis.location?.origin??'http://localhost'),manifest}={}) {
+ context??=new AudioContext();
+ const base=new URL(baseURL,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';
+ manifest??=await fetch(new URL('manifest.json',base)).then(r=>{if(!r.ok)throw Error('Audio manifest unavailable');return r.json();});
+ const sampleBase=new URL(manifest.sampleDirectory??'button-accordion-hn/',base);
+ const decoded=new Map(),pending=new Map(),held=new Map(),voices=new Set();
+ const master=context.createGain(),expression=context.createGain(),limiter=context.createDynamicsCompressor(),analyser=context.createAnalyser();analyser.fftSize=8192;const waveform=new Float32Array(analyser.fftSize);
+ master.gain.value=.55;expression.gain.value=0;
+ limiter.threshold.value=-3;limiter.knee.value=6;limiter.ratio.value=4;limiter.attack.value=.003;limiter.release.value=.18;
+ master.connect(expression);expression.connect(limiter);limiter.connect(analyser);analyser.connect(context.destination);
+ let profile=manifest.profiles[0],tuning=0,tuningId='',direction='push',pressure=0,disposed=false,playingMode='manual',expressionLevel=.7,lastError='';
+ const applyExpression=()=>expression.gain.setTargetAtTime(playingMode==='direct'?expressionLevel:pressure,context.currentTime,.012);
+ async function load(file){
+  if(decoded.has(file))return decoded.get(file);
+  if(!pending.has(file))pending.set(file,fetch(new URL(file.split('/').map(encodeURIComponent).join('/'),sampleBase)).then(r=>{if(!r.ok)throw Error(`Missing recording ${file}`);return r.arrayBuffer();}).then(bytes=>context.decodeAudioData(bytes)).then(buffer=>{decoded.set(file,buffer);return buffer;}).catch(error=>{pending.delete(file);throw error;}));
+  return pending.get(file);
+ }
+ const regionFor=pitch=>manifest.regions.find(r=>pitch>=r.low&&pitch<=r.high)??manifest.regions.reduce((a,b)=>Math.abs(a.root-pitch)<Math.abs(b.root-pitch)?a:b);
+ function rank(midi,registration,{release=false,level=1,when=context.currentTime,duration}={}){
+  const natural=profile.id==='natural',cutoff=profile.cutoff;
+  const pitch=midi+tuning+registration.semitones,region=regionFor(pitch),file=release?region.releaseFile:region.file;
+  const voice={cancelled:false,source:null,gain:null,filter:null,midi:pitch,startsAt:when,endsAt:duration===undefined?Infinity:when+duration};voices.add(voice);
+  const play=buffer=>{
+   if(voice.cancelled||disposed){voices.delete(voice);return;}
+   const source=context.createBufferSource(),gain=context.createGain();voice.source=source;voice.gain=gain;
+   source.buffer=buffer;source.loop=!release;
+   if(!release){source.loopStart=region.loopStart;source.loopEnd=Math.min(region.loopEnd,buffer.duration-1/buffer.sampleRate);}
+   source.playbackRate.value=2**((pitch-region.root)/12);source.detune.value=(release?region.releaseTune:region.tune)+registration.cents;
+   const at=Math.max(when,context.currentTime),amplitude=registration.gain*level*(release?.12:1);
+   gain.gain.setValueAtTime(0,at);gain.gain.linearRampToValueAtTime(amplitude,at+.008);
+   if(!release)gain.gain.setTargetAtTime(amplitude*.72,at+.008,18);
+   // Keep the recorded stereo reeds intact in Natural, including on closed bellows.
+   if(natural){source.connect(gain);}else{const filter=context.createBiquadFilter();voice.filter=filter;filter.type='lowpass';filter.frequency.value=cutoff;filter.Q.value=.35;source.connect(filter);filter.connect(gain);}
+   gain.connect(master);source.onended=()=>{source.disconnect();voice.filter?.disconnect();gain.disconnect();voices.delete(voice);};
+   source.start(at,release?Math.min(region.releaseOffset,buffer.duration-.001):.0012);
+   if(duration!==undefined){gain.gain.setTargetAtTime(0,at+duration,.025);source.stop(at+duration+.16);}
+   if(release)source.stop(at+Math.min(.35,(buffer.duration-Math.min(region.releaseOffset,buffer.duration-.001))/source.playbackRate.value));
+  };
+  if(decoded.has(file))play(decoded.get(file));else void load(file).then(play).catch(error=>{lastError=String(error);voices.delete(voice);});
+  voice.stop=(fast=false)=>{if(voice.cancelled)return;voice.cancelled=true;if(voice.source){const at=context.currentTime;voice.gain.gain.cancelScheduledValues(at);voice.gain.gain.setTargetAtTime(0,at,fast?.008:.025);voice.source.stop(at+(fast?.07:.16));}else voices.delete(voice);};
+  return voice;
+ }
+ function start(state){
+  if((playingMode==='manual'&&pressure<=.005)||disposed)return;
+  const notes=state.mapping[direction];state.notes=notes;state.ranks=profile.ranks;
+  state.level=state.bass?(notes.length>1?.34:.65):.9;
+  state.voices=notes.flatMap(midi=>profile.ranks.map(r=>rank(midi,r,{level:state.level})));
+ }
+ function stop(state,tail=false){for(const voice of state.voices??[])voice.stop();if(tail&&(playingMode==='direct'||pressure>.005))for(const midi of state.notes??[])for(const r of state.ranks??[])rank(midi,r,{release:true,level:state.level});state.voices=[];}
+ function restart(){for(const state of held.values()){stop(state);start(state);}}
+ const api={
+  context,manifest,
+  setPlayingMode(mode){if(!['direct','manual'].includes(mode))throw Error('Invalid playing mode');if(playingMode===mode)return;playingMode=mode;applyExpression();restart();},
+  setDirection(next){if(!['push','pull'].includes(next))throw Error('Invalid direction');if(direction===next)return;direction=next;restart();},
+  setExpression(value){expressionLevel=Math.max(0,Math.min(1,value));applyExpression();},
+  getDiagnostics(){analyser.getFloatTimeDomainData(waveform);let sum=0,peak=0;for(const n of waveform){sum+=n*n;peak=Math.max(peak,Math.abs(n));}return {rms:Math.sqrt(sum/waveform.length),peak,contextState:context.state,playingMode,direction,expression:playingMode==='direct'?expressionLevel:pressure,error:lastError,notes:[...new Set([...voices].filter(v=>!v.cancelled&&context.currentTime>=v.startsAt&&context.currentTime<v.endsAt).map(v=>v.midi))]};},
+  scheduleNote(name,dir,when,duration,velocity=1){const key=name.startsWith('BTN_')?name:'BTN_'+name,mapping=manifest.buttons[key];if(!mapping||!['push','pull'].includes(dir)||!Number.isFinite(when)||!(duration>0))throw Error('Invalid scheduled note');const notes=mapping[dir],level=(key.includes('Bass')?(notes.length>1?.34:.65):.9)*velocity;for(const midi of notes)for(const r of profile.ranks)rank(midi,r,{level,when,duration});},
+  async preload(){await Promise.all(manifest.regions.flatMap(r=>[load(r.file),load(r.releaseFile)]));},
+  async unlock(){if(context.state==='suspended'&&typeof context.startRendering!=='function')await context.resume();},
+  noteOn(name){if(disposed)throw Error('Audio controller disposed');const key=name.startsWith('BTN_')?name:'BTN_'+name;if(held.has(key))return;const mapping=manifest.buttons[key];if(!mapping)throw Error(`Unknown button ${name}`);const state={mapping,bass:key.includes('Bass'),voices:[]};held.set(key,state);start(state);},
+  noteOff(name){const key=name.startsWith('BTN_')?name:'BTN_'+name,state=held.get(key);if(state){stop(state,true);held.delete(key);}},
+  setBellows(nextDirection,nextPressure){if(!['push','pull'].includes(nextDirection))throw Error('Direction must be push or pull');const previous=pressure,changed=direction!==nextDirection;pressure=Math.max(0,Math.min(1,nextPressure));direction=nextDirection;applyExpression();if(changed||(previous<=.005&&pressure>.005)||(previous>.005&&pressure<=.005))restart();},
+  setProfile(id){const next=manifest.profiles.find(p=>p.id===id);if(!next)throw Error('Unknown registration');if(profile.id===id)return;profile=next;restart();},
+  setTuning(id){const next=manifest.tunings.find(t=>t.id===id);if(!next)throw Error('Unknown tuning');if(tuningId===id)return;tuningId=id;tuning=next.semitones;restart();},
+  setVolume(value){master.gain.setTargetAtTime(.55*Math.max(0,Math.min(1,value)),context.currentTime,.02);},
+  allNotesOff(){for(const state of held.values())stop(state);held.clear();for(const voice of voices)voice.stop(true);},
+  dispose(){api.allNotesOff();disposed=true;master.disconnect();expression.disconnect();limiter.disconnect();analyser.disconnect();},
+ };
+ return api;
+}

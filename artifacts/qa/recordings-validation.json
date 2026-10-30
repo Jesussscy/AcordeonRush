@@ -1,0 +1,246 @@
+{
+  "passed": true,
+  "recordings": 34,
+  "sustain_loops": 17,
+  "method": "Verify actual PCM audio against original recorded FLAC hashes and waveform continuity.",
+  "results": [
+    {
+      "file": "Button Accordion HN B3.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.24474583893927676
+    },
+    {
+      "file": "rel/Button Accordion HN B3_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.10388848691437048
+    },
+    {
+      "file": "Button Accordion HN D4.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.21005441775847955
+    },
+    {
+      "file": "rel/Button Accordion HN D4_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.07368623337290939
+    },
+    {
+      "file": "Button Accordion HN Fs4.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.2188556177625137
+    },
+    {
+      "file": "rel/Button Accordion HN Fs4_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.10534970335096376
+    },
+    {
+      "file": "Button Accordion HN G4.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.22686236932388876
+    },
+    {
+      "file": "rel/Button Accordion HN G4_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.07978027531043806
+    },
+    {
+      "file": "Button Accordion HN A4.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.2149639397566595
+    },
+    {
+      "file": "rel/Button Accordion HN A4_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.11329082822116252
+    },
+    {
+      "file": "Button Accordion HN B4.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.22987397496278175
+    },
+    {
+      "file": "rel/Button Accordion HN B4_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.1253306364743901
+    },
+    {
+      "file": "Button Accordion HN C5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.20631305064451236
+    },
+    {
+      "file": "rel/Button Accordion HN C5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.08450333948799056
+    },
+    {
+      "file": "Button Accordion HN D5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.21293163222711203
+    },
+    {
+      "file": "rel/Button Accordion HN D5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.16303467596755547
+    },
+    {
+      "file": "Button Accordion HN E5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.2503650852525058
+    },
+    {
+      "file": "rel/Button Accordion HN E5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.10100626982570747
+    },
+    {
+      "file": "Button Accordion HN Fs5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.22863346983817703
+    },
+    {
+      "file": "rel/Button Accordion HN Fs5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.17451425981392207
+    },
+    {
+      "file": "Button Accordion HN G5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.25156211860075045
+    },
+    {
+      "file": "rel/Button Accordion HN G5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.10342610250434456
+    },
+    {
+      "file": "Button Accordion HN A5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.32368562584871885
+    },
+    {
+      "file": "rel/Button Accordion HN A5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.2637322290417925
+    },
+    {
+      "file": "Button Accordion HN B5.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.37431236690478653
+    },
+    {
+      "file": "rel/Button Accordion HN B5_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.11969990898504024
+    },
+    {
+      "file": "Button Accordion HN C6.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.36335589719709
+    },
+    {
+      "file": "rel/Button Accordion HN C6_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.11969990898504024
+    },
+    {
+      "file": "Button Accordion HN D6.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.3585146070486349
+    },
+    {
+      "file": "rel/Button Accordion HN D6_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.20580700571351065
+    },
+    {
+      "file": "Button Accordion HN E6.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.34556662036669356
+    },
+    {
+      "file": "rel/Button Accordion HN E6_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.23407246388926167
+    },
+    {
+      "file": "Button Accordion HN G6.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.40283175314464886
+    },
+    {
+      "file": "rel/Button Accordion HN G6_rel.wav",
+      "sha256_verified": true,
+      "source_preserved": true,
+      "stereo": true,
+      "rms": 0.20592562972756973
+    }
+  ]
+}

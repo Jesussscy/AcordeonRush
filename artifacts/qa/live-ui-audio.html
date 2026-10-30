@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Ruta real UI → audio</title><style>body{background:#101813;color:#f5e8ce;font:14px system-ui;margin:20px}button{padding:15px;background:#e9b878;border:0;border-radius:8px}pre{white-space:pre-wrap}iframe{width:1100px;height:750px;max-width:100%;border:1px solid #666}</style><h1>Notas cerradas y abiertas desde la interfaz</h1><button id="run">Medir pulsaciones reales de la aplicación</button><pre id="report">Lista.</pre><iframe src="/#practice" title="Instrumento real en prueba"></iframe><script type="module">
+const frame=document.querySelector('iframe'),report=document.querySelector('#report'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+document.querySelector('#run').onclick=async()=>{const results=[];try{
+ const doc=frame.contentDocument,win=frame.contentWindow;for(let i=0;i<200&&!doc.querySelector('.p-unlock:not(:disabled)');i++)await sleep(50);
+ const root=()=>doc.querySelector('.practice-app'),event=(type,code)=>doc.body.dispatchEvent(new win.KeyboardEvent(type,{code,key:'w',bubbles:true}));
+ doc.querySelector('.p-unlock').click();await sleep(200);
+ for(const [index,direction,midi] of [[0,'push',55],[1,'pull',57]]){
+  doc.querySelectorAll('.p-direction-choices button')[index].click();await sleep(60);event('keydown','KeyW');await sleep(450);
+  const rms=Number(root().dataset.audioRms),notes=root().dataset.audioNotes.split(',').map(Number),context=root().dataset.audioState,mode=root().dataset.audioMode;
+  if(!(rms>.005&&notes.includes(midi)&&context==='running'&&mode==='direct'))throw Error(JSON.stringify({direction,rms,notes,context,mode}));
+  results.push({direction,input:'KeyW, no Space',expectedMidi:midi,observedGraphMidi:notes,actualOutputRms:rms,context,mode,passed:true});event('keyup','KeyW');await sleep(650);
+  if(Number(root().dataset.audioRms)>.001)throw Error('Signal did not return to silence');
+ }
+ event('keydown','KeyW');await sleep(250);doc.querySelectorAll('.p-direction-choices button')[0].click();await sleep(250);if(!root().dataset.audioNotes.split(',').includes('55'))throw Error('Held direction switch failed');event('keyup','KeyW');
+ report.textContent=JSON.stringify({passed:true,scope:'Keyboard events enter the mounted application. RMS is sampled from its actual post-limiter analyser, not an isolated engine.',results},null,2);
+ }catch(error){report.textContent=JSON.stringify({passed:false,error:String(error),results},null,2);}};
+</script></html>

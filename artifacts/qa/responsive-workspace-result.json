@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "width": 390,
+  "height": 844,
+  "previewFollowsKeyboard": true,
+  "stage": {
+    "top": 107.80000305175781,
+    "bottom": 490.1999969482422
+  },
+  "keyboard": {
+    "top": 498,
+    "bottom": 837
+  },
+  "mainHeight": 744,
+  "scope": "Real app in a 390x844 iframe, native fullscreen explicitly blocked to retain the portrait CSS viewport. Not a physical-phone test."
+}

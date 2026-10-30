@@ -1,0 +1,265 @@
+{
+  "method": "Three.js GLTFLoader parsed actual GLB geometry and clips, with image references removed for Node-only animation testing. Browser separately loads original textured GLB.",
+  "buttons_tested": 43,
+  "results": [
+    {
+      "bone": "BTN_Bass_01",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_02",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_03",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_04",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_05",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_06",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_07",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_08",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_09",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_10",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_11",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Bass_12",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_01",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_02",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_03",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_04",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_05",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_06",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_07",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_08",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_09",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_10",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_11",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_12",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_13",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_14",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_15",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_16",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_17",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_18",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_19",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_20",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_21",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_22",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_23",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_24",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_25",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_26",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_27",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_28",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_29",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_30",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    },
+    {
+      "bone": "BTN_Melody_31",
+      "measured_travel_m": 0.0018000006595652873,
+      "returns_to_rest": true,
+      "holds_while_bellows_moves": true
+    }
+  ],
+  "passed": true
+}

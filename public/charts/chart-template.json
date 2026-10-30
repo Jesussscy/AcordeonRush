@@ -1,0 +1,9 @@
+{
+  "version":1,"title":"Ejercicio propio Do–Re–Mi","status":"user-supplied","bpm":100,"duration":4,"tuning":"GCF",
+  "provenance":{"kind":"user-supplied","source":"Ejercicio original de ejemplo, no pertenece a una grabación comercial","reviewer":"Sin revisión independiente","notes":"Tiempos en segundos. MIDI 60 = Do4."},
+  "events":[
+    {"id":"note-1","start":0,"end":0.5,"pitches":[60],"role":"melody","velocity":0.8},
+    {"id":"note-2","start":0.6,"end":1.1,"pitches":[62],"role":"melody","velocity":0.8},
+    {"id":"note-3","start":1.2,"end":2.2,"pitches":[64],"role":"melody","velocity":0.8}
+  ]
+}

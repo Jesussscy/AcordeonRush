@@ -1,0 +1,20 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Audio real · AcordenRush QA</title><style>body{font:15px system-ui;background:#101813;color:#f5e8ce;padding:24px}button{font:inherit;padding:14px 20px;background:#e9b878;border:0;border-radius:8px}pre{white-space:pre-wrap}.pass{color:#b6e4a4}.fail{color:#ff9e87}</style><h1>Grabaciones Hohner: señal en ambos sentidos</h1><p>Renderiza el motor real con OfflineAudioContext; mide salida y silencio posterior. No verifica los altavoces físicos.</p><button id="run">Medir audio real</button><pre id="report" role="status">Lista para medir.</pre><script type="module">
+import {createAccordionAudio} from '/src/recorded-accordion-audio.js';
+const output=document.querySelector('#report');
+const measure=data=>{let peak=0,energy=0;for(const value of data){peak=Math.max(peak,Math.abs(value));energy+=value*value;}return {peak,rms:Math.sqrt(energy/data.length)};};
+document.querySelector('#run').onclick=async()=>{const results=[];output.className='';try{
+ for(const profile of ['natural','double','musette','octave'])for(const direction of ['push','pull']){
+  const context=new OfflineAudioContext(2,72000,48000),audio=await createAccordionAudio({context,baseURL:new URL('/instrument/',location.origin)});
+  await audio.preload();audio.setProfile(profile);audio.setTuning('GCF');audio.setVolume(.8);audio.setBellows(direction,.8);audio.noteOn('BTN_Melody_02');audio.noteOn('BTN_Bass_02');
+  const suspended=context.suspend(.55),rendering=context.startRendering();await suspended;audio.noteOff('BTN_Melody_02');audio.noteOff('BTN_Bass_02');await context.resume();const buffer=await rendering,data=buffer.getChannelData(0);
+  const signal=measure(data.subarray(4800,24000)),tail=measure(data.subarray(57600));
+  if(!(signal.rms>.003&&signal.peak<.99&&tail.rms<.001))throw Error(JSON.stringify({profile,direction,signal,tail}));
+  results.push({profile,direction,decodedRecordings:34,signal,tail,passed:true});audio.dispose();output.textContent=JSON.stringify({running:true,results},null,2);
+ }
+ // Rapid direction changes while held must sound in both directions and stop cleanly.
+ const context=new OfflineAudioContext(2,96000,48000),audio=await createAccordionAudio({context,baseURL:new URL('/instrument/',location.origin)});await audio.preload();audio.setTuning('GCF');audio.setBellows('push',.8);audio.noteOn('BTN_Melody_02');
+ let pause=context.suspend(.4);const rendering=context.startRendering();await pause;audio.setBellows('pull',.8);pause=context.suspend(.8);await context.resume();await pause;audio.allNotesOff();await context.resume();const buffer=await rendering,data=buffer.getChannelData(0),closed=measure(data.subarray(4800,14400)),open=measure(data.subarray(24000,33600)),silence=measure(data.subarray(72000));
+ if(!(closed.rms>.003&&open.rms>.003&&silence.rms<.0001))throw Error(JSON.stringify({closed,open,silence}));audio.dispose();results.push({test:'Held button changes closed/open pitch and allNotesOff silences tails',closed,open,silence,passed:true});
+ output.className='pass';output.textContent=JSON.stringify({passed:true,engine:'src/recorded-accordion-audio.js',source:'FreePats Hohner recordings, CC0',results},null,2);
+ }catch(error){output.className='fail';output.textContent=JSON.stringify({passed:false,error:String(error),results},null,2);}};
+</script></html>

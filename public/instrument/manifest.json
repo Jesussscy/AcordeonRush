@@ -1,0 +1,873 @@
+{
+  "source": "https://github.com/freepats/button-accordion-HN",
+  "license": "CC0-1.0",
+  "baseInstrument": "Button Accordion HN, recorded by Jeff Stauffer; bank processed by michael02022.",
+  "limitations": "Virtual transpositions of one recorded bank. Layout source: https://hohner.de/fileadmin/documents/instruments/accordions/diatonic/HOHNER-fingeringcharts_diatonic-keyboard-GCF-31-buttons.pdf",
+  "regions": [
+    {
+      "file": "Button Accordion HN B3.wav",
+      "root": 47,
+      "low": 0,
+      "high": 49,
+      "tune": -34,
+      "loopStart": 0.816734693877551,
+      "loopEnd": 1.4207256235827666,
+      "releaseFile": "rel/Button Accordion HN B3_rel.wav",
+      "releaseOffset": 0,
+      "releaseTune": -34,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN D4.wav",
+      "root": 50,
+      "low": 50,
+      "high": 53,
+      "tune": -38,
+      "loopStart": 1.128140589569161,
+      "loopEnd": 1.568095238095238,
+      "releaseFile": "rel/Button Accordion HN D4_rel.wav",
+      "releaseOffset": 0.061224489795918366,
+      "releaseTune": -38,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN Fs4.wav",
+      "root": 54,
+      "low": 54,
+      "high": 54,
+      "tune": -23,
+      "loopStart": 1.0524489795918368,
+      "loopEnd": 1.7997052154195012,
+      "releaseFile": "rel/Button Accordion HN Fs4_rel.wav",
+      "releaseOffset": 0.022675736961451247,
+      "releaseTune": -23,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN G4.wav",
+      "root": 55,
+      "low": 55,
+      "high": 56,
+      "tune": -30,
+      "loopStart": 1.5089115646258504,
+      "loopEnd": 2.1154195011337866,
+      "releaseFile": "rel/Button Accordion HN G4_rel.wav",
+      "releaseOffset": 0.15873015873015872,
+      "releaseTune": -30,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN A4.wav",
+      "root": 57,
+      "low": 57,
+      "high": 58,
+      "tune": -32,
+      "loopStart": 1.368843537414966,
+      "loopEnd": 1.6903174603174602,
+      "releaseFile": "rel/Button Accordion HN A4_rel.wav",
+      "releaseOffset": 0.05668934240362812,
+      "releaseTune": -32,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN B4.wav",
+      "root": 59,
+      "low": 59,
+      "high": 59,
+      "tune": -19,
+      "loopStart": 1.7264399092970522,
+      "loopEnd": 2.0653514739229024,
+      "releaseFile": "rel/Button Accordion HN B4_rel.wav",
+      "releaseOffset": 0.036281179138321996,
+      "releaseTune": -19,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN C5.wav",
+      "root": 60,
+      "low": 60,
+      "high": 61,
+      "tune": -28,
+      "loopStart": 1.6536507936507936,
+      "loopEnd": 1.9546485260770976,
+      "releaseFile": "rel/Button Accordion HN C5_rel.wav",
+      "releaseOffset": 0.20408163265306123,
+      "releaseTune": -28,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN D5.wav",
+      "root": 62,
+      "low": 62,
+      "high": 63,
+      "tune": -26,
+      "loopStart": 1.6555102040816327,
+      "loopEnd": 1.9560997732426304,
+      "releaseFile": "rel/Button Accordion HN D5_rel.wav",
+      "releaseOffset": 0.06802721088435375,
+      "releaseTune": -26,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN E5.wav",
+      "root": 64,
+      "low": 64,
+      "high": 65,
+      "tune": -30,
+      "loopStart": 1.4945124716553289,
+      "loopEnd": 1.8998639455782314,
+      "releaseFile": "rel/Button Accordion HN E5_rel.wav",
+      "releaseOffset": 0.022675736961451247,
+      "releaseTune": -30,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN Fs5.wav",
+      "root": 66,
+      "low": 66,
+      "high": 66,
+      "tune": -26,
+      "loopStart": 1.9277324263038549,
+      "loopEnd": 2.1460997732426303,
+      "releaseFile": "rel/Button Accordion HN Fs5_rel.wav",
+      "releaseOffset": 0.034013605442176874,
+      "releaseTune": -26,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN G5.wav",
+      "root": 67,
+      "low": 67,
+      "high": 68,
+      "tune": -29,
+      "loopStart": 1.7853287981859411,
+      "loopEnd": 2.204467120181406,
+      "releaseFile": "rel/Button Accordion HN G5_rel.wav",
+      "releaseOffset": 0.011337868480725623,
+      "releaseTune": -29,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN A5.wav",
+      "root": 69,
+      "low": 69,
+      "high": 70,
+      "tune": -20,
+      "loopStart": 1.9333786848072563,
+      "loopEnd": 2.1191156462585035,
+      "releaseFile": "rel/Button Accordion HN A5_rel.wav",
+      "releaseOffset": 0.07709750566893424,
+      "releaseTune": -20,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN B5.wav",
+      "root": 71,
+      "low": 71,
+      "high": 71,
+      "tune": -7,
+      "loopStart": 1.708231292517007,
+      "loopEnd": 1.8656009070294786,
+      "releaseFile": "rel/Button Accordion HN B5_rel.wav",
+      "releaseOffset": 0.09070294784580499,
+      "releaseTune": -7,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN C6.wav",
+      "root": 72,
+      "low": 72,
+      "high": 73,
+      "tune": -26,
+      "loopStart": 2.3111337868480724,
+      "loopEnd": 2.468843537414966,
+      "releaseFile": "rel/Button Accordion HN C6_rel.wav",
+      "releaseOffset": 0.11337868480725624,
+      "releaseTune": 66,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN D6.wav",
+      "root": 74,
+      "low": 74,
+      "high": 75,
+      "tune": -16,
+      "loopStart": 1.1471201814058958,
+      "loopEnd": 1.3487074829931973,
+      "releaseFile": "rel/Button Accordion HN D6_rel.wav",
+      "releaseOffset": 0.022675736961451247,
+      "releaseTune": -16,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN E6.wav",
+      "root": 76,
+      "low": 76,
+      "high": 78,
+      "tune": -22,
+      "loopStart": 1.9646485260770976,
+      "loopEnd": 2.110952380952381,
+      "releaseFile": "rel/Button Accordion HN E6_rel.wav",
+      "releaseOffset": 0.045351473922902494,
+      "releaseTune": -22,
+      "originalSampleRate": 44100
+    },
+    {
+      "file": "Button Accordion HN G6.wav",
+      "root": 79,
+      "low": 79,
+      "high": 127,
+      "tune": -10,
+      "loopStart": 1.3301133786848072,
+      "loopEnd": 1.441156462585034,
+      "releaseFile": "rel/Button Accordion HN G6_rel.wav",
+      "releaseOffset": 0.011337868480725623,
+      "releaseTune": -10,
+      "originalSampleRate": 44100
+    }
+  ],
+  "buttons": {
+    "BTN_Melody_01": {
+      "push": [
+        61
+      ],
+      "pull": [
+        63
+      ],
+      "row": 1
+    },
+    "BTN_Melody_02": {
+      "push": [
+        55
+      ],
+      "pull": [
+        57
+      ],
+      "row": 1
+    },
+    "BTN_Melody_03": {
+      "push": [
+        59
+      ],
+      "pull": [
+        60
+      ],
+      "row": 1
+    },
+    "BTN_Melody_04": {
+      "push": [
+        62
+      ],
+      "pull": [
+        64
+      ],
+      "row": 1
+    },
+    "BTN_Melody_05": {
+      "push": [
+        67
+      ],
+      "pull": [
+        66
+      ],
+      "row": 1
+    },
+    "BTN_Melody_06": {
+      "push": [
+        71
+      ],
+      "pull": [
+        69
+      ],
+      "row": 1
+    },
+    "BTN_Melody_07": {
+      "push": [
+        74
+      ],
+      "pull": [
+        72
+      ],
+      "row": 1
+    },
+    "BTN_Melody_08": {
+      "push": [
+        79
+      ],
+      "pull": [
+        76
+      ],
+      "row": 1
+    },
+    "BTN_Melody_09": {
+      "push": [
+        83
+      ],
+      "pull": [
+        78
+      ],
+      "row": 1
+    },
+    "BTN_Melody_10": {
+      "push": [
+        86
+      ],
+      "pull": [
+        81
+      ],
+      "row": 1
+    },
+    "BTN_Melody_11": {
+      "push": [
+        66
+      ],
+      "pull": [
+        68
+      ],
+      "row": 2
+    },
+    "BTN_Melody_12": {
+      "push": [
+        55
+      ],
+      "pull": [
+        59
+      ],
+      "row": 2
+    },
+    "BTN_Melody_13": {
+      "push": [
+        60
+      ],
+      "pull": [
+        62
+      ],
+      "row": 2
+    },
+    "BTN_Melody_14": {
+      "push": [
+        64
+      ],
+      "pull": [
+        65
+      ],
+      "row": 2
+    },
+    "BTN_Melody_15": {
+      "push": [
+        67
+      ],
+      "pull": [
+        69
+      ],
+      "row": 2
+    },
+    "BTN_Melody_16": {
+      "push": [
+        72
+      ],
+      "pull": [
+        71
+      ],
+      "row": 2
+    },
+    "BTN_Melody_17": {
+      "push": [
+        76
+      ],
+      "pull": [
+        74
+      ],
+      "row": 2
+    },
+    "BTN_Melody_18": {
+      "push": [
+        79
+      ],
+      "pull": [
+        77
+      ],
+      "row": 2
+    },
+    "BTN_Melody_19": {
+      "push": [
+        84
+      ],
+      "pull": [
+        81
+      ],
+      "row": 2
+    },
+    "BTN_Melody_20": {
+      "push": [
+        88
+      ],
+      "pull": [
+        83
+      ],
+      "row": 2
+    },
+    "BTN_Melody_21": {
+      "push": [
+        91
+      ],
+      "pull": [
+        86
+      ],
+      "row": 2
+    },
+    "BTN_Melody_22": {
+      "push": [
+        75
+      ],
+      "pull": [
+        73
+      ],
+      "row": 3
+    },
+    "BTN_Melody_23": {
+      "push": [
+        60
+      ],
+      "pull": [
+        64
+      ],
+      "row": 3
+    },
+    "BTN_Melody_24": {
+      "push": [
+        65
+      ],
+      "pull": [
+        67
+      ],
+      "row": 3
+    },
+    "BTN_Melody_25": {
+      "push": [
+        69
+      ],
+      "pull": [
+        70
+      ],
+      "row": 3
+    },
+    "BTN_Melody_26": {
+      "push": [
+        72
+      ],
+      "pull": [
+        74
+      ],
+      "row": 3
+    },
+    "BTN_Melody_27": {
+      "push": [
+        77
+      ],
+      "pull": [
+        76
+      ],
+      "row": 3
+    },
+    "BTN_Melody_28": {
+      "push": [
+        81
+      ],
+      "pull": [
+        79
+      ],
+      "row": 3
+    },
+    "BTN_Melody_29": {
+      "push": [
+        84
+      ],
+      "pull": [
+        82
+      ],
+      "row": 3
+    },
+    "BTN_Melody_30": {
+      "push": [
+        89
+      ],
+      "pull": [
+        86
+      ],
+      "row": 3
+    },
+    "BTN_Melody_31": {
+      "push": [
+        93
+      ],
+      "pull": [
+        88
+      ],
+      "row": 3
+    },
+    "BTN_Bass_01": {
+      "push": [
+        43
+      ],
+      "pull": [
+        38
+      ]
+    },
+    "BTN_Bass_02": {
+      "push": [
+        55,
+        59,
+        62
+      ],
+      "pull": [
+        50,
+        54,
+        57
+      ]
+    },
+    "BTN_Bass_03": {
+      "push": [
+        40
+      ],
+      "pull": [
+        45
+      ]
+    },
+    "BTN_Bass_04": {
+      "push": [
+        52,
+        55,
+        59
+      ],
+      "pull": [
+        57,
+        60,
+        64
+      ]
+    },
+    "BTN_Bass_05": {
+      "push": [
+        48
+      ],
+      "pull": [
+        43
+      ]
+    },
+    "BTN_Bass_06": {
+      "push": [
+        60,
+        64,
+        67
+      ],
+      "pull": [
+        55,
+        59,
+        62
+      ]
+    },
+    "BTN_Bass_07": {
+      "push": [
+        45
+      ],
+      "pull": [
+        50
+      ]
+    },
+    "BTN_Bass_08": {
+      "push": [
+        57,
+        61,
+        64
+      ],
+      "pull": [
+        62,
+        65,
+        69
+      ]
+    },
+    "BTN_Bass_09": {
+      "push": [
+        41
+      ],
+      "pull": [
+        48
+      ]
+    },
+    "BTN_Bass_10": {
+      "push": [
+        53,
+        57,
+        60
+      ],
+      "pull": [
+        60,
+        64,
+        67
+      ]
+    },
+    "BTN_Bass_11": {
+      "push": [
+        46
+      ],
+      "pull": [
+        46
+      ]
+    },
+    "BTN_Bass_12": {
+      "push": [
+        58,
+        62,
+        65
+      ],
+      "pull": [
+        58,
+        62,
+        65
+      ]
+    }
+  },
+  "profiles": [
+    {
+      "id": "natural",
+      "label": "Natural · muestra original",
+      "ranks": [
+        {
+          "semitones": 0,
+          "cents": 0,
+          "gain": 1
+        }
+      ],
+      "cutoff": 6100
+    },
+    {
+      "id": "double",
+      "label": "Doble · registro virtual",
+      "ranks": [
+        {
+          "semitones": 0,
+          "cents": -4,
+          "gain": 0.52
+        },
+        {
+          "semitones": 0,
+          "cents": 4,
+          "gain": 0.48
+        }
+      ],
+      "cutoff": 5900
+    },
+    {
+      "id": "musette",
+      "label": "Musette · registro virtual",
+      "ranks": [
+        {
+          "semitones": 0,
+          "cents": -11,
+          "gain": 0.3
+        },
+        {
+          "semitones": 0,
+          "cents": 0,
+          "gain": 0.4
+        },
+        {
+          "semitones": 0,
+          "cents": 11,
+          "gain": 0.3
+        }
+      ],
+      "cutoff": 6600
+    },
+    {
+      "id": "octave",
+      "label": "Octava · registro virtual",
+      "ranks": [
+        {
+          "semitones": -12,
+          "cents": 0,
+          "gain": 0.4
+        },
+        {
+          "semitones": 0,
+          "cents": 0,
+          "gain": 0.6
+        }
+      ],
+      "cutoff": 5200
+    }
+  ],
+  "tunings": [
+    {
+      "id": "GCF",
+      "label": "G/C/F",
+      "solfege": "Sol · Do · Fa",
+      "semitones": 0,
+      "flats": false
+    },
+    {
+      "id": "GCF-low",
+      "label": "G/C/F",
+      "solfege": "Sol · Do · Fa",
+      "semitones": -12,
+      "flats": false
+    },
+    {
+      "id": "FBbEb",
+      "label": "F/B♭/E♭",
+      "solfege": "Fa · Si♭ · Mi♭",
+      "semitones": -2,
+      "flats": true
+    },
+    {
+      "id": "FBbEb-low",
+      "label": "F/B♭/E♭",
+      "solfege": "Fa · Si♭ · Mi♭",
+      "semitones": -14,
+      "flats": true
+    },
+    {
+      "id": "EAD",
+      "label": "E/A/D",
+      "solfege": "Mi · La · Re",
+      "semitones": -3,
+      "flats": false
+    },
+    {
+      "id": "EAD-low",
+      "label": "E/A/D",
+      "solfege": "Mi · La · Re",
+      "semitones": -15,
+      "flats": false
+    },
+    {
+      "id": "ADG",
+      "label": "A/D/G",
+      "solfege": "La · Re · Sol",
+      "semitones": 2,
+      "flats": false
+    },
+    {
+      "id": "ADG-low",
+      "label": "A/D/G",
+      "solfege": "La · Re · Sol",
+      "semitones": -10,
+      "flats": false
+    },
+    {
+      "id": "BbEbAb",
+      "label": "B♭/E♭/A♭",
+      "solfege": "Si♭ · Mi♭ · La♭",
+      "semitones": 3,
+      "flats": true
+    },
+    {
+      "id": "BbEbAb-low",
+      "label": "B♭/E♭/A♭",
+      "solfege": "Si♭ · Mi♭ · La♭",
+      "semitones": -9,
+      "flats": true
+    },
+    {
+      "id": "FsBE",
+      "label": "F♯/B/E",
+      "solfege": "Fa♯ · Si · Mi",
+      "semitones": -1,
+      "flats": false
+    },
+    {
+      "id": "FsBE-low",
+      "label": "F♯/B/E",
+      "solfege": "Fa♯ · Si · Mi",
+      "semitones": -13,
+      "flats": false
+    },
+    {
+      "id": "CFBb",
+      "label": "C/F/B♭",
+      "solfege": "Do · Fa · Si♭",
+      "semitones": 5,
+      "flats": true
+    },
+    {
+      "id": "CFBb-low",
+      "label": "C/F/B♭",
+      "solfege": "Do · Fa · Si♭",
+      "semitones": -7,
+      "flats": true
+    },
+    {
+      "id": "EbAbDb",
+      "label": "E♭/A♭/D♭",
+      "solfege": "Mi♭ · La♭ · Re♭",
+      "semitones": -4,
+      "flats": true
+    },
+    {
+      "id": "EbAbDb-low",
+      "label": "E♭/A♭/D♭",
+      "solfege": "Mi♭ · La♭ · Re♭",
+      "semitones": -16,
+      "flats": true
+    },
+    {
+      "id": "DGC",
+      "label": "D/G/C",
+      "solfege": "Re · Sol · Do",
+      "semitones": -5,
+      "flats": false
+    },
+    {
+      "id": "DGC-low",
+      "label": "D/G/C",
+      "solfege": "Re · Sol · Do",
+      "semitones": -17,
+      "flats": false
+    },
+    {
+      "id": "BEA",
+      "label": "B/E/A",
+      "solfege": "Si · Mi · La",
+      "semitones": 4,
+      "flats": false
+    },
+    {
+      "id": "BEA-low",
+      "label": "B/E/A",
+      "solfege": "Si · Mi · La",
+      "semitones": -8,
+      "flats": false
+    },
+    {
+      "id": "CsFsB",
+      "label": "C♯/F♯/B",
+      "solfege": "Do♯ · Fa♯ · Si",
+      "semitones": 6,
+      "flats": false
+    },
+    {
+      "id": "CsFsB-low",
+      "label": "C♯/F♯/B",
+      "solfege": "Do♯ · Fa♯ · Si",
+      "semitones": -6,
+      "flats": false
+    },
+    {
+      "id": "GsCsFs",
+      "label": "G♯/C♯/F♯",
+      "solfege": "Sol♯ · Do♯ · Fa♯",
+      "semitones": 1,
+      "flats": false
+    },
+    {
+      "id": "GsCsFs-low",
+      "label": "G♯/C♯/F♯",
+      "solfege": "Sol♯ · Do♯ · Fa♯",
+      "semitones": -11,
+      "flats": false
+    }
+  ],
+  "sampleDirectory": "recorded-hn/",
+  "audioRevision": "hn-pcm-natural-2",
+  "processing": "Real Hohner FLAC recordings converted to stereo PCM16 WAV, DC removed, 12 ms sustain-loop blend. Natural registration has no added reed layers or directional lowpass."
+}

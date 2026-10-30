@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "scope": "Keyboard events enter the mounted application. RMS is sampled from its actual post-limiter analyser, not an isolated engine.",
+  "results": [
+    {
+      "direction": "push",
+      "input": "KeyW, no Space",
+      "expectedMidi": 55,
+      "observedGraphMidi": [
+        55
+      ],
+      "actualOutputRms": 0.074628,
+      "context": "running",
+      "mode": "direct",
+      "passed": true
+    },
+    {
+      "direction": "pull",
+      "input": "KeyW, no Space",
+      "expectedMidi": 57,
+      "observedGraphMidi": [
+        57
+      ],
+      "actualOutputRms": 0.062387,
+      "context": "running",
+      "mode": "direct",
+      "passed": true
+    }
+  ]
+}

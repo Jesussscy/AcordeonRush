@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "fixture": "Original C-D-E exercise rendered by the production sampler, not commercial audio",
+  "localClockDifferenceSeconds": 0.01006499999999999,
+  "checks": 8,
+  "results": [
+    {
+      "position": "0.304",
+      "mediaTime": 0.314065,
+      "phase": "playing",
+      "paused": false,
+      "difference": 0.01006499999999999
+    },
+    {
+      "label": "El audio local es el reloj del chart (error DOM <60 ms)",
+      "passed": true
+    },
+    {
+      "label": "La velocidad conserva la altura de la referencia",
+      "passed": true
+    },
+    {
+      "label": "Pausa detiene el audio local y el chart",
+      "passed": true
+    },
+    {
+      "label": "Buscar en el chart busca el mismo instante del audio local",
+      "passed": true
+    },
+    {
+      "label": "Tempo del medio y del instrumento comparten velocidad",
+      "passed": true
+    },
+    {
+      "label": "La nota sostenida Mi4 se reconstruye desde el medio local",
+      "passed": true
+    },
+    {
+      "label": "Un audio incompatible se rechaza sin ocultar el error en pantalla grande",
+      "passed": true
+    }
+  ]
+}

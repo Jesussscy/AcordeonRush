@@ -1,0 +1,32 @@
+[
+  {
+    "id": "azul-caribe",
+    "name": "Azul Caribe",
+    "description": "Perlado azul profundo, parrilla de rombos y nervaduras en espiga, ribetes de níquel.",
+    "defaultTuning": "ADG",
+    "color": "#204a99",
+    "path": "variants/azul-caribe/instrument.glb",
+    "blend": "variants/azul-caribe/instrument.blend",
+    "thumbnail": "variants/azul-caribe/preview.png"
+  },
+  {
+    "id": "marfil-artesanal",
+    "name": "Marfil Artesanal",
+    "description": "Perlado marfil cálido, parrilla de ranuras verticales y marquetería geométrica original.",
+    "defaultTuning": "FBbEb",
+    "color": "#c9b58e",
+    "path": "variants/marfil-artesanal/instrument.glb",
+    "blend": "variants/marfil-artesanal/instrument.blend",
+    "thumbnail": "variants/marfil-artesanal/preview.png"
+  },
+  {
+    "id": "negro-escenario",
+    "name": "Negro Escenario",
+    "description": "Laca grafito, ranuras horizontales, cantoneras protectoras y acentos vino discretos.",
+    "defaultTuning": "EAD",
+    "color": "#292e3a",
+    "path": "variants/negro-escenario/instrument.glb",
+    "blend": "variants/negro-escenario/instrument.blend",
+    "thumbnail": "variants/negro-escenario/preview.png"
+  }
+]

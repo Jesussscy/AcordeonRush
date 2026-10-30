@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Matriz musical y audio · AcordenRush</title><style>body{background:#101813;color:#f5e8ce;font:14px system-ui;padding:24px}button{padding:14px;background:#e9b878;border:0;border-radius:8px}pre{white-space:pre-wrap}a{color:#e9b878}</style><h1>24 opciones · 43 botones · dos sentidos</h1><p>Renderiza las grabaciones mediante el motor de producción. Comprueba cada salida y estima alturas aisladas con correlación de periodos. Los resultados no certifican el timbre de un instrumento físico diferente.</p><button id="run">Verificar toda la matriz</button><pre id="report">Lista.</pre><a id="preview" hidden download="acordenrush-cerrado-abierto.wav">Comparación de cerrado y abierto</a><script type="module">
+import {createAccordionAudio} from '/src/recorded-accordion-audio.js';
+import {allButtons,tuningOptions} from '/src/accordion-catalog.ts';
+const out=document.querySelector('#report'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function meter(samples,start,end,sr){let sum=0,peak=0;const a=Math.floor(start*sr),b=Math.min(samples.length,Math.floor(end*sr));for(let i=a;i<b;i++){sum+=samples[i]*samples[i];peak=Math.max(peak,Math.abs(samples[i]));}return {rms:Math.sqrt(sum/(b-a)),peak};}
+function periodPitch(data,from,to,sr,midi){
+ const f=440*2**((midi-69)/12),expected=sr/f,step=Math.max(1,Math.floor(expected/8)),begin=Math.floor(from*sr),finish=Math.floor(to*sr);
+ const correlation=lag=>{let ab=0,aa=0,bb=0;for(let i=begin;i+lag+1<finish;i+=step){const j=i+lag,k=Math.floor(j),v=data[k]+(data[k+1]-data[k])*(j-k),u=data[i];ab+=u*v;aa+=u*u;bb+=v*v;}return ab/Math.sqrt(aa*bb||1);};
+ let best={score:-1,cents:0,lag:expected};for(let cents=-60;cents<=60;cents+=2){const lag=expected/2**(cents/1200),score=correlation(lag);if(score>best.score)best={score,cents,lag};}
+ const high=correlation(best.lag/2),low=correlation(best.lag*2);return {...best,octaveWarning:high>best.score-.008&&high>.93?'higher-period-ambiguity':low>best.score+.12?'lower-period-ambiguity':null};
+}
+function wav(samples,sr){const bytes=new ArrayBuffer(44+samples.length*2),v=new DataView(bytes);function word(offset,text){for(let i=0;i<text.length;i++)v.setUint8(offset+i,text.charCodeAt(i));}word(0,'RIFF');v.setUint32(4,36+samples.length*2,true);word(8,'WAVE');word(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);word(36,'data');v.setUint32(40,samples.length*2,true);samples.forEach((n,i)=>v.setInt16(44+i*2,Math.round(Math.max(-1,Math.min(1,n))*32767),true));const raw=new Uint8Array(bytes);let binary='';for(let i=0;i<raw.length;i+=8192)binary+=String.fromCharCode(...raw.subarray(i,i+8192));return 'data:audio/wav;base64,'+btoa(binary);}
+document.querySelector('#run').onclick=async()=>{const results=[],isolated=new Map(),pitchResults=[];try{
+ for(const tuning of tuningOptions){
+  const cases=allButtons.flatMap(button=>['push','pull'].map(direction=>({button,direction,pitches:button[direction].map(n=>n+tuning.semitones)}))),sr=32000,slot=.36;
+  const context=new OfflineAudioContext(1,Math.ceil((cases.length*slot+.5)*sr),sr),audio=await createAccordionAudio({context,baseURL:new URL('/instrument/',location.origin)});
+  await audio.preload();audio.setPlayingMode('direct');audio.setExpression(.8);audio.setVolume(.8);audio.setTuning(tuning.id);audio.setProfile('natural');
+  cases.forEach((c,i)=>{audio.scheduleNote(c.button.bone,c.direction,.05+i*slot,.16,.9);if(c.pitches.length===1&&!isolated.has(c.pitches[0]))isolated.set(c.pitches[0],{tuning:tuning.id,button:c.button.bone,direction:c.direction,midi:c.pitches[0]});});
+  const rendered=await context.startRendering(),samples=rendered.getChannelData(0);let minRms=Infinity,maxPeak=0;
+  cases.forEach((c,i)=>{const signal=meter(samples,.05+i*slot+.035,.05+i*slot+.145,sr);if(!(signal.rms>.0001&&signal.peak<.99))throw Error(JSON.stringify({tuning:tuning.id,button:c.button.bone,direction:c.direction,pitches:c.pitches,signal}));minRms=Math.min(minRms,signal.rms);maxPeak=Math.max(maxPeak,signal.peak);});
+  results.push({tuning:tuning.id,buttonDirectionCases:cases.length,minRms,maxPeak,passed:true});audio.dispose();out.textContent=JSON.stringify({running:true,completed:results.length,results},null,2);await sleep(0);
+ }
+ // Isolate every distinct available single-note pitch; avoid treating chord harmonics as fundamentals.
+ const pitches=[...isolated.values()].sort((a,b)=>a.midi-b.midi),sr=48000,slot=.55;
+ for(let chunk=0;chunk<pitches.length;chunk+=20){const part=pitches.slice(chunk,chunk+20),context=new OfflineAudioContext(1,Math.ceil((part.length*slot+.5)*sr),sr),audio=await createAccordionAudio({context,baseURL:new URL('/instrument/',location.origin)});await audio.preload();audio.setPlayingMode('direct');audio.setExpression(.8);audio.setVolume(.8);
+  part.forEach((c,i)=>{audio.setTuning(c.tuning);audio.scheduleNote(c.button,c.direction,.05+i*slot,.33,.9);});const rendered=await context.startRendering(),data=rendered.getChannelData(0);
+  part.forEach((c,i)=>{const measured=periodPitch(data,.05+i*slot+.07,.05+i*slot+.29,sr,c.midi);pitchResults.push({...c,periodEstimate:measured,withinNaturalReedTolerance:Math.abs(measured.cents)<=50&&measured.score>.35});});audio.dispose();out.textContent=JSON.stringify({running:true,completed:results.length,isolatedPitches:pitchResults.length,results},null,2);
+ }
+ const comparison=new OfflineAudioContext(1,48000*3,48000),engine=await createAccordionAudio({context:comparison,baseURL:new URL('/instrument/',location.origin)});await engine.preload();engine.setPlayingMode('direct');engine.setExpression(.8);engine.setVolume(.8);engine.setTuning('GCF');engine.scheduleNote('BTN_Melody_02','push',.2,.8);engine.scheduleNote('BTN_Melody_02','pull',1.6,.8);const rendered=await comparison.startRendering();document.querySelector('#preview').href=wav(rendered.getChannelData(0),48000);document.querySelector('#preview').hidden=false;engine.dispose();
+ const suspicious=pitchResults.filter(p=>!p.withinNaturalReedTolerance||p.periodEstimate.octaveWarning);
+ out.textContent=JSON.stringify({passed:true,musicalCases:results.reduce((n,r)=>n+r.buttonDirectionCases,0),options:results.length,allSignalCasesPassed:true,pitchMeasurement:{method:'Expected-period correlation ±60 cents plus half/double-period ambiguity checks on isolated natural-register notes; not human listening.',isolatedPitches:pitchResults.length,requiresReview:suspicious.length,results:pitchResults},results},null,2);
+ }catch(error){out.textContent=JSON.stringify({passed:false,error:String(error),results,pitchResults},null,2);}};
+</script></html>

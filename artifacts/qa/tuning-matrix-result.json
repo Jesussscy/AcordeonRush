@@ -1,0 +1,1210 @@
+{
+  "passed": true,
+  "musicalCases": 2064,
+  "options": 24,
+  "allSignalCasesPassed": true,
+  "pitchMeasurement": {
+    "method": "Expected-period correlation ±60 cents plus half/double-period ambiguity checks on isolated natural-register notes; not human listening.",
+    "isolatedPitches": 79,
+    "requiresReview": 0,
+    "results": [
+      {
+        "tuning": "DGC-low",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 21,
+        "periodEstimate": {
+          "score": 0.8994836140119807,
+          "cents": -26,
+          "lag": 1771.8659408046105,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EbAbDb-low",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 22,
+        "periodEstimate": {
+          "score": 0.9369894834453893,
+          "cents": -26,
+          "lag": 1672.4187470410538,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD-low",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 23,
+        "periodEstimate": {
+          "score": 0.9156383186035553,
+          "cents": -30,
+          "lag": 1582.2045441654295,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb-low",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 24,
+        "periodEstimate": {
+          "score": 0.9277587097556595,
+          "cents": -38,
+          "lag": 1500.319179511123,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD-low",
+        "button": "BTN_Bass_03",
+        "direction": "push",
+        "midi": 25,
+        "periodEstimate": {
+          "score": 0.9281570583402619,
+          "cents": -38,
+          "lag": 1416.1127343642233,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 26,
+        "periodEstimate": {
+          "score": 0.9407094281729842,
+          "cents": -30,
+          "lag": 1330.470129386847,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb-low",
+        "button": "BTN_Bass_09",
+        "direction": "push",
+        "midi": 27,
+        "periodEstimate": {
+          "score": 0.9545069176134429,
+          "cents": -40,
+          "lag": 1263.0713344934209,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_03",
+        "direction": "push",
+        "midi": 28,
+        "periodEstimate": {
+          "score": 0.9627902759524406,
+          "cents": -32,
+          "lag": 1186.6842526366693,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_09",
+        "direction": "push",
+        "midi": 29,
+        "periodEstimate": {
+          "score": 0.9588639049115633,
+          "cents": -28,
+          "lag": 1117.4958346042317,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD-low",
+        "button": "BTN_Bass_03",
+        "direction": "pull",
+        "midi": 30,
+        "periodEstimate": {
+          "score": 0.9713540784744614,
+          "cents": -24,
+          "lag": 1052.3413768937544,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_01",
+        "direction": "push",
+        "midi": 31,
+        "periodEstimate": {
+          "score": 0.9741500825862676,
+          "cents": -30,
+          "lag": 996.7264052166732,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb-low",
+        "button": "BTN_Bass_11",
+        "direction": "push",
+        "midi": 32,
+        "periodEstimate": {
+          "score": 0.9759561200986098,
+          "cents": -28,
+          "lag": 939.6982413796565,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_03",
+        "direction": "pull",
+        "midi": 33,
+        "periodEstimate": {
+          "score": 0.9657966936076887,
+          "cents": -20,
+          "lag": 882.8678751725869,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_11",
+        "direction": "push",
+        "midi": 34,
+        "periodEstimate": {
+          "score": 0.9733058051587731,
+          "cents": -24,
+          "lag": 835.2439043554047,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 35,
+        "periodEstimate": {
+          "score": 0.9835085258262736,
+          "cents": -32,
+          "lag": 792.0167173677042,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Bass_05",
+        "direction": "push",
+        "midi": 36,
+        "periodEstimate": {
+          "score": 0.9813084517635408,
+          "cents": -28,
+          "lag": 745.8389884493669,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD",
+        "button": "BTN_Bass_03",
+        "direction": "push",
+        "midi": 37,
+        "periodEstimate": {
+          "score": 0.9813273440453099,
+          "cents": -26,
+          "lag": 703.1654645949656,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_01",
+        "direction": "pull",
+        "midi": 38,
+        "periodEstimate": {
+          "score": 0.985508073868918,
+          "cents": -28,
+          "lag": 664.4669987486284,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb",
+        "button": "BTN_Bass_09",
+        "direction": "push",
+        "midi": 39,
+        "periodEstimate": {
+          "score": 0.9863078933857512,
+          "cents": -30,
+          "lag": 627.898289459267,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_03",
+        "direction": "push",
+        "midi": 40,
+        "periodEstimate": {
+          "score": 0.9863053161890843,
+          "cents": -24,
+          "lag": 590.6066287144347,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_09",
+        "direction": "push",
+        "midi": 41,
+        "periodEstimate": {
+          "score": 0.9830000436144642,
+          "cents": -24,
+          "lag": 557.4584257430893,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD",
+        "button": "BTN_Bass_03",
+        "direction": "pull",
+        "midi": 42,
+        "periodEstimate": {
+          "score": 0.9824028245877389,
+          "cents": -22,
+          "lag": 525.5631832079108,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_01",
+        "direction": "push",
+        "midi": 43,
+        "periodEstimate": {
+          "score": 0.9831686898590728,
+          "cents": -22,
+          "lag": 496.06558832116974,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb",
+        "button": "BTN_Bass_11",
+        "direction": "push",
+        "midi": 44,
+        "periodEstimate": {
+          "score": 0.9891023823143308,
+          "cents": -24,
+          "lag": 468.76479186034277,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_03",
+        "direction": "pull",
+        "midi": 45,
+        "periodEstimate": {
+          "score": 0.9862857289537383,
+          "cents": -22,
+          "lag": 441.9441967488634,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_11",
+        "direction": "push",
+        "midi": 46,
+        "periodEstimate": {
+          "score": 0.9865244308736515,
+          "cents": -22,
+          "lag": 417.13977494999654,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_03",
+        "direction": "push",
+        "midi": 47,
+        "periodEstimate": {
+          "score": 0.9842638107646572,
+          "cents": -22,
+          "lag": 393.7275183731243,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_05",
+        "direction": "push",
+        "midi": 48,
+        "periodEstimate": {
+          "score": 0.9840404775219509,
+          "cents": -22,
+          "lag": 371.6292907883016,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_01",
+        "direction": "push",
+        "midi": 49,
+        "periodEstimate": {
+          "score": 0.985589696808042,
+          "cents": -24,
+          "lag": 351.1768025174881,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Bass_07",
+        "direction": "pull",
+        "midi": 50,
+        "periodEstimate": {
+          "score": 0.9686179692882666,
+          "cents": -20,
+          "lag": 330.7017963295414,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_01",
+        "direction": "pull",
+        "midi": 51,
+        "periodEstimate": {
+          "score": 0.9715742566749478,
+          "cents": -18,
+          "lag": 311.7805395798748,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_04",
+        "direction": "pull",
+        "midi": 52,
+        "periodEstimate": {
+          "score": 0.9679448741224004,
+          "cents": -20,
+          "lag": 294.621806436696,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_14",
+        "direction": "pull",
+        "midi": 53,
+        "periodEstimate": {
+          "score": 0.9609445740332181,
+          "cents": -18,
+          "lag": 277.7648830528138,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_05",
+        "direction": "pull",
+        "midi": 54,
+        "periodEstimate": {
+          "score": 0.9716272649617351,
+          "cents": -22,
+          "lag": 262.7815916039554,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_02",
+        "direction": "push",
+        "midi": 55,
+        "periodEstimate": {
+          "score": 0.9938041882438635,
+          "cents": -8,
+          "lag": 246.03511135544824,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_11",
+        "direction": "pull",
+        "midi": 56,
+        "periodEstimate": {
+          "score": 0.994563239056875,
+          "cents": -8,
+          "lag": 232.2262216261876,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_02",
+        "direction": "pull",
+        "midi": 57,
+        "periodEstimate": {
+          "score": 0.9875300474323893,
+          "cents": -10,
+          "lag": 219.44573259662258,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF-low",
+        "button": "BTN_Melody_25",
+        "direction": "pull",
+        "midi": 58,
+        "periodEstimate": {
+          "score": 0.9859184466809271,
+          "cents": -10,
+          "lag": 207.12919002556782,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_03",
+        "direction": "push",
+        "midi": 59,
+        "periodEstimate": {
+          "score": 0.9898907810374468,
+          "cents": -4,
+          "lag": 194.82752968590157,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_03",
+        "direction": "pull",
+        "midi": 60,
+        "periodEstimate": {
+          "score": 0.9813463003113324,
+          "cents": -18,
+          "lag": 185.38581799388731,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_01",
+        "direction": "push",
+        "midi": 61,
+        "periodEstimate": {
+          "score": 0.9771768419696437,
+          "cents": -16,
+          "lag": 174.77888238319028,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_04",
+        "direction": "push",
+        "midi": 62,
+        "periodEstimate": {
+          "score": 0.9858484596419457,
+          "cents": -2,
+          "lag": 163.64061701299835,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_01",
+        "direction": "pull",
+        "midi": 63,
+        "periodEstimate": {
+          "score": 0.9857009507093809,
+          "cents": -2,
+          "lag": 154.45617490995204,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_04",
+        "direction": "pull",
+        "midi": 64,
+        "periodEstimate": {
+          "score": 0.9729765808375332,
+          "cents": -12,
+          "lag": 146.63175268291823,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_14",
+        "direction": "pull",
+        "midi": 65,
+        "periodEstimate": {
+          "score": 0.9731463500189992,
+          "cents": -12,
+          "lag": 138.40194478090152,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_05",
+        "direction": "pull",
+        "midi": 66,
+        "periodEstimate": {
+          "score": 0.9839797295941007,
+          "cents": -8,
+          "lag": 130.33256019883848,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_05",
+        "direction": "push",
+        "midi": 67,
+        "periodEstimate": {
+          "score": 0.9865176264753172,
+          "cents": -14,
+          "lag": 123.44464169329093,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_11",
+        "direction": "pull",
+        "midi": 68,
+        "periodEstimate": {
+          "score": 0.9866095788522157,
+          "cents": -14,
+          "lag": 116.51622633249289,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_06",
+        "direction": "pull",
+        "midi": 69,
+        "periodEstimate": {
+          "score": 0.9946631626954788,
+          "cents": 0,
+          "lag": 109.0909090909091,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_25",
+        "direction": "pull",
+        "midi": 70,
+        "periodEstimate": {
+          "score": 0.9948102685288267,
+          "cents": -2,
+          "lag": 103.08712899623086,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_06",
+        "direction": "push",
+        "midi": 71,
+        "periodEstimate": {
+          "score": 0.9972927746751354,
+          "cents": 8,
+          "lag": 96.74087881780258,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_07",
+        "direction": "pull",
+        "midi": 72,
+        "periodEstimate": {
+          "score": 0.9981622625808794,
+          "cents": -12,
+          "lag": 92.37221589409387,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_22",
+        "direction": "pull",
+        "midi": 73,
+        "periodEstimate": {
+          "score": 0.9979947605586313,
+          "cents": -12,
+          "lag": 87.18776178792285,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_07",
+        "direction": "push",
+        "midi": 74,
+        "periodEstimate": {
+          "score": 0.9987170460630975,
+          "cents": -4,
+          "lag": 81.91488565280564,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_22",
+        "direction": "push",
+        "midi": 75,
+        "periodEstimate": {
+          "score": 0.9987137264731686,
+          "cents": -4,
+          "lag": 77.31735639394144,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_08",
+        "direction": "pull",
+        "midi": 76,
+        "periodEstimate": {
+          "score": 0.9960389955967585,
+          "cents": -2,
+          "lag": 72.8936079662872,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_18",
+        "direction": "pull",
+        "midi": 77,
+        "periodEstimate": {
+          "score": 0.9964131645429221,
+          "cents": -2,
+          "lag": 68.80240411806815,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_09",
+        "direction": "pull",
+        "midi": 78,
+        "periodEstimate": {
+          "score": 0.9968703371024864,
+          "cents": -2,
+          "lag": 64.9408218977897,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_08",
+        "direction": "push",
+        "midi": 79,
+        "periodEstimate": {
+          "score": 0.9987872601791203,
+          "cents": -4,
+          "lag": 61.36682643757142,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb",
+        "button": "BTN_Melody_29",
+        "direction": "pull",
+        "midi": 80,
+        "periodEstimate": {
+          "score": 0.9988616486527182,
+          "cents": -4,
+          "lag": 57.9225711252195,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_10",
+        "direction": "pull",
+        "midi": 81,
+        "periodEstimate": {
+          "score": 0.9988134227013943,
+          "cents": -4,
+          "lag": 54.671627009573065,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_29",
+        "direction": "pull",
+        "midi": 82,
+        "periodEstimate": {
+          "score": 0.9986534619582355,
+          "cents": -4,
+          "lag": 51.603144366850685,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_09",
+        "direction": "push",
+        "midi": 83,
+        "periodEstimate": {
+          "score": 0.9985424940725194,
+          "cents": -4,
+          "lag": 48.70688242147539,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_19",
+        "direction": "push",
+        "midi": 84,
+        "periodEstimate": {
+          "score": 0.9986598584719865,
+          "cents": -4,
+          "lag": 45.973175168438146,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD",
+        "button": "BTN_Melody_20",
+        "direction": "push",
+        "midi": 85,
+        "periodEstimate": {
+          "score": 0.9987873726667378,
+          "cents": -4,
+          "lag": 43.392899113904654,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_10",
+        "direction": "push",
+        "midi": 86,
+        "periodEstimate": {
+          "score": 0.9988760720406391,
+          "cents": -2,
+          "lag": 40.91015425324959,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "FBbEb",
+        "button": "BTN_Melody_30",
+        "direction": "push",
+        "midi": 87,
+        "periodEstimate": {
+          "score": 0.9987240813936775,
+          "cents": -2,
+          "lag": 38.61404372748801,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_20",
+        "direction": "push",
+        "midi": 88,
+        "periodEstimate": {
+          "score": 0.9986830068416731,
+          "cents": -2,
+          "lag": 36.4468039831436,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_30",
+        "direction": "push",
+        "midi": 89,
+        "periodEstimate": {
+          "score": 0.9987718458501921,
+          "cents": -2,
+          "lag": 34.40120205903408,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "EAD",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 90,
+        "periodEstimate": {
+          "score": 0.9987586547887528,
+          "cents": -2,
+          "lag": 32.47041094889485,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_21",
+        "direction": "push",
+        "midi": 91,
+        "periodEstimate": {
+          "score": 0.9986528997135006,
+          "cents": -2,
+          "lag": 30.647986816880262,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "BbEbAb",
+        "button": "BTN_Melody_30",
+        "direction": "push",
+        "midi": 92,
+        "periodEstimate": {
+          "score": 0.9988852123915174,
+          "cents": -2,
+          "lag": 28.92784749186046,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "GCF",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 93,
+        "periodEstimate": {
+          "score": 0.9987017373047551,
+          "cents": -2,
+          "lag": 27.304252168740643,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "BbEbAb",
+        "button": "BTN_Melody_21",
+        "direction": "push",
+        "midi": 94,
+        "periodEstimate": {
+          "score": 0.9986174188105847,
+          "cents": -2,
+          "lag": 25.771782249057715,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "ADG",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 95,
+        "periodEstimate": {
+          "score": 0.9983089842417943,
+          "cents": -2,
+          "lag": 24.325323256911624,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "BbEbAb",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 96,
+        "periodEstimate": {
+          "score": 0.998902561075164,
+          "cents": -2,
+          "lag": 22.96004776987747,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "BEA",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 97,
+        "periodEstimate": {
+          "score": 0.9978634627256634,
+          "cents": -2,
+          "lag": 21.671399307931946,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "CFBb",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 98,
+        "periodEstimate": {
+          "score": 0.9974580319951413,
+          "cents": -2,
+          "lag": 20.455077126624797,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      },
+      {
+        "tuning": "CsFsB",
+        "button": "BTN_Melody_31",
+        "direction": "push",
+        "midi": 99,
+        "periodEstimate": {
+          "score": 0.9976268226983953,
+          "cents": -2,
+          "lag": 19.307021863744005,
+          "octaveWarning": null
+        },
+        "withinNaturalReedTolerance": true
+      }
+    ]
+  },
+  "results": [
+    {
+      "tuning": "GCF",
+      "buttonDirectionCases": 86,
+      "minRms": 0.023399170577958043,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "GCF-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.015480143530558196,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "FBbEb",
+      "buttonDirectionCases": 86,
+      "minRms": 0.022217645349204455,
+      "maxPeak": 0.24667999148368835,
+      "passed": true
+    },
+    {
+      "tuning": "FBbEb-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.013681285117989472,
+      "maxPeak": 0.2399909794330597,
+      "passed": true
+    },
+    {
+      "tuning": "EAD",
+      "buttonDirectionCases": 86,
+      "minRms": 0.021097048084709677,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "EAD-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.013768354735472315,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "ADG",
+      "buttonDirectionCases": 86,
+      "minRms": 0.02339584772189679,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "ADG-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.015540937379236237,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "BbEbAb",
+      "buttonDirectionCases": 86,
+      "minRms": 0.027417305903143833,
+      "maxPeak": 0.24667999148368835,
+      "passed": true
+    },
+    {
+      "tuning": "BbEbAb-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.01722483586218666,
+      "maxPeak": 0.2409326732158661,
+      "passed": true
+    },
+    {
+      "tuning": "FsBE",
+      "buttonDirectionCases": 86,
+      "minRms": 0.023082961862593177,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "FsBE-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.014017476271205207,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "CFBb",
+      "buttonDirectionCases": 86,
+      "minRms": 0.023488161601251122,
+      "maxPeak": 0.24667999148368835,
+      "passed": true
+    },
+    {
+      "tuning": "CFBb-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.017557820257444193,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "EbAbDb",
+      "buttonDirectionCases": 86,
+      "minRms": 0.02060255038970671,
+      "maxPeak": 0.24667999148368835,
+      "passed": true
+    },
+    {
+      "tuning": "EbAbDb-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.013198752713221023,
+      "maxPeak": 0.23003295063972473,
+      "passed": true
+    },
+    {
+      "tuning": "DGC",
+      "buttonDirectionCases": 86,
+      "minRms": 0.019272860847525802,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "DGC-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.012176852101625819,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "BEA",
+      "buttonDirectionCases": 86,
+      "minRms": 0.025641619211709175,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "BEA-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.017628389392253155,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "CsFsB",
+      "buttonDirectionCases": 86,
+      "minRms": 0.027785116533814366,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "CsFsB-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.019373567142538285,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "GsCsFs",
+      "buttonDirectionCases": 86,
+      "minRms": 0.026301656849163982,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    },
+    {
+      "tuning": "GsCsFs-low",
+      "buttonDirectionCases": 86,
+      "minRms": 0.01591252533709509,
+      "maxPeak": 0.24764829874038696,
+      "passed": true
+    }
+  ]
+}

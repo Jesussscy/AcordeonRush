@@ -1,0 +1,19 @@
+<!doctype html><html><meta charset="utf-8"><title>Accordion audio QA</title><h1>Prueba de decodificación y síntesis</h1><pre id="result">Ejecutando…</pre><script type="module">
+import {createAccordionAudio} from './accordion-audio.js';
+const output=document.querySelector('#result');
+try{
+ const results=[];
+ for(const profile of ['natural','double','musette','octave']){
+  const context=new OfflineAudioContext(2,120000,48000);
+  const audio=await createAccordionAudio({context});await audio.preload();audio.setProfile(profile);audio.setBellows('pull',.7);audio.noteOn('Melody_05');audio.noteOn('Bass_04');
+  await new Promise(r=>setTimeout(r,0));
+  const suspended=context.suspend(.70);const rendering=context.startRendering();await suspended;audio.noteOff('Melody_05');audio.noteOff('Bass_04');await new Promise(r=>setTimeout(r,0));await context.resume();const buffer=await rendering;
+  let energy=0,tail=0,peak=0;const data=buffer.getChannelData(0);
+  for(let i=0;i<data.length;i++){peak=Math.max(peak,Math.abs(data[i]));energy+=data[i]**2;if(i>data.length-9600)tail+=data[i]**2;}
+  const rms=Math.sqrt(energy/data.length),tailRms=Math.sqrt(tail/9600);
+  if(!(peak>.001&&peak<.99&&rms>.0001&&tailRms<.001))throw Error(`${profile}: peak ${peak} / rms ${rms} / tail ${tailRms}`);
+  results.push({profile,decodedFiles:34,sampleRate:48000,seconds:2.5,peak,rms,tailRms,passed:true});audio.dispose();
+ }
+ output.textContent=JSON.stringify({passed:true,method:'Real browser OfflineAudioContext decoded all 34 FLAC recordings and rendered four registrations with a melody note and bass chord, including note-off. Waveform checks; no listening claim.',results},null,2);document.documentElement.dataset.result='pass';
+}catch(error){output.textContent=JSON.stringify({passed:false,error:String(error)},null,2);document.documentElement.dataset.result='fail';console.error(error);}
+</script></html>

@@ -1,0 +1,229 @@
+PROMPT MAESTRO — ACORDENRUSH
+Corrección del audio bisonoro, afinaciones verificables, canciones sincronizadas e integración de modelos Curva actualizados
+
+CONTEXTO Y RESULTADO ESPERADO
+
+Trabaja sobre el proyecto existente en C:\Users\Xermy\Downloads\AcordeonRush. Conserva React, TypeScript, Three.js, Vite, la identidad cálida y caribeña y los recursos originales. La interfaz es principalmente en español. Implementa una experiencia musical completa, utilizable y comprobable; no te limites a cambiar textos, mostrar animaciones o repetir que el sonido es real.
+
+El usuario sigue reportando una falla crítica: los botones suenan con fuelle abierto, pero no suenan correctamente al seleccionar cerrado. Trátala como una incidencia abierta aunque existan reportes de pruebas aprobadas. Después de resolverla, desarrolla la sección de canciones: notas con nombre y octava en su instante correcto, configuración automática del instrumento y un modo en el que el acordeón se toca solo siguiendo los eventos musicales.
+
+Prioriza «Las locuras mías» como primer caso completo. Conserva el resto del repertorio existente. Integra los modelos y animaciones que el usuario acaba de actualizar. Mantén la opción Pantalla grande: acordeón 3D arriba, teclado debajo, controles esenciales y salida accesible.
+
+1. PUNTO DE PARTIDA: HECHOS Y PROBLEMAS QUE DEBES REVISAR
+
+- La práctica está en src/PracticeStudio.tsx; la escena, en src/AccordionScene.tsx; el motor web, en src/recorded-accordion-audio.js.
+- El catálogo y mapa musical están en src/accordion-catalog.ts, src/accordion-map.ts y public/instruments/layout.json. src/practice.ts adapta los ejercicios; src/songs.ts genera actualmente los arreglos.
+- src/OriginalTrack.tsx integra YouTube. Su existencia no prueba que el chart actual esté sincronizado con una grabación.
+- Las melodías actuales se generan a partir de motivos, escalas y patrones. No son transcripciones verificadas del acordeón de las grabaciones comerciales.
+- makeChart busca notas cercanas y añade un desplazamiento temporal fijo. lessonFor cambia duraciones para evitar solapamientos. Esas adaptaciones no pueden utilizarse silenciosamente para una transcripción exacta.
+- Las 26 opciones actuales derivan de un mapa base mediante transposiciones y variantes graves. No son 26 acordeones grabados ni 26 mapas de fabricante independientes.
+- Revisa la duplicación enarmónica: D♯/G♯/C♯ y E♭/A♭/D♭ representan las mismas clases de altura; los desplazamientos actuales difieren una octava. Una diferencia de registro no justifica presentarlas como familias musicales distintas.
+- El banco Hohner/FreePats contiene 17 grabaciones sostenidas y 17 liberaciones. Los WAV de recorded-hn proceden de los FLAC conservados. Cambiar el formato a WAV no crea nuevas grabaciones ni demuestra mayor realismo.
+- Las verificaciones previas del motor por separado y de atributos DOM no descartan un fallo en la ruta real interfaz → estado → motor → salida audible.
+
+No conviertas estos hechos en excusas para dejar el trabajo a medias. Úsalos para decidir qué corregir y qué verificar antes de anunciar resultados.
+
+2. PRIORIDAD CERO: SONIDO CORRECTO ABIERTO Y CERRADO
+
+Separa explícitamente estas variables:
+
+a) Dirección musical: push = cerrar/empujar; pull = abrir/halar.
+b) Apertura visual: posición geométrica del fuelle entre cerrado y abierto.
+c) Expresión/presión: intensidad sonora.
+d) Botones mantenidos y origen de cada pulsación.
+e) Transporte: reproducción, pausa, búsqueda y demostración.
+
+En el modo normal, el usuario elige «Notas al cerrar» o «Notas al abrir» y toca. Ambas opciones deben producir sonido inmediatamente, sin mantener Espacio ni activar otro interruptor de aire. Arranca en cerrado y reproducción directa. El estado visual de fuelle cerrado, un valor de apertura cero o la ausencia de la tecla Espacio no pueden silenciar las notas del modo directo.
+
+La dirección selecciona el conjunto de notas de cada botón. No implementes cerrado como volumen cero ni abierto como el único estado sonoro. No hagas que cambiar de dirección altere solamente la etiqueta mientras se reproduce la misma nota.
+
+En un instrumento físico ambas direcciones utilizan flujo de aire; aquí ese movimiento se simula para que el control sea sencillo. Explica esto brevemente sin confundir una posición estática totalmente cerrada con el gesto de cerrar que produce sonido.
+
+Investiga y corrige el origen real del fallo: asignación push/pull, presión efectiva enviada al motor, inicialización asíncrona, AudioContext suspendido, cierre de voces, lecturas de estado obsoletas, eventos de teclado y efectos que restablecen la ganancia. Examina también el cambio de vista y las pulsaciones antes de terminar la precarga.
+
+Requisitos de interacción:
+
+- Clic, tacto, teclado físico y botones del modelo utilizan el mismo controlador musical.
+- Al mantener un botón y cambiar de dirección, cambia a su otra nota de forma controlada, sin voces acumuladas ni silencio permanente.
+- Si un botón tiene la misma altura en ambos sentidos según el mapa, conserva esa coincidencia. No inventes diferencias para todos los botones.
+- Libera una voz solamente cuando ningún origen siga manteniendo ese botón. Teclado y puntero simultáneos no deben cancelarse entre sí.
+- Espacio puede seleccionar abierto temporalmente; al soltar vuelve al sentido elegido. Define Mayús + Espacio de forma coherente y documenta el comportamiento.
+- El modo manual, si se conserva, es avanzado, opcional y claramente rotulado. Pantalla grande debe permitir tocar directamente.
+- Al perder foco, ocultar la pestaña, cambiar de canción o detener, apaga notas y colas pendientes. Evita que promesas antiguas reinicien sonidos.
+- Si el audio no está listo, muestra el estado real y una recuperación clara. No permitas un teclado aparentemente operativo que falle silenciosamente en su primera pulsación.
+
+No avances a considerar terminada esta corrección hasta comprobar salida de audio desde las acciones reales de la interfaz en ambos sentidos.
+
+3. SONIDO DE ACORDEÓN: FUENTE, TIMBRE Y COBERTURA
+
+Utiliza grabaciones auténticas con procedencia y licencia documentadas. Audita el banco actual antes de sustituirlo o añadir otro. No presentes un oscilador, un cambio de extensión o una capa desafinada como una nueva muestra grabada.
+
+Conserva ataque, cuerpo, estéreo y liberación naturales. Revisa loops, discontinuidades, envolventes, balance melodía/bajos/acordes, clipping y exceso de compresión. La nota cerrada no debe perder su timbre por un filtro arbitrario distinto. El registro Natural debe respetar la grabación; identifica Doble, Musette y Octava como procesamientos virtuales cuando corresponda.
+
+Construye una tabla de cobertura: alturas realmente grabadas, muestra raíz utilizada, afinación en cents, transposición aplicada y rango resultante por sistema. No deduzcas la octava únicamente del nombre del archivo: contrasta metadatos y señal.
+
+Si los bajos o agudos requieren transportar mucho una muestra, no declares que se grabaron esas notas. Busca muestras adicionales autorizadas cuando sean necesarias para cumplir la calidad solicitada. Si faltan, informa el límite y evita afirmar autenticidad tímbrica independiente para todo el rango. Una nota matemáticamente correcta puede sonar poco natural después de una transposición extrema.
+
+Verifica por separado afinación de altura, continuidad de señal y evaluación auditiva. Un RMS distinto de cero no certifica que suene como el acordeón esperado. Genera ejemplos de comparación y no inventes una revisión auditiva humana.
+
+4. AFINACIONES BIEN DEFINIDAS Y VERIFICABLES
+
+Crea una única fuente de verdad musical, compartida por UI, audio, digitación, canciones y animación. Evita tener mapas incompatibles o nombres de nota calculados de forma distinta en varios archivos.
+
+Para cada sistema disponible registra:
+
+- Identificador estable y nombre: por ejemplo G/C/F — Sol/Do/Fa.
+- Familia, disposición y referencia de octava. Usa MIDI 60 = Do4 y MIDI 74 = Re5.
+- Las 31 posiciones melódicas en sus hileras 10/11/10, con notas MIDI al cerrar y al abrir.
+- Los 12 controles de bajos/acordes, su tipo, notas componentes, inversión y posición física.
+- Fuente primaria, fecha de consulta, sistema/modelo al que aplica y estado de verificación.
+- Diferencia entre mapa documentado, transposición virtual, cambio de registro y variante de octava.
+- Cobertura de muestras y límites tímbricos.
+
+Empieza auditando GCF contra el diagrama oficial correspondiente. No generalices ese resultado como validación documental de todos los sistemas. Verifica cada familia ofrecida o identifica explícitamente su construcción como transposición virtual. Un sistema con distinta disposición o accidentales requiere su propio mapa.
+
+Normaliza equivalencias enarmónicas y separa registro de afinación. No aumentes el número de afinaciones contando alias como sistemas distintos. Una variante grave debe conservar su filiación y mostrar la octava real. Mantén visibles los nombres correctos con sostenidos o bemoles según el contexto.
+
+Corrige o retira del catálogo principal opciones cuya asignación no puedas sostener. No mantengas una opción rotulada «verificada» por el simple hecho de que el selector cambie su nombre. Tampoco declares falsas todas las transposiciones: explica cuáles son virtuales y qué se comprobó realmente.
+
+Prueba todos los sistemas finalmente publicados, todos sus botones y ambos sentidos. Si se mantienen 26 opciones, la matriz mínima incluye 26 × 43 × 2 = 2.236 combinaciones musicales, además de casos de interacción y polifonía. Reporta por separado mapas y salida de audio.
+
+5. SECCIÓN DE CANCIONES: REPERTORIO Y DATOS REALES
+
+Crea una sección dedicada, accesible desde la navegación principal. Cada canción debe mostrar versión o grabación exacta, intérprete, duración, tonalidad, sistema de acordeón recomendado y calidad de la transcripción disponible.
+
+Ofrece entradas claras a:
+
+- Escuchar la grabación de referencia.
+- Ver las notas y la digitación.
+- Practicar por secciones.
+- Ver y escuchar al acordeón tocar automáticamente.
+
+«Las locuras mías» es el primer caso de aceptación. No reutilices un patrón genérico y lo rotules como las notas exactas de esa canción. Para un chart fiel usa datos autorizados, material aportado, partituras/transcripciones con procedencia o un proceso de análisis y revisión musical documentado. Una estimación automática no se convierte en verificada al guardarla en JSON.
+
+Clasifica cada chart como transcripción verificada, transcripción parcial revisada, estimación pendiente o arreglo didáctico. Registra quién o qué lo revisó y qué fragmentos cubre. Una progresión de acordes no determina por sí sola las notas del solo.
+
+Si falta material suficiente para la transcripción exacta, completa la infraestructura, conserva el arreglo didáctico correctamente identificado y declara el dato pendiente. No inventes notas, fuentes ni timestamps para aparentar una canción terminada. No prometas descargar grabaciones comerciales: utiliza medios proporcionados/autorizados o reproducción oficial integrada.
+
+6. EVENTOS MUSICALES CON NOMBRE, OCTAVA Y DURACIÓN
+
+Define eventos con identidad, inicio y final en el reloj del medio, altura MIDI o conjunto de alturas, función musical, mano, velocidad/intensidad, sección y referencia de procedencia. Separa los datos musicales originales de la digitación calculada para cada acordeón.
+
+Deriva desde esos eventos el nombre visible —Re5, Mi5, Fa♯4, etc.—, el botón físico, la hilera, la tecla del computador y el sentido del fuelle. No escribas notas decorativas desconectadas del sonido.
+
+Durante la reproducción muestra la nota actual y las siguientes con anticipación legible. Distingue claramente «próxima» de «sonando». Una nota sostenida permanece activa hasta su final real. Representa silencios, repeticiones, acordes, notas simultáneas y cambios de sección.
+
+En el modo fiel no sustituyas una altura por la más cercana ni recortes sostenidos para hacer encajar una digitación. Si una nota no existe en el sistema, intenta una digitación válida, identifica otro sistema o informa el conflicto. Cualquier simplificación pertenece a un modo de práctica explícito.
+
+Resuelve la digitación con coherencia de frase: disponibilidad de alturas, botones alternativos, desplazamiento de la mano y cambios de fuelle. Todas las voces simultáneas comparten la dirección global del fuelle; detecta combinaciones incompatibles en vez de emitir notas equivocadas en silencio.
+
+7. CONFIGURACIÓN AUTOMÁTICA AL ELEGIR CANCIÓN
+
+Seleccionar una canción debe cargar su medio, chart, afinación/perfil recomendado, registro si está documentado, mapa de botones y estado inicial del transporte. Muestra inmediatamente qué se configuró y por qué.
+
+Distingue tres cosas: tonalidad de la grabación, familia de afinación del acordeón y registro sonoro. Saber que una canción está en Mi mayor no demuestra por sí solo que el instrumento grabado sea B/E/A.
+
+Audita la afirmación actual sobre Mi mayor/BEA en «Las locuras mías». Confírmala con evidencia antes de presentarla como identificación del acordeón original. Si solo puedes proponer una configuración compatible para practicar, rotúlala como recomendación de práctica y utiliza esa configuración automáticamente en ese modo.
+
+Permite conservar o modificar manualmente la configuración de práctica, con una opción visible para restaurar la recomendada. Un cambio debe actualizar notas, octavas, digitación y reproducción de forma coherente. No cambies la altura de la grabación original porque se modificó la afinación del instrumento virtual.
+
+8. SINCRONIZACIÓN MUSICAL Y RELOJ ÚNICO
+
+Usa un reloj canónico asociado al medio. No mantengas relojes independientes para video, notas, audio virtual, fuelle y puntuación. No intentes sincronizar una grabación solamente con su BPM o con un desplazamiento fijo de 1,8/2,5 segundos.
+
+Para medios locales autorizados, programa audio con Web Audio y anticipación controlada; usa requestAnimationFrame para presentar el estado del reloj, no para decidir por primera vez cuándo debe sonar cada nota. Ten en cuenta salida de audio, velocidad y anclajes temporales.
+
+Para YouTube, gestiona sus estados reales, buffering, pausa, búsqueda, velocidad disponible y fin. Mide la precisión que permite su API. No prometas exactitud de pocos milisegundos si la fuente solo permite observaciones más gruesas. No uses la llegada de un callback como si fuera el instante acústico exacto.
+
+Al pausar o buscar cancela eventos programados y reconstruye el estado desde el nuevo tiempo: notas que siguen sostenidas, posición del chart y fase del fuelle. No acumules setTimeout antiguos ni reproduzcas de golpe todas las notas anteriores después de un salto.
+
+Implementa calibración de latencia y mide desfase inicial, error durante la reproducción y deriva al final. Para reproducción local establece objetivos verificables, como un error visual de aproximadamente un frame y un desfase global medido no mayor de 50 ms en el entorno probado. Son objetivos que debes medir y reportar, no resultados que puedas asumir. Para medios externos reporta su margen real.
+
+El tempo del ejercicio puede variar sin cambiar la altura de las notas. La velocidad de una referencia externa solo puede usar valores soportados por su reproductor. No mezcles práctica ralentizada con una grabación que continúa a otra velocidad.
+
+9. ACORDEÓN QUE SE TOCA SOLO
+
+Implementa un modo «Ver tocar» o «Acordeón automático» que ejecute el mismo chart musical, no una secuencia visual arbitraria.
+
+Cada evento debe coordinar audio, botón 3D, botón del teclado, nota visible, duración y sentido del fuelle. Incluye bajos/acordes únicamente cuando estén definidos en la partitura del modo seleccionado. No dupliques la melodía original a volumen alto sin que el usuario pueda controlarlo.
+
+Ofrece volúmenes separados para referencia y acordeón virtual, reproducción solo del acordeón y reproducción con referencia. Permite iniciar, pausar, continuar, reiniciar, buscar y repetir un fragmento A–B.
+
+El movimiento del fuelle acompaña frases, acentos y reversos de dirección. Evita movimientos aleatorios incompatibles con las notas, abrir/cerrar mecánicamente en cada golpe o mantener una dirección visual mientras el motor usa otra. Reconstruye la pose determinísticamente después de buscar en la canción.
+
+En Practicar, las sugerencias pueden resaltarse sin hundir falsamente un botón. En Ver tocar, la pulsación automática sí debe hundirlo. No puntúes la demostración como si el usuario estuviera acertando.
+
+10. INTEGRAR LOS MODELOS CURVA ACTUALIZADOS
+
+Fuentes actuales: assets/blender/curved_v2/{curva-zafiro,curva-esmeralda,curva-granate,curva-grafito}/instrument.glb, sus previews e informes. Consulta también LEEME_CONTROLES_Y_QA.md, collection.json, SHA256SUMS.json y tools/update_curva_all_buttons.py.
+
+Al preparar este prompt se comprobó que los cuatro GLB servidos en public/instruments/models todavía no coincidían por SHA-256 con esas fuentes actualizadas. Revalida el estado al empezar; no des por integrada una actualización que solo existe en Blender o en un ZIP.
+
+Conserva las fuentes BLEND del usuario. Actualiza los GLB y previews que consume la web y genera un manifiesto de versiones/hashes. Comprueba que el archivo solicitado por la URL real y el build de producción corresponden a la versión nueva. Invalida únicamente cachés necesarias; conserva preferencias del usuario.
+
+Los modelos actualizados documentan 31 melodías, 12 bajos en 6 × 2 y nueve acciones:
+
+Idle_Breath_Loop; Bellows_OpenClose; Bellows_Fan_Lower; Bass_Anchored_Phrase; Bellows_Oblique_Sweep; Bellows_Expressive_Arc; Bellows_Short_Accents; Melody_Button_Press; Bass_Button_Press.
+
+Las dos últimas recorren secuencialmente todos sus botones; no son 43 clips independientes. Sus secuencias documentadas llegan a los cuadros 565 y 223 a 30 fps. No reproduzcas el clip entero cuando el usuario pulse un único botón.
+
+Extrae o calibra el movimiento de cada BTN_Melody_01…31 y BTN_Bass_01…12, filtra pistas y aplica pulsaciones independientes sobre la pose de fuelle. Evita que las pistas horneadas de una acción reseteen la otra o hundan botones ajenos. Verifica recorrido, retorno, rebote y varias teclas a la vez. La referencia actual es 1,8 mm, pero manda el asset y sus metadatos validados.
+
+Los drivers de Blender no se exportan como controladores JavaScript. Integra las animaciones horneadas de forma consciente. No asumas que todos los clips de fuelle empiezan cerrados o alcanzan su máximo a mitad: inspecciona cada acción antes de mapear apertura, dirección o fase.
+
+Respeta la distribución de cada familia: Curva actualizada usa 6 × 2 en bajos; los modelos anteriores pueden conservar otra. No apliques universalmente el antiguo 4 × 3 ni reasignes notas por una suposición sobre el orden visual.
+
+11. EXPERIENCIA Y APRENDIZAJE
+
+Mantén una navegación sencilla entre Practicar, Canciones y Ver tocar. El modelo debe verse mientras se usan los botones; la interfaz no puede obligar al usuario a elegir entre ver el instrumento o tocar el teclado.
+
+Pantalla grande muestra acordeón, teclado y controles imprescindibles. Al salir conserva canción, posición y configuración de forma coherente. Evita pausas ocultas o un transporte imposible de reanudar dentro de esa vista.
+
+En móvil conserva controles amplios, tres hileras legibles y acceso real a todos los botones mediante desplazamiento o paginación. Un gesto para recorrer las hileras debe liberar correctamente una pulsación y no bloquear el scroll por pointer capture. Separa melodía, bajos y acordes sin perder correspondencia con el modelo.
+
+Añade dificultad que realmente cambie el ejercicio, bucles por frase, cuenta de entrada opcional, notas sostenidas y señales comprensibles al soltarlas antes. Muestra aciertos, errores, racha y precisión con moderación. No alteres el chart fiel al reducir dificultad; crea una adaptación identificada.
+
+Mantén accesibilidad: etiquetas, foco visible, navegación por teclado, contraste, objetivos táctiles cómodos y movimiento reducido. Resuelve la polifonía y el rendimiento sin recargar o reconstruir el GLB a cada nota.
+
+12. PRUEBAS OBLIGATORIAS Y CRITERIOS DE ACEPTACIÓN
+
+No sustituyas evidencia musical por conteos de archivos o capturas bonitas. Verifica, como mínimo:
+
+1) Abrir la aplicación desde cero y tocar una nota cerrada sin Espacio: medir señal en la salida del motor conectado por la UI. Repetir abierta y confirmar la altura esperada en ambos casos.
+2) Recorrer todos los botones y afinaciones disponibles en ambos sentidos. Comparar MIDI esperado, etiqueta, muestra/transposición efectiva y salida de señal; contemplar las coincidencias legítimas.
+3) Probar cambio de sentido con nota sostenida, acordes, teclado + tacto, pulsaciones rápidas, primer gesto de audio, pérdida de foco, presión/volumen y recuperación de errores.
+4) Medir afinación con un método que tenga en cuenta armónicos y voces del registro. No confundir el pico espectral más alto con la fundamental ni usar solo RMS para validar alturas.
+5) Probar la canción completa y fragmentos con datos conocidos: notas y sostenidos en sus tiempos, pausas, búsquedas, cambios de velocidad, A–B y final sin deriva acumulada ni notas atascadas.
+6) Verificar que auto-configuración, notas mostradas y afinación efectiva coinciden. Guardar la evidencia de cualquier identificación declarada del acordeón original.
+7) Verificar cada modelo actualizado y sus hashes servidos, 43 pulsadores independientes, nueve acciones, combinación con fuelle y recuperación después de buscar o cambiar de diseño.
+8) Revisar escritorio, móvil vertical y Pantalla grande en navegador real. Capturar estados sonando al cerrar, sonando al abrir y reproducción automática. Distinguir emulación de viewport de prueba en teléfono físico.
+9) Ejecutar compilación y comprobaciones pertinentes. Guardar resultados actuales y muestras de audio de verificación cuando sea posible, sin reutilizar reportes antiguos como prueba de cambios nuevos.
+
+La falla de cerrado se considera resuelta únicamente cuando la acción de la interfaz produce la nota cerrada esperada y señal medible, sin depender del gesto de abrir. El modo automático se considera fiel únicamente respecto del chart cuya procedencia y sincronización estén documentadas.
+
+13. ORDEN DE EJECUCIÓN Y ENTREGA
+
+Ejecuta en este orden: reproducir y corregir cerrado/abierto; auditar mapa y afinaciones; integrar assets actualizados; establecer el formato y procedencia de charts; implementar el reloj común y la sección de canciones; conectar reproducción automática, aprendizaje y pantalla grande; completar validación funcional, musical y visual.
+
+Trabaja de forma autónoma en las decisiones rutinarias y preserva datos y fuentes del usuario. No publiques ni sobrescribas trabajo externo ajeno a este proyecto. Evita crear otro motor paralelo o una segunda verdad musical que vuelva a desincronizarse.
+
+Entrega código integrado, registro de afinaciones con fuentes, catálogo/charts con su nivel de revisión, modelos web actualizados y versionados, pruebas reproducibles, capturas reales y un informe claro. El informe debe distinguir qué se corrigió y midió, qué se escuchó realmente y qué depende todavía de datos musicales o validación humana.
+
+Para «Las locuras mías», entrega una tabla del estado real: grabación/version usada, procedencia del chart, fragmentos revisados, tonalidad comprobada, afinación recomendada y su fundamento, precisión de sincronización medida y límites pendientes. No marques el caso como transcripción exacta si solo existe un arreglo generado.
+
+FUENTES INICIALES QUE DEBES CONSULTAR Y CONTRASTAR
+
+- Diagrama GCF de 31 botones de Hohner:
+  https://hohner.de/fileadmin/documents/instruments/accordions/diatonic/HOHNER-fingeringcharts_diatonic-keyboard-GCF-31-buttons.pdf
+- Procedencia del banco grabado:
+  https://freepats.zenvoid.org/Organ/accordion.html
+  https://github.com/freepats/button-accordion-HN
+- Documentación y validación de los modelos actualizados:
+  assets/blender/curved_v2/LEEME_CONTROLES_Y_QA.md
+  assets/blender/curved_v2/collection.json
+  assets/blender/curved_v2/SHA256SUMS.json
+  assets/blender/curved_v2/*/qa_report.json
+
+INSTRUCCIÓN FINAL
+
+No respondas «todo funciona» porque el build compile, una tecla cambie de color o el motor aislado genere señal. Demuestra la cadena completa: pulsación o evento de canción → nota musical correcta → sonido efectivo → botón 3D correcto → fuelle coherente → nombre y duración sincronizados. El objetivo es un instrumento que se pueda tocar y una canción que se pueda seguir musicalmente, con afirmaciones respaldadas por evidencia.

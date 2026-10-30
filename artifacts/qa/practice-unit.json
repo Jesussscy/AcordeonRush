@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "keyboardBindings": 43,
+  "keyboardLayouts": [
+    "es",
+    "en"
+  ],
+  "lessons": 720,
+  "models": [
+    {
+      "design": "curva-zafiro",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 6.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "curva-esmeralda",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 6.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "curva-granate",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 6.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "curva-grafito",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 6.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "vino-clasico",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 4.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "azul-caribe",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 4.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "marfil-artesanal",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 4.0333333015441895,
+      "passed": true
+    },
+    {
+      "design": "negro-escenario",
+      "buttons": 43,
+      "travel_m": 0.0018,
+      "bellowsClip": 4.0333333015441895,
+      "passed": true
+    }
+  ]
+}

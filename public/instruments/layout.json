@@ -1,0 +1,375 @@
+{
+  "system": "31/12 diatonic bisonoric, 10/11/10",
+  "source": "https://hohner.de/fileadmin/documents/instruments/accordions/diatonic/HOHNER-fingeringcharts_diatonic-keyboard-GCF-31-buttons.pdf",
+  "sourceNotes": "GCF pitch classes follow the referenced Hohner chart, c1=C4. Bass octaves/inversions are a web voicing. Bass physical grid comes from each model manifest (Curva 6x2, previous collection 4x3). Other families are virtual fourth-spaced transpositions of this GCF map, not separately documented hardware maps.",
+  "rows": [
+    [
+      [
+        61,
+        63
+      ],
+      [
+        55,
+        57
+      ],
+      [
+        59,
+        60
+      ],
+      [
+        62,
+        64
+      ],
+      [
+        67,
+        66
+      ],
+      [
+        71,
+        69
+      ],
+      [
+        74,
+        72
+      ],
+      [
+        79,
+        76
+      ],
+      [
+        83,
+        78
+      ],
+      [
+        86,
+        81
+      ]
+    ],
+    [
+      [
+        66,
+        68
+      ],
+      [
+        55,
+        59
+      ],
+      [
+        60,
+        62
+      ],
+      [
+        64,
+        65
+      ],
+      [
+        67,
+        69
+      ],
+      [
+        72,
+        71
+      ],
+      [
+        76,
+        74
+      ],
+      [
+        79,
+        77
+      ],
+      [
+        84,
+        81
+      ],
+      [
+        88,
+        83
+      ],
+      [
+        91,
+        86
+      ]
+    ],
+    [
+      [
+        75,
+        73
+      ],
+      [
+        60,
+        64
+      ],
+      [
+        65,
+        67
+      ],
+      [
+        69,
+        70
+      ],
+      [
+        72,
+        74
+      ],
+      [
+        77,
+        76
+      ],
+      [
+        81,
+        79
+      ],
+      [
+        84,
+        82
+      ],
+      [
+        89,
+        86
+      ],
+      [
+        93,
+        88
+      ]
+    ]
+  ],
+  "bass": [
+    {
+      "push": [
+        43
+      ],
+      "pull": [
+        38
+      ],
+      "chord": false
+    },
+    {
+      "push": [
+        55,
+        59,
+        62
+      ],
+      "pull": [
+        50,
+        54,
+        57
+      ],
+      "chord": true
+    },
+    {
+      "push": [
+        40
+      ],
+      "pull": [
+        45
+      ],
+      "chord": false
+    },
+    {
+      "push": [
+        52,
+        55,
+        59
+      ],
+      "pull": [
+        57,
+        60,
+        64
+      ],
+      "chord": true
+    },
+    {
+      "push": [
+        48
+      ],
+      "pull": [
+        43
+      ],
+      "chord": false
+    },
+    {
+      "push": [
+        60,
+        64,
+        67
+      ],
+      "pull": [
+        55,
+        59,
+        62
+      ],
+      "chord": true
+    },
+    {
+      "push": [
+        45
+      ],
+      "pull": [
+        50
+      ],
+      "chord": false
+    },
+    {
+      "push": [
+        57,
+        61,
+        64
+      ],
+      "pull": [
+        62,
+        65,
+        69
+      ],
+      "chord": true
+    },
+    {
+      "push": [
+        41
+      ],
+      "pull": [
+        48
+      ],
+      "chord": false
+    },
+    {
+      "push": [
+        53,
+        57,
+        60
+      ],
+      "pull": [
+        60,
+        64,
+        67
+      ],
+      "chord": true
+    },
+    {
+      "push": [
+        46
+      ],
+      "pull": [
+        46
+      ],
+      "chord": false
+    },
+    {
+      "push": [
+        58,
+        62,
+        65
+      ],
+      "pull": [
+        58,
+        62,
+        65
+      ],
+      "chord": true
+    }
+  ],
+  "tunings": [
+    {
+      "id": "GCF",
+      "label": "G/C/F",
+      "solfege": "Sol · Do · Fa",
+      "semitones": 0,
+      "flats": false
+    },
+    {
+      "id": "FBbEb",
+      "label": "F/B♭/E♭",
+      "solfege": "Fa · Si♭ · Mi♭",
+      "semitones": -2,
+      "flats": true
+    },
+    {
+      "id": "EAD",
+      "label": "E/A/D",
+      "solfege": "Mi · La · Re",
+      "semitones": -3,
+      "flats": false
+    },
+    {
+      "id": "ADG",
+      "label": "A/D/G",
+      "solfege": "La · Re · Sol",
+      "semitones": 2,
+      "flats": false
+    },
+    {
+      "id": "BbEbAb",
+      "label": "B♭/E♭/A♭",
+      "solfege": "Si♭ · Mi♭ · La♭",
+      "semitones": 3,
+      "flats": true
+    },
+    {
+      "id": "FsBE",
+      "label": "F♯/B/E",
+      "solfege": "Fa♯ · Si · Mi",
+      "semitones": -1,
+      "flats": false
+    },
+    {
+      "id": "CFBb",
+      "label": "C/F/B♭",
+      "solfege": "Do · Fa · Si♭",
+      "semitones": 5,
+      "flats": true
+    },
+    {
+      "id": "EbAbDb",
+      "label": "E♭/A♭/D♭",
+      "solfege": "Mi♭ · La♭ · Re♭",
+      "semitones": -4,
+      "flats": true
+    },
+    {
+      "id": "DGC",
+      "label": "D/G/C",
+      "solfege": "Re · Sol · Do",
+      "semitones": -5,
+      "flats": false
+    },
+    {
+      "id": "BEA",
+      "label": "B/E/A",
+      "solfege": "Si · Mi · La",
+      "semitones": 4,
+      "flats": false
+    },
+    {
+      "id": "CsFsB",
+      "label": "C♯/F♯/B",
+      "solfege": "Do♯ · Fa♯ · Si",
+      "semitones": 6,
+      "flats": false
+    },
+    {
+      "id": "GsCsFs",
+      "label": "G♯/C♯/F♯",
+      "solfege": "Sol♯ · Do♯ · Fa♯",
+      "semitones": 1,
+      "flats": false
+    }
+  ],
+  "verification": {
+    "base": "GCF manufacturer pitch table",
+    "source": "https://hohner.de/fileadmin/documents/instruments/accordions/diatonic/HOHNER-fingeringcharts_diatonic-keyboard-GCF-31-buttons.pdf",
+    "consulted": "2026-10-29",
+    "concertPitch": 440,
+    "middleC": 60,
+    "derivedFamilies": "Virtual semitone transpositions; no separate recorded instruments",
+    "aliases": {
+      "DsGsCs": {
+        "family": "EbAbDb",
+        "registerOffset": 12
+      },
+      "DsGsCs-low": {
+        "family": "EbAbDb",
+        "registerOffset": 0
+      }
+    }
+  }
+}

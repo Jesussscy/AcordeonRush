@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+*.blend1
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+!.env.example
+artifacts/model-backups/
+artifacts/source-backups/
+artifacts/qa/.*-syntax.mjs

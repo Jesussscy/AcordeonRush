@@ -1,0 +1,393 @@
+{
+  "method": "Blender evaluated frames; manifold topology; mechanical boundary checks; GLB JSON inspection; factory-empty GLB import and sampled animated world-space geometry comparison. UI playback recorded separately.",
+  "checks": {
+    "buttons": {
+      "melody": 31,
+      "rows": [
+        10,
+        11,
+        10
+      ],
+      "bass": 12,
+      "layout": "4 rows x 3 columns"
+    },
+    "bellows": {
+      "connected_components": 1,
+      "nonmanifold_edges": 0,
+      "folds": 20,
+      "thickness_m": 0.00055
+    },
+    "source_animation": {
+      "all_integer_frames_evaluated": 310,
+      "ranges": {
+        "Bass_Button_Press": [
+          1,
+          49
+        ],
+        "Bellows_OpenClose": [
+          1,
+          121
+        ],
+        "Idle_Breath_Loop": [
+          1,
+          91
+        ],
+        "Melody_Button_Press": [
+          1,
+          49
+        ]
+      },
+      "max_case_scale_error": 0,
+      "max_endpoint_seam_error_m": 1.0728836055684532e-08,
+      "button_max_travel_m": 0.0017999999690800905,
+      "button_mount_check": "All button heads/stems weighted to their button bone, sockets to parent case; only local Y travel within captive stems. No independent X/Z motion."
+    },
+    "glb_structure": {
+      "bytes": 7698936,
+      "mesh_count": 1,
+      "triangles": 116948,
+      "materials": 11,
+      "textures": 3,
+      "animations": [
+        "Bass_Button_Press",
+        "Bellows_OpenClose",
+        "Idle_Breath_Loop",
+        "Melody_Button_Press"
+      ],
+      "camera_count": 0,
+      "studio_excluded": true
+    },
+    "clean_reimport": {
+      "max_sample_deviation_m": 1.212866607147589e-07,
+      "tolerance_m": 1e-05,
+      "passed": true
+    }
+  },
+  "source_samples": {
+    "Bass_Button_Press@1": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bass_Button_Press@9": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bass_Button_Press@25": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bass_Button_Press@27": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bass_Button_Press@49": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bellows_OpenClose@1": {
+      "bounds": [
+        [
+          -0.14500001072883606,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.1899999976158142,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bellows_OpenClose@61": {
+      "bounds": [
+        [
+          -0.23000001907348633,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.2750000059604645,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Bellows_OpenClose@121": {
+      "bounds": [
+        [
+          -0.14500001072883606,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.1899999976158142,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Idle_Breath_Loop@1": {
+      "bounds": [
+        [
+          -0.15264999866485596,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.1976500004529953,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Idle_Breath_Loop@46": {
+      "bounds": [
+        [
+          -0.1594500094652176,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20444999635219574,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Idle_Breath_Loop@91": {
+      "bounds": [
+        [
+          -0.15264999866485596,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.1976500004529953,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Melody_Button_Press@1": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Melody_Button_Press@8": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Melody_Button_Press@21": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Melody_Button_Press@25": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Melody_Button_Press@32": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    },
+    "Melody_Button_Press@49": {
+      "bounds": [
+        [
+          -0.15520000457763672,
+          -0.11144600063562393,
+          -0.16600000858306885
+        ],
+        [
+          0.20019999146461487,
+          0.18230000138282776,
+          0.16120000183582306
+        ]
+      ],
+      "vertices": 61602
+    }
+  },
+  "reimport_samples": {
+    "Bass_Button_Press@1": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Bass_Button_Press@9": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Bass_Button_Press@25": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Bass_Button_Press@27": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Bass_Button_Press@49": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Bellows_OpenClose@1": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Bellows_OpenClose@61": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 1.212866607147589e-07
+    },
+    "Bellows_OpenClose@121": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Idle_Breath_Loop@1": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 6.143906006172983e-08
+    },
+    "Idle_Breath_Loop@46": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Idle_Breath_Loop@91": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 6.143906006172983e-08
+    },
+    "Melody_Button_Press@1": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Melody_Button_Press@8": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Melody_Button_Press@21": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Melody_Button_Press@25": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Melody_Button_Press@32": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    },
+    "Melody_Button_Press@49": {
+      "sampled_vertices": 2435,
+      "max_world_space_deviation_m": 5.6864088548991276e-08
+    }
+  }
+}
