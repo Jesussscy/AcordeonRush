@@ -50,6 +50,20 @@ Validation: `reed-realism-result.json` passed 24 rendering checks, including bot
 
 The new registration is still based on transposed melody samples, including its bass ranks. A dedicated multi-dynamic diatonic/bass recording bank would be required to remove that source limitation. Subjective similarity remains for the listener to assess.
 
-## Remaining content and device limits
+## Higher reed and immersive keyboard revision — 2026-10-31
+
+The new `vallenato-high` sample profile adds a +12-semitone upper melody rank to two middle ranks. Fundamental note maps and bass/chord voicings are unchanged. The old Vallenato profile remains selectable. Runtime loop endpoints now allow the full decoded buffer duration, retaining the inclusive-SFZ to exclusive-Web-Audio correction rather than trimming a final frame again.
+
+Space key handling now captures and cancels keydown (including repeat) before button defaults or pad handlers can scroll, activate controls or leave the 3D view. Keyup restores the resting bellows direction; editable fields are excluded. The 3D host is focusable and exposes its keyboard shortcuts. The viewport layout is defined in `src/performance.css`, with a fixed outer container and separate model/keyboard rows, a live note readout and an in-view registration selector.
+
+`immersive-practice-result.json` passed 36 checks against the mounted application: actual graph notes in both directions, cancellation and focus behavior, retained 31 buttons, and contained layouts at 1280×800, 390×844 and 844×390. Those size checks explicitly reject native fullscreen in the iframe, so they are CSS viewport checks rather than physical phone tests.
+
+`native-space-result.json` separately passed real browser-generated Space presses with Exit and a melody pad focused. The `:fullscreen` selector confirmed native fullscreen before and after, scroll offsets remained zero, and no melody pad was activated. The visible final state is captured in `immersive-final.jpg`.
+
+`high-register-result.json` measured greater normalized frequency-weighted energy for the new profile, no release tail and an unclipped equal-RMS A/B rendering in `artifacts/audio/vallenato-anterior-agudo.wav`. The first six seconds use the preceding Vallenato profile; the new profile starts at second seven. These measurements do not certify subjective similarity to another application. The reference app offers multiple tunings/sounds ([developer listing](https://play.google.com/store/apps/details?id=com.mecatronium.mezquite)); the user's selected reference tuning has not yet been supplied. Current comparison uses G/C/F.
+
+Build and deterministic musical transport validation passed for this revision.
+
+## Remaining content and device limits (current)
 
 Commercial song charts remain generated teaching material unless explicitly imported; see `las-locuras-mias-status.md`. No original recording's exact transcription or tuning is certified. Speaker/headphone latency, device-specific touch behavior and subjective timbre authenticity require listening and physical-device review. The application exposes latency compensation and actual output metering without claiming those reviews happened.

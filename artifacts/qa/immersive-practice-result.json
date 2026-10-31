@@ -1,0 +1,253 @@
+{
+  "passed": true,
+  "checks": 36,
+  "scope": "Mounted application with cancelable keyboard events. Native fullscreen explicitly rejected to measure 1280x800, 390x844 and 844x390 iframe layouts. Real native key input and fullscreen checked separately.",
+  "results": [
+    {
+      "label": "Registro agudo inicial",
+      "passed": true
+    },
+    {
+      "label": "Cerrado: fundamental Sol3 y voz superior Sol4",
+      "passed": true
+    },
+    {
+      "label": "Espacio se captura con un control enfocado",
+      "passed": true
+    },
+    {
+      "label": "Abierto: fundamental La3 y voz superior La4",
+      "passed": true
+    },
+    {
+      "label": "El fuelle no desplaza la página",
+      "passed": true
+    },
+    {
+      "label": "Se bloquea también la repetición de Espacio",
+      "passed": true
+    },
+    {
+      "label": "Se bloquea también la repetición de Espacio",
+      "passed": true
+    },
+    {
+      "label": "Se bloquea también la repetición de Espacio",
+      "passed": true
+    },
+    {
+      "label": "Se bloquea también la repetición de Espacio",
+      "passed": true
+    },
+    {
+      "label": "Se bloquea también la repetición de Espacio",
+      "passed": true
+    },
+    {
+      "label": "Vista inmersiva disponible sin fullscreen nativo",
+      "passed": true
+    },
+    {
+      "label": "Acordeón arriba y teclado debajo dentro del viewport",
+      "passed": true,
+      "details": {
+        "width": 1280,
+        "height": 800,
+        "stage": {
+          "top": 68.80000305175781,
+          "bottom": 493.6000213623047
+        },
+        "keyboard": {
+          "top": 502.3999938964844,
+          "bottom": 792
+        }
+      }
+    },
+    {
+      "label": "La pantalla inmersiva no tiene desplazamiento vertical",
+      "passed": true,
+      "details": {
+        "width": 1280,
+        "height": 800,
+        "scrollHeight": 800,
+        "clientHeight": 800
+      }
+    },
+    {
+      "label": "Se conservan los 31 botones",
+      "passed": true,
+      "details": {
+        "width": 1280,
+        "height": 800
+      }
+    },
+    {
+      "label": "Acordeón arriba y teclado debajo dentro del viewport",
+      "passed": true,
+      "details": {
+        "width": 390,
+        "height": 844,
+        "stage": {
+          "top": 90.5999984741211,
+          "bottom": 509.4749984741211
+        },
+        "keyboard": {
+          "top": 516.2750244140625,
+          "bottom": 838.0000305175781
+        }
+      }
+    },
+    {
+      "label": "La pantalla inmersiva no tiene desplazamiento vertical",
+      "passed": true,
+      "details": {
+        "width": 390,
+        "height": 844,
+        "scrollHeight": 844,
+        "clientHeight": 844
+      }
+    },
+    {
+      "label": "Se conservan los 31 botones",
+      "passed": true,
+      "details": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "label": "Acordeón arriba y teclado debajo dentro del viewport",
+      "passed": true,
+      "details": {
+        "width": 844,
+        "height": 390,
+        "stage": {
+          "top": 57.60000228881836,
+          "bottom": 223.40000534057617
+        },
+        "keyboard": {
+          "top": 228.1999969482422,
+          "bottom": 386.3999938964844
+        }
+      }
+    },
+    {
+      "label": "La pantalla inmersiva no tiene desplazamiento vertical",
+      "passed": true,
+      "details": {
+        "width": 844,
+        "height": 390,
+        "scrollHeight": 390,
+        "clientHeight": 390
+      }
+    },
+    {
+      "label": "Se conservan los 31 botones",
+      "passed": true,
+      "details": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "label": "Espacio abre sin salir de 3D ni activar el botón enfocado",
+      "passed": true,
+      "details": {
+        "selector": ".instrument-canvas"
+      }
+    },
+    {
+      "label": "Espacio mantiene la posición",
+      "passed": true,
+      "details": {
+        "selector": ".instrument-canvas"
+      }
+    },
+    {
+      "label": "Repetición retenida en pantalla grande",
+      "passed": true,
+      "details": {
+        "selector": ".instrument-canvas"
+      }
+    },
+    {
+      "label": "Soltar Espacio recupera cerrado",
+      "passed": true,
+      "details": {
+        "selector": ".instrument-canvas"
+      }
+    },
+    {
+      "label": "Espacio abre sin salir de 3D ni activar el botón enfocado",
+      "passed": true,
+      "details": {
+        "selector": ".p-pad"
+      }
+    },
+    {
+      "label": "Espacio mantiene la posición",
+      "passed": true,
+      "details": {
+        "selector": ".p-pad"
+      }
+    },
+    {
+      "label": "Repetición retenida en pantalla grande",
+      "passed": true,
+      "details": {
+        "selector": ".p-pad"
+      }
+    },
+    {
+      "label": "Soltar Espacio recupera cerrado",
+      "passed": true,
+      "details": {
+        "selector": ".p-pad"
+      }
+    },
+    {
+      "label": "Espacio abre sin salir de 3D ni activar el botón enfocado",
+      "passed": true,
+      "details": {
+        "selector": "[aria-label=\"Salir de pantalla grande\"]"
+      }
+    },
+    {
+      "label": "Espacio mantiene la posición",
+      "passed": true,
+      "details": {
+        "selector": "[aria-label=\"Salir de pantalla grande\"]"
+      }
+    },
+    {
+      "label": "Repetición retenida en pantalla grande",
+      "passed": true,
+      "details": {
+        "selector": "[aria-label=\"Salir de pantalla grande\"]"
+      }
+    },
+    {
+      "label": "Soltar Espacio recupera cerrado",
+      "passed": true,
+      "details": {
+        "selector": "[aria-label=\"Salir de pantalla grande\"]"
+      }
+    },
+    {
+      "label": "Mayús + Espacio selecciona cerrado",
+      "passed": true
+    },
+    {
+      "label": "Soltar Mayús mantiene Espacio abierto",
+      "passed": true
+    },
+    {
+      "label": "Espacio no pulsa una tecla melódica enfocada",
+      "passed": true
+    },
+    {
+      "label": "Salir restaura la página",
+      "passed": true
+    }
+  ]
+}

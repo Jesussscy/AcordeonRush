@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "previous": {
+    "rms": 0.11015588096443046,
+    "highFrequencyRatio": 0.016072360120118003,
+    "peak": 0.3526240289211273
+  },
+  "high": {
+    "rms": 0.06413259343008024,
+    "highFrequencyRatio": 0.06492694264110124,
+    "peak": 0.2436344027519226
+  },
+  "releaseTail": {
+    "rms": 0,
+    "highFrequencyRatio": null,
+    "peak": 0
+  },
+  "comparisonPeak": 0.6682540774345398,
+  "scope": "Actual production sampler renders at equal RMS; waveform frequency-weighted energy comparison, not a claim of identical Mezquite samples."
+}

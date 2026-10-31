@@ -17,12 +17,14 @@ export async function createAccordionAudio({context,baseURL=new URL('/instrument
  const updateReedResponse=()=>{for(const voice of voices)if(voice.dynamicFilter)voice.filter.frequency.setTargetAtTime(voice.cutoff*(.42+.58*Math.sqrt(effectivePressure())),context.currentTime,.025);};
  const applyExpression=()=>{expression.gain.setTargetAtTime(effectivePressure(),context.currentTime,.012);updateReedResponse();};
  const reedPlan=(notes,part)=>{
-  if(profile.id!=='vallenato')return profile.ranks;
+  if(!profile.id.startsWith('vallenato'))return profile.ranks;
   if(part==='bass')return [{semitones:0,cents:0,gain:.64},{semitones:12,cents:0,gain:.28},{semitones:24,cents:0,gain:.08}];
   if(part==='chord')return [{semitones:0,cents:0,gain:1}];
-  if(reedWidth<.001)return [{semitones:0,cents:0,gain:1}];
+  const high=profile.id==='vallenato-high';
+  if(reedWidth<.001)return high?[{semitones:0,cents:0,gain:.64},{semitones:12,cents:0,gain:.36}]:[{semitones:0,cents:0,gain:1}];
   // A controlled frequency spread avoids the excessive fast beating of fixed cents at high pitches.
   const f=440*2**((notes[0]+tuning-69)/12),beat=(1.2+1.5*Math.sqrt(f/440))*reedWidth;
+  if(high)return [{semitones:0,cents:0,gain:.46,pan:0,offset:0},{semitones:0,cents:1200*Math.log2(1+beat/f),gain:.18,pan:-.1,offset:.0015},{semitones:12,cents:0,gain:.36,pan:.1,offset:.002}];
   return [{semitones:0,cents:0,gain:.54,pan:0,offset:0},{semitones:0,cents:1200*Math.log2(Math.max(.95,1-beat/f)),gain:.23,pan:-.12,offset:.0015},{semitones:0,cents:1200*Math.log2(1+beat/f),gain:.23,pan:.12,offset:.003}];
  };
  async function load(file){
@@ -33,14 +35,14 @@ export async function createAccordionAudio({context,baseURL=new URL('/instrument
  }
  const regionFor=pitch=>manifest.regions.find(r=>pitch>=r.low&&pitch<=r.high)??manifest.regions.reduce((a,b)=>Math.abs(a.root-pitch)<Math.abs(b.root-pitch)?a:b);
  function rank(midi,registration,{release=false,level=1,when=context.currentTime,duration,part='melody'}={}){
-  const natural=profile.id==='natural',dynamicFilter=profile.id==='vallenato',cutoff=dynamicFilter?(part==='bass'?3800:part==='chord'?6500:12500):profile.cutoff;
+  const natural=profile.id==='natural',dynamicFilter=profile.id.startsWith('vallenato'),cutoff=dynamicFilter?(part==='bass'?3800:part==='chord'?6500:15000):profile.cutoff;
   const pitch=midi+tuning+registration.semitones,region=regionFor(pitch),file=release?region.releaseFile:region.file;
   const voice={cancelled:false,source:null,gain:null,filter:null,panner:null,dynamicFilter,cutoff,midi:pitch,startsAt:when,endsAt:duration===undefined?Infinity:when+duration};voices.add(voice);
   const play=buffer=>{
    if(voice.cancelled||disposed){voices.delete(voice);return;}
    const source=context.createBufferSource(),gain=context.createGain();voice.source=source;voice.gain=gain;
    source.buffer=buffer;source.loop=!release;
-   if(!release){source.loopStart=region.loopStart;source.loopEnd=Math.min(region.loopEnd,buffer.duration-1/buffer.sampleRate);}
+   if(!release){source.loopStart=region.loopStart;source.loopEnd=Math.min(region.loopEnd,buffer.duration);}
    source.playbackRate.value=2**((pitch-region.root)/12);source.detune.value=(release?region.releaseTune:region.tune)+registration.cents;
    const at=Math.max(when,context.currentTime),amplitude=registration.gain*level*(release?.065:1)*(dynamicFilter?(region.performanceGain??1):1);
    const attack=dynamicFilter?(part==='bass'?.014:.007):.003;
@@ -72,7 +74,7 @@ export async function createAccordionAudio({context,baseURL=new URL('/instrument
   setExpression(value){expressionLevel=Math.max(0,Math.min(1,value));applyExpression();},
   getDiagnostics(){analyser.getFloatTimeDomainData(waveform);let sum=0,peak=0;for(const n of waveform){sum+=n*n;peak=Math.max(peak,Math.abs(n));}return {rms:Math.sqrt(sum/waveform.length),peak,contextState:context.state,playingMode,direction,expression:playingMode==='direct'?expressionLevel:pressure,error:lastError,notes:[...new Set([...voices].filter(v=>!v.cancelled&&context.currentTime>=v.startsAt&&context.currentTime<v.endsAt).map(v=>v.midi))]};},
   scheduleNote(name,dir,when,duration,velocity=1){const key=name.startsWith('BTN_')?name:'BTN_'+name,mapping=manifest.buttons[key];if(!mapping||!['push','pull'].includes(dir)||!Number.isFinite(when)||!(duration>0))throw Error('Invalid scheduled note');const notes=mapping[dir],bass=key.includes('Bass'),part=bass?(notes.length>1?'chord':'bass'):'melody',level=(bass?(notes.length>1?.34:.65):.9)*velocity;for(const midi of notes)for(const r of reedPlan(notes,part))rank(midi,r,{level,when,duration,part});},
-  setReedWidth(value){const next=Math.max(0,Math.min(1,value));if(Math.abs(reedWidth-next)<.0001)return;reedWidth=next;if(profile.id==='vallenato')restart();},
+  setReedWidth(value){const next=Math.max(0,Math.min(1,value));if(Math.abs(reedWidth-next)<.0001)return;reedWidth=next;if(profile.id.startsWith('vallenato'))restart();},
   setSound({brightness:bright=1,body:bodyDb=0,presence:presenceDb=0,melody=1,bass=1,chord=1,release=.018}={}){const at=context.currentTime;brightness.frequency.setTargetAtTime(Math.min(context.sampleRate*.45,2500*8**Math.max(0,Math.min(1,bright))),at,.025);body.gain.setTargetAtTime(Math.max(-6,Math.min(6,bodyDb)),at,.025);presence.gain.setTargetAtTime(Math.max(0,Math.min(6,presenceDb)),at,.025);for(const [id,level] of Object.entries({melody,bass,chord}))parts[id].gain.setTargetAtTime(Math.max(0,Math.min(1,level)),at,.012);releaseTime=Math.max(.008,Math.min(.06,release));},
   async preload(){await Promise.all(manifest.regions.flatMap(r=>[load(r.file),load(r.releaseFile)]));},
   async unlock(){if(context.state==='suspended'&&typeof context.startRendering!=='function')await context.resume();},

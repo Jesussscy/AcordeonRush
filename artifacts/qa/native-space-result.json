@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "scope": "Actual browser-generated Space presses with Exit and a melody pad focused; native fullscreen verified by the :fullscreen CSS selector.",
+  "before": {
+    "native": true,
+    "scroll": 0,
+    "view": true,
+    "y": 0
+  },
+  "after": {
+    "native": true,
+    "pressed": 0,
+    "scroll": 0,
+    "view": true,
+    "y": 0
+  }
+}

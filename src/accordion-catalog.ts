@@ -17,7 +17,7 @@ export function noteName(midi:number,flats=false,octave=true){
 }
 export function soundingNotes(key:InstrumentKey,direction:BellowsDirection,tuning:string){const t=getTuning(tuning);return key[direction].map(n=>n+t.semitones);}
 export function buttonLabel(key:InstrumentKey,direction:BellowsDirection,tuning:string){const t=getTuning(tuning),notes=soundingNotes(key,direction,tuning);return noteName(notes[0],t.flats,!key.chord)+(key.chord?(notes[1]-notes[0]===3?' m':' M'):'');}
-export const registrations=[{id:'vallenato',label:'Vallenato · voces abiertas'},{id:'natural',label:'Natural · grabación base'},{id:'double',label:'Doble'},{id:'musette',label:'Musette'},{id:'octave',label:'Octava'}];
+export const registrations=[{id:'vallenato-high',label:'Vallenato agudo'},{id:'vallenato',label:'Vallenato · voces abiertas'},{id:'natural',label:'Natural · grabación base'},{id:'double',label:'Doble'},{id:'musette',label:'Musette'},{id:'octave',label:'Octava'}];
 const designs=[
  {id:'curva-zafiro',name:'Curva Zafiro',description:'Azul perlado · rombo rojo',color:'#347cda',model:'/instruments/models/curva-zafiro.glb',image:'/instruments/models/curva-zafiro.png'},
  {id:'curva-esmeralda',name:'Curva Esmeralda',description:'Verde perlado · detalles dorados',color:'#3eac77',model:'/instruments/models/curva-esmeralda.glb',image:'/instruments/models/curva-esmeralda.png'},

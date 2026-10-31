@@ -1,0 +1,38 @@
+/* Keep the instrument and its keyboard in one viewport, including the page fallback. */
+.practice-app.performance-view{display:grid;grid-template-rows:auto minmax(0,1fr);overflow:hidden;overscroll-behavior:none}
+.practice-app.performance-view .p-performance-toolbar{grid-row:1;min-height:60px;gap:10px;padding:7px 14px}
+.practice-app.performance-view .p-main{grid-row:2;height:100%!important;min-height:0!important;max-width:1700px;width:100%;margin:0 auto;padding:8px 12px;grid-template-rows:minmax(120px,1fr) minmax(230px,40%);gap:8px;overflow:hidden!important}
+.practice-app.performance-view .p-workbench,.practice-app.performance-view .p-stage-slot{height:100%;min-height:0}
+.practice-app.performance-view .p-stage .instrument-3d{inset:36px 0 69px}
+.practice-app.performance-view .p-scene-caption{display:none}
+.p-full-register{display:flex;align-items:center;gap:6px;color:var(--p-dim);font-size:10px}
+.p-full-register select{max-width:190px;min-height:36px;margin:0;padding:7px 24px 7px 9px;font-size:11px}
+.p-full-live{position:absolute;bottom:9px;left:50%;transform:translateX(-50%);z-index:2;display:grid;grid-template-columns:auto auto;align-items:center;gap:4px 14px;padding:9px 20px;max-width:95%;border:1px solid #e9b8782b;border-radius:14px;background:#111d16eb;text-align:center;pointer-events:none;box-shadow:0 8px 25px #0003}
+.p-full-live>span{font-size:10px;letter-spacing:.8px;color:#d4bc91}.p-full-live strong{font-size:20px;font-weight:500;color:#f3deaf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45vw}.p-full-live small{grid-column:1/-1;color:var(--p-dim);font-size:9px}.p-full-live.playing{border-color:#e9b8789c;background:#253522ed}
+.practice-app.performance-view .p-keyboard{display:flex;flex-direction:column;min-height:0;padding:8px 10px;background:linear-gradient(125deg,#263529,#121e16);border-color:#e9b87838;border-radius:14px}
+.practice-app.performance-view .p-section-tabs{flex-shrink:0;margin:0 0 7px;gap:6px}.practice-app.performance-view .p-section-tabs button{padding:6px 10px;min-height:32px}
+.practice-app.performance-view .p-key-scroll{flex:1;min-height:0;padding:0 0 3px;overflow-y:hidden}
+.practice-app.performance-view .p-key-rows{height:100%;min-width:0;grid-template-rows:repeat(3,minmax(0,1fr));gap:5px}
+.practice-app.performance-view .p-key-row{min-height:0;gap:5px}.practice-app.performance-view .p-key-row>span{width:38px;font-size:8px;letter-spacing:0}.practice-app.performance-view .p-key-row>span small{display:none}
+.practice-app.performance-view .p-pad{min-height:0;min-width:0;max-width:none;padding:4px 7px;align-self:stretch;border-radius:10px;background:linear-gradient(155deg,#f8e6ba18,#98b99a06);border-bottom:3px solid #030b0780}
+.practice-app.performance-view .p-pad-top{margin-bottom:1px}.practice-app.performance-view .p-pad-top b{font-size:8px}.practice-app.performance-view .p-pad kbd{font-size:9px;min-width:16px;padding:1px}.practice-app.performance-view .p-pad strong{font-size:14px;line-height:1.2;margin:1px 0}.practice-app.performance-view .p-pad small{font-size:8px;line-height:1.3}
+.practice-app.performance-view .p-pad.pressed{background:linear-gradient(135deg,#ffe2a5,#d6a656);border-color:#ffe9bb;box-shadow:0 0 18px #e9b87844;transform:translateY(2px);color:#142018}
+.practice-app.performance-view .p-bass-keys{flex:1;min-height:0;align-content:stretch;grid-auto-rows:minmax(0,1fr);max-width:900px;gap:6px}.practice-app.performance-view .p-bass-keys .p-pad{min-height:0}.practice-app.performance-view .p-physical-bass{max-width:480px;width:100%}
+@media(max-width:700px){
+ .practice-app.performance-view .p-performance-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:5px;min-height:0;padding:6px 8px}
+ .practice-app.performance-view .p-performance-toolbar>span:first-child{grid-column:1;min-width:0;font-size:10px;gap:4px;display:block}.practice-app.performance-view .p-performance-toolbar>span:first-child svg{display:none}.practice-app.performance-view .p-performance-toolbar small{font-size:8px;margin:2px 0 0}
+ .practice-app.performance-view .p-full-register{grid-column:2;grid-row:1}.p-full-register>span{display:none}.p-full-register select{width:115px;max-width:115px;font-size:10px;min-height:33px;padding:6px}
+ .practice-app.performance-view .p-performance-toolbar>button{grid-column:3;grid-row:1;min-height:33px;padding:6px;font-size:10px}
+ .practice-app.performance-view .p-focus-direction{grid-column:1/-1;grid-row:2;gap:5px}.practice-app.performance-view .p-focus-direction button{min-height:33px;font-size:11px;padding:6px}
+ .practice-app.performance-view .p-full-note{grid-column:1/-1;grid-row:3;font-size:13px;padding:2px}
+ .practice-app.performance-view .p-main{padding:6px;gap:6px;grid-template-rows:minmax(150px,1fr) minmax(245px,43%)}
+ .practice-app.performance-view .p-keyboard{padding:6px}.practice-app.performance-view .p-section-tabs{flex-wrap:nowrap;gap:4px;margin-bottom:4px}.practice-app.performance-view .p-section-tabs button{min-height:30px;font-size:9px;padding:5px}
+ .practice-app.performance-view .p-key-nav{display:flex;flex-shrink:0;margin:0 0 3px;gap:4px}.practice-app.performance-view .p-key-nav button{min-height:27px;padding:3px 7px;font-size:9px}.practice-app.performance-view .p-key-nav span{font-size:8px}
+ .practice-app.performance-view .p-key-rows{min-width:650px;gap:4px}.practice-app.performance-view .p-key-row{gap:4px}.practice-app.performance-view .p-key-row>span{width:28px;font-size:7px}.practice-app.performance-view .p-pad{padding:3px 5px}.practice-app.performance-view .p-pad strong{font-size:13px}
+ .p-full-live{gap:3px 8px;padding:6px 12px;bottom:7px;width:max-content}.p-full-live>span{font-size:8px}.p-full-live strong{font-size:16px}.p-full-live small{font-size:8px}
+}
+@media(max-height:600px){
+ .practice-app.performance-view .p-performance-toolbar{min-height:0;padding:4px 8px}.practice-app.performance-view .p-main{grid-template-rows:minmax(75px,1fr) minmax(130px,48%);padding:4px;gap:4px}
+ .practice-app.performance-view .p-section-tabs{margin-bottom:3px}.practice-app.performance-view .p-section-tabs button{min-height:25px;padding:3px 6px}.practice-app.performance-view .p-keyboard{padding:4px 6px}.practice-app.performance-view .p-key-rows{gap:3px}.practice-app.performance-view .p-pad>small{display:none}.practice-app.performance-view .p-pad strong{font-size:12px}.practice-app.performance-view .p-pad-top{margin:0}.practice-app.performance-view .p-key-nav{display:none}
+ .practice-app.performance-view .p-stage .instrument-3d{inset:20px 0 36px}.p-full-live{padding:3px 10px;bottom:3px}.p-full-live strong{font-size:12px}.p-full-live small{display:none}.practice-app.performance-view .p-stage-heading{top:5px}
+}

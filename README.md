@@ -63,3 +63,11 @@ node tools/build-music-audit.mjs
 | `docs/` | Source boundaries and implementation report |
 
 Large GLB, Blend, ZIP and GIF assets use Git LFS. Dependencies, build output, automatic Blender backup files and local replacement-model backups are ignored. Asset licenses/provenance are preserved with their corresponding files; no blanket license is asserted over unrelated source material.
+
+## Immersive practice and higher reed voice
+
+The initial registration is now **Vallenato agudo**, with an added upper sampled reed (+12 semitones) alongside the melody fundamental. This changes the reed mixture while retaining button-note names, tuning and bass/chord maps. The previous Vallenato registration remains selectable, including from the fullscreen toolbar. No Mezquite recordings are bundled or claimed as identical.
+
+Space controls bellows in the capture phase, including when the 3D canvas, a melody pad or Exit has focus. Repeated keydowns are canceled too. Release restores the selected direction; Shift+Space selects closing. Editable fields retain their normal keyboard behavior. Focused melody pads use Enter for direct keyboard activation.
+
+The immersive view keeps the model above the keyboard inside a fixed viewport, with a current-note/bellows readout and compact keys. Mobile pads pan horizontally; outer vertical scrolling is locked. Native fullscreen and its page fallback use the same layout. Tests and scope are recorded in `artifacts/qa/immersive-practice-result.json`, `native-space-result.json` and `high-register-result.json`.

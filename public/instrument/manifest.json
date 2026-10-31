@@ -736,6 +736,29 @@
       ],
       "rendering": "Runtime frequency-dependent reed spread; separate sampled octave ranks for bass and dry chord voicing. Not an independently recorded Corona III.",
       "reference": "https://hohner.de/es/instrumentos/acordeones/diatonicas/corona/corona-iii"
+    },
+    {
+      "id": "vallenato-high",
+      "label": "Vallenato agudo · virtual upper reed",
+      "cutoff": 15000,
+      "ranks": [
+        {
+          "semitones": 0,
+          "cents": 0,
+          "gain": 0.46
+        },
+        {
+          "semitones": 0,
+          "cents": 6,
+          "gain": 0.18
+        },
+        {
+          "semitones": 12,
+          "cents": 0,
+          "gain": 0.36
+        }
+      ],
+      "rendering": "Virtual middle/middle/high sample ranks: a +12-semitone upper reed enriches the melody without changing the button fundamental. Bass and chord maps remain unchanged. Not a Mezquite sample or an independent instrument recording."
     }
   ],
   "tunings": [
