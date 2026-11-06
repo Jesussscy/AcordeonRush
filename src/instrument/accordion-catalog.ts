@@ -91,7 +91,7 @@ const designs = [
     description: 'Azul perlado · rombo rojo',
     color: '#347cda',
     model: '/models/accordion/curva-zafiro.glb',
-    image: '/models/accordion/curva-zafiro.png',
+    image: '/models/accordion/curva-zafiro.webp',
   },
   {
     id: 'curva-esmeralda',
@@ -99,7 +99,7 @@ const designs = [
     description: 'Verde perlado · detalles dorados',
     color: '#3eac77',
     model: '/models/accordion/curva-esmeralda.glb',
-    image: '/models/accordion/curva-esmeralda.png',
+    image: '/models/accordion/curva-esmeralda.webp',
   },
   {
     id: 'curva-granate',
@@ -107,7 +107,7 @@ const designs = [
     description: 'Rojo perlado · rombo artesanal',
     color: '#c74b59',
     model: '/models/accordion/curva-granate.glb',
-    image: '/models/accordion/curva-granate.png',
+    image: '/models/accordion/curva-granate.webp',
   },
   {
     id: 'curva-grafito',
@@ -115,7 +115,7 @@ const designs = [
     description: 'Grafito perlado · rombo rojo',
     color: '#7f8d99',
     model: '/models/accordion/curva-grafito.glb',
-    image: '/models/accordion/curva-grafito.png',
+    image: '/models/accordion/curva-grafito.webp',
   },
   {
     id: 'vino-clasico',
@@ -123,7 +123,7 @@ const designs = [
     description: 'Perlado vino · parrilla de níquel',
     color: '#802b3b',
     model: '/models/accordion/vino-clasico.glb',
-    image: '/models/accordion/vino-clasico.png',
+    image: '/models/accordion/vino-clasico.webp',
   },
   {
     id: 'azul-caribe',
@@ -131,7 +131,7 @@ const designs = [
     description: 'Azul profundo · diamantes y chevrones',
     color: '#205b9d',
     model: '/models/accordion/azul-caribe.glb',
-    image: '/models/accordion/azul-caribe.png',
+    image: '/models/accordion/azul-caribe.webp',
   },
   {
     id: 'marfil-artesanal',
@@ -139,7 +139,7 @@ const designs = [
     description: 'Marfil · incrustaciones geométricas',
     color: '#c3ac7e',
     model: '/models/accordion/marfil-artesanal.glb',
-    image: '/models/accordion/marfil-artesanal.png',
+    image: '/models/accordion/marfil-artesanal.webp',
   },
   {
     id: 'negro-escenario',
@@ -147,7 +147,7 @@ const designs = [
     description: 'Negro satinado · protectores y ranuras',
     color: '#454c59',
     model: '/models/accordion/negro-escenario.glb',
-    image: '/models/accordion/negro-escenario.png',
+    image: '/models/accordion/negro-escenario.webp',
   },
 ];
 

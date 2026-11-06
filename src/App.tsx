@@ -3,12 +3,12 @@ import type { GameMode, GameResult } from './core/game-session';
 import { loadSettings, saveSettings, type Settings } from './core/settings';
 import type { Difficulty } from './gameplay/difficulty';
 import type { SongEntry } from './gameplay/song-catalog';
-import { GameScreen } from './ui/GameScreen';
 import { MainMenu } from './ui/MainMenu';
 import { Results } from './ui/Results';
 import { SongSelect, type PracticeOptions } from './ui/SongSelect';
 import './ui/theme.css';
 
+const GameScreen = lazy(() => import('./ui/GameScreen').then((m) => ({ default: m.GameScreen })));
 const Studio = lazy(() => import('./ui/studio/Workspace'));
 const SettingsScreen = lazy(() => import('./ui/SettingsScreen'));
 const Calibration = lazy(() => import('./ui/Calibration'));
@@ -68,14 +68,16 @@ export default function App() {
     );
   if (screen.name === 'game')
     return (
-      <GameScreen
-        key={screen.attempt}
-        request={screen.request}
-        settings={settings}
-        onQuit={() => setScreen({ name: 'select', mode: screen.request.mode })}
-        onRestart={() => setScreen({ ...screen, attempt: screen.attempt + 1 })}
-        onFinish={(result) => setScreen({ name: 'results', request: screen.request, result })}
-      />
+      <Suspense fallback={<div className="vh-screen">Cargando escenario…</div>}>
+        <GameScreen
+          key={screen.attempt}
+          request={screen.request}
+          settings={settings}
+          onQuit={() => setScreen({ name: 'select', mode: screen.request.mode })}
+          onRestart={() => setScreen({ ...screen, attempt: screen.attempt + 1 })}
+          onFinish={(result) => setScreen({ name: 'results', request: screen.request, result })}
+        />
+      </Suspense>
     );
   if (screen.name === 'results')
     return (

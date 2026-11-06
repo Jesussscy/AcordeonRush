@@ -16,7 +16,11 @@ for path in sorted(dest.glob('*.glb')):
             copy=backup/(path.stem+'-'+old[:12]+'.glb')
             if not copy.exists():shutil.copy2(path,copy)
             shutil.copy2(source,path)
-        shutil.copy2(source.with_name('preview.png'),path.with_suffix('.png'))
+        # Full-size PNG goes to art/previews; the game uses a light WebP thumbnail.
+        shutil.copy2(source.with_name('preview.png'),root/'art/previews'/(path.stem+'.png'))
+        from PIL import Image
+        image=Image.open(source.with_name('preview.png'));image.thumbnail((640,480))
+        image.save(path.with_suffix('.webp'),'WEBP',quality=82,method=6)
     data=path.read_bytes();size=struct.unpack_from('<I',data,12)[0];gltf=json.loads(data[20:20+size])
     report[path.stem]={'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data),'clips':[a['name'] for a in gltf['animations']],
                        # Curva rigs use a 6x2 bass grid; the previous collection uses 4x3.
