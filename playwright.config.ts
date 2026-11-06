@@ -20,6 +20,7 @@ export default defineConfig({
     command: 'npx vite --host 127.0.0.1 --port 5199 --strictPort',
     url: 'http://127.0.0.1:5199',
     reuseExistingServer: true,
+    env: { VITE_CACHE_DIR: 'node_modules/.vite-e2e' },
     timeout: 60_000,
   },
 });

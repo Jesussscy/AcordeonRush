@@ -13,7 +13,10 @@ test('el acordeón se desafina al fallar y se recupera en ≈300 ms', async ({ p
     )) as typeof import('../../src/audio/accordion-sampler.js');
     const rate = 44100;
     const ctx = new OfflineAudioContext(1, rate * 3, rate);
-    const audio = await createAccordionAudio({ context: ctx as unknown as AudioContext, baseURL: new URL(SAMPLE_BANK_URL, location.origin) });
+    const audio = await createAccordionAudio({
+      context: ctx as unknown as AudioContext,
+      baseURL: new URL(SAMPLE_BANK_URL, location.origin),
+    });
     await audio.preload();
     audio.setProfile('natural');
     audio.setPlayingMode('direct');
@@ -61,7 +64,9 @@ test('el acordeón se desafina al fallar y se recupera en ≈300 ms', async ({ p
     const cents = (f: number) => 1200 * Math.log2(f / base);
     return { base, missedCents: cents(missed), recoveredCents: cents(recovered) };
   });
-  console.log(`Desafine medido: base ${result.base.toFixed(1)} Hz, fallo ${result.missedCents.toFixed(1)} cents, a los 300 ms ${result.recoveredCents.toFixed(1)} cents`);
+  console.log(
+    `Desafine medido: base ${result.base.toFixed(1)} Hz, fallo ${result.missedCents.toFixed(1)} cents, a los 300 ms ${result.recoveredCents.toFixed(1)} cents`,
+  );
   expect(result.base).toBeGreaterThan(400);
   expect(result.base).toBeLessThan(480);
   expect(result.missedCents).toBeLessThan(-45);

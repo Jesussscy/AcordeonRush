@@ -300,6 +300,8 @@ export async function createAccordionAudio({
   const api = {
     context,
     manifest,
+    /** Final output node (post-limiter), e.g. for recording. */
+    output: analyser,
     setPlayingMode(mode) {
       if (!['direct', 'manual'].includes(mode)) throw Error('Invalid playing mode');
       if (playingMode === mode) return;
@@ -451,7 +453,8 @@ export async function createAccordionAudio({
       const at = context.currentTime;
       melodyDetune = detune;
       for (const voice of voices)
-        if (voice.part === 'melody' && voice.source) voice.source.detune.setTargetAtTime(voice.baseDetune + detune, at, time);
+        if (voice.part === 'melody' && voice.source)
+          voice.source.detune.setTargetAtTime(voice.baseDetune + detune, at, time);
       wobbleDepth.gain.setTargetAtTime(depth, at, time);
       melodyWet.gain.setTargetAtTime(Math.max(0, Math.min(1, crush)) * 0.7, at, time);
       melodyDry.gain.setTargetAtTime(1 - Math.max(0, Math.min(1, crush)) * 0.5, at, time);

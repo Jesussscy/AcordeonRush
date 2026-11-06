@@ -30,7 +30,11 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
   const [designId, setDesignId] = useState(
     instrumentDesigns.some((d) => d.id === settings.design) ? settings.design : instrumentDesigns[0].id,
   );
-  const [practice, setPractice] = useState<PracticeOptions>({ rate: 0.75, showNoteNames: true, section: null });
+  const [practice, setPractice] = useState<PracticeOptions>({
+    rate: mode === 'demo' ? 1 : 0.75,
+    showNoteNames: true,
+    section: null,
+  });
   const entry = songCatalog.find((s) => s.id === songId);
   const bars = entry?.chart ? Math.ceil(entry.chart.lengthBeats / entry.chart.timeSignature[0]) : 0;
   const sections = useMemo(() => {
@@ -48,7 +52,12 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
       difficulty,
       designId,
       mode,
-      practice: mode === 'practice' ? practice : { rate: 1, showNoteNames: false, section: null },
+      practice:
+        mode === 'practice'
+          ? practice
+          : mode === 'demo'
+            ? { rate: practice.rate, showNoteNames: practice.showNoteNames, section: null }
+            : { rate: 1, showNoteNames: false, section: null },
     });
   };
 
@@ -58,7 +67,7 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
         ← Menú
       </button>
       <h1 className="vh-logo" style={{ fontSize: 'clamp(44px, 7vw, 76px)' }}>
-        {mode === 'practice' ? 'Práctica' : 'Escoge tu canción'}
+        {mode === 'practice' ? 'Práctica' : mode === 'demo' ? 'Demostración' : 'Escoge tu canción'}
       </h1>
 
       <h2 className="vh-section-title">Canción</h2>
@@ -103,6 +112,34 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
           </button>
         ))}
       </div>
+
+      {mode === 'demo' && (
+        <>
+          <p className="vh-tagline">
+            El juego toca cada nota con el botón y el fuelle correctos, con acompañamiento. Mira las teclas para
+            aprender.
+          </p>
+          <label className="vh-field">
+            Velocidad: {Math.round(practice.rate * 100)}%
+            <input
+              type="range"
+              min={50}
+              max={100}
+              step={5}
+              value={practice.rate * 100}
+              onChange={(e) => setPractice({ ...practice, rate: Number(e.target.value) / 100 })}
+            />
+          </label>
+          <label className="vh-check">
+            <input
+              type="checkbox"
+              checked={practice.showNoteNames}
+              onChange={(e) => setPractice({ ...practice, showNoteNames: e.target.checked })}
+            />
+            Mostrar el nombre de la nota en cada gema
+          </label>
+        </>
+      )}
 
       {mode === 'practice' && (
         <>
@@ -176,7 +213,7 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
       </p>
       <div className="vh-row" style={{ marginTop: 16 }}>
         <button className="vh-btn primary" onClick={start} disabled={!entry || Boolean(entry.error)}>
-          <b>¡A tocar!</b>
+          <b>{mode === 'demo' ? '¡Que suene!' : '¡A tocar!'}</b>
         </button>
       </div>
     </main>

@@ -26,7 +26,8 @@ import { GameClock } from './game-clock';
 import { getRecord } from './records';
 import type { Settings } from './settings';
 
-export type GameMode = 'game' | 'practice';
+/** game = jugar · practice = práctica · demo = el acordeón toca solo (demostración). */
+export type GameMode = 'game' | 'practice' | 'demo';
 
 export type SessionConfig = {
   entry: SongEntry;
@@ -69,7 +70,10 @@ export type SessionCallbacks = {
 
 /** Optional scene decoration driven by the game (stage, characters, crowd — see render/stage). */
 export interface StageHooks {
-  update(dt: number, info: { beat: number; beatPhase: number; meter: number; parranda: boolean; opening: number }): void;
+  update(
+    dt: number,
+    info: { beat: number; beatPhase: number; meter: number; parranda: boolean; opening: number },
+  ): void;
   reaction(kind: 'cheer' | 'boo' | 'hit'): void;
   dispose(): void;
 }
@@ -97,6 +101,11 @@ export class GameSession {
   private accompaniment?: AccompanimentPlayer;
   private backing?: BackingTrack;
   private sfx?: Sfx;
+  private master?: GainNode;
+  private readonly autoScheduled = new Set<number>();
+  private readonly autoHeld = new Map<string, GameNote>();
+  private upcomingKey = '';
+  private recorder?: { recorder: MediaRecorder; chunks: Blob[]; tap: MediaStreamAudioDestinationNode };
   private raf = 0;
   private lastFrame = 0;
   private lastBeat = -Infinity;
@@ -177,6 +186,7 @@ export class GameSession {
     const master = ctx.createGain();
     master.gain.value = this.config.settings.volume;
     master.connect(ctx.destination);
+    this.master = master;
     // A recorded track is only used at full speed: slowing an AudioBuffer would also lower its pitch.
     const useTrack = Boolean(this.config.entry.audioUrl) && this.rate === 1;
     const [audio, backing] = await Promise.all([
@@ -217,10 +227,11 @@ export class GameSession {
     );
     this.startAt(this.config.loop?.[0] ?? 0);
     this.hud = new Hud(this.container, { title: this.config.chart.title, artist: this.config.chart.artist });
+    const demo = this.config.mode === 'demo';
     this.input = new GameInput(this.config.settings.bindings, {
-      press: (id, ts) => this.press(id, ts),
-      release: (id, ts) => this.release(id, ts),
-      bellows: (direction, ts) => this.setBellows(direction, ts),
+      press: (id, ts) => !demo && this.press(id, ts),
+      release: (id, ts) => !demo && this.release(id, ts),
+      bellows: (direction, ts) => !demo && this.setBellows(direction, ts),
       parranda: () => this.activateParranda(),
       pause: () => (this.paused ? this.resume() : this.pause()),
     });
@@ -236,7 +247,7 @@ export class GameSession {
       () => this.shift,
       () => this.bellows,
     );
-    void this.midi.connect();
+    if (!demo) void this.midi.connect();
     this.callbacks.onReady?.();
     this.lastFrame = performance.now();
     this.loop();
@@ -415,6 +426,62 @@ export class GameSession {
     }
   }
 
+  /**
+   * Demostración: the game plays the chart itself. Sound is scheduled sample-accurately on the
+   * AudioContext (correct button + bellows for every note); buttons, bellows, judge and HUD follow
+   * exactly as if a perfect player were playing.
+   */
+  private autoplay(now: number) {
+    const clock = this.clock!;
+    const audio = this.audio!;
+    for (const [id, note] of this.autoHeld)
+      if (now >= note.end - 0.01) {
+        this.autoHeld.delete(id);
+        this.held.delete(id);
+        this.handle(this.judge.release(id, note.end - 0.005));
+      }
+    for (const n of this.notes) {
+      if (n.start - now > 0.3) break;
+      if (!this.autoScheduled.has(n.id) && n.start >= now - 0.01) {
+        this.autoScheduled.add(n.id);
+        audio.scheduleNote(
+          n.button.bone,
+          n.direction,
+          clock.ctxTimeOf(n.start),
+          ((n.end - n.start) / clock.rate) * 0.97,
+          0.95,
+        );
+      }
+      if (n.state === 'pending' && now >= n.start) {
+        if (this.bellows !== n.direction) {
+          this.bellows = n.direction;
+          this.handle(this.judge.setBellows(n.direction, n.start));
+        }
+        this.handle(this.judge.press(n.button.id, n.start));
+        this.held.add(n.button.id);
+        this.autoHeld.set(n.button.id, n);
+      }
+    }
+    if (this.score.parrandaReady) this.activateParranda();
+  }
+
+  /** Next notes for the "próximas teclas" strip. */
+  private updateUpcoming(now: number) {
+    const next = this.notes.filter((n) => n.state === 'pending' && n.start > now - 0.05).slice(0, 4);
+    const key = next.map((n) => n.id).join(',');
+    if (key === this.upcomingKey) return;
+    this.upcomingKey = key;
+    const layout = this.config.settings.keyboardLayout;
+    this.hud?.upcoming(
+      next.map((n) => ({
+        key: keyLabel(this.config.settings.bindings.buttons[n.button.id], layout),
+        code: n.button.code,
+        direction: n.direction,
+        row: n.row,
+      })),
+    );
+  }
+
   /** Practice loop: rewind to the start of the section and replay it. */
   private restartLoop() {
     const loop = this.config.loop!;
@@ -423,6 +490,9 @@ export class GameSession {
     this.audio?.allNotesOff();
     this.judge.reset();
     this.highway.reset();
+    this.autoScheduled.clear();
+    this.autoHeld.clear();
+    this.held.clear();
     this.startAt(loop[0]);
     this.hud?.banner(`Vuelta ${this.loops + 1}`);
   }
@@ -437,7 +507,8 @@ export class GameSession {
     if (!clock || !this.audio) return;
     const now = clock.heardNow();
     if (!this.paused && !this.finished) {
-      if (this.config.settings.assistedBellows) this.assist(now);
+      if (this.config.mode === 'demo') this.autoplay(now);
+      else if (this.config.settings.assistedBellows) this.assist(now);
       this.accompaniment?.pump(clock.ctxTimeOfBeat, clock.rate);
       this.handle(this.judge.update(now));
       const beat = now / this.secondsPerBeat;
@@ -455,6 +526,7 @@ export class GameSession {
             this.sparks.burst(LANE_X[n.row], 0, this.score.parranda ? 0xffc23a : LANE_COLORS[n.row], 3, 0.6);
           }
     }
+    if (!this.finished) this.updateUpcoming(now);
     const visual = clock.visualNow();
     const visualBeat = visual / this.secondsPerBeat;
     const beatPhase = ((visualBeat % 1) + 1) % 1;
@@ -554,10 +626,42 @@ export class GameSession {
       grades: { ...this.score.grades },
       errors: { ...this.score.errors },
     };
-    setTimeout(() => {
-      this.backing?.stop();
-      this.callbacks.onFinish?.(result);
-    }, failed ? 2400 : 900);
+    setTimeout(
+      () => {
+        this.backing?.stop();
+        this.callbacks.onFinish?.(result);
+      },
+      failed ? 2400 : 900,
+    );
+  }
+
+  /** Record the game audio (sampler + accompaniment + effects) as WebM/Opus. Debug/demo use. */
+  debugStartRecording() {
+    if (!this.ctx || !this.audio || !this.master || this.recorder) return false;
+    const tap = this.ctx.createMediaStreamDestination();
+    this.audio.output.connect(tap);
+    this.master.connect(tap);
+    const recorder = new MediaRecorder(tap.stream, { mimeType: 'audio/webm;codecs=opus', audioBitsPerSecond: 160_000 });
+    const chunks: Blob[] = [];
+    recorder.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+    recorder.start(250);
+    this.recorder = { recorder, chunks, tap };
+    return true;
+  }
+
+  /** Stop recording and return the audio as a base64 WebM string. */
+  async debugStopRecording() {
+    const rec = this.recorder;
+    if (!rec) return '';
+    this.recorder = undefined;
+    await new Promise<void>((resolve) => {
+      rec.recorder.onstop = () => resolve();
+      rec.recorder.stop();
+    });
+    const bytes = new Uint8Array(await new Blob(rec.chunks, { type: 'audio/webm' }).arrayBuffer());
+    let binary = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+    return btoa(binary);
   }
 
   /** Read-only snapshot for automated tests (window.__VH__ in debug mode). */

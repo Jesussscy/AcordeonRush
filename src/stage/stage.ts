@@ -81,10 +81,7 @@ export class Stage implements StageHooks {
   private lastLedBeat = -1;
   private readonly bars = new Array(24).fill(0);
 
-  constructor(
-    scene: THREE.Scene,
-    quality: 'high' | 'low',
-  ) {
+  constructor(scene: THREE.Scene, quality: 'high' | 'low') {
     scene.add(this.group);
     scene.fog = new THREE.Fog(0x0b0608, 70, 190);
     const hat = vueltiaoTexture();
@@ -93,9 +90,12 @@ export class Stage implements StageHooks {
     // Night sky with stars.
     const starGeometry = new THREE.BufferGeometry();
     const stars = new Float32Array(600 * 3);
-    for (let i = 0; i < 600; i++) stars.set([(Math.random() - 0.5) * 300, 25 + Math.random() * 80, -90 - Math.random() * 60], i * 3);
+    for (let i = 0; i < 600; i++)
+      stars.set([(Math.random() - 0.5) * 300, 25 + Math.random() * 80, -90 - Math.random() * 60], i * 3);
     starGeometry.setAttribute('position', new THREE.BufferAttribute(stars, 3));
-    this.group.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xfff4dc, size: 0.4, fog: false })));
+    this.group.add(
+      new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xfff4dc, size: 0.4, fog: false })),
+    );
 
     // Tarima (wooden stage floor) under and around the highway.
     const wood = woodTexture();
@@ -107,7 +107,10 @@ export class Stage implements StageHooks {
     floor.rotation.x = -Math.PI / 2;
     floor.position.set(0, -0.06, -30);
     this.group.add(floor);
-    const front = new THREE.Mesh(new THREE.BoxGeometry(44, 1.2, 0.4), new THREE.MeshStandardMaterial({ color: 0x3a2418 }));
+    const front = new THREE.Mesh(
+      new THREE.BoxGeometry(44, 1.2, 0.4),
+      new THREE.MeshStandardMaterial({ color: 0x3a2418 }),
+    );
     front.position.set(0, -0.66, 10);
     this.group.add(front);
 
@@ -120,9 +123,15 @@ export class Stage implements StageHooks {
     texture.colorSpace = THREE.SRGBColorSpace;
     this.led = { canvas, ctx, texture };
     this.textures.push(texture);
-    const screen = new THREE.Mesh(new THREE.PlaneGeometry(20, 8.75), new THREE.MeshBasicMaterial({ map: texture, fog: false }));
+    const screen = new THREE.Mesh(
+      new THREE.PlaneGeometry(20, 8.75),
+      new THREE.MeshBasicMaterial({ map: texture, fog: false }),
+    );
     screen.position.set(0, 5.2, -54);
-    const frame = new THREE.Mesh(new THREE.BoxGeometry(21, 9.7, 0.6), new THREE.MeshStandardMaterial({ color: 0x111111 }));
+    const frame = new THREE.Mesh(
+      new THREE.BoxGeometry(21, 9.7, 0.6),
+      new THREE.MeshStandardMaterial({ color: 0x111111 }),
+    );
     frame.position.set(0, 5.2, -54.4);
     this.group.add(frame, screen);
 
@@ -141,14 +150,20 @@ export class Stage implements StageHooks {
         }
 
     // Truss with lamps, sweeping beams and real spotlights.
-    const truss = new THREE.Mesh(new THREE.BoxGeometry(34, 0.5, 0.5), new THREE.MeshStandardMaterial({ color: 0x777777, metalness: 0.8 }));
+    const truss = new THREE.Mesh(
+      new THREE.BoxGeometry(34, 0.5, 0.5),
+      new THREE.MeshStandardMaterial({ color: 0x777777, metalness: 0.8 }),
+    );
     truss.position.set(0, 11.5, -36);
     this.group.add(truss);
     const beamCount = quality === 'high' ? 8 : 4;
     for (let i = 0; i < beamCount; i++) {
       const color = BEAM_COLORS[i % BEAM_COLORS.length];
       const x = -14 + (28 * i) / (beamCount - 1);
-      const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.5, 0.7, 10), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+      const lamp = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.35, 0.5, 0.7, 10),
+        new THREE.MeshStandardMaterial({ color: 0x222222 }),
+      );
       lamp.position.set(x, 10.9, -36);
       this.group.add(lamp);
       const beam = new THREE.Mesh(
@@ -166,7 +181,12 @@ export class Stage implements StageHooks {
       beam.geometry.translate(0, -11, 0);
       beam.position.copy(lamp.position);
       this.group.add(beam);
-      this.beams.push({ mesh: beam, base: x > 0 ? -0.35 : 0.35, speed: 0.6 + Math.random() * 0.6, phase: Math.random() * 6 });
+      this.beams.push({
+        mesh: beam,
+        base: x > 0 ? -0.35 : 0.35,
+        speed: 0.6 + Math.random() * 0.6,
+        phase: Math.random() * 6,
+      });
       if (i % 2 === 0) {
         const spot = new THREE.SpotLight(color, 60, 60, 0.35, 0.5, 1.2);
         spot.position.copy(lamp.position);
@@ -180,7 +200,11 @@ export class Stage implements StageHooks {
     const strings = [-12, -26, -40];
     const perString = 34;
     this.bulbMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    this.bulbs = new THREE.InstancedMesh(new THREE.SphereGeometry(0.16, 8, 6), this.bulbMaterial, strings.length * perString);
+    this.bulbs = new THREE.InstancedMesh(
+      new THREE.SphereGeometry(0.16, 8, 6),
+      this.bulbMaterial,
+      strings.length * perString,
+    );
     const m = new THREE.Matrix4();
     let k = 0;
     for (const z of strings)
@@ -259,8 +283,8 @@ export class Stage implements StageHooks {
     ctx.fillRect(0, 0, w, h);
     // Woven vueltiao band.
     ctx.fillStyle = parranda ? '#3a2a00' : '#1a1012';
-    for (let x = 0; x < w; x += 32) ctx.fillRect(x + ((step % 2) * 16), 0, 16, 18);
-    for (let x = 0; x < w; x += 32) ctx.fillRect(x + (((step + 1) % 2) * 16), h - 18, 16, 18);
+    for (let x = 0; x < w; x += 32) ctx.fillRect(x + (step % 2) * 16, 0, 16, 18);
+    for (let x = 0; x < w; x += 32) ctx.fillRect(x + ((step + 1) % 2) * 16, h - 18, 16, 18);
     // Equalizer bars.
     for (let i = 0; i < this.bars.length; i++) {
       this.bars[i] = Math.max(this.bars[i] * 0.55, Math.random() * (0.35 + meter * 0.65));
@@ -284,9 +308,13 @@ export class Stage implements StageHooks {
     if (this.moodTimer > 0) this.moodTimer -= dt;
     else this.mood *= Math.exp(-dt * 2);
     this.flash *= Math.exp(-dt * 6);
-    const energy = Math.max(0, Math.min(1.4, info.meter + (this.mood > 0 ? 0.5 : this.mood < 0 ? -0.4 : 0) + (info.parranda ? 0.4 : 0)));
+    const energy = Math.max(
+      0,
+      Math.min(1.4, info.meter + (this.mood > 0 ? 0.5 : this.mood < 0 ? -0.4 : 0) + (info.parranda ? 0.4 : 0)),
+    );
     const pulse = 1 - info.beatPhase;
-    for (const musician of this.musicians) musician.animate(info.beat, info.beatPhase, Math.min(1, energy), info.opening);
+    for (const musician of this.musicians)
+      musician.animate(info.beat, info.beatPhase, Math.min(1, energy), info.opening);
     // Sweeping beams + spotlights.
     const intensity = (info.parranda ? 1.8 : 1) * (0.6 + 0.4 * info.meter);
     this.beams.forEach((b, i) => {

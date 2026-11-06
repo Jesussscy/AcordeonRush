@@ -50,3 +50,15 @@ test('soltar una carpeta en songs/ (chart.json o .mid) la agrega sin tocar códi
     fs.rmSync(midiDir, { recursive: true, force: true });
   }
 });
+
+test('demostración: el acordeón toca toda la canción solo, perfecto', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: /^Demostración/ }).click();
+  await page.getByRole('button', { name: /^Experto/ }).click();
+  await page.getByRole('button', { name: '¡Que suene!' }).click();
+  await page.waitForFunction(() => window.__VH__?.session.debugSnapshot().finished, null, { timeout: 120_000 });
+  const snap = await page.evaluate(() => window.__VH__!.session.debugSnapshot());
+  expect(snap.grades.perfect).toBe(75);
+  expect(Object.values(snap.errors).every((v) => v === 0)).toBe(true);
+  await expect(page.getByTestId('final-score')).toBeVisible({ timeout: 10_000 });
+});

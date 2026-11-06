@@ -36,5 +36,7 @@ export interface HudApi {
   meterZone(zone: 'red' | 'yellow' | 'green'): void;
   bellowsHint(direction: 'push' | 'pull'): void;
   banner(text: string, kind?: 'info' | 'fail' | 'gold'): void;
+  /** Next notes to play: keyboard key, button id and bellows direction. */
+  upcoming(items: { key: string; code: string; direction: 'push' | 'pull'; row: number }[]): void;
   dispose(): void;
 }

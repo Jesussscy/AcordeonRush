@@ -591,3 +591,61 @@
     transform-origin: bottom right;
   }
 }
+
+/* Próximas teclas: the next keys, big and readable next to the hit line. */
+.vh-next {
+  position: absolute;
+  right: clamp(8px, 2vw, 28px);
+  bottom: 19%;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.vh-next-label {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #c9b89b;
+  align-self: center;
+}
+.vh-next-chip {
+  --lane: #f2c230;
+  --dir: #3d8bff;
+  display: grid;
+  justify-items: center;
+  min-width: 46px;
+  padding: 4px 8px 3px;
+  border-radius: 10px;
+  background: rgba(12, 7, 5, 0.82);
+  border: 3px solid var(--lane);
+  box-shadow: inset 0 -5px 0 var(--dir);
+  opacity: 0.75;
+}
+.vh-next-chip.first {
+  opacity: 1;
+  transform: scale(1.3);
+  transform-origin: bottom center;
+  margin-right: 8px;
+  box-shadow:
+    inset 0 -6px 0 var(--dir),
+    0 0 18px var(--lane);
+}
+.vh-next-chip.row-0 {
+  --lane: #2fbf4f;
+}
+.vh-next-chip.row-2 {
+  --lane: #e0393e;
+}
+.vh-next-chip.pull {
+  --dir: #ff8a1f;
+}
+.vh-next-chip b {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 400;
+}
+.vh-next-chip small {
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  color: #c9b89b;
+  white-space: nowrap;
+}

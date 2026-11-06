@@ -39,7 +39,10 @@ export class Sparks {
       const angle = Math.random() * Math.PI * 2;
       const spread = (0.6 + Math.random() * 1.6) * power;
       this.positions.set([x + Math.cos(angle) * 0.35, 0.15, z + Math.sin(angle) * 0.2], i * 3);
-      this.velocity.set([Math.cos(angle) * spread * 0.6, (2.2 + Math.random() * 2.8) * power, Math.sin(angle) * spread * 0.3], i * 3);
+      this.velocity.set(
+        [Math.cos(angle) * spread * 0.6, (2.2 + Math.random() * 2.8) * power, Math.sin(angle) * spread * 0.3],
+        i * 3,
+      );
       this.base.set([c.r, c.g, c.b], i * 3);
       this.maxLife[i] = this.life[i] = 0.35 + Math.random() * 0.35 * power;
     }

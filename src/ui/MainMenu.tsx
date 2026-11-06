@@ -34,6 +34,12 @@ export function MainMenu({ onPlay, onStudio, onSettings, onCalibration }: Props)
             <small>Velocidad, bucle de secciones y nombre de las notas</small>
           </span>
         </button>
+        <button className="vh-btn" onClick={() => onPlay('demo')}>
+          <span>
+            <b>Demostración</b>
+            <small>El acordeón toca la canción solo: escucha cómo debe sonar</small>
+          </span>
+        </button>
         <button className="vh-btn" onClick={onStudio}>
           <span>
             <b>Estudio libre</b>

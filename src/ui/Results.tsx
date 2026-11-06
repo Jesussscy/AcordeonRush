@@ -65,7 +65,7 @@ export function Results({ request, result, onRetry, onSongs, onMenu }: Props) {
       </h1>
       <p className="vh-tagline">
         {result.title} · {difficulty}
-        {result.mode === 'practice' ? ' · práctica' : ''}
+        {result.mode === 'practice' ? ' · práctica' : result.mode === 'demo' ? ' · demostración' : ''}
       </p>
       <div className="vh-row" aria-label={`${result.stars} de 5 sombreros`} style={{ gap: 6 }}>
         {[0, 1, 2, 3, 4].map((i) => (

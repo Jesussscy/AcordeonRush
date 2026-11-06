@@ -40,7 +40,7 @@ Abre la URL que indique Vite (por defecto http://localhost:5173). Luego elige **
 | Modo Parranda | `Enter`, o sacudir el fuelle 4 veces rápido |
 | Pausa | `Esc` |
 
-- **Cómo se toca una nota.** Cada gema muestra el botón (`M5` = hilera del medio, botón 5), la tecla y una flecha con el sentido del fuelle. Cuenta solo si el botón y el fuelle son correctos en ese instante.
+- **Cómo se toca una nota.** Cada gema muestra en grande la **tecla** que hay que pulsar, encima el botón (`M5` = hilera del medio, botón 5) y abajo una flecha con el sentido del fuelle. La franja **SIGUE** (abajo a la derecha) muestra las próximas teclas. Cuenta solo si el botón y el fuelle son correctos en ese instante.
 - **El fuelle como rasgueo.** Puedes tener el botón presionado y cambiar el fuelle justo a tiempo.
 - **Fuelle equivocado.** Suena la *otra* nota del botón, como en un acordeón real.
 - **Franja lateral.** La franja de la izquierda anticipa los cambios de fuelle.
@@ -54,6 +54,7 @@ Abre la URL que indique Vite (por defecto http://localhost:5173). Luego elige **
   - **Difícil:** las 3 hileras, sin las notas más rápidas.
   - **Experto:** el chart completo.
 - **Práctica.** Velocidad del 50 al 100 %, bucle de una sección de 4 compases y nombre de la nota en cada gema. La partida no termina aunque el Ambientómetro llegue a cero.
+- **Demostración.** El acordeón toca solo toda la canción, con el botón y el fuelle correctos y el acompañamiento: escucha cómo debe sonar y mira qué tecla va en cada momento. Se puede bajar la velocidad.
 - **Estudio libre.** Toca el acordeón 3D sin canción: 24 afinaciones, registros y modo "Ver tocar".
 - **Calibración.** Mide la latencia de audio y de video con toques al pulso.
 - **Ajustes.** Fuelle asistido (apagado por defecto), tecla en las gemas, volumen, calidad gráfica y reasignación de teclas.

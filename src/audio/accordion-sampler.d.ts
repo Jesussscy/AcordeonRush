@@ -23,6 +23,8 @@ export type AudioDiagnostics = {
 
 export type AccordionAudio = {
   context: AudioContext;
+  /** Final output node (post-limiter). */
+  output: AudioNode;
   setPlayingMode(mode: 'direct' | 'manual'): void;
   setDirection(direction: BellowsDirection): void;
   setExpression(value: number): void;

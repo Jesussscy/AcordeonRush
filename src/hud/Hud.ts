@@ -93,6 +93,7 @@ export class Hud implements HudApi {
   private lastBellows = '';
   private readonly title: HTMLElement;
   private readonly vignette: HTMLElement;
+  private readonly next: HTMLElement;
   private elapsed = 0;
 
   constructor(container: HTMLElement, info: { title: string; artist: string }) {
@@ -173,7 +174,18 @@ export class Hud implements HudApi {
     this.floats = el('div', 'vh-floats');
     this.banners = el('div', 'vh-banners');
     this.vignette = el('div', 'vh-vignette');
-    this.root.append(this.vignette, top, left, right, this.bellows, this.countdown, this.floats, this.banners);
+    this.next = el('div', 'vh-next');
+    this.root.append(
+      this.vignette,
+      top,
+      left,
+      right,
+      this.bellows,
+      this.next,
+      this.countdown,
+      this.floats,
+      this.banners,
+    );
   }
 
   update(state: HudState, dt: number) {
@@ -357,6 +369,21 @@ export class Hud implements HudApi {
     );
     this.floats.append(hint);
     setTimeout(() => hint.remove(), 700);
+  }
+
+  upcoming(items: { key: string; code: string; direction: 'push' | 'pull'; row: number }[]) {
+    this.next.replaceChildren(
+      ...items.map((item, i) => {
+        const chip = el('div', `vh-next-chip row-${item.row} ${item.direction}${i === 0 ? ' first' : ''}`);
+        const key = el('b');
+        key.textContent = item.key;
+        const sub = el('small');
+        sub.textContent = `${item.code} ${item.direction === 'push' ? '← cierra' : '→ abre'}`;
+        chip.append(key, sub);
+        return chip;
+      }),
+    );
+    if (items.length) this.next.prepend(el('span', 'vh-next-label', 'SIGUE'));
   }
 
   dispose() {

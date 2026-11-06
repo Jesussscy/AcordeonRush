@@ -5,6 +5,8 @@ export default defineConfig({
   plugins: [react()],
   // Runtime models, samples and fonts live in assets/ and are served at the site root.
   publicDir: 'assets',
+  // Separate dependency cache per server (the E2E server must not share it with `npm run dev`).
+  cacheDir: process.env.VITE_CACHE_DIR ?? 'node_modules/.vite',
   // Pre-bundle everything the game loads lazily, so the dev server never re-optimizes (and reloads)
   // in the middle of a song.
   optimizeDeps: {

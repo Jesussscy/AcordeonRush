@@ -444,11 +444,11 @@ Esfuerzo estimado en sesiones de trabajo de Claude Code (≈ 1 sesión = un bloq
 - HUD en DOM/SVG con actualización por diferencias (sin re-render de React por frame).
 - Verificado en navegador con capturas durante una partida real: LED, multiplicador y lucecitas, odómetro, Ambientómetro, sombreros, Parranda x8, Perfectos seguidos e indicador de fuelle.
 
-### H3 — Errores y desafine · ≈ 1.5 sesiones
-- [ ] Clasificador de 5 tipos (perdida, botón, fuelle, temprano/tarde, fantasma) con su etiqueta flotante.
-- [ ] Resaltado rojo (presionado) y verde (correcto) en el acordeón 3D. Flecha de fuelle grande parpadeando.
-- [ ] Gema gris y agrietada, sacudida, viñeta roja, caída del multiplicador animada, abucheo tras N fallos y anti-frustración en Fácil.
-- [ ] `audio/detune-fx.ts`:
+### H3 — Errores y desafine · ☑ HECHO (2026-11-05)
+- [x] Clasificador de 5 tipos (perdida, botón, fuelle, temprano/tarde, fantasma) con su etiqueta flotante.
+- [x] Resaltado rojo (presionado) y verde (correcto) en el acordeón 3D. Flecha de fuelle grande parpadeando.
+- [x] Gema gris y agrietada, sacudida, viñeta roja, caída del multiplicador animada, abucheo tras N fallos y anti-frustración en Fácil.
+- [x] `audio/detune-fx.ts`:
   - melodía sintetizada: detune de −40 a −80 cents por voz, wobble, bitcrush (WaveShaper/AudioWorklet), ducking y recuperación de 300 ms
   - pista mp3: vibrato por DelayNode modulado, filtro y ganancia, sin cambiar la velocidad
   - pifias ×3
@@ -457,32 +457,48 @@ Esfuerzo estimado en sesiones de trabajo de Claude Code (≈ 1 sesión = un bloq
   - la medición offline (OfflineAudioContext) muestra la caída de afinación y la recuperación en ≤ 300 ms
 - Archivos: `src/gameplay/judge.ts`, `src/audio/*`, `src/instrument/button-highlights.ts`, `src/hud/TimingText.tsx`.
 
-### H4 — Escenario y personajes · ≈ 2–3 sesiones
-- [ ] Tarima procedural de caseta: estructura, parlantes apilados, guirnaldas, pantalla LED con visuales al beat, reflectores que barren (luces volumétricas falsas con conos aditivos) y bloom.
-- [ ] Acordeonero con sombrero vueltiao (fuelle sincronizado con el del jugador), cajero y guacharaquero: low-poly procedurales y animados al beat.
-- [ ] Público en siluetas instanciadas (InstancedMesh) con estados según el Ambientómetro.
-- [ ] Textura de autopista (cuero/madera con vueltiao sutil) generada proceduralmente (canvas/shader). **Todo el arte es original.**
+**Resultado del H3:** los 5 tipos de error tienen etiqueta y feedback. Desafine medido offline sobre el audio real: −61,2 cents al fallar y −1,7 cents a los 300 ms. Hay pifias, abucheo, golpe de racha rota, sacudida, viñeta y chispas.
+
+### H4 — Escenario y personajes · ☑ HECHO (2026-11-05)
+- [x] Tarima procedural de caseta: estructura, parlantes apilados, guirnaldas, pantalla LED con visuales al beat, reflectores que barren (luces volumétricas falsas con conos aditivos) y bloom.
+- [x] Acordeonero con sombrero vueltiao (fuelle sincronizado con el del jugador), cajero y guacharaquero: low-poly procedurales y animados al beat.
+- [x] Público en siluetas instanciadas (InstancedMesh) con estados según el Ambientómetro.
+- [x] Textura de autopista (cuero/madera con vueltiao sutil) generada proceduralmente (canvas/shader). **Todo el arte es original.**
 - **Terminado cuando:** 60 FPS estables en 1080p en esta máquina (p95 < 16.7 ms medido en el E2E) y personajes sincronizados al BPM.
 - Archivos: `src/stage/*`, `src/render/post-processing.ts`, `src/render/shaders/*`.
 
-### H5 — Modos, dificultad y resultados · ≈ 2 sesiones
-- [ ] Dificultades derivadas (Fácil, Medio, Difícil, Experto) y su selector.
-- [ ] Modo práctica: velocidad del 50 al 100 %, bucle de sección y nombre de la nota visible.
-- [ ] Calibración de latencia A/V (golpes al pulso y offset visual) persistente.
-- [ ] Pantalla de resultados (sombreros 1–5, %, racha máxima y récord, desgloses, consejo automático). Récords por canción y dificultad.
-- [ ] Remapeo de controles en ajustes y Web MIDI opcional.
-- [ ] Importador `.mid`: `tools/midi-to-chart.mjs` y carga en runtime de `songs/<x>/song.mid`.
+**Resultado del H4:**
+- Escenario, músicos y público procedurales, con bloom.
+- 1080p sin límite de vsync: p95 de 4,2 ms (test E2E).
+
+### H5 — Modos, dificultad y resultados · ☑ HECHO (2026-11-05)
+- [x] Dificultades derivadas (Fácil, Medio, Difícil, Experto) y su selector.
+- [x] Modo práctica: velocidad del 50 al 100 %, bucle de sección y nombre de la nota visible.
+- [x] Calibración de latencia A/V (golpes al pulso y offset visual) persistente.
+- [x] Pantalla de resultados (sombreros 1–5, %, racha máxima y récord, desgloses, consejo automático). Récords por canción y dificultad.
+- [x] Remapeo de controles en ajustes y Web MIDI opcional.
+- [x] Importador `.mid`: `tools/midi-to-chart.mjs` y carga en runtime de `songs/<x>/song.mid`.
 - **Terminado cuando:** la demo se completa en las 4 dificultades en el E2E, una carpeta nueva en `songs/` aparece sin tocar código (test) y los récords persisten.
 - Archivos: `src/gameplay/difficulty.ts`, `src/ui/*`, `src/core/records.ts`, `tools/midi-to-chart.mjs`.
 
-### H6 — Pulido y rendimiento · ≈ 1.5 sesiones
-- [ ] Code-splitting (estudio, escenario, MIDI), previews PNG → WebP (de unos 2 MB a menos de 150 KB) y GLB con compresión meshopt opcional.
-- [ ] Opción de calidad (bloom y público on/off), pausa por visibilidad, auditoría de memoria y contextos.
-- [ ] README completo con capturas del HUD, guía para agregar canciones, controles y créditos (samples CC0).
-- [ ] E2E final: juega la demo con aciertos y fallos, verifica los criterios de aceptación 5–10 y regenera las capturas.
+**Resultado del H5:**
+- 4 dificultades, práctica con velocidad y bucle, calibración, resultados con récords y consejo, remapeo de teclas, MIDI, `.mid` en tiempo de ejecución y `tools/midi-to-chart.mjs`.
+- Extra pedido por el usuario: modo **Demostración**, en el que el acordeón toca la canción solo.
+
+### H6 — Pulido y rendimiento · ☑ HECHO (2026-11-05)
+- [x] Code-splitting (estudio, escenario, MIDI), previews PNG → WebP (de unos 2 MB a menos de 150 KB) y GLB con compresión meshopt opcional.
+- [x] Opción de calidad (bloom y público on/off), pausa por visibilidad, auditoría de memoria y contextos.
+- [x] README completo con capturas del HUD, guía para agregar canciones, controles y créditos (samples CC0).
+- [x] E2E final: juega la demo con aciertos y fallos, verifica los criterios de aceptación 5–10 y regenera las capturas.
 - **Terminado cuando:** se cumplen todos los criterios de aceptación de la spec, la consola está limpia, el bundle inicial es menor de 500 KB gzip y el juego va a 60 FPS.
 
 ---
+
+**Resultado del H6:**
+- Vistas previas en WebP (17 MB → 160 KB) y code-splitting: menú inicial de unos 59 KB gzip.
+- Gemas con etiqueta *billboard* y la tecla en grande, más la franja de “próximas teclas”.
+- README con capturas.
+- 10 tests E2E y 46 unitarios en verde.
 
 ## 7. Riesgos y preguntas abiertas
 

@@ -45,7 +45,13 @@ type Body = {
 };
 
 /** Low-poly stylised performer: guayabera, dark trousers, optional sombrero vueltiao. */
-function person(options: { shirt: number; pants: number; skin: number; hat: THREE.Texture | null; scarf?: number }): Body {
+function person(options: {
+  shirt: number;
+  pants: number;
+  skin: number;
+  hat: THREE.Texture | null;
+  scarf?: number;
+}): Body {
   const root = new THREE.Group();
   const hips = new THREE.Group();
   hips.position.y = 1.0;
@@ -103,7 +109,16 @@ function person(options: { shirt: number; pants: number; skin: number; hat: THRE
   };
   const left = makeArm(-1);
   const right = makeArm(1);
-  return { root, torso, head, armL: left.shoulder, armR: right.shoulder, forearmL: left.elbow, forearmR: right.elbow, hips };
+  return {
+    root,
+    torso,
+    head,
+    armL: left.shoulder,
+    armR: right.shoulder,
+    forearmL: left.elbow,
+    forearmR: right.elbow,
+    hips,
+  };
 }
 
 /** Accordionist in front: sombrero vueltiao, red scarf, bellows synced with the player's. */
@@ -115,7 +130,10 @@ export function accordionist(hat: THREE.Texture): Musician {
   const caseMaterial = flat(0xb3242e, { metalness: 0.3, roughness: 0.4 });
   const bassCase = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.42, 0.3), caseMaterial);
   const trebleCase = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.42, 0.3), caseMaterial);
-  const grille = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.3, 0.22), flat(0xd7d7d7, { metalness: 0.8, roughness: 0.3 }));
+  const grille = new THREE.Mesh(
+    new THREE.BoxGeometry(0.02, 0.3, 0.22),
+    flat(0xd7d7d7, { metalness: 0.8, roughness: 0.3 }),
+  );
   grille.position.x = 0.07;
   trebleCase.add(grille);
   const bellows = new THREE.Mesh(new THREE.BoxGeometry(1, 0.38, 0.28), flat(0x1b1b1b));

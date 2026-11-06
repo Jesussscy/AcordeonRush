@@ -21,7 +21,7 @@ type Gem = {
   note: GameNote;
   group: THREE.Group;
   body: THREE.Mesh;
-  label: THREE.Mesh;
+  label: THREE.Sprite;
   rim: THREE.Mesh;
   tail?: THREE.Mesh;
   state: 'pending' | 'hit' | 'missed';
@@ -39,33 +39,44 @@ function labelTexture(label: GemLabel, direction: Bellows, gold: boolean, cracke
   canvas.width = canvas.height = size;
   const g = canvas.getContext('2d')!;
   const c = size / 2;
-  // Button cap.
+  const accent = cracked ? '#555' : BELLOWS_CSS[direction];
+  // Button cap with a thick bellows-coloured ring.
   const face = g.createRadialGradient(c - 30, c - 40, 10, c, c, c);
-  face.addColorStop(0, cracked ? '#9a9a9a' : gold ? '#fff6c8' : '#fffaf0');
-  face.addColorStop(1, cracked ? '#5e5e5e' : gold ? '#e6b53c' : '#d9cdb4');
+  face.addColorStop(0, cracked ? '#9a9a9a' : gold ? '#fff6c8' : '#ffffff');
+  face.addColorStop(1, cracked ? '#5e5e5e' : gold ? '#efbf45' : '#e8dcc4');
   g.fillStyle = face;
   g.beginPath();
-  g.arc(c, c, c - 6, 0, Math.PI * 2);
+  g.arc(c, c, c - 12, 0, Math.PI * 2);
   g.fill();
-  g.lineWidth = 14;
-  g.strokeStyle = cracked ? '#444' : BELLOWS_CSS[direction];
+  g.lineWidth = 22;
+  g.strokeStyle = accent;
   g.stroke();
-  // Button id (big), key hint and note name.
-  g.fillStyle = cracked ? '#2c2c2c' : '#1d140e';
+  g.lineWidth = 4;
+  g.strokeStyle = '#1d140e';
+  g.beginPath();
+  g.arc(c, c, c - 2, 0, Math.PI * 2);
+  g.stroke();
   g.textAlign = 'center';
   g.textBaseline = 'middle';
-  g.font = `900 ${label.code.length > 2 ? 78 : 92}px "Arial Black", system-ui, sans-serif`;
-  g.fillText(label.code, c, c - 8);
-  g.font = '800 46px system-ui, sans-serif';
-  const sub = [label.key, label.noteName].filter(Boolean).join(' · ');
-  if (sub) g.fillText(sub, c, c + 62);
-  // Bellows arrow on top.
-  g.fillStyle = cracked ? '#444' : BELLOWS_CSS[direction];
-  g.font = '900 54px system-ui, sans-serif';
-  g.fillText(direction === 'push' ? '←' : '→', c, c - 82);
+  g.fillStyle = cracked ? '#2c2c2c' : '#140c08';
+  // The key to press is the biggest thing on the gem; the button id goes on top.
+  const main = label.key ?? label.code;
+  g.font = `900 ${main.length > 2 ? 76 : main.length > 1 ? 100 : 132}px "Arial Black", system-ui, sans-serif`;
+  g.fillText(main, c, c + 10);
+  g.font = '800 38px system-ui, sans-serif';
+  if (label.key) g.fillText(label.code, c, c - 76);
+  // Bellows arrow (+ note name) at the bottom.
+  g.fillStyle = accent;
+  g.font = '900 46px system-ui, sans-serif';
+  g.fillText(direction === 'push' ? '←' : '→', label.noteName ? c - 46 : c, c + 84);
+  if (label.noteName) {
+    g.fillStyle = cracked ? '#2c2c2c' : '#140c08';
+    g.font = '800 34px system-ui, sans-serif';
+    g.fillText(label.noteName, c + 30, c + 86);
+  }
   if (cracked) {
     g.strokeStyle = '#1a1a1a';
-    g.lineWidth = 6;
+    g.lineWidth = 7;
     g.beginPath();
     g.moveTo(60, 40);
     g.lineTo(120, 120);
@@ -77,7 +88,7 @@ function labelTexture(label: GemLabel, direction: Bellows, gold: boolean, cracke
   }
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
-  texture.anisotropy = 4;
+  texture.anisotropy = 8;
   labelCache.set(key, texture);
   return texture;
 }
@@ -251,19 +262,28 @@ export class Highway {
 
     // Gems.
     const bodyGeometry = new THREE.CylinderGeometry(0.42, 0.46, 0.18, 32);
-    const labelGeometry = new THREE.CircleGeometry(0.4, 40);
+    const capGeometry = new THREE.CircleGeometry(0.36, 32);
+    const capMaterial = new THREE.MeshStandardMaterial({ color: 0xf3ead6, roughness: 0.35 });
     const rimGeometry = new THREE.TorusGeometry(0.44, 0.045, 8, 40);
     const tailGeometry = new THREE.BoxGeometry(0.16, 0.05, 1);
     for (const note of notes) {
       const group = new THREE.Group();
       group.position.set(LANE_X[note.row], GEM_Y, -note.start * SPEED);
       const body = new THREE.Mesh(bodyGeometry, note.parranda ? this.goldMaterial : this.bodyMaterials[note.row]);
-      const label = new THREE.Mesh(
-        labelGeometry,
-        new THREE.MeshBasicMaterial({ map: labelTexture(options.label(note), note.direction, note.parranda, false) }),
+      // Billboard label: always faces the camera, so it stays sharp and readable far away.
+      const label = new THREE.Sprite(
+        // Slightly below white so the bloom pass does not wash the letters out.
+        new THREE.SpriteMaterial({
+          map: labelTexture(options.label(note), note.direction, note.parranda, false),
+          color: 0xbdbdbd,
+        }),
       );
-      label.rotation.x = -Math.PI / 2 + 0.55;
-      label.position.y = 0.2;
+      label.scale.set(1.1, 1.1, 1);
+      label.position.y = 0.75;
+      const cap = new THREE.Mesh(capGeometry, capMaterial);
+      cap.rotation.x = -Math.PI / 2;
+      cap.position.y = 0.095;
+      body.add(cap);
       const rim = new THREE.Mesh(rimGeometry, this.rimMaterials[note.direction]);
       rim.rotation.x = -Math.PI / 2;
       rim.position.y = 0.1;
@@ -321,7 +341,7 @@ export class Highway {
     gem.state = 'missed';
     gem.body.material = this.greyMaterial;
     gem.rim.visible = false;
-    (gem.label.material as THREE.MeshBasicMaterial).map = labelTexture(
+    (gem.label.material as THREE.SpriteMaterial).map = labelTexture(
       this.options.label(note),
       note.direction,
       false,
@@ -337,7 +357,7 @@ export class Highway {
       gem.group.visible = true;
       gem.body.visible = gem.label.visible = gem.rim.visible = true;
       gem.body.material = gem.note.parranda ? this.goldMaterial : this.bodyMaterials[gem.note.row];
-      (gem.label.material as THREE.MeshBasicMaterial).map = labelTexture(
+      (gem.label.material as THREE.SpriteMaterial).map = labelTexture(
         this.options.label(gem.note),
         gem.note.direction,
         gem.note.parranda,
@@ -403,7 +423,7 @@ export class Highway {
 
   dispose() {
     this.group.traverse((o) => {
-      if (o instanceof THREE.Mesh) {
+      if (o instanceof THREE.Mesh || o instanceof THREE.Sprite) {
         o.geometry.dispose();
         const material = o.material as THREE.Material & { map?: THREE.Texture };
         if (material.map && !labelCacheHas(material.map)) material.map.dispose();
