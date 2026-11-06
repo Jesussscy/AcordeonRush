@@ -376,24 +376,34 @@ Los samples Hohner conservan su **CC0** en su carpeta.
 
 Esfuerzo estimado en sesiones de trabajo de Claude Code (≈ 1 sesión = un bloque largo de trabajo autónomo con pruebas).
 
-### H0 — Organización y preparación para GitHub · ≈ 1 sesión
-- [ ] Rama `reorganizacion` (el repo ya existe).
-- [ ] `git mv` según 2.1 y eliminaciones según 2.2.
-- [ ] Commit previo `docs:` con ANALISIS, PLAN y skills.
-- [ ] `vite.config.ts` → `publicDir: 'assets'`. Actualizar:
+### H0 — Organización y preparación para GitHub · ☑ HECHO (2026-11-05, rama `reorganizacion`)
+- [x] Rama `reorganizacion` (el repo ya existe).
+- [x] `git mv` según 2.1 y eliminaciones según 2.2.
+- [x] Commit previo `docs:` con ANALISIS, PLAN y skills.
+- [x] `vite.config.ts` → `publicDir: 'assets'`. Actualizar:
   - las rutas de `accordion-catalog.ts`
   - el `baseURL` del sampler
   - el `sampleDirectory` del manifest
   - las rutas de `tools/`
-- [ ] Prettier + `npm run format`. Vitest con los validadores migrados.
-- [ ] `.gitignore`, `.gitattributes` (§2.5, sin renormalizar), LICENSE MIT, README inicial y favicon.
-- [ ] Búsqueda de rutas viejas (`public/instrument`, `instruments/models`, `assets/blender`) y de secretos.
-- [ ] Commit `chore: reorganizar estructura del proyecto`. **Sin push.** Te entrego los comandos.
+- [x] Prettier + `npm run format`. Vitest con los validadores migrados.
+- [x] `.gitignore`, `.gitattributes` (§2.5, sin renormalizar), LICENSE MIT, README inicial y favicon.
+- [x] Búsqueda de rutas viejas (`public/instrument`, `instruments/models`, `assets/blender`) y de secretos.
+- [x] Commit `chore: reorganizar estructura del proyecto`. **Sin push.** Te entrego los comandos.
 - **Terminado cuando:**
   - `npm run typecheck && npm test && npm run build` pasan
   - el estudio funciona igual que antes (prueba headless: modelo listo, tecla suena, 0 errores de consola)
   - no quedan rutas viejas
 - Archivos: todo el árbol.
+
+**Resultado del H0:**
+- Commits: `ccbed2d` (docs), `0da0522` (reorganización, 391 renombrados con historial) y `41766b2` (Prettier).
+- Verificación: `tsc` limpio y 31 tests Vitest en verde. El build de producción pasa (JS 848 KB, aviso de chunk pendiente para H6).
+- Estudio libre en Chrome headless (dev y preview): modelo listo, la tecla W suena (RMS 0.045), 0 respuestas HTTP ≥ 400 y 0 errores de consola.
+- Desviaciones respecto a la tabla original (aprobadas en §0):
+  - `art/blender` conserva la estructura interna.
+  - El banco de samples conserva sus nombres originales.
+  - Las 5 canciones comerciales siguen en el Estudio libre hasta el H1.
+  - `.prettierrc.json`, `.prettierignore`, `vitest.config.ts` y `tests/helpers/` son añadidos.
 
 ### H1 — Base jugable con la demo · ≈ 2–3 sesiones
 - [ ] `data/layouts/gcf.json` en el formato de la spec. El parser y el catálogo lo usan.

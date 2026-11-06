@@ -5,7 +5,11 @@ description: Folder structure, module boundaries and naming conventions of the V
 
 # Arquitectura de Vallenato Hero
 
-> Estado: estructura PROPUESTA en `docs/PLAN.md`. Hasta que el H0 esté hecho, revisa `git log` y el árbol real antes de asumirla.
+> Estado: estructura VIGENTE desde el H0 (2026-11-05). Las carpetas `render/`, `hud/`, `stage/` y `highway/` se crean en los hitos H1–H4.
+>
+> Excepciones aprobadas:
+> - `art/blender/` conserva la estructura interna original (`realistic/`, `curved_v2/<id>/instrument.blend`…), porque los scripts de `tools/blender/` dependen de ella.
+> - El banco de samples Hohner conserva sus nombres originales con espacios, por trazabilidad con el SFZ y `PROVENANCE.json`.
 
 ## Stack
 Vite 6 + React 18 + TypeScript (strict) + Three.js 0.172 + Web Audio API propia (sin Tone.js). Tests: Vitest (lógica) + Playwright (E2E y capturas).
@@ -32,7 +36,7 @@ assets/               = publicDir de Vite (servido tal cual en /)
   fonts/  textures/
 data/layouts/         gcf.json y otras afinaciones (importado en build)
 songs/<slug>/         chart.json | song.mid, audio.mp3?, cover.jpg?  (descubierto con import.meta.glob)
-art/                  fuentes NO runtime: blender/*.blend, renders de referencia (LFS)
+art/                  fuentes NO runtime: blender/ (antiguo assets/blender), audio-source/ (FLAC + SFZ originales)
 tools/                scripts: blender/, audio/, midi-to-chart.mjs, text-to-chart.mjs
 tests/                unit/ (Vitest), e2e/ (Playwright), fixtures/
 docs/                 ANALISIS.md, PLAN.md, guías, images/ (capturas README)
