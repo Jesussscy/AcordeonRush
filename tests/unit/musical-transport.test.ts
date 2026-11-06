@@ -45,9 +45,13 @@ describe('chart parsing and fingering', () => {
 
   it('rejects malformed provenance and timing', () => {
     expect(() =>
-      library.parseChart(JSON.stringify({ ...template, provenance: { ...template.provenance, reviewer: { bad: true } } })),
+      library.parseChart(
+        JSON.stringify({ ...template, provenance: { ...template.provenance, reviewer: { bad: true } } }),
+      ),
     ).toThrow();
-    expect(() => library.parseChart(JSON.stringify({ ...template, events: [{ ...template.events[0], end: -1 }] }))).toThrow();
+    expect(() =>
+      library.parseChart(JSON.stringify({ ...template, events: [{ ...template.events[0], end: -1 }] })),
+    ).toThrow();
   });
 
   it('keeps one bellows direction for simultaneous notes', () => {
@@ -117,7 +121,9 @@ describe('musical transport', () => {
       for (clock.now = 0; clock.now < chart.duration + 0.2; clock.now += 0.025) transport.pump();
       expect(transport.phase).toBe('finished');
       expect(calls).toHaveLength(fingers.events.length);
-      calls.forEach((call, i) => expect(Math.abs(call[2] - (0.08 + fingers.events[i].start)) * 1000).toBeLessThan(0.01));
+      calls.forEach((call, i) =>
+        expect(Math.abs(call[2] - (0.08 + fingers.events[i].start)) * 1000).toBeLessThan(0.01),
+      );
       const shift = music.getTuning(profile.tuning).semitones;
       for (const e of fingers.events) expect(e.pitches).toEqual(e.button[e.direction].map((n) => n + shift));
     },

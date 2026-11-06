@@ -45,4 +45,8 @@ export type AccordionAudio = {
 /** Runtime URL of the sampled Hohner bank inside the assets/ publicDir. */
 export const SAMPLE_BANK_URL: string;
 
-export function createAccordionAudio(options: { context: AudioContext; baseURL: URL; manifest?: unknown }): Promise<AccordionAudio>;
+export function createAccordionAudio(options: {
+  context: AudioContext;
+  baseURL: URL;
+  manifest?: unknown;
+}): Promise<AccordionAudio>;

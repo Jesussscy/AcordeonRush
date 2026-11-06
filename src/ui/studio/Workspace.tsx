@@ -1,93 +1,966 @@
-import {useCallback,useEffect,useMemo,useRef,useState,type PointerEvent as ReactPointerEvent} from 'react';
-import {AudioLines,ArrowLeft,ChevronRight,Expand,HelpCircle,Music2,RotateCcw,Volume2,Wind,X} from 'lucide-react';
-import {AccordionScene} from '../../instrument/AccordionScene';
-import {allButtons,melodyButtons,bassButtons,buttonLabel,getTuning,instrumentDesigns,registrations,tuningOptions,noteName,soundingNotes,layoutSource,type BellowsDirection,type InstrumentKey} from '../../instrument/accordion-catalog';
-import {keyboardButton,keyboardLabel} from '../../input/keyboard-map';
-import {useInstrument} from '../../instrument/useInstrument';
-import {SongWorkspace,type AutomaticFrame} from './SongWorkspace';
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import {
+  AudioLines,
+  ArrowLeft,
+  ChevronRight,
+  Expand,
+  HelpCircle,
+  Music2,
+  RotateCcw,
+  Volume2,
+  Wind,
+  X,
+} from 'lucide-react';
+import { AccordionScene } from '../../instrument/AccordionScene';
+import {
+  allButtons,
+  melodyButtons,
+  bassButtons,
+  buttonLabel,
+  getTuning,
+  instrumentDesigns,
+  registrations,
+  tuningOptions,
+  noteName,
+  soundingNotes,
+  layoutSource,
+  type BellowsDirection,
+  type InstrumentKey,
+} from '../../instrument/accordion-catalog';
+import { keyboardButton, keyboardLabel } from '../../input/keyboard-map';
+import { useInstrument } from '../../instrument/useInstrument';
+import { SongWorkspace, type AutomaticFrame } from './SongWorkspace';
 import './base.css';
 import './practice.css';
 import './performance.css';
 
-export default function Workspace({onExit}:{onExit?:()=>void}){
- const [designId,setDesignId]=useState(()=>{try{return localStorage.getItem('acordenrush-design')??'curva-zafiro';}catch{return 'curva-zafiro';}});
- const [tuning,setTuning]=useState('GCF'),[registration,setRegistration]=useState('vallenato-high'),[volume,setVolume]=useState(.7),[expression,setExpression]=useState(.8),[reedWidth,setReedWidth]=useState(.55);
- const [treble,setTreble]=useState(4.5);
- const [tone,setTone]=useState('close'),[mix,setMix]=useState({melody:1,bass:.72,chord:.62});
- const sound=useMemo(()=>({...mix,...(tone==='raw'?{brightness:1,body:0,release:.025}:tone==='warm'?{brightness:.58,body:2,release:.032}:{brightness:1,body:-.5,presence:treble,release:.012})}),[tone,mix,treble]);
- const [view,setView]=useState<'practice'|'songs'|'watch'>('practice'),[section,setSection]=useState('melody'),[layout,setLayout]=useState('es'),[lastNote,setLastNote]=useState('');
- const [collection,setCollection]=useState(false),[tuningDetails,setTuningDetails]=useState(false),[full,setFull]=useState(false),[help,setHelp]=useState(false),[camera,setCamera]=useState(0),[motion,setMotion]=useState('Bellows_OpenClose'),[previewFloating,setPreviewFloating]=useState(false);
- const [automatic,setAutomatic]=useState<AutomaticFrame>({active:new Set<string>(),direction:'push',running:false,opening:undefined});
- const instrument=useInstrument({tuning,registration,volume,expression,sound,reedWidth});
- const design=instrumentDesigns.find(d=>d.id===designId)??instrumentDesigns[0],system=getTuning(tuning);
- useEffect(()=>{if(!design.clips.includes(motion))setMotion('Bellows_OpenClose');},[design,motion]);
- const app=useRef<HTMLDivElement>(null),sceneSlot=useRef<HTMLDivElement>(null),keyboard=useRef<HTMLElement>(null),dialog=useRef<HTMLDialogElement>(null),restDirection=useRef<BellowsDirection>('push'),space=useRef(false);
- const latest=useRef({instrument,automatic});latest.current={instrument,automatic};
- const soundTimers=useRef<number[]>([]),[soundCheck,setSoundCheck]=useState('');
- const stopSoundCheck=useCallback(()=>{soundTimers.current.forEach(clearTimeout);soundTimers.current=[];setSoundCheck('');latest.current.instrument.stopAll();},[]);
- useEffect(()=>()=>{soundTimers.current.forEach(clearTimeout);},[]);
- const previewSound=(id:string)=>{stopSoundCheck();stopSong.current();instrument.setManualMode(false);setRegistration(id);setSoundCheck(id);for(const [index,bone] of ['13','14','15','14','13'].entries()){const button=allButtons.find(b=>b.bone===`BTN_Melody_${bone}`)!;soundTimers.current.push(window.setTimeout(()=>{latest.current.instrument.press(button.id,'sound-preview');},80+index*460),window.setTimeout(()=>latest.current.instrument.release('sound-preview'),420+index*460));}soundTimers.current.push(window.setTimeout(stopSoundCheck,2500));};
- const direction=automatic.running?automatic.direction:instrument.direction;
- const active=automatic.running?automatic.active:instrument.active;
- const setDirection=useCallback((dir:BellowsDirection)=>{restDirection.current=dir;latest.current.instrument.chooseDirection(dir);keyboard.current?.focus({preventScroll:true});},[]);
- const press=useCallback((id:string,source=id)=>{if(latest.current.automatic.running)return false;if(soundTimers.current.length)stopSoundCheck();const started=latest.current.instrument.press(id,source);const b=allButtons.find(b=>b.id===id);if(b)setLastNote(`${b.bone.includes('Melody')?'M':'B'}${Number(b.bone.slice(-2))} · ${buttonLabel(b,latest.current.instrument.direction,getTuningRef.current)}`);if(started)songInput.current?.(id,true);return started;},[stopSoundCheck]);
- const getTuningRef=useRef(tuning);getTuningRef.current=tuning;
- const release=useCallback((source:string)=>{const id=latest.current.instrument.release(source);if(id)songInput.current?.(id,false);return id;},[]);
- const stopSong=useRef<()=>void>(()=>undefined),songInput=useRef<((id:string,pressed:boolean)=>void)|undefined>(),songControls=useRef<{play:()=>void;reset:()=>void}|undefined>(),hadNative=useRef(false);
- useEffect(()=>{try{localStorage.setItem('acordenrush-design',designId);}catch{/* Optional local persistence. */}},[designId]);
- useEffect(()=>{if(tuningDetails)dialog.current?.showModal();else dialog.current?.close();},[tuningDetails]);
- useEffect(()=>{const stage=sceneSlot.current,keys=keyboard.current;if(!stage||!keys)return;let stageVisible=true,keysVisible=false;const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.target===stage)stageVisible=entry.isIntersecting&&entry.intersectionRect.height>160;if(entry.target===keys)keysVisible=entry.isIntersecting;}setPreviewFloating(keysVisible&&!stageVisible);},{threshold:[0,.2,.5,1]});observer.observe(stage);observer.observe(keys);return()=>observer.disconnect();},[]);
- const toggleFull=async()=>{if(full){setFull(false);if(document.fullscreenElement===app.current)await document.exitFullscreen().catch(()=>undefined);return;}setFull(true);if(!automatic.running)instrument.setManualMode(false);try{await app.current?.requestFullscreen?.();hadNative.current=document.fullscreenElement===app.current;}catch{/* Viewport fallback. */}};
- useEffect(()=>{if(!full)return;const previous=document.body.style.overflow,htmlOverflow=document.documentElement.style.overflow;document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden';if(app.current)app.current.scrollTop=0;keyboard.current?.focus({preventScroll:true});const changed=()=>{if(document.fullscreenElement===app.current)hadNative.current=true;else if(hadNative.current){hadNative.current=false;setFull(false);}};document.addEventListener('fullscreenchange',changed);return()=>{document.body.style.overflow=previous;document.documentElement.style.overflow=htmlOverflow;document.removeEventListener('fullscreenchange',changed);};},[full]);
- useEffect(()=>{
-  const down=(e:KeyboardEvent)=>{
-   if(e.code==='Escape'){setFull(false);setCollection(false);if(document.fullscreenElement===app.current)void document.exitFullscreen();return;}
-   const target=e.target instanceof HTMLElement?e.target:document.body;
-   if(e.ctrlKey||e.metaKey||e.altKey||target.closest('input,select,textarea,dialog,[contenteditable=true]'))return;
-   if(e.code==='Space'){e.preventDefault();e.stopPropagation();if(e.repeat||latest.current.automatic.running)return;space.current=true;latest.current.instrument.setManualBellows(true,e.shiftKey?'push':'pull');return;}
-   if(e.repeat)return;
-   if(['ShiftLeft','ShiftRight'].includes(e.code)&&space.current){latest.current.instrument.setManualBellows(true,'push');return;}
-   if(target.closest('button')&&['Space','Enter'].includes(e.code))return;
-   const key=keyboardButton(e.code);if(key){e.preventDefault();const button=allButtons.find(b=>b.bone===key.name)!;press(button.id,e.code);}
+export default function Workspace({ onExit }: { onExit?: () => void }) {
+  const [designId, setDesignId] = useState(() => {
+    try {
+      return localStorage.getItem('acordenrush-design') ?? 'curva-zafiro';
+    } catch {
+      return 'curva-zafiro';
+    }
+  });
+  const [tuning, setTuning] = useState('GCF'),
+    [registration, setRegistration] = useState('vallenato-high'),
+    [volume, setVolume] = useState(0.7),
+    [expression, setExpression] = useState(0.8),
+    [reedWidth, setReedWidth] = useState(0.55);
+  const [treble, setTreble] = useState(4.5);
+  const [tone, setTone] = useState('close'),
+    [mix, setMix] = useState({ melody: 1, bass: 0.72, chord: 0.62 });
+  const sound = useMemo(
+    () => ({
+      ...mix,
+      ...(tone === 'raw'
+        ? { brightness: 1, body: 0, release: 0.025 }
+        : tone === 'warm'
+          ? { brightness: 0.58, body: 2, release: 0.032 }
+          : { brightness: 1, body: -0.5, presence: treble, release: 0.012 }),
+    }),
+    [tone, mix, treble],
+  );
+  const [view, setView] = useState<'practice' | 'songs' | 'watch'>('practice'),
+    [section, setSection] = useState('melody'),
+    [layout, setLayout] = useState('es'),
+    [lastNote, setLastNote] = useState('');
+  const [collection, setCollection] = useState(false),
+    [tuningDetails, setTuningDetails] = useState(false),
+    [full, setFull] = useState(false),
+    [help, setHelp] = useState(false),
+    [camera, setCamera] = useState(0),
+    [motion, setMotion] = useState('Bellows_OpenClose'),
+    [previewFloating, setPreviewFloating] = useState(false);
+  const [automatic, setAutomatic] = useState<AutomaticFrame>({
+    active: new Set<string>(),
+    direction: 'push',
+    running: false,
+    opening: undefined,
+  });
+  const instrument = useInstrument({ tuning, registration, volume, expression, sound, reedWidth });
+  const design = instrumentDesigns.find((d) => d.id === designId) ?? instrumentDesigns[0],
+    system = getTuning(tuning);
+  useEffect(() => {
+    if (!design.clips.includes(motion)) setMotion('Bellows_OpenClose');
+  }, [design, motion]);
+  const app = useRef<HTMLDivElement>(null),
+    sceneSlot = useRef<HTMLDivElement>(null),
+    keyboard = useRef<HTMLElement>(null),
+    dialog = useRef<HTMLDialogElement>(null),
+    restDirection = useRef<BellowsDirection>('push'),
+    space = useRef(false);
+  const latest = useRef({ instrument, automatic });
+  latest.current = { instrument, automatic };
+  const soundTimers = useRef<number[]>([]),
+    [soundCheck, setSoundCheck] = useState('');
+  const stopSoundCheck = useCallback(() => {
+    soundTimers.current.forEach(clearTimeout);
+    soundTimers.current = [];
+    setSoundCheck('');
+    latest.current.instrument.stopAll();
+  }, []);
+  useEffect(
+    () => () => {
+      soundTimers.current.forEach(clearTimeout);
+    },
+    [],
+  );
+  const previewSound = (id: string) => {
+    stopSoundCheck();
+    stopSong.current();
+    instrument.setManualMode(false);
+    setRegistration(id);
+    setSoundCheck(id);
+    for (const [index, bone] of ['13', '14', '15', '14', '13'].entries()) {
+      const button = allButtons.find((b) => b.bone === `BTN_Melody_${bone}`)!;
+      soundTimers.current.push(
+        window.setTimeout(
+          () => {
+            latest.current.instrument.press(button.id, 'sound-preview');
+          },
+          80 + index * 460,
+        ),
+        window.setTimeout(() => latest.current.instrument.release('sound-preview'), 420 + index * 460),
+      );
+    }
+    soundTimers.current.push(window.setTimeout(stopSoundCheck, 2500));
   };
-  const up=(e:KeyboardEvent)=>{if(e.code==='Space'&&space.current){e.preventDefault();e.stopPropagation();space.current=false;latest.current.instrument.setManualBellows(false,restDirection.current);return;}if(['ShiftLeft','ShiftRight'].includes(e.code)&&space.current)latest.current.instrument.setManualBellows(true,'pull');release(e.code);};
-  const blur=()=>{space.current=false;stopSoundCheck();stopSong.current();};
-  const hidden=()=>{if(document.hidden)blur();};
-  window.addEventListener('keydown',down,true);window.addEventListener('keyup',up,true);window.addEventListener('blur',blur);document.addEventListener('visibilitychange',hidden);
-  return()=>{window.removeEventListener('keydown',down,true);window.removeEventListener('keyup',up,true);window.removeEventListener('blur',blur);document.removeEventListener('visibilitychange',hidden);};
- },[press,release]);
- const changeTuning=(id:string)=>{stopSoundCheck();stopSong.current();setTuning(id);};
- const pad=(b:InstrumentKey)=>{
-  const id=`${b.bone.includes('Melody')?'M':'B'}${Number(b.bone.slice(-2))}`,key=keyboardLabel(b.bone,layout),pressed=active.has(b.id);
-  return <button type="button" key={b.id} className={`p-pad ${pressed?'pressed':''}`} data-note-id={b.id} aria-pressed={pressed} aria-label={`${id}, cerrar ${buttonLabel(b,'push',tuning)}, abrir ${buttonLabel(b,'pull',tuning)}, tecla ${key}`} onPointerDown={(e:ReactPointerEvent<HTMLButtonElement>)=>{e.preventDefault();e.currentTarget.setPointerCapture(e.pointerId);press(b.id,`pointer-${e.pointerId}`);}} onPointerUp={e=>release(`pointer-${e.pointerId}`)} onPointerCancel={e=>release(`pointer-${e.pointerId}`)} onLostPointerCapture={e=>release(`pointer-${e.pointerId}`)} onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();if(!e.repeat)press(b.id,`focus-${b.id}`);}}} onKeyUp={e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();release(`focus-${b.id}`);}}} onBlur={()=>release(`focus-${b.id}`)}><span className="p-pad-top"><b>{id}</b><kbd>{key}</kbd></span><strong>{buttonLabel(b,direction,tuning)}</strong><small>→← {buttonLabel(b,'push',tuning)}</small><small>↔ {buttonLabel(b,'pull',tuning)}</small></button>;
- };
- const dirs=(compact=false)=><div className={compact?'p-focus-direction':'p-direction-choices'}>{(['push','pull'] as const).map(dir=><button key={dir} disabled={automatic.running} aria-pressed={direction===dir} className={direction===dir?'selected':''} onClick={()=>setDirection(dir)}>{dir==='push'?'→← Notas al cerrar':'↔ Notas al abrir'}</button>)}</div>;
- return <div ref={app} className={`practice-app ${full?'performance-view':''} ${view==='songs'?'section-songs':''}`} data-audio-rms={instrument.meter.rms.toFixed(6)} data-audio-notes={instrument.meter.notes.join(',')} data-audio-mode={instrument.meter.playingMode} data-audio-state={instrument.meter.contextState}>
-  <header className="p-top"><a href="#practice" className="p-brand"><AudioLines/> Acorden<span>Rush</span><small>ESTUDIO MUSICAL</small></a>{onExit&&<button onClick={()=>{stopSoundCheck();stopSong.current();onExit();}}><ArrowLeft size={15}/> Menú</button>}<button aria-label="Mostrar instrucciones" onClick={()=>setHelp(!help)}><HelpCircle size={20}/></button></header>
-  {full&&<div className="p-performance-toolbar"><span><AudioLines size={18}/>{design.name}<small>{system.label} · {direction==='push'?'Cerrando':'Abriendo'} · Hohner grabado</small></span>{view!=='practice'&&<span className="p-full-note">{automatic.note||'Silencio'}<button onClick={()=>songControls.current?.play()}>{automatic.phase==='playing'?'Pausar canción':'Reproducir canción'}</button><button aria-label="Reiniciar en pantalla grande" onClick={()=>songControls.current?.reset()}><RotateCcw size={15}/></button></span>}{dirs(true)}<label className="p-full-register"><span>Sonido</span><select aria-label="Registro en pantalla grande" value={registration} onChange={e=>setRegistration(e.target.value)}>{registrations.map(r=><option key={r.id} value={r.id}>{r.label}</option>)}</select></label><button onClick={()=>void toggleFull()} aria-label="Salir de pantalla grande"><X size={18}/> Salir</button></div>}
-  <main className="p-main"><div className="p-intro"><div><p className="p-eyebrow">DEL CARIBE A TUS MANOS</p><h1>Tu acordeón.<em> Tu música.</em></h1></div><p>Dos notas por botón. Una experiencia completa.<br/>Toca, aprende y mira cómo cobra vida.</p></div>
-   <button className="p-focus-launch" onClick={()=>void toggleFull()}><Expand size={18}/> Pantalla grande <small>Acordeón + teclado</small></button>
-   <nav className="p-tabs" aria-label="Secciones del estudio">{[['practice','Practicar'],['songs','Canciones'],['watch','Ver tocar']].map(([id,label])=><button key={id} aria-current={view===id?'page':undefined} aria-pressed={view===id} onClick={()=>{stopSoundCheck();stopSong.current();setAutomatic({active:new Set(),direction:'push',running:false,opening:undefined});setView(id as typeof view);}}><Music2 size={18}/>{label}</button>)}</nav>
-   <section id="practice-panel"><div className="p-workbench"><div ref={sceneSlot} className="p-stage-slot"><div className={`p-stage ${previewFloating&&!full?'floating':''}`}><div className="p-stage-heading"><span><i/>{design.name}<small>{design.bassRows} × {design.bassColumns} BAJOS · {design.clips.length} ANIMACIONES</small></span><button aria-label="Restablecer vista 3D" onClick={()=>setCamera(n=>n+1)}><RotateCcw size={17}/></button>{previewFloating&&!full&&<button aria-label="Ampliar acordeón y teclado" onClick={()=>void toggleFull()}><Expand size={17}/></button>}</div><span className="p-stage-word" aria-hidden="true">VALLENATO</span>{full&&<div className={`p-full-live ${active.size?'playing':''}`}><span>{direction==='pull'?'↔ ABRIENDO':'→← CERRANDO'}</span><strong>{active.size?[...active].map(id=>allButtons.find(b=>b.id===id)).filter((b):b is InstrumentKey=>!!b).map(b=>buttonLabel(b,direction,tuning)).join(' + '):'Toca una tecla'}</strong><small>Espacio: abrir · Mayús + Espacio: cerrar</small></div>}
-    <AccordionScene interactive={!automatic.running} noteEvents={automatic.noteEvents} motion={motion} opening={automatic.opening} key={`${design.id}-${camera}`} model={design.model} image={design.image} name={design.name} activeKeys={active} direction={direction} bellows={automatic.running?active.size>0:instrument.air} onPlay={id=>{press(id);}} onStop={release}/>
-    <div className="p-scene-caption"><span>Arrastra para girar · Rueda o dos dedos para acercar</span><button onClick={()=>setCollection(!collection)}>Cambiar acordeón <ChevronRight size={14}/></button></div></div></div>
-    <aside className="p-controls"><p className="p-eyebrow">DOS SENTIDOS · DOS VOCES</p><h2>Toca también al cerrar.</h2><button className="p-design-select" aria-label="Elegir diseño del acordeón" aria-expanded={collection} onClick={()=>setCollection(!collection)}>{design.name}<span>Cambiar diseño <ChevronRight size={14}/></span></button>
-     <div className="p-select-grid"><label>AFINACIÓN<select aria-label="Afinación de práctica" value={tuning} disabled={automatic.running} onChange={e=>changeTuning(e.target.value)}>{tuningOptions.map(t=><option key={t.id} value={t.id}>{t.label} · {t.solfege}</option>)}</select></label><label>REGISTRO<select aria-label="Registro de práctica" value={registration} onChange={e=>setRegistration(e.target.value)}>{registrations.map(r=><option key={r.id} value={r.id}>{r.label}</option>)}</select></label></div>
-     <details className="p-sound"><summary>Sonido · timbre y balance</summary>{registration.startsWith('vallenato')&&<label>Apertura de voces<input type="range" aria-label="Apertura de voces" min="0" max="1" step=".05" value={reedWidth} onChange={e=>setReedWidth(+e.target.value)}/><span>{Math.round(reedWidth*100)}%</span></label>}<label>Carácter<select aria-label="Carácter del sonido" value={tone} onChange={e=>setTone(e.target.value)}><option value="close">Cercano · ataques definidos</option><option value="raw">Grabación seca · sin realce</option><option value="warm">Cálido · agudos suaves</option></select></label><label>Brillo<input type="range" aria-label="Brillo del acordeón" min="0" max="6" step=".5" value={treble} disabled={tone!=='close'} onChange={e=>setTreble(+e.target.value)}/><span>+{tone==='close'?treble:0} dB</span></label>{(['melody','bass','chord'] as const).map(part=><label key={part}>{{melody:'Melodía',bass:'Bajos',chord:'Acordes'}[part]}<input type="range" aria-label={`Mezcla ${part}`} min="0" max="1" step=".05" value={mix[part]} onChange={e=>setMix(m=>({...m,[part]:+e.target.value}))}/><span>{Math.round(mix[part]*100)}%</span></label>)}<div className="p-sound-compare"><button disabled={!instrument.ready} onClick={()=>previewSound('natural')}>Probar Natural</button><button disabled={!instrument.ready} onClick={()=>previewSound('vallenato')}>Probar Vallenato</button>{soundCheck&&<button onClick={stopSoundCheck}>Detener prueba</button>}</div><button onClick={()=>setMix({melody:1,bass:0,chord:0})}>Escuchar solo melodía</button><button onClick={()=>setMix({melody:1,bass:.72,chord:.62})}>Restaurar balance</button><p>Vallenato combina voces virtuales sobre muestras Hohner, con bajos y acordes tratados por separado. El carácter modifica ecualización y articulación; no cambia las notas ni añade una grabación nueva.</p></details>
-     <button className="p-system p-source-button" onClick={()=>setTuningDetails(true)}>{system.label} · {system.id==='GCF'?'Mapa base Hohner':'Transposición virtual GCF'} · {system.low?'−1 octava':'Registro estándar'} ↗</button>
-     <div className="p-bellows"><span><Wind size={16}/>{direction==='push'?'NOTAS AL CERRAR':'NOTAS AL ABRIR'}</span>{dirs()}<p className="p-direct-copy">Pulsa un botón: ambos sentidos suenan sin mantener Espacio. El flujo de aire se simula.</p><details><summary>Control manual avanzado</summary><label><input type="checkbox" aria-label="Control manual del fuelle" checked={instrument.manual} onChange={e=>instrument.setManualMode(e.target.checked)}/> Mantener aire manualmente</label>{instrument.manual&&<button onClick={()=>instrument.setManualBellows(!instrument.air)}>{instrument.air?'Soltar aire':'Mantener aire táctil'}</button>}</details></div>
-     <div className="p-sliders"><label><Volume2 size={15}/> Volumen<input type="range" aria-label="Volumen del acordeón" min="0" max="1" step=".05" value={volume} onChange={e=>setVolume(+e.target.value)}/><span>{Math.round(volume*100)}%</span></label><label><Wind size={15}/> Expresión<input type="range" aria-label="Expresión del acordeón" min=".1" max="1" step=".05" value={expression} onChange={e=>setExpression(+e.target.value)}/><span>{Math.round(expression*100)}%</span></label></div>
-     <label className="p-motion-select">MOVIMIENTO DEL FUELLE<select aria-label="Movimiento del fuelle" value={motion} onChange={e=>setMotion(e.target.value)}>{design.clips.filter(c=>!c.includes('Button')&&!c.includes('Idle')).map(c=><option key={c} value={c}>{{Bellows_OpenClose:'Natural · abanico superior',Bellows_Fan_Lower:'Abanico inferior',Bass_Anchored_Phrase:'Frase con melodía anclada',Bellows_Oblique_Sweep:'Apertura oblicua',Bellows_Expressive_Arc:'Arco expresivo',Bellows_Short_Accents:'Acentos cortos'}[c]??c}</option>)}</select></label><div className="p-audio-meter"><progress aria-label="Señal de audio real" max=".2" value={instrument.meter.rms}/><span>{instrument.meter.rms>.001?'Salida con señal':'Salida en reposo'}</span></div><p className="p-audio-status" role="status">{instrument.status}</p><button className="p-unlock" onClick={()=>void instrument.prepare().catch(()=>undefined)} disabled={!instrument.ready&&instrument.status.startsWith('Cargando')}>Activar sonido</button>
-    </aside></div>
-    {collection&&<section className="p-collection" aria-label="Colección de acordeones"><header><h2>Tu sonido tiene estilo.</h2><button aria-label="Cerrar colección" onClick={()=>setCollection(false)}><X size={19}/></button></header><div>{instrumentDesigns.map(d=><button key={d.id} aria-pressed={d.id===design.id} onClick={()=>{instrument.stopAll();setDesignId(d.id);}}><img src={d.image} alt="" loading="lazy"/><strong>{d.name}</strong><small>{d.description}</small></button>)}</div></section>}
-    {view!=='practice'&&<SongWorkspace instrument={instrument} tuning={tuning} onTuning={changeTuning} watch={view==='watch'} fullscreen={full} onFull={()=>{if(!full)void toggleFull();}} controlsRef={songControls} layout={layout} onFrame={setAutomatic} pauseRef={stopSong} onInputRef={songInput}/> }
-    <section ref={keyboard} tabIndex={-1} className="p-keyboard" aria-label="Teclado del acordeón"><header><div><p className="p-eyebrow">TU INSTRUMENTO COMPLETO</p><h2>31 melodías. Sus dos voces.</h2></div><span className="p-live" role="status">{active.size?allButtons.filter(b=>active.has(b.id)).map(b=>`${b.bone.includes('Melody')?'M':'B'}${Number(b.bone.slice(-2))} · ${buttonLabel(b,direction,tuning)}`).join(' / '):lastNote?`Último botón: ${lastNote}`:'Elige cerrado o abierto y pulsa una tecla.'}</span></header>
-     <div className="p-section-tabs" role="group" aria-label="Sección del instrumento">{[['melody','Melodía · 31'],['bass','Bajos · 6'],['chords','Acordes · 6'],['left','Mano izquierda · 12']].map(([id,label])=><button key={id} aria-pressed={section===id} onClick={()=>setSection(id)}>{label}</button>)}<label className="p-key-layout">TECLADO<select aria-label="Idioma del teclado" value={layout} onChange={e=>setLayout(e.target.value)}><option value="es">ES · Ñ</option><option value="en">EN · ;</option></select></label></div>
-     {section==='melody'?<><div className="p-key-nav"><button onClick={()=>keyboard.current?.querySelector('.p-key-scroll')?.scrollBy({left:-260,behavior:'smooth'})}>← Anteriores</button><span>Desliza las tres hileras</span><button onClick={()=>keyboard.current?.querySelector('.p-key-scroll')?.scrollBy({left:260,behavior:'smooth'})}>Siguientes →</button></div><div className="p-key-scroll" tabIndex={0} aria-label="Tres hileras de melodía"><div className="p-key-rows">{[0,1,2].map(row=><div className="p-key-row" key={row} data-row-count={melodyButtons.filter(b=>b.row===row).length}><span>HILERA {row+1}<small>{[10,11,10][row]} botones</small></span>{melodyButtons.filter(b=>b.row===row).map(pad)}</div>)}</div></div></>:<div className={`p-bass-keys ${section==='left'?'p-physical-bass':''}`} style={section==='left'?{gridTemplateColumns:`repeat(${design.bassColumns},minmax(0,1fr))`}:undefined} data-physical-layout={`${design.bassRows}x${design.bassColumns}`}>{bassButtons.filter(b=>section==='left'?true:section==='chords'?b.chord:!b.chord).map(pad)}</div>}
-    </section>
-    {help&&<aside className="p-help"><div><HelpCircle/><div><strong>Para empezar: pulsa W y compara sus dos notas.</strong><p>Sin mantener Espacio, elige Notas al cerrar y toca; después elige Notas al abrir. En un acordeón real hay aire en ambos sentidos: aquí se simula. Espacio cambia temporalmente a abrir; Mayús + Espacio a cerrar. Natural utiliza grabaciones Hohner; las otras afinaciones y registros son variaciones virtuales.</p></div></div><button onClick={()=>setHelp(false)}>Entendido</button></aside>}
-   </section>
-  </main><footer className="p-footer"><span>Acorden<b>Rush</b> · Hecho para sentir el vallenato.</span><button onClick={()=>setTuningDetails(true)}>Afinaciones y cobertura sonora ↗</button><small>Modelo {design.sha256.slice(0,12)} · Grabaciones Hohner CC0 · Transposiciones virtuales identificadas</small></footer>
-  <dialog ref={dialog} className="p-tuning-dialog" onCancel={()=>setTuningDetails(false)}><header><h2>{system.label} · mapa y sonido</h2><button aria-label="Cerrar mapa de afinación" onClick={()=>setTuningDetails(false)}><X/></button></header><p>{system.id==='GCF'?'Mapa base contrastado con el diagrama GCF de Hohner.':'Familia obtenida por transposición virtual del mapa GCF; no es una grabación independiente ni un mapa documental de otro fabricante.'} {system.low?'Una octava abajo.':''}</p><p>MIDI 60 = Do4 · 74 = Re5 · referencia La4 = 440 Hz. Las octavas y voces de bajo son una realización web. La grabación cubre raíces MIDI 47–79; fuera de ese rango se transportan muestras y cambia el timbre.</p><a href={layoutSource.source} target="_blank" rel="noreferrer">Diagrama original de Hohner ↗</a><div className="p-map-table"><table><thead><tr><th>Botón</th><th>Cerrar</th><th>Abrir</th><th>Cobertura</th></tr></thead><tbody>{allButtons.map(b=>{const notes=[...soundingNotes(b,'push',tuning),...soundingNotes(b,'pull',tuning)];return <tr key={b.id}><td>{b.bone.includes('Melody')?'M':'B'}{Number(b.bone.slice(-2))}</td><td>{soundingNotes(b,'push',tuning).map(n=>noteName(n,system.flats)).join(' + ')}</td><td>{soundingNotes(b,'pull',tuning).map(n=>noteName(n,system.flats)).join(' + ')}</td><td>{notes.some(n=>n<47||n>79)?'Transposición fuera del rango grabado':'Dentro del rango del banco'}</td></tr>;})}</tbody></table></div></dialog>
- </div>;
+  const direction = automatic.running ? automatic.direction : instrument.direction;
+  const active = automatic.running ? automatic.active : instrument.active;
+  const setDirection = useCallback((dir: BellowsDirection) => {
+    restDirection.current = dir;
+    latest.current.instrument.chooseDirection(dir);
+    keyboard.current?.focus({ preventScroll: true });
+  }, []);
+  const press = useCallback(
+    (id: string, source = id) => {
+      if (latest.current.automatic.running) return false;
+      if (soundTimers.current.length) stopSoundCheck();
+      const started = latest.current.instrument.press(id, source);
+      const b = allButtons.find((b) => b.id === id);
+      if (b)
+        setLastNote(
+          `${b.bone.includes('Melody') ? 'M' : 'B'}${Number(b.bone.slice(-2))} · ${buttonLabel(b, latest.current.instrument.direction, getTuningRef.current)}`,
+        );
+      if (started) songInput.current?.(id, true);
+      return started;
+    },
+    [stopSoundCheck],
+  );
+  const getTuningRef = useRef(tuning);
+  getTuningRef.current = tuning;
+  const release = useCallback((source: string) => {
+    const id = latest.current.instrument.release(source);
+    if (id) songInput.current?.(id, false);
+    return id;
+  }, []);
+  const stopSong = useRef<() => void>(() => undefined),
+    songInput = useRef<((id: string, pressed: boolean) => void) | undefined>(),
+    songControls = useRef<{ play: () => void; reset: () => void } | undefined>(),
+    hadNative = useRef(false);
+  useEffect(() => {
+    try {
+      localStorage.setItem('acordenrush-design', designId);
+    } catch {
+      /* Optional local persistence. */
+    }
+  }, [designId]);
+  useEffect(() => {
+    if (tuningDetails) dialog.current?.showModal();
+    else dialog.current?.close();
+  }, [tuningDetails]);
+  useEffect(() => {
+    const stage = sceneSlot.current,
+      keys = keyboard.current;
+    if (!stage || !keys) return;
+    let stageVisible = true,
+      keysVisible = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.target === stage) stageVisible = entry.isIntersecting && entry.intersectionRect.height > 160;
+          if (entry.target === keys) keysVisible = entry.isIntersecting;
+        }
+        setPreviewFloating(keysVisible && !stageVisible);
+      },
+      { threshold: [0, 0.2, 0.5, 1] },
+    );
+    observer.observe(stage);
+    observer.observe(keys);
+    return () => observer.disconnect();
+  }, []);
+  const toggleFull = async () => {
+    if (full) {
+      setFull(false);
+      if (document.fullscreenElement === app.current) await document.exitFullscreen().catch(() => undefined);
+      return;
+    }
+    setFull(true);
+    if (!automatic.running) instrument.setManualMode(false);
+    try {
+      await app.current?.requestFullscreen?.();
+      hadNative.current = document.fullscreenElement === app.current;
+    } catch {
+      /* Viewport fallback. */
+    }
+  };
+  useEffect(() => {
+    if (!full) return;
+    const previous = document.body.style.overflow,
+      htmlOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    if (app.current) app.current.scrollTop = 0;
+    keyboard.current?.focus({ preventScroll: true });
+    const changed = () => {
+      if (document.fullscreenElement === app.current) hadNative.current = true;
+      else if (hadNative.current) {
+        hadNative.current = false;
+        setFull(false);
+      }
+    };
+    document.addEventListener('fullscreenchange', changed);
+    return () => {
+      document.body.style.overflow = previous;
+      document.documentElement.style.overflow = htmlOverflow;
+      document.removeEventListener('fullscreenchange', changed);
+    };
+  }, [full]);
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        setFull(false);
+        setCollection(false);
+        if (document.fullscreenElement === app.current) void document.exitFullscreen();
+        return;
+      }
+      const target = e.target instanceof HTMLElement ? e.target : document.body;
+      if (e.ctrlKey || e.metaKey || e.altKey || target.closest('input,select,textarea,dialog,[contenteditable=true]'))
+        return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.repeat || latest.current.automatic.running) return;
+        space.current = true;
+        latest.current.instrument.setManualBellows(true, e.shiftKey ? 'push' : 'pull');
+        return;
+      }
+      if (e.repeat) return;
+      if (['ShiftLeft', 'ShiftRight'].includes(e.code) && space.current) {
+        latest.current.instrument.setManualBellows(true, 'push');
+        return;
+      }
+      if (target.closest('button') && ['Space', 'Enter'].includes(e.code)) return;
+      const key = keyboardButton(e.code);
+      if (key) {
+        e.preventDefault();
+        const button = allButtons.find((b) => b.bone === key.name)!;
+        press(button.id, e.code);
+      }
+    };
+    const up = (e: KeyboardEvent) => {
+      if (e.code === 'Space' && space.current) {
+        e.preventDefault();
+        e.stopPropagation();
+        space.current = false;
+        latest.current.instrument.setManualBellows(false, restDirection.current);
+        return;
+      }
+      if (['ShiftLeft', 'ShiftRight'].includes(e.code) && space.current)
+        latest.current.instrument.setManualBellows(true, 'pull');
+      release(e.code);
+    };
+    const blur = () => {
+      space.current = false;
+      stopSoundCheck();
+      stopSong.current();
+    };
+    const hidden = () => {
+      if (document.hidden) blur();
+    };
+    window.addEventListener('keydown', down, true);
+    window.addEventListener('keyup', up, true);
+    window.addEventListener('blur', blur);
+    document.addEventListener('visibilitychange', hidden);
+    return () => {
+      window.removeEventListener('keydown', down, true);
+      window.removeEventListener('keyup', up, true);
+      window.removeEventListener('blur', blur);
+      document.removeEventListener('visibilitychange', hidden);
+    };
+  }, [press, release]);
+  const changeTuning = (id: string) => {
+    stopSoundCheck();
+    stopSong.current();
+    setTuning(id);
+  };
+  const pad = (b: InstrumentKey) => {
+    const id = `${b.bone.includes('Melody') ? 'M' : 'B'}${Number(b.bone.slice(-2))}`,
+      key = keyboardLabel(b.bone, layout),
+      pressed = active.has(b.id);
+    return (
+      <button
+        type="button"
+        key={b.id}
+        className={`p-pad ${pressed ? 'pressed' : ''}`}
+        data-note-id={b.id}
+        aria-pressed={pressed}
+        aria-label={`${id}, cerrar ${buttonLabel(b, 'push', tuning)}, abrir ${buttonLabel(b, 'pull', tuning)}, tecla ${key}`}
+        onPointerDown={(e: ReactPointerEvent<HTMLButtonElement>) => {
+          e.preventDefault();
+          e.currentTarget.setPointerCapture(e.pointerId);
+          press(b.id, `pointer-${e.pointerId}`);
+        }}
+        onPointerUp={(e) => release(`pointer-${e.pointerId}`)}
+        onPointerCancel={(e) => release(`pointer-${e.pointerId}`)}
+        onLostPointerCapture={(e) => release(`pointer-${e.pointerId}`)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!e.repeat) press(b.id, `focus-${b.id}`);
+          }
+        }}
+        onKeyUp={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            release(`focus-${b.id}`);
+          }
+        }}
+        onBlur={() => release(`focus-${b.id}`)}
+      >
+        <span className="p-pad-top">
+          <b>{id}</b>
+          <kbd>{key}</kbd>
+        </span>
+        <strong>{buttonLabel(b, direction, tuning)}</strong>
+        <small>→← {buttonLabel(b, 'push', tuning)}</small>
+        <small>↔ {buttonLabel(b, 'pull', tuning)}</small>
+      </button>
+    );
+  };
+  const dirs = (compact = false) => (
+    <div className={compact ? 'p-focus-direction' : 'p-direction-choices'}>
+      {(['push', 'pull'] as const).map((dir) => (
+        <button
+          key={dir}
+          disabled={automatic.running}
+          aria-pressed={direction === dir}
+          className={direction === dir ? 'selected' : ''}
+          onClick={() => setDirection(dir)}
+        >
+          {dir === 'push' ? '→← Notas al cerrar' : '↔ Notas al abrir'}
+        </button>
+      ))}
+    </div>
+  );
+  return (
+    <div
+      ref={app}
+      className={`practice-app ${full ? 'performance-view' : ''} ${view === 'songs' ? 'section-songs' : ''}`}
+      data-audio-rms={instrument.meter.rms.toFixed(6)}
+      data-audio-notes={instrument.meter.notes.join(',')}
+      data-audio-mode={instrument.meter.playingMode}
+      data-audio-state={instrument.meter.contextState}
+    >
+      <header className="p-top">
+        <a href="#practice" className="p-brand">
+          <AudioLines /> Acorden<span>Rush</span>
+          <small>ESTUDIO MUSICAL</small>
+        </a>
+        {onExit && (
+          <button
+            onClick={() => {
+              stopSoundCheck();
+              stopSong.current();
+              onExit();
+            }}
+          >
+            <ArrowLeft size={15} /> Menú
+          </button>
+        )}
+        <button aria-label="Mostrar instrucciones" onClick={() => setHelp(!help)}>
+          <HelpCircle size={20} />
+        </button>
+      </header>
+      {full && (
+        <div className="p-performance-toolbar">
+          <span>
+            <AudioLines size={18} />
+            {design.name}
+            <small>
+              {system.label} · {direction === 'push' ? 'Cerrando' : 'Abriendo'} · Hohner grabado
+            </small>
+          </span>
+          {view !== 'practice' && (
+            <span className="p-full-note">
+              {automatic.note || 'Silencio'}
+              <button onClick={() => songControls.current?.play()}>
+                {automatic.phase === 'playing' ? 'Pausar canción' : 'Reproducir canción'}
+              </button>
+              <button aria-label="Reiniciar en pantalla grande" onClick={() => songControls.current?.reset()}>
+                <RotateCcw size={15} />
+              </button>
+            </span>
+          )}
+          {dirs(true)}
+          <label className="p-full-register">
+            <span>Sonido</span>
+            <select
+              aria-label="Registro en pantalla grande"
+              value={registration}
+              onChange={(e) => setRegistration(e.target.value)}
+            >
+              {registrations.map((r) => (
+                <option key={r.id} value={r.id}>
+                  {r.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button onClick={() => void toggleFull()} aria-label="Salir de pantalla grande">
+            <X size={18} /> Salir
+          </button>
+        </div>
+      )}
+      <main className="p-main">
+        <div className="p-intro">
+          <div>
+            <p className="p-eyebrow">DEL CARIBE A TUS MANOS</p>
+            <h1>
+              Tu acordeón.<em> Tu música.</em>
+            </h1>
+          </div>
+          <p>
+            Dos notas por botón. Una experiencia completa.
+            <br />
+            Toca, aprende y mira cómo cobra vida.
+          </p>
+        </div>
+        <button className="p-focus-launch" onClick={() => void toggleFull()}>
+          <Expand size={18} /> Pantalla grande <small>Acordeón + teclado</small>
+        </button>
+        <nav className="p-tabs" aria-label="Secciones del estudio">
+          {[
+            ['practice', 'Practicar'],
+            ['songs', 'Canciones'],
+            ['watch', 'Ver tocar'],
+          ].map(([id, label]) => (
+            <button
+              key={id}
+              aria-current={view === id ? 'page' : undefined}
+              aria-pressed={view === id}
+              onClick={() => {
+                stopSoundCheck();
+                stopSong.current();
+                setAutomatic({ active: new Set(), direction: 'push', running: false, opening: undefined });
+                setView(id as typeof view);
+              }}
+            >
+              <Music2 size={18} />
+              {label}
+            </button>
+          ))}
+        </nav>
+        <section id="practice-panel">
+          <div className="p-workbench">
+            <div ref={sceneSlot} className="p-stage-slot">
+              <div className={`p-stage ${previewFloating && !full ? 'floating' : ''}`}>
+                <div className="p-stage-heading">
+                  <span>
+                    <i />
+                    {design.name}
+                    <small>
+                      {design.bassRows} × {design.bassColumns} BAJOS · {design.clips.length} ANIMACIONES
+                    </small>
+                  </span>
+                  <button aria-label="Restablecer vista 3D" onClick={() => setCamera((n) => n + 1)}>
+                    <RotateCcw size={17} />
+                  </button>
+                  {previewFloating && !full && (
+                    <button aria-label="Ampliar acordeón y teclado" onClick={() => void toggleFull()}>
+                      <Expand size={17} />
+                    </button>
+                  )}
+                </div>
+                <span className="p-stage-word" aria-hidden="true">
+                  VALLENATO
+                </span>
+                {full && (
+                  <div className={`p-full-live ${active.size ? 'playing' : ''}`}>
+                    <span>{direction === 'pull' ? '↔ ABRIENDO' : '→← CERRANDO'}</span>
+                    <strong>
+                      {active.size
+                        ? [...active]
+                            .map((id) => allButtons.find((b) => b.id === id))
+                            .filter((b): b is InstrumentKey => !!b)
+                            .map((b) => buttonLabel(b, direction, tuning))
+                            .join(' + ')
+                        : 'Toca una tecla'}
+                    </strong>
+                    <small>Espacio: abrir · Mayús + Espacio: cerrar</small>
+                  </div>
+                )}
+                <AccordionScene
+                  interactive={!automatic.running}
+                  noteEvents={automatic.noteEvents}
+                  motion={motion}
+                  opening={automatic.opening}
+                  key={`${design.id}-${camera}`}
+                  model={design.model}
+                  image={design.image}
+                  name={design.name}
+                  activeKeys={active}
+                  direction={direction}
+                  bellows={automatic.running ? active.size > 0 : instrument.air}
+                  onPlay={(id) => {
+                    press(id);
+                  }}
+                  onStop={release}
+                />
+                <div className="p-scene-caption">
+                  <span>Arrastra para girar · Rueda o dos dedos para acercar</span>
+                  <button onClick={() => setCollection(!collection)}>
+                    Cambiar acordeón <ChevronRight size={14} />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <aside className="p-controls">
+              <p className="p-eyebrow">DOS SENTIDOS · DOS VOCES</p>
+              <h2>Toca también al cerrar.</h2>
+              <button
+                className="p-design-select"
+                aria-label="Elegir diseño del acordeón"
+                aria-expanded={collection}
+                onClick={() => setCollection(!collection)}
+              >
+                {design.name}
+                <span>
+                  Cambiar diseño <ChevronRight size={14} />
+                </span>
+              </button>
+              <div className="p-select-grid">
+                <label>
+                  AFINACIÓN
+                  <select
+                    aria-label="Afinación de práctica"
+                    value={tuning}
+                    disabled={automatic.running}
+                    onChange={(e) => changeTuning(e.target.value)}
+                  >
+                    {tuningOptions.map((t) => (
+                      <option key={t.id} value={t.id}>
+                        {t.label} · {t.solfege}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  REGISTRO
+                  <select
+                    aria-label="Registro de práctica"
+                    value={registration}
+                    onChange={(e) => setRegistration(e.target.value)}
+                  >
+                    {registrations.map((r) => (
+                      <option key={r.id} value={r.id}>
+                        {r.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <details className="p-sound">
+                <summary>Sonido · timbre y balance</summary>
+                {registration.startsWith('vallenato') && (
+                  <label>
+                    Apertura de voces
+                    <input
+                      type="range"
+                      aria-label="Apertura de voces"
+                      min="0"
+                      max="1"
+                      step=".05"
+                      value={reedWidth}
+                      onChange={(e) => setReedWidth(+e.target.value)}
+                    />
+                    <span>{Math.round(reedWidth * 100)}%</span>
+                  </label>
+                )}
+                <label>
+                  Carácter
+                  <select aria-label="Carácter del sonido" value={tone} onChange={(e) => setTone(e.target.value)}>
+                    <option value="close">Cercano · ataques definidos</option>
+                    <option value="raw">Grabación seca · sin realce</option>
+                    <option value="warm">Cálido · agudos suaves</option>
+                  </select>
+                </label>
+                <label>
+                  Brillo
+                  <input
+                    type="range"
+                    aria-label="Brillo del acordeón"
+                    min="0"
+                    max="6"
+                    step=".5"
+                    value={treble}
+                    disabled={tone !== 'close'}
+                    onChange={(e) => setTreble(+e.target.value)}
+                  />
+                  <span>+{tone === 'close' ? treble : 0} dB</span>
+                </label>
+                {(['melody', 'bass', 'chord'] as const).map((part) => (
+                  <label key={part}>
+                    {{ melody: 'Melodía', bass: 'Bajos', chord: 'Acordes' }[part]}
+                    <input
+                      type="range"
+                      aria-label={`Mezcla ${part}`}
+                      min="0"
+                      max="1"
+                      step=".05"
+                      value={mix[part]}
+                      onChange={(e) => setMix((m) => ({ ...m, [part]: +e.target.value }))}
+                    />
+                    <span>{Math.round(mix[part] * 100)}%</span>
+                  </label>
+                ))}
+                <div className="p-sound-compare">
+                  <button disabled={!instrument.ready} onClick={() => previewSound('natural')}>
+                    Probar Natural
+                  </button>
+                  <button disabled={!instrument.ready} onClick={() => previewSound('vallenato')}>
+                    Probar Vallenato
+                  </button>
+                  {soundCheck && <button onClick={stopSoundCheck}>Detener prueba</button>}
+                </div>
+                <button onClick={() => setMix({ melody: 1, bass: 0, chord: 0 })}>Escuchar solo melodía</button>
+                <button onClick={() => setMix({ melody: 1, bass: 0.72, chord: 0.62 })}>Restaurar balance</button>
+                <p>
+                  Vallenato combina voces virtuales sobre muestras Hohner, con bajos y acordes tratados por separado. El
+                  carácter modifica ecualización y articulación; no cambia las notas ni añade una grabación nueva.
+                </p>
+              </details>
+              <button className="p-system p-source-button" onClick={() => setTuningDetails(true)}>
+                {system.label} · {system.id === 'GCF' ? 'Mapa base Hohner' : 'Transposición virtual GCF'} ·{' '}
+                {system.low ? '−1 octava' : 'Registro estándar'} ↗
+              </button>
+              <div className="p-bellows">
+                <span>
+                  <Wind size={16} />
+                  {direction === 'push' ? 'NOTAS AL CERRAR' : 'NOTAS AL ABRIR'}
+                </span>
+                {dirs()}
+                <p className="p-direct-copy">
+                  Pulsa un botón: ambos sentidos suenan sin mantener Espacio. El flujo de aire se simula.
+                </p>
+                <details>
+                  <summary>Control manual avanzado</summary>
+                  <label>
+                    <input
+                      type="checkbox"
+                      aria-label="Control manual del fuelle"
+                      checked={instrument.manual}
+                      onChange={(e) => instrument.setManualMode(e.target.checked)}
+                    />{' '}
+                    Mantener aire manualmente
+                  </label>
+                  {instrument.manual && (
+                    <button onClick={() => instrument.setManualBellows(!instrument.air)}>
+                      {instrument.air ? 'Soltar aire' : 'Mantener aire táctil'}
+                    </button>
+                  )}
+                </details>
+              </div>
+              <div className="p-sliders">
+                <label>
+                  <Volume2 size={15} /> Volumen
+                  <input
+                    type="range"
+                    aria-label="Volumen del acordeón"
+                    min="0"
+                    max="1"
+                    step=".05"
+                    value={volume}
+                    onChange={(e) => setVolume(+e.target.value)}
+                  />
+                  <span>{Math.round(volume * 100)}%</span>
+                </label>
+                <label>
+                  <Wind size={15} /> Expresión
+                  <input
+                    type="range"
+                    aria-label="Expresión del acordeón"
+                    min=".1"
+                    max="1"
+                    step=".05"
+                    value={expression}
+                    onChange={(e) => setExpression(+e.target.value)}
+                  />
+                  <span>{Math.round(expression * 100)}%</span>
+                </label>
+              </div>
+              <label className="p-motion-select">
+                MOVIMIENTO DEL FUELLE
+                <select aria-label="Movimiento del fuelle" value={motion} onChange={(e) => setMotion(e.target.value)}>
+                  {design.clips
+                    .filter((c) => !c.includes('Button') && !c.includes('Idle'))
+                    .map((c) => (
+                      <option key={c} value={c}>
+                        {{
+                          Bellows_OpenClose: 'Natural · abanico superior',
+                          Bellows_Fan_Lower: 'Abanico inferior',
+                          Bass_Anchored_Phrase: 'Frase con melodía anclada',
+                          Bellows_Oblique_Sweep: 'Apertura oblicua',
+                          Bellows_Expressive_Arc: 'Arco expresivo',
+                          Bellows_Short_Accents: 'Acentos cortos',
+                        }[c] ?? c}
+                      </option>
+                    ))}
+                </select>
+              </label>
+              <div className="p-audio-meter">
+                <progress aria-label="Señal de audio real" max=".2" value={instrument.meter.rms} />
+                <span>{instrument.meter.rms > 0.001 ? 'Salida con señal' : 'Salida en reposo'}</span>
+              </div>
+              <p className="p-audio-status" role="status">
+                {instrument.status}
+              </p>
+              <button
+                className="p-unlock"
+                onClick={() => void instrument.prepare().catch(() => undefined)}
+                disabled={!instrument.ready && instrument.status.startsWith('Cargando')}
+              >
+                Activar sonido
+              </button>
+            </aside>
+          </div>
+          {collection && (
+            <section className="p-collection" aria-label="Colección de acordeones">
+              <header>
+                <h2>Tu sonido tiene estilo.</h2>
+                <button aria-label="Cerrar colección" onClick={() => setCollection(false)}>
+                  <X size={19} />
+                </button>
+              </header>
+              <div>
+                {instrumentDesigns.map((d) => (
+                  <button
+                    key={d.id}
+                    aria-pressed={d.id === design.id}
+                    onClick={() => {
+                      instrument.stopAll();
+                      setDesignId(d.id);
+                    }}
+                  >
+                    <img src={d.image} alt="" loading="lazy" />
+                    <strong>{d.name}</strong>
+                    <small>{d.description}</small>
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
+          {view !== 'practice' && (
+            <SongWorkspace
+              instrument={instrument}
+              tuning={tuning}
+              onTuning={changeTuning}
+              watch={view === 'watch'}
+              fullscreen={full}
+              onFull={() => {
+                if (!full) void toggleFull();
+              }}
+              controlsRef={songControls}
+              layout={layout}
+              onFrame={setAutomatic}
+              pauseRef={stopSong}
+              onInputRef={songInput}
+            />
+          )}
+          <section ref={keyboard} tabIndex={-1} className="p-keyboard" aria-label="Teclado del acordeón">
+            <header>
+              <div>
+                <p className="p-eyebrow">TU INSTRUMENTO COMPLETO</p>
+                <h2>31 melodías. Sus dos voces.</h2>
+              </div>
+              <span className="p-live" role="status">
+                {active.size
+                  ? allButtons
+                      .filter((b) => active.has(b.id))
+                      .map(
+                        (b) =>
+                          `${b.bone.includes('Melody') ? 'M' : 'B'}${Number(b.bone.slice(-2))} · ${buttonLabel(b, direction, tuning)}`,
+                      )
+                      .join(' / ')
+                  : lastNote
+                    ? `Último botón: ${lastNote}`
+                    : 'Elige cerrado o abierto y pulsa una tecla.'}
+              </span>
+            </header>
+            <div className="p-section-tabs" role="group" aria-label="Sección del instrumento">
+              {[
+                ['melody', 'Melodía · 31'],
+                ['bass', 'Bajos · 6'],
+                ['chords', 'Acordes · 6'],
+                ['left', 'Mano izquierda · 12'],
+              ].map(([id, label]) => (
+                <button key={id} aria-pressed={section === id} onClick={() => setSection(id)}>
+                  {label}
+                </button>
+              ))}
+              <label className="p-key-layout">
+                TECLADO
+                <select aria-label="Idioma del teclado" value={layout} onChange={(e) => setLayout(e.target.value)}>
+                  <option value="es">ES · Ñ</option>
+                  <option value="en">EN · ;</option>
+                </select>
+              </label>
+            </div>
+            {section === 'melody' ? (
+              <>
+                <div className="p-key-nav">
+                  <button
+                    onClick={() =>
+                      keyboard.current?.querySelector('.p-key-scroll')?.scrollBy({ left: -260, behavior: 'smooth' })
+                    }
+                  >
+                    ← Anteriores
+                  </button>
+                  <span>Desliza las tres hileras</span>
+                  <button
+                    onClick={() =>
+                      keyboard.current?.querySelector('.p-key-scroll')?.scrollBy({ left: 260, behavior: 'smooth' })
+                    }
+                  >
+                    Siguientes →
+                  </button>
+                </div>
+                <div className="p-key-scroll" tabIndex={0} aria-label="Tres hileras de melodía">
+                  <div className="p-key-rows">
+                    {[0, 1, 2].map((row) => (
+                      <div
+                        className="p-key-row"
+                        key={row}
+                        data-row-count={melodyButtons.filter((b) => b.row === row).length}
+                      >
+                        <span>
+                          HILERA {row + 1}
+                          <small>{[10, 11, 10][row]} botones</small>
+                        </span>
+                        {melodyButtons.filter((b) => b.row === row).map(pad)}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div
+                className={`p-bass-keys ${section === 'left' ? 'p-physical-bass' : ''}`}
+                style={
+                  section === 'left'
+                    ? { gridTemplateColumns: `repeat(${design.bassColumns},minmax(0,1fr))` }
+                    : undefined
+                }
+                data-physical-layout={`${design.bassRows}x${design.bassColumns}`}
+              >
+                {bassButtons
+                  .filter((b) => (section === 'left' ? true : section === 'chords' ? b.chord : !b.chord))
+                  .map(pad)}
+              </div>
+            )}
+          </section>
+          {help && (
+            <aside className="p-help">
+              <div>
+                <HelpCircle />
+                <div>
+                  <strong>Para empezar: pulsa W y compara sus dos notas.</strong>
+                  <p>
+                    Sin mantener Espacio, elige Notas al cerrar y toca; después elige Notas al abrir. En un acordeón
+                    real hay aire en ambos sentidos: aquí se simula. Espacio cambia temporalmente a abrir; Mayús +
+                    Espacio a cerrar. Natural utiliza grabaciones Hohner; las otras afinaciones y registros son
+                    variaciones virtuales.
+                  </p>
+                </div>
+              </div>
+              <button onClick={() => setHelp(false)}>Entendido</button>
+            </aside>
+          )}
+        </section>
+      </main>
+      <footer className="p-footer">
+        <span>
+          Acorden<b>Rush</b> · Hecho para sentir el vallenato.
+        </span>
+        <button onClick={() => setTuningDetails(true)}>Afinaciones y cobertura sonora ↗</button>
+        <small>
+          Modelo {design.sha256.slice(0, 12)} · Grabaciones Hohner CC0 · Transposiciones virtuales identificadas
+        </small>
+      </footer>
+      <dialog ref={dialog} className="p-tuning-dialog" onCancel={() => setTuningDetails(false)}>
+        <header>
+          <h2>{system.label} · mapa y sonido</h2>
+          <button aria-label="Cerrar mapa de afinación" onClick={() => setTuningDetails(false)}>
+            <X />
+          </button>
+        </header>
+        <p>
+          {system.id === 'GCF'
+            ? 'Mapa base contrastado con el diagrama GCF de Hohner.'
+            : 'Familia obtenida por transposición virtual del mapa GCF; no es una grabación independiente ni un mapa documental de otro fabricante.'}{' '}
+          {system.low ? 'Una octava abajo.' : ''}
+        </p>
+        <p>
+          MIDI 60 = Do4 · 74 = Re5 · referencia La4 = 440 Hz. Las octavas y voces de bajo son una realización web. La
+          grabación cubre raíces MIDI 47–79; fuera de ese rango se transportan muestras y cambia el timbre.
+        </p>
+        <a href={layoutSource.source} target="_blank" rel="noreferrer">
+          Diagrama original de Hohner ↗
+        </a>
+        <div className="p-map-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Botón</th>
+                <th>Cerrar</th>
+                <th>Abrir</th>
+                <th>Cobertura</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allButtons.map((b) => {
+                const notes = [...soundingNotes(b, 'push', tuning), ...soundingNotes(b, 'pull', tuning)];
+                return (
+                  <tr key={b.id}>
+                    <td>
+                      {b.bone.includes('Melody') ? 'M' : 'B'}
+                      {Number(b.bone.slice(-2))}
+                    </td>
+                    <td>
+                      {soundingNotes(b, 'push', tuning)
+                        .map((n) => noteName(n, system.flats))
+                        .join(' + ')}
+                    </td>
+                    <td>
+                      {soundingNotes(b, 'pull', tuning)
+                        .map((n) => noteName(n, system.flats))
+                        .join(' + ')}
+                    </td>
+                    <td>
+                      {notes.some((n) => n < 47 || n > 79)
+                        ? 'Transposición fuera del rango grabado'
+                        : 'Dentro del rango del banco'}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </dialog>
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
 /** Apply after AnimationMixer.update(dt). Units and travel come from the GLB itself. */
 export function createButtonInteraction(gltf) {
   const bones = new Map();
-  gltf.scene.traverse(object => {
+  gltf.scene.traverse((object) => {
     if (object.isBone && /^BTN_(Melody|Bass)_\d+$/.test(object.name)) {
       bones.set(object.name, { bone: object, rest: object.position.clone(), amount: 0, target: 0 });
     }
@@ -23,7 +23,7 @@ export function createButtonInteraction(gltf) {
   if (bones.size !== 43 || !travel.has('Melody') || !travel.has('Bass')) {
     throw new Error('Expected 31 melody / 12 bass bones and calibrated press tracks.');
   }
-  const resolve = name => {
+  const resolve = (name) => {
     const key = name.startsWith('BTN_') ? name : `BTN_${name}`;
     const state = bones.get(key);
     if (!state) throw new Error(`Unknown accordion button: ${name}`);
@@ -31,13 +31,19 @@ export function createButtonInteraction(gltf) {
   };
   return {
     names: [...bones.keys()],
-    press(name) { resolve(name).target = 1; },
-    release(name) { resolve(name).target = 0; },
-    releaseAll() { for (const state of bones.values()) state.target = 0; },
+    press(name) {
+      resolve(name).target = 1;
+    },
+    release(name) {
+      resolve(name).target = 0;
+    },
+    releaseAll() {
+      for (const state of bones.values()) state.target = 0;
+    },
     update(dt) {
       for (const [name, state] of bones) {
         if (state.target === 0 && state.amount === 0) continue;
-        const tau = state.target ? 0.026 : 0.040;
+        const tau = state.target ? 0.026 : 0.04;
         state.amount += (state.target - state.amount) * (1 - Math.exp(-Math.max(0, dt) / tau));
         if (state.target === 0 && state.amount < 0.0001) state.amount = 0;
         const kind = name.includes('Melody') ? 'Melody' : 'Bass';
