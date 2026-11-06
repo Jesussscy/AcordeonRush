@@ -18,7 +18,9 @@ import { MidiInput } from '../input/midi-input';
 import { getTuning, melodyButtons, type instrumentDesigns } from '../instrument/accordion-catalog';
 import { AccordionRig } from '../instrument/accordion-rig';
 import { GameRenderer } from '../render/game-renderer';
+import { createBloom } from '../render/post-processing';
 import { Sparks } from '../render/sparks';
+import { Stage } from '../stage/stage';
 import { solfege } from '../utils/notes';
 import { GameClock } from './game-clock';
 import { getRecord } from './records';
@@ -157,6 +159,9 @@ export class GameSession {
     });
     this.renderer.scene.add(this.highway.group, this.sparks.points);
     this.renderer.setAccordion(this.rig);
+    this.stage = new Stage(this.renderer.scene, config.settings.quality);
+    if (config.settings.quality === 'high')
+      this.renderer.postProcess = createBloom(this.renderer.renderer, this.renderer.scene, this.renderer.camera);
   }
 
   private get rate() {
