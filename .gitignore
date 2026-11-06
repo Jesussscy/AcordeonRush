@@ -1,13 +1,32 @@
+# Dependencias y build
 node_modules/
 dist/
 *.tsbuildinfo
-*.blend1
+coverage/
+playwright-report/
+test-results/
+
+# Python / Blender
 __pycache__/
 *.pyc
+*.blend1
 *.log
+
+# Entornos y secretos
 .env
 .env.*
 !.env.example
-artifacts/model-backups/
-artifacts/source-backups/
-artifacts/qa/.*-syntax.mjs
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Salidas locales (respaldos de modelos, capturas temporales)
+artifacts/
+
+# Canciones privadas del jugador: songs/_<nombre>/ se descubren pero no se suben
+songs/_*/

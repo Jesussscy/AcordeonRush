@@ -1,4 +1,24 @@
-*.zip filter=lfs diff=lfs merge=lfs -text
+# Fin de línea normalizado para texto
+* text=auto
+*.sh text eol=lf
+
+# Git LFS: modelos y fuentes 3D, paquetes y animaciones
+*.glb   filter=lfs diff=lfs merge=lfs -text
+*.gltf  filter=lfs diff=lfs merge=lfs -text
+*.fbx   filter=lfs diff=lfs merge=lfs -text
 *.blend filter=lfs diff=lfs merge=lfs -text
-*.glb filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
+*.zip   filter=lfs diff=lfs merge=lfs -text
+*.gif   filter=lfs diff=lfs merge=lfs -text
+
+# Git LFS: audio de canciones (nuevo)
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+
+# Binarios en git normal: ya están en el historial y pasarlos a LFS duplicaría
+# almacenamiento y cuota sin reducir el repo (ver docs/PLAN.md §0).
+*.png  binary
+*.jpg  binary
+*.webp binary
+*.wav  binary
+*.flac binary
+*.mid  binary

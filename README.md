@@ -1,10 +1,18 @@
-# AcordenRush
+# Vallenato Hero
 
-**Toca el fuelle, domina el ritmo.** A Spanish-first React/TypeScript accordion studio with recorded Hohner audio, playable 3D instruments and timed teaching arrangements.
+Juego de ritmo en 3D sobre un **acordeón diatónico vallenato** (bisonoro: cada botón suena distinto al cerrar y al abrir el fuelle). Inspirado en el formato de autopista de los juegos de ritmo, con arte, música y personajes 100 % originales.
 
-## Run
+> **Estado:** en desarrollo. La base del proyecto, *AcordeonRush*, ya está reorganizada (hito H0). Lo que funciona hoy es el **Estudio libre**: acordeón 3D con 43 botones animados, fuelle, samples reales y 24 afinaciones. El juego (autopista, HUD, puntaje, errores y escenario) se construye en los hitos H1–H6 de [docs/PLAN.md](docs/PLAN.md).
 
-Node.js 20+, npm and Git LFS are required for a complete checkout.
+![Estudio libre](docs/images/estudio-libre.jpg)
+
+## Requisitos
+
+- Node.js 20 o superior y npm
+- Git LFS (los modelos `.glb` y los archivos `.blend` están en LFS)
+- Un navegador con WebGL 2 y Web Audio (Chrome, Edge o Firefox recientes)
+
+## Instalar y ejecutar
 
 ```bash
 git lfs install
@@ -12,62 +20,50 @@ git clone https://github.com/Jesussscy/AcordeonRush.git
 cd AcordeonRush
 git lfs pull
 npm ci
-npm run dev -- --host 127.0.0.1 --port 5186
+npm run dev
 ```
 
-Open http://127.0.0.1:5186/#practice. `npm run build` creates the production output; `npm run preview` serves it.
+Abre la URL que indique Vite (por defecto http://localhost:5173).
 
-## Play and learn
+| Comando | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Typecheck y build de producción en `dist/` |
+| `npm run preview` | Sirve el build de producción |
+| `npm test` | Tests (Vitest): teclado, catálogo, 8 modelos 3D y transporte musical |
+| `npm run typecheck` | Solo TypeScript |
+| `npm run format` | Formatea el código con Prettier |
 
-- **Practicar:** choose closed or open notes and press the computer keys, screen pads or 3D buttons. Both directions sound directly without holding Space. Space temporarily selects opening; release restores the selected direction. Manual pressure is optional under the advanced control.
-- **Canciones:** opens the original reference first, with supported playback speeds and user-marked A–B listening loops. The separate teaching exercise offers notes with octaves, fingering, durations, repeatable two-bar phrases, sections and practice feedback.
-- **Ver tocar:** the local arrangement plays the accordion automatically with the same clock driving notes, depressed buttons and bellows.
-- **Pantalla grande:** model above the keyboard, direction and transport controls, accessible exit. Native fullscreen has a full-page fallback.
-- Eight designs include four updated Curva models with nine clips each. All 31 melody buttons and 12 bass/chord buttons are represented; the left-hand grid follows the selected model.
+## Controles del Estudio libre
 
-The initial workspace is `src/Workspace.tsx`; the previous studio remains separately accessible. Settings and imported musical files stay local to the browser. The official YouTube reference uses an external player.
+- **Botones de melodía:** `Q…P` (hilera 1), `A…Ñ Z` (hilera 2), `X…´` (hilera 3). Los bajos van en `1…0 - =`.
+- **Fuelle:** `Espacio` = abrir; `Shift+Espacio` = cerrar. Con los botones de la interfaz se elige la dirección de reposo.
+- Se puede tocar con el ratón o con el dedo sobre los pads o sobre los botones del modelo 3D.
 
-## Musical content and sources
+Los controles del juego (Espacio mantenido = cerrar, hileras Z/A/Q, Enter = Parranda, Esc = pausa) llegan en el H1.
 
-The five named entries are **generated teaching arrangements**, not verified transcriptions of their commercial recordings: Las locuras mías, Mis cinco sentidos, Amarte más no pude, El confite and Culpa de los dos. Official references are separate from generated note timelines. [Las locuras mías status](docs/las-locuras-mias-status.md) describes the remaining transcription work.
+## Agregar canciones
 
-Import your own timed JSON and optional authorized local audio through the material editor. The importer checks declared filename/hash, pitches, timing and common bellows direction. Imported material is labeled user-supplied, never automatically certified. An original C–D–E template is in `public/charts/chart-template.json`.
+*(Disponible a partir del H1.)* Crea una carpeta `songs/<nombre>/` con un `chart.json` (o un `.mid`) y, si quieres, `audio.mp3` y `cover.jpg`. Aparecerá en el menú sin tocar código. Las carpetas `songs/_<nombre>/` son privadas: el juego las ve, pero git las ignora. El formato está en [.claude/skills/chart-authoring/SKILL.md](.claude/skills/chart-authoring/SKILL.md).
 
-Audio uses real FreePats Hohner recordings; Natural retains the recorded voice and other registrations use virtual layering. There are **24 tuning/register options derived from a G/C/F base**, with declared transpositions and sample coverage, rather than 24 independent sampled instruments. See `public/instruments/tuning-audit.json`, `public/instrument/recorded-hn/PROVENANCE.json` and [implementation evidence](docs/implementation-verification.md). No commercial master recording is bundled.
+## Estructura
 
-Under **Sonido · timbre y balance**, choose close, dry or warm articulation/EQ, adjust melody/bass/chord levels, or isolate the melody. These controls process the same attributed samples; they do not claim a new sampled instrument or make a generated melody match the original recording. The close preset preserves the sample attack with a shorter valve release, and the source's sustained dynamics replace the earlier artificial decay.
+| Carpeta | Contenido |
+|---|---|
+| `src/` | Código: `core/`, `instrument/`, `audio/`, `gameplay/`, `input/`, `ui/studio/` (y, más adelante, `render/`, `hud/` y `stage/`) |
+| `assets/` | Archivos servidos tal cual (`publicDir` de Vite): modelos GLB, samples de audio, favicon |
+| `data/layouts/` | Mapa de notas del acordeón (G/C/F, tabla Hohner de 31 botones) |
+| `songs/` | Canciones (una carpeta por canción) |
+| `art/` | Fuentes de arte que no se usan en el juego: archivos Blender, renders, banco de audio original |
+| `tools/` | Scripts de Blender (`tools/blender/`) y de audio (`tools/audio/`) |
+| `tests/` | Tests automatizados |
+| `docs/` | [Análisis](docs/ANALISIS.md), [plan](docs/PLAN.md), capturas e historial |
 
-The initial **Vallenato** registration adds a virtual reed ensemble with pitch-dependent beating, adjustable voice spread, pressure-sensitive brightness and distinct bass/chord treatment. **Natural** keeps the single-bank reference. Use **Probar Natural / Probar Vallenato** to compare the same short phrase with animated buttons; physical input cancels the preview. The sample build now converts inclusive SFZ loop endpoints correctly, aligns stereo loop phases and measures per-sample sustain levels. The Vallenato registration uses those measurements to reduce uneven note volumes. It is a virtual arrangement of the same Hohner recordings, not a separately sampled Corona III.
+## Licencias y créditos
 
-## Validation
+- **Código:** [MIT](LICENSE).
+- **Modelos 3D y arte original:** © Jesussscy, todos los derechos reservados ([assets/models/LICENSE.md](assets/models/LICENSE.md)).
+- **Samples de acordeón:** *Button Accordion HN* de [FreePats](https://freepats.zenvoid.org/), CC0-1.0. Grabado por Jeff Stauffer; banco procesado por michael02022.
+- **Mapa de notas:** basado en la tabla de digitación Hohner G/C/F de 31 botones.
 
-```bash
-npm run typecheck
-npm run build
-node tools/validate-practice.mjs
-node tools/validate-musical-transport.mjs
-node tools/build-music-audit.mjs
-```
-
-`python tools/validate-recorded-audio.py` additionally checks sample data (NumPy and SoundFile required). Development browser fixtures and their JSON results are under `artifacts/qa/`; they are not production pages. Current evidence covers 2,064 signal cases, the real closed/open UI path, 94 integrated workflow checks and the portrait CSS viewport. Subjective listening and physical-device latency are not certified.
-
-## Files
-
-| Directory | Purpose |
-| --- | --- |
-| `src/` | Interface, audio engine, transport and 3D scene |
-| `public/` | Runtime models, samples, charts and musical audit |
-| `assets/blender/` | Editable models, exports, source recordings and asset packages |
-| `tools/` | Asset production, synchronization and validation |
-| `artifacts/qa/` | Browser fixtures and evidence, including historical checks |
-| `docs/` | Source boundaries and implementation report |
-
-Large GLB, Blend, ZIP and GIF assets use Git LFS. Dependencies, build output, automatic Blender backup files and local replacement-model backups are ignored. Asset licenses/provenance are preserved with their corresponding files; no blanket license is asserted over unrelated source material.
-
-## Immersive practice and higher reed voice
-
-The initial registration is now **Vallenato agudo**, with an added upper sampled reed (+12 semitones) alongside the melody fundamental. This changes the reed mixture while retaining button-note names, tuning and bass/chord maps. The previous Vallenato registration remains selectable, including from the fullscreen toolbar. No Mezquite recordings are bundled or claimed as identical.
-
-Space controls bellows in the capture phase, including when the 3D canvas, a melody pad or Exit has focus. Repeated keydowns are canceled too. Release restores the selected direction; Shift+Space selects closing. Editable fields retain their normal keyboard behavior. Focused melody pads use Enter for direct keyboard activation.
-
-The immersive view keeps the model above the keyboard inside a fixed viewport, with a current-note/bellows readout and compact keys. Mobile pads pan horizontally; outer vertical scrolling is locked. Native fullscreen and its page fallback use the same layout. Tests and scope are recorded in `artifacts/qa/immersive-practice-result.json`, `native-space-result.json` and `high-register-result.json`.
+El proyecto no incluye grabaciones comerciales.

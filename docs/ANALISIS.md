@@ -237,7 +237,7 @@ No versionados en disco (ignorados correctamente): `dist/`, 22 `*.log` de Blende
 | README | Sí (inglés, del estudio). Habrá que reescribirlo para Vallenato Hero |
 | LICENSE | **No existe** |
 | Secretos | **Ninguno** (búsqueda de api_key, token, secret, password, sk-, AKIA, claves privadas; no hay `.env`) |
-| Rutas personales | `PROMPT_MAESTRO_AUDIO_CANCIONES_Y_MODELOS.txt:6` y `tools/build_accordion_blender.py:206` (`C:\Users\Xermy\...`); el binario `AcordeonVallenato_Animado.blend` contiene “Xermy” una vez. Los `*.log` con rutas están ignorados |
+| Rutas personales | `PROMPT_MAESTRO_AUDIO_CANCIONES_Y_MODELOS.txt:6` y `tools/build_accordion_blender.py:206` (`C:\Users\<usuario>\...`); el binario `AcordeonVallenato_Animado.blend` contiene “<usuario>” una vez. Los `*.log` con rutas están ignorados |
 | No deben subirse | `node_modules/`, `dist/`, `*.tsbuildinfo`, `*.blend1`, `*.log`, `artifacts/model-backups/`, `__pycache__/` — ya ignorados correctamente |
 | **Archivos pesados fuera de LFS** | **~200 MB de PNG/JPG** (renders, `_motion_frames` 69 MB, previews 1.5–2.9 MB c/u) y **~24 MB de WAV/FLAC** versionados en git normal → el historial ya pesa 182 MB. Ninguno supera 100 MB individualmente (el mayor es el ZIP de 99.7 MB, en LFS, al límite) |
 | Peso total en el checkout | assets/blender 526 MB, public 112 MB, artifacts 45 MB |
