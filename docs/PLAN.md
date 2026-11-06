@@ -431,14 +431,18 @@ Esfuerzo estimado en sesiones de trabajo de Claude Code (≈ 1 sesión = un bloq
 - El Estudio libre ya usa `songs/`; las 5 canciones comerciales se retiraron.
 - Adelantado de H5 (base): Ajustes con remapeo, Calibración, MIDI, importador .mid, resultados y récords.
 
-### H2 — HUD completo · ≈ 2 sesiones
-- [ ] LED de 7 segmentos con dígitos rodantes, círculo multiplicador (x1–x4 y x8) con 10 lucecitas y destello.
-- [ ] Odómetro de racha con hitos (25/50/100/200/500), letrero, grito y chispas, “Mejor: N” brillando, racha rota (atasco, caída y golpe) y “Racha perdida: N”.
-- [ ] Ambientómetro con aguja física (resorte con inercia), zonas, alarma y fin de partida por medidor a 0.
-- [ ] 3 sombreros vueltiaos y activación de Parranda (Enter o sacudida de fuelle) con multiplicador doble, autopista dorada, luces y zoom con pulso.
-- [ ] Barra de progreso, título y artista, textos de timing y “Perfectos seguidos”.
+### H2 — HUD completo · ☑ HECHO (2026-11-05)
+- [x] LED de 7 segmentos con dígitos rodantes, círculo multiplicador (x1–x4 y x8) con 10 lucecitas y destello.
+- [x] Odómetro de racha con hitos (25/50/100/200/500), letrero, grito y chispas, “Mejor: N” brillando, racha rota (atasco, caída y golpe) y “Racha perdida: N”.
+- [x] Ambientómetro con aguja física (resorte con inercia), zonas, alarma y fin de partida por medidor a 0.
+- [x] 3 sombreros vueltiaos y activación de Parranda (Enter o sacudida de fuelle) con multiplicador doble, autopista dorada, luces y zoom con pulso.
+- [x] Barra de progreso, título y artista, textos de timing y “Perfectos seguidos”.
 - **Terminado cuando:** el layout coincide con la spec en 1366×768 y 1920×1080, cada elemento reacciona en el E2E y quedan capturas en `docs/images/`.
 - Archivos: `src/hud/*`, `src/gameplay/{streak,parranda,scoring}.ts`.
+
+**Resultado del H2:**
+- HUD en DOM/SVG con actualización por diferencias (sin re-render de React por frame).
+- Verificado en navegador con capturas durante una partida real: LED, multiplicador y lucecitas, odómetro, Ambientómetro, sombreros, Parranda x8, Perfectos seguidos e indicador de fuelle.
 
 ### H3 — Errores y desafine · ≈ 1.5 sesiones
 - [ ] Clasificador de 5 tipos (perdida, botón, fuelle, temprano/tarde, fantasma) con su etiqueta flotante.
