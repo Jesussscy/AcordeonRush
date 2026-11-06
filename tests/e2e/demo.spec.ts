@@ -27,6 +27,8 @@ for (const difficulty of ['Fácil', 'Medio', 'Difícil', 'Experto'] as const) {
     const result = await playWithBot(page);
     expect(result.finished).toBe(true);
     const total = Object.values(result.grades).reduce((a, b) => a + b, 0);
+    if (Object.values(result.errors).some((v) => v > 0))
+      console.log('notas con error', JSON.stringify(await page.evaluate(() => window.__VH__?.session.debugNotes().filter((n) => n.state !== 'hit' || n.grade !== 'perfect'))));
     expect(result.grades.perfect).toBe(total);
     expect(Object.values(result.errors).every((v) => v === 0)).toBe(true);
     await expect(page.getByTestId('final-score')).toBeVisible({ timeout: 10_000 });

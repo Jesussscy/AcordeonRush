@@ -52,6 +52,8 @@ export class AccompanimentPlayer {
   private cursor = 0;
   readonly percussion: GainNode;
   enabled = true;
+  /** Recorded track present: only the count-in clicks are synthesized. */
+  onlyClicks = false;
 
   constructor(
     private readonly audio: AccordionAudio,
@@ -79,6 +81,7 @@ export class AccompanimentPlayer {
       if (when > horizon) break;
       this.cursor++;
       if (!this.enabled || when < ctx.currentTime - 0.03) continue;
+      if (this.onlyClicks && e.kind !== 'click') continue;
       const at = Math.max(when, ctx.currentTime);
       const seconds = (beats: number) => (beats * this.secondsPerBeat) / rate;
       if (e.kind === 'bass' || e.kind === 'chord')

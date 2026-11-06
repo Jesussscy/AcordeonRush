@@ -48,6 +48,8 @@ export type AccordionAudio = {
   setProfile(id: string): void;
   setTuning(id: string): void;
   setVolume(volume: number): void;
+  /** Miss feedback on the melody bus ("desafine"). `time` = smoothing time constant in seconds. */
+  setMelodyFx(fx: { detune?: number; wobble?: number; crush?: number; level?: number }, time?: number): void;
   allNotesOff(): void;
   dispose(): void;
 };

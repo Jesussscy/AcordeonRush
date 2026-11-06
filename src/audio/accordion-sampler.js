@@ -27,7 +27,29 @@ export async function createAccordionAudio({
   analyser.fftSize = 8192;
   const waveform = new Float32Array(analyser.fftSize);
   const parts = Object.fromEntries(['melody', 'bass', 'chord'].map((id) => [id, context.createGain()]));
-  for (const bus of Object.values(parts)) bus.connect(body);
+  parts.bass.connect(body);
+  parts.chord.connect(body);
+  // Miss feedback ("desafine") on the melody bus only: per-voice detune + wobble LFO, a bitcrush
+  // wet/dry mix and a level duck. Accompaniment buses are never affected.
+  const melodyDry = context.createGain(),
+    melodyWet = context.createGain(),
+    crusher = context.createWaveShaper(),
+    melodyLevel = context.createGain(),
+    wobble = context.createOscillator(),
+    wobbleDepth = context.createGain();
+  const steps = 10,
+    curve = new Float32Array(1024);
+  for (let i = 0; i < curve.length; i++) curve[i] = Math.round(((i / (curve.length - 1)) * 2 - 1) * steps) / steps;
+  crusher.curve = curve;
+  melodyWet.gain.value = 0;
+  parts.melody.connect(melodyDry).connect(melodyLevel);
+  parts.melody.connect(crusher).connect(melodyWet).connect(melodyLevel);
+  melodyLevel.connect(body);
+  wobble.frequency.value = 5.5;
+  wobbleDepth.gain.value = 0;
+  wobble.connect(wobbleDepth);
+  wobble.start();
+  let melodyDetune = 0;
   const presence = context.createBiquadFilter();
   presence.type = 'highshelf';
   presence.frequency.value = 2200;
@@ -176,7 +198,10 @@ export async function createAccordionAudio({
         source.loopEnd = Math.min(region.loopEnd, buffer.duration);
       }
       source.playbackRate.value = 2 ** ((pitch - region.root) / 12);
-      source.detune.value = (release ? region.releaseTune : region.tune) + registration.cents;
+      voice.baseDetune = (release ? region.releaseTune : region.tune) + registration.cents;
+      voice.part = part;
+      source.detune.value = voice.baseDetune + (part === 'melody' ? melodyDetune : 0);
+      if (part === 'melody') wobbleDepth.connect(source.detune);
       const at = Math.max(when, context.currentTime),
         amplitude =
           registration.gain * level * (release ? 0.065 : 1) * (dynamicFilter ? (region.performanceGain ?? 1) : 1);
@@ -205,6 +230,7 @@ export async function createAccordionAudio({
       } else gain.connect(parts[part]);
       source.onended = () => {
         source.disconnect();
+        if (part === 'melody') wobbleDepth.disconnect(source.detune);
         voice.filter?.disconnect();
         voice.panner?.disconnect();
         gain.disconnect();
@@ -417,6 +443,20 @@ export async function createAccordionAudio({
     setVolume(value) {
       master.gain.setTargetAtTime(0.55 * Math.max(0, Math.min(1, value)), context.currentTime, 0.02);
     },
+    /**
+     * Miss feedback on the melody: detune in cents (negative = flat), wobble depth in cents,
+     * crush 0…1 and level 0…1. `time` is the smoothing time constant (≈ 1/3 of the settle time).
+     */
+    setMelodyFx({ detune = 0, wobble: depth = 0, crush = 0, level = 1 } = {}, time = 0.1) {
+      const at = context.currentTime;
+      melodyDetune = detune;
+      for (const voice of voices)
+        if (voice.part === 'melody' && voice.source) voice.source.detune.setTargetAtTime(voice.baseDetune + detune, at, time);
+      wobbleDepth.gain.setTargetAtTime(depth, at, time);
+      melodyWet.gain.setTargetAtTime(Math.max(0, Math.min(1, crush)) * 0.7, at, time);
+      melodyDry.gain.setTargetAtTime(1 - Math.max(0, Math.min(1, crush)) * 0.5, at, time);
+      melodyLevel.gain.setTargetAtTime(Math.max(0, Math.min(1, level)), at, time);
+    },
     allNotesOff() {
       for (const state of held.values()) stop(state);
       held.clear();
@@ -426,6 +466,8 @@ export async function createAccordionAudio({
       api.allNotesOff();
       disposed = true;
       for (const bus of Object.values(parts)) bus.disconnect();
+      wobble.stop();
+      for (const node of [melodyDry, melodyWet, crusher, melodyLevel, wobble, wobbleDepth]) node.disconnect();
       body.disconnect();
       brightness.disconnect();
       presence.disconnect();

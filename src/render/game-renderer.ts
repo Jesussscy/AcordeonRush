@@ -11,7 +11,7 @@ export type Quality = 'high' | 'low';
 export class GameRenderer {
   readonly renderer: THREE.WebGLRenderer;
   readonly scene = new THREE.Scene();
-  readonly camera = new THREE.PerspectiveCamera(52, 1, 0.1, 400);
+  readonly camera = new THREE.PerspectiveCamera(56, 1, 0.1, 400);
   readonly accordionScene = new THREE.Scene();
   readonly accordionCamera = new THREE.PerspectiveCamera(24, 1, 0.01, 10);
   private readonly resizeObserver: ResizeObserver;
@@ -23,7 +23,7 @@ export class GameRenderer {
   /** Extra per-frame hooks (stage, effects). */
   readonly onBeforeRender: ((dt: number) => void)[] = [];
   /** Optional post-processing pass for the main scene (set by the stage, H4). */
-  postProcess?: { render(dt: number): void; setSize(w: number, h: number): void };
+  postProcess?: { render(dt: number): void; setSize(w: number, h: number): void; dispose?(): void };
   readonly basePosition = new THREE.Vector3(0, 3.35, 4.9);
   readonly lookAt = new THREE.Vector3(0, 0, -3.2);
 
@@ -132,6 +132,7 @@ export class GameRenderer {
 
   dispose() {
     this.resizeObserver.disconnect();
+    this.postProcess?.dispose?.();
     this.env.dispose();
     this.renderer.dispose();
     this.renderer.forceContextLoss();

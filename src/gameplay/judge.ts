@@ -238,6 +238,21 @@ export class Judge {
     return events;
   }
 
+  /** Practice loops: every note back to pending. */
+  reset() {
+    for (const n of this.notes) {
+      n.state = 'pending';
+      n.grade = undefined;
+      n.error = undefined;
+      n.holding = false;
+      n.sustainedBeats = 0;
+      n.earlyAttempt = false;
+      n.awaitingBellows = false;
+    }
+    this.held.clear();
+    this.cursor = 0;
+  }
+
   get finished() {
     const last = this.notes.at(-1);
     return !last || this.notes.every((n) => n.state !== 'pending' && !n.holding);

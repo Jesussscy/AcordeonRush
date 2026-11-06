@@ -330,6 +330,31 @@ export class Highway {
     if (gem.tail) (gem.tail.material as THREE.MeshStandardMaterial).color.setHex(0x555555);
   }
 
+  /** Practice loops: restore every gem. */
+  reset() {
+    for (const gem of this.gems) {
+      gem.state = 'pending';
+      gem.group.visible = true;
+      gem.body.visible = gem.label.visible = gem.rim.visible = true;
+      gem.body.material = gem.note.parranda ? this.goldMaterial : this.bodyMaterials[gem.note.row];
+      (gem.label.material as THREE.MeshBasicMaterial).map = labelTexture(
+        this.options.label(gem.note),
+        gem.note.direction,
+        gem.note.parranda,
+        false,
+      );
+      if (gem.tail) {
+        const material = gem.tail.material as THREE.MeshStandardMaterial;
+        material.color.setHex(gem.note.parranda ? 0xf5c542 : LANE_COLORS[gem.note.row]);
+        material.emissiveIntensity = 0.5;
+        const length = (gem.note.end - gem.note.start) * SPEED;
+        gem.tail.scale.set(1, 1, length);
+        gem.tail.position.z = -length / 2;
+      }
+    }
+    this.gemCursor = 0;
+  }
+
   /** Sustain broken: dim the remaining tail. */
   markSustainBroken(note: GameNote) {
     const gem = this.gems[note.id];
