@@ -1,0 +1,15 @@
+{
+  "title": "Paseo de Prueba",
+  "artist": "Vallenato Hero (melodía original)",
+  "bpm": 96,
+  "timeSignature": [4, 4],
+  "layout": "gcf",
+  "tuning": "GCF",
+  "license": "Melodía original creada para Vallenato Hero, libre de derechos (CC0-1.0)",
+  "phrases": {
+    "A": "E4:1 G4:0.5 G4:0.5 A4:1 G4:1 | E4:1 D4:0.5 E4:0.5 C4:2 | D4:1 E4:0.5 F4:0.5 G4:1 A4:1 | G4:3 R:1",
+    "B": "C5:1 B4:0.5 A4:0.5 G4:1 E4:1 | F4:1 E4:0.5 D4:0.5 E4:2 | G4:1 F4:0.5 E4:0.5 D4:1 B3:1 | C4:3 R:1"
+  },
+  "structure": ["A", "A", "B", "A", "B"],
+  "parranda": ["B"]
+}

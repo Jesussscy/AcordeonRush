@@ -1,0 +1,88 @@
+.vh-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-family: 'Bebas Neue', 'Arial Narrow', system-ui, sans-serif;
+  color: #fff4dc;
+}
+.vh-top {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  translate: -50% 0;
+  width: min(520px, 60vw);
+  text-align: center;
+}
+.vh-progress {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+.vh-progress i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #f2c230, #e0393e);
+}
+.vh-title b {
+  display: block;
+  font-size: 26px;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+.vh-title span {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  opacity: 0.75;
+}
+.vh-left {
+  position: absolute;
+  left: 24px;
+  bottom: 24%;
+  font-size: 34px;
+}
+.vh-countdown {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 120px;
+  text-shadow: 0 0 30px #f2c230;
+}
+.vh-float {
+  position: absolute;
+  translate: -50% -50%;
+  font-size: 34px;
+  white-space: nowrap;
+  animation: vh-float 0.9s ease-out forwards;
+  text-shadow:
+    0 2px 0 #000,
+    0 0 14px currentColor;
+}
+.vh-float.vh-perfect {
+  color: #ffe14d;
+}
+.vh-float.vh-good {
+  color: #7dff8a;
+}
+.vh-float.vh-ok {
+  color: #9fd3ff;
+}
+.vh-float.vh-error {
+  color: #ff4b4b;
+}
+@keyframes vh-float {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.7);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-46px) scale(1);
+  }
+}

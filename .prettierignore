@@ -5,3 +5,5 @@ assets/
 docs/history/
 package-lock.json
 *.md
+playwright-report/
+test-results/

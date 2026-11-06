@@ -1,8 +1,14 @@
-import layout from '../../data/layouts/gcf.json';
-import modelManifest from '../../assets/models/accordion/model-manifest.json';
+import layoutFile from '../../data/layouts/gcf.json';
+import { parseLayout, type LayoutFile } from './layout';
+import modelManifest from '../../data/accordion-models.json';
 export type BellowsDirection = 'push' | 'pull';
+
+/** Active layout (G/C/F). Other layouts: add data/layouts/<id>.json with the same shape. */
+export const layout = parseLayout(layoutFile as LayoutFile);
 export type InstrumentKey = {
   id: string;
+  /** Layout id shown on gems: A1…A10 (afuera), M1…M11 (medio), D1…D10 (adentro), B1…B12 (bajos). */
+  code: string;
   bone: string;
   label: string;
   row: number;
@@ -18,8 +24,9 @@ const keyboardRows = [
 ];
 let number = 0;
 export const melodyButtons: InstrumentKey[] = layout.rows.flatMap((row, rowIndex) =>
-  row.map(([push, pull], position) => ({
+  row.buttons.map(({ id: code, push, pull }, position) => ({
     id: `melody-${rowIndex}-${position}`,
+    code,
     bone: `BTN_Melody_${String(++number).padStart(2, '0')}`,
     label: keyboardRows[rowIndex][position],
     row: rowIndex,
@@ -31,6 +38,7 @@ export const melodyButtons: InstrumentKey[] = layout.rows.flatMap((row, rowIndex
 );
 export const bassButtons: InstrumentKey[] = layout.bass.map((item, index) => ({
   ...item,
+  code: item.id,
   id: `bass-${index}`,
   bone: `BTN_Bass_${String(index + 1).padStart(2, '0')}`,
   label: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '='][index],

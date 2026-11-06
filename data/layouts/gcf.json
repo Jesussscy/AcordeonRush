@@ -1,105 +1,259 @@
 {
+  "id": "gcf",
+  "name": "G/C/F (Sol · Do · Fa)",
   "system": "31/12 diatonic bisonoric, 10/11/10",
   "source": "https://hohner.de/fileadmin/documents/instruments/accordions/diatonic/HOHNER-fingeringcharts_diatonic-keyboard-GCF-31-buttons.pdf",
+  "verify": "Notas tomadas de la tabla de digitación Hohner G/C/F de 31 botones (URL en source). Verificar contra la tabla oficial antes de cambiar cualquier nota. c1 = C4 = MIDI 60.",
   "sourceNotes": "GCF pitch classes follow the referenced Hohner chart, c1=C4. Bass octaves/inversions are a web voicing. Bass physical grid comes from each model manifest (Curva 6x2, previous collection 4x3). Other families are virtual fourth-spaced transpositions of this GCF map, not separately documented hardware maps.",
   "rows": [
-    [
-      [61, 63],
-      [55, 57],
-      [59, 60],
-      [62, 64],
-      [67, 66],
-      [71, 69],
-      [74, 72],
-      [79, 76],
-      [83, 78],
-      [86, 81]
-    ],
-    [
-      [66, 68],
-      [55, 59],
-      [60, 62],
-      [64, 65],
-      [67, 69],
-      [72, 71],
-      [76, 74],
-      [79, 77],
-      [84, 81],
-      [88, 83],
-      [91, 86]
-    ],
-    [
-      [75, 73],
-      [60, 64],
-      [65, 67],
-      [69, 70],
-      [72, 74],
-      [77, 76],
-      [81, 79],
-      [84, 82],
-      [89, 86],
-      [93, 88]
-    ]
+    {
+      "name": "afuera",
+      "prefix": "A",
+      "key": "G",
+      "buttons": [
+        {
+          "id": "A1",
+          "push": "C#4",
+          "pull": "D#4"
+        },
+        {
+          "id": "A2",
+          "push": "G3",
+          "pull": "A3"
+        },
+        {
+          "id": "A3",
+          "push": "B3",
+          "pull": "C4"
+        },
+        {
+          "id": "A4",
+          "push": "D4",
+          "pull": "E4"
+        },
+        {
+          "id": "A5",
+          "push": "G4",
+          "pull": "F#4"
+        },
+        {
+          "id": "A6",
+          "push": "B4",
+          "pull": "A4"
+        },
+        {
+          "id": "A7",
+          "push": "D5",
+          "pull": "C5"
+        },
+        {
+          "id": "A8",
+          "push": "G5",
+          "pull": "E5"
+        },
+        {
+          "id": "A9",
+          "push": "B5",
+          "pull": "F#5"
+        },
+        {
+          "id": "A10",
+          "push": "D6",
+          "pull": "A5"
+        }
+      ]
+    },
+    {
+      "name": "medio",
+      "prefix": "M",
+      "key": "C",
+      "buttons": [
+        {
+          "id": "M1",
+          "push": "F#4",
+          "pull": "G#4"
+        },
+        {
+          "id": "M2",
+          "push": "G3",
+          "pull": "B3"
+        },
+        {
+          "id": "M3",
+          "push": "C4",
+          "pull": "D4"
+        },
+        {
+          "id": "M4",
+          "push": "E4",
+          "pull": "F4"
+        },
+        {
+          "id": "M5",
+          "push": "G4",
+          "pull": "A4"
+        },
+        {
+          "id": "M6",
+          "push": "C5",
+          "pull": "B4"
+        },
+        {
+          "id": "M7",
+          "push": "E5",
+          "pull": "D5"
+        },
+        {
+          "id": "M8",
+          "push": "G5",
+          "pull": "F5"
+        },
+        {
+          "id": "M9",
+          "push": "C6",
+          "pull": "A5"
+        },
+        {
+          "id": "M10",
+          "push": "E6",
+          "pull": "B5"
+        },
+        {
+          "id": "M11",
+          "push": "G6",
+          "pull": "D6"
+        }
+      ]
+    },
+    {
+      "name": "adentro",
+      "prefix": "D",
+      "key": "F",
+      "buttons": [
+        {
+          "id": "D1",
+          "push": "D#5",
+          "pull": "C#5"
+        },
+        {
+          "id": "D2",
+          "push": "C4",
+          "pull": "E4"
+        },
+        {
+          "id": "D3",
+          "push": "F4",
+          "pull": "G4"
+        },
+        {
+          "id": "D4",
+          "push": "A4",
+          "pull": "A#4"
+        },
+        {
+          "id": "D5",
+          "push": "C5",
+          "pull": "D5"
+        },
+        {
+          "id": "D6",
+          "push": "F5",
+          "pull": "E5"
+        },
+        {
+          "id": "D7",
+          "push": "A5",
+          "pull": "G5"
+        },
+        {
+          "id": "D8",
+          "push": "C6",
+          "pull": "A#5"
+        },
+        {
+          "id": "D9",
+          "push": "F6",
+          "pull": "D6"
+        },
+        {
+          "id": "D10",
+          "push": "A6",
+          "pull": "E6"
+        }
+      ]
+    }
   ],
   "bass": [
     {
-      "push": [43],
-      "pull": [38],
+      "id": "B1",
+      "push": ["G2"],
+      "pull": ["D2"],
       "chord": false
     },
     {
-      "push": [55, 59, 62],
-      "pull": [50, 54, 57],
+      "id": "B2",
+      "push": ["G3", "B3", "D4"],
+      "pull": ["D3", "F#3", "A3"],
       "chord": true
     },
     {
-      "push": [40],
-      "pull": [45],
+      "id": "B3",
+      "push": ["E2"],
+      "pull": ["A2"],
       "chord": false
     },
     {
-      "push": [52, 55, 59],
-      "pull": [57, 60, 64],
+      "id": "B4",
+      "push": ["E3", "G3", "B3"],
+      "pull": ["A3", "C4", "E4"],
       "chord": true
     },
     {
-      "push": [48],
-      "pull": [43],
+      "id": "B5",
+      "push": ["C3"],
+      "pull": ["G2"],
       "chord": false
     },
     {
-      "push": [60, 64, 67],
-      "pull": [55, 59, 62],
+      "id": "B6",
+      "push": ["C4", "E4", "G4"],
+      "pull": ["G3", "B3", "D4"],
       "chord": true
     },
     {
-      "push": [45],
-      "pull": [50],
+      "id": "B7",
+      "push": ["A2"],
+      "pull": ["D3"],
       "chord": false
     },
     {
-      "push": [57, 61, 64],
-      "pull": [62, 65, 69],
+      "id": "B8",
+      "push": ["A3", "C#4", "E4"],
+      "pull": ["D4", "F4", "A4"],
       "chord": true
     },
     {
-      "push": [41],
-      "pull": [48],
+      "id": "B9",
+      "push": ["F2"],
+      "pull": ["C3"],
       "chord": false
     },
     {
-      "push": [53, 57, 60],
-      "pull": [60, 64, 67],
+      "id": "B10",
+      "push": ["F3", "A3", "C4"],
+      "pull": ["C4", "E4", "G4"],
       "chord": true
     },
     {
-      "push": [46],
-      "pull": [46],
+      "id": "B11",
+      "push": ["A#2"],
+      "pull": ["A#2"],
       "chord": false
     },
     {
-      "push": [58, 62, 65],
-      "pull": [58, 62, 65],
+      "id": "B12",
+      "push": ["A#3", "D4", "F4"],
+      "pull": ["A#3", "D4", "F4"],
       "chord": true
     }
   ],

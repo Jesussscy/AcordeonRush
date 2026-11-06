@@ -1,0 +1,391 @@
+{
+  "title": "Paseo de Prueba",
+  "artist": "Vallenato Hero (melodía original)",
+  "bpm": 96,
+  "timeSignature": [4, 4],
+  "offsetMs": 0,
+  "layout": "gcf",
+  "tuning": "GCF",
+  "license": "Melodía original creada para Vallenato Hero, libre de derechos (CC0-1.0)",
+  "parrandaPhrases": [
+    [32, 48],
+    [64, 80]
+  ],
+  "notes": [
+    {
+      "t": 0,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 1,
+      "pitch": "G4",
+      "dur": 0.5
+    },
+    {
+      "t": 1.5,
+      "pitch": "G4",
+      "dur": 0.5
+    },
+    {
+      "t": 2,
+      "pitch": "A4",
+      "dur": 1
+    },
+    {
+      "t": 3,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 4,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 5,
+      "pitch": "D4",
+      "dur": 0.5
+    },
+    {
+      "t": 5.5,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 6,
+      "pitch": "C4",
+      "dur": 2
+    },
+    {
+      "t": 8,
+      "pitch": "D4",
+      "dur": 1
+    },
+    {
+      "t": 9,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 9.5,
+      "pitch": "F4",
+      "dur": 0.5
+    },
+    {
+      "t": 10,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 11,
+      "pitch": "A4",
+      "dur": 1
+    },
+    {
+      "t": 12,
+      "pitch": "G4",
+      "dur": 3
+    },
+    {
+      "t": 16,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 17,
+      "pitch": "G4",
+      "dur": 0.5
+    },
+    {
+      "t": 17.5,
+      "pitch": "G4",
+      "dur": 0.5
+    },
+    {
+      "t": 18,
+      "pitch": "A4",
+      "dur": 1
+    },
+    {
+      "t": 19,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 20,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 21,
+      "pitch": "D4",
+      "dur": 0.5
+    },
+    {
+      "t": 21.5,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 22,
+      "pitch": "C4",
+      "dur": 2
+    },
+    {
+      "t": 24,
+      "pitch": "D4",
+      "dur": 1
+    },
+    {
+      "t": 25,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 25.5,
+      "pitch": "F4",
+      "dur": 0.5
+    },
+    {
+      "t": 26,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 27,
+      "pitch": "A4",
+      "dur": 1
+    },
+    {
+      "t": 28,
+      "pitch": "G4",
+      "dur": 3
+    },
+    {
+      "t": 32,
+      "pitch": "C5",
+      "dur": 1
+    },
+    {
+      "t": 33,
+      "pitch": "B4",
+      "dur": 0.5
+    },
+    {
+      "t": 33.5,
+      "pitch": "A4",
+      "dur": 0.5
+    },
+    {
+      "t": 34,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 35,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 36,
+      "pitch": "F4",
+      "dur": 1
+    },
+    {
+      "t": 37,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 37.5,
+      "pitch": "D4",
+      "dur": 0.5
+    },
+    {
+      "t": 38,
+      "pitch": "E4",
+      "dur": 2
+    },
+    {
+      "t": 40,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 41,
+      "pitch": "F4",
+      "dur": 0.5
+    },
+    {
+      "t": 41.5,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 42,
+      "pitch": "D4",
+      "dur": 1
+    },
+    {
+      "t": 43,
+      "pitch": "B3",
+      "dur": 1
+    },
+    {
+      "t": 44,
+      "pitch": "C4",
+      "dur": 3
+    },
+    {
+      "t": 48,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 49,
+      "pitch": "G4",
+      "dur": 0.5
+    },
+    {
+      "t": 49.5,
+      "pitch": "G4",
+      "dur": 0.5
+    },
+    {
+      "t": 50,
+      "pitch": "A4",
+      "dur": 1
+    },
+    {
+      "t": 51,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 52,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 53,
+      "pitch": "D4",
+      "dur": 0.5
+    },
+    {
+      "t": 53.5,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 54,
+      "pitch": "C4",
+      "dur": 2
+    },
+    {
+      "t": 56,
+      "pitch": "D4",
+      "dur": 1
+    },
+    {
+      "t": 57,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 57.5,
+      "pitch": "F4",
+      "dur": 0.5
+    },
+    {
+      "t": 58,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 59,
+      "pitch": "A4",
+      "dur": 1
+    },
+    {
+      "t": 60,
+      "pitch": "G4",
+      "dur": 3
+    },
+    {
+      "t": 64,
+      "pitch": "C5",
+      "dur": 1
+    },
+    {
+      "t": 65,
+      "pitch": "B4",
+      "dur": 0.5
+    },
+    {
+      "t": 65.5,
+      "pitch": "A4",
+      "dur": 0.5
+    },
+    {
+      "t": 66,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 67,
+      "pitch": "E4",
+      "dur": 1
+    },
+    {
+      "t": 68,
+      "pitch": "F4",
+      "dur": 1
+    },
+    {
+      "t": 69,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 69.5,
+      "pitch": "D4",
+      "dur": 0.5
+    },
+    {
+      "t": 70,
+      "pitch": "E4",
+      "dur": 2
+    },
+    {
+      "t": 72,
+      "pitch": "G4",
+      "dur": 1
+    },
+    {
+      "t": 73,
+      "pitch": "F4",
+      "dur": 0.5
+    },
+    {
+      "t": 73.5,
+      "pitch": "E4",
+      "dur": 0.5
+    },
+    {
+      "t": 74,
+      "pitch": "D4",
+      "dur": 1
+    },
+    {
+      "t": 75,
+      "pitch": "B3",
+      "dur": 1
+    },
+    {
+      "t": 76,
+      "pitch": "C4",
+      "dur": 3
+    }
+  ]
+}

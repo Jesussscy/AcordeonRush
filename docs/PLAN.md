@@ -405,20 +405,31 @@ Esfuerzo estimado en sesiones de trabajo de Claude Code (≈ 1 sesión = un bloq
   - Las 5 canciones comerciales siguen en el Estudio libre hasta el H1.
   - `.prettierrc.json`, `.prettierignore`, `vitest.config.ts` y `tests/helpers/` son añadidos.
 
-### H1 — Base jugable con la demo · ≈ 2–3 sesiones
-- [ ] `data/layouts/gcf.json` en el formato de la spec. El parser y el catálogo lo usan.
-- [ ] Formato de chart en beats, descubrimiento de `songs/*`, `songs/paseo-de-prueba/chart.json` (A A B A B, 96 BPM, frases B = Parranda) y `tools/text-to-chart.mjs`.
-- [ ] `gameplay/fingering.ts`: overrides, preferencia por el medio, mínimo de cambios de fuelle. Toda la demo se toca en la hilera medio en GCF (comprobado: C4, E4, G4 y C5 al cerrar; B3, D4, F4, A4 y B4 al abrir).
-- [ ] `core/game-loop.ts` + máquina de estados (menú → cuenta → jugando → pausa → resultados).
-- [ ] Escena de juego: cámara baja, autopista con 3 carriles, trastes por beat y compás, gemas con id y flecha de fuelle, colas y anillos objetivo. Acordeón del jugador abajo, con botones hundidos y fuelle.
-- [ ] `input/`: mapeo de la spec, Espacio para el fuelle, Esc para pausa.
-- [ ] Juez por ventanas, puntaje básico y acompañamiento sintetizado (bajos, caja y guacharaca en paseo).
-- [ ] Menú mínimo con la lista de canciones. El Estudio libre sigue accesible.
+### H1 — Base jugable con la demo · ☑ HECHO (2026-11-05)
+- [x] `data/layouts/gcf.json` en el formato de la spec. El parser y el catálogo lo usan.
+- [x] Formato de chart en beats, descubrimiento de `songs/*`, `songs/paseo-de-prueba/chart.json` (A A B A B, 96 BPM, frases B = Parranda) y `tools/text-to-chart.mjs`.
+- [x] `gameplay/fingering.ts`: overrides, preferencia por el medio, mínimo de cambios de fuelle. Toda la demo se toca en la hilera medio en GCF (comprobado: C4, E4, G4 y C5 al cerrar; B3, D4, F4, A4 y B4 al abrir).
+- [x] `core/game-loop.ts` + máquina de estados (menú → cuenta → jugando → pausa → resultados).
+- [x] Escena de juego: cámara baja, autopista con 3 carriles, trastes por beat y compás, gemas con id y flecha de fuelle, colas y anillos objetivo. Acordeón del jugador abajo, con botones hundidos y fuelle.
+- [x] `input/`: mapeo de la spec, Espacio para el fuelle, Esc para pausa.
+- [x] Juez por ventanas, puntaje básico y acompañamiento sintetizado (bajos, caja y guacharaca en paseo).
+- [x] Menú mínimo con la lista de canciones. El Estudio libre sigue accesible.
 - **Terminado cuando:**
   - la demo se juega de principio a fin con teclado
   - el test unitario del juez y el fingering pasa
   - el E2E simula una partida perfecta (100 %) y una con fallos
 - Archivos: `src/core`, `src/gameplay`, `src/render`, `src/input`, `src/audio/accompaniment.ts`, `songs/`, `data/`.
+
+**Resultado del H1:**
+- La demo se juega completa con teclado, con el fuelle activo como rasgueo.
+- E2E (Playwright, Chrome del sistema, eventos de teclado reales sobre el reloj de audio):
+  - Partida perfecta: 75/75 PERFECTO en Experto, 0 errores.
+  - Pasa en las 4 dificultades.
+  - El test de errores clasifica botón, fuelle y fallo, y los muestra en resultados.
+- Vitest: 46 tests en verde.
+- Fingering ajustado con Viterbi: en Experto, 65/75 notas en la hilera del medio y 31 cambios de fuelle.
+- El Estudio libre ya usa `songs/`; las 5 canciones comerciales se retiraron.
+- Adelantado de H5 (base): Ajustes con remapeo, Calibración, MIDI, importador .mid, resultados y récords.
 
 ### H2 — HUD completo · ≈ 2 sesiones
 - [ ] LED de 7 segmentos con dígitos rodantes, círculo multiplicador (x1–x4 y x8) con 10 lucecitas y destello.

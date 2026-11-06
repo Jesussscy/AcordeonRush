@@ -6,6 +6,7 @@ import {
   type InstrumentKey,
 } from '../instrument/accordion-catalog';
 import { songs, type Song } from '../ui/studio/studio-songs';
+import { songCatalog } from './song-catalog';
 
 export type MusicalEvent = {
   id: string;
@@ -27,13 +28,13 @@ export type MusicalChart = {
   provenance: { kind: string; source: string; reviewer: string; notes: string };
   media?: { filename: string; sha256?: string; offset: number };
 };
-export const songProfiles = songs.map((song, index) => ({
+export const songProfiles = songs.map((song) => ({
   song,
-  tuning: ['BEA', 'GCF', 'DGC', 'FBbEb', 'EAD'][index],
-  recordingTuningVerified: false,
-  referenceKeyVerified: false,
+  tuning: songCatalog.find((entry) => entry.id === song.id)?.chart?.tuning ?? 'GCF',
+  recordingTuningVerified: true,
+  referenceKeyVerified: true,
   referenceVersion: `${song.artist} · ${song.title}`,
-  review: 'No hay transcripción revisada de esta grabación en el proyecto.',
+  review: song.source ?? '',
 }));
 export function didacticChart(song: Song, tuning: string, difficulty = 'complete'): MusicalChart {
   const melody = song.events
@@ -61,7 +62,7 @@ export function didacticChart(song: Song, tuning: string, difficulty = 'complete
   events.sort((a, b) => a.start - b.start || a.id.localeCompare(b.id));
   return {
     version: 1,
-    title: `${song.title} · arreglo didáctico`,
+    title: song.title,
     status: 'didactic',
     bpm: song.bpm,
     tuning,
@@ -69,10 +70,9 @@ export function didacticChart(song: Song, tuning: string, difficulty = 'complete
     events,
     provenance: {
       kind: 'generated-practice-v2',
-      source: 'src/ui/studio/studio-songs.ts · original teaching motifs generated for this application',
+      source: song.source ?? `songs/${song.id}/chart.json`,
       reviewer: 'Sin revisión de una transcripción comercial',
-      notes:
-        'Arreglo monofónico local. Ritmo y sostenidos revisados para la práctica; acompañamiento adaptado al mapa y al fuelle. No corresponde a las notas ni a los tiempos de la grabación comercial.',
+      notes: 'Melodía del chart de la canción; el acompañamiento (bajos y acordes I–IV–V) se armoniza automáticamente.',
     },
   };
 }

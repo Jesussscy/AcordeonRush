@@ -29,6 +29,16 @@ export type AccordionAudio = {
   setSound(settings: SoundSettings): void;
   setReedWidth(value: number): void;
   scheduleNote(name: string, direction: BellowsDirection, when: number, duration: number, velocity?: number): void;
+  /** Absolute concert-pitch MIDI notes on a bus (independent of setTuning). */
+  scheduleMidi(
+    midis: number[],
+    part: 'melody' | 'bass' | 'chord',
+    when: number,
+    duration: number,
+    velocity?: number,
+  ): void;
+  /** Gain node of a part bus (melody / bass / chord). */
+  partBus(part: 'melody' | 'bass' | 'chord'): GainNode;
   getDiagnostics(): AudioDiagnostics;
   preload(): Promise<void>;
   unlock(): Promise<void>;

@@ -22,5 +22,5 @@ for path in sorted(dest.glob('*.glb')):
                        # Curva rigs use a 6x2 bass grid; the previous collection uses 4x3.
                        'bassRows':6 if curva else 4,'bassColumns':2 if curva else 3,
                        'source':f'art/blender/curved_v2/{path.stem}/instrument.blend (export)' if curva else 'Previous collection, preserved'}
-(dest/'model-manifest.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+(root/'data/accordion-models.json').write_text(json.dumps(report,indent=2),encoding='utf8')
 print('Synced',len(report),'web designs; updated Curva GLBs and previews, preserved previous binaries.')

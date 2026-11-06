@@ -41,13 +41,17 @@ type Props = {
   onInputRef: React.MutableRefObject<((id: string, pressed: boolean) => void) | undefined>;
 };
 const emptyFrame: AutomaticFrame = { active: new Set(), direction: 'push', running: false, opening: undefined };
+/** Songs without an external reference recording open directly on the practice arrangement. */
+const defaultSource = (watch: boolean | undefined, song?: { youtubeId?: string }) =>
+  watch || !song?.youtubeId ? 'arrangement' : 'reference';
+
 export function SongWorkspace(props: Props) {
   const [selected, setSelected] = useState(0),
     [difficulty, setDifficulty] = useState('complete'),
     [part, setPart] = useState('first'),
     [mode, setMode] = useState(props.watch ? 'watch' : 'practice');
-  const [source, setSource] = useState<'arrangement' | 'reference' | 'imported'>(
-      props.watch ? 'arrangement' : 'reference',
+  const [source, setSource] = useState<'arrangement' | 'reference' | 'imported'>(() =>
+      defaultSource(props.watch, songProfiles[0]?.song),
     ),
     [imported, setImported] = useState<MusicalChart | null>(null),
     [media, setMedia] = useState<{ url: string; name: string; hash: string } | null>(null);
@@ -159,7 +163,7 @@ export function SongWorkspace(props: Props) {
   useEffect(() => {
     pause();
     setMode(props.watch ? 'watch' : 'practice');
-    setSource(props.watch ? 'arrangement' : 'reference');
+    setSource(defaultSource(props.watch, songProfiles[selected]?.song));
   }, [props.watch, pause]);
   useEffect(
     () => () => {
@@ -180,7 +184,7 @@ export function SongWorkspace(props: Props) {
     props.instrument.stopAll();
     setSelected(index);
     setImported(null);
-    setSource(props.watch ? 'arrangement' : 'reference');
+    setSource(defaultSource(props.watch, songProfiles[index].song));
     setReferenceReady(false);
     setReferenceError(false);
     setPart('first');
@@ -188,7 +192,9 @@ export function SongWorkspace(props: Props) {
     setNotice(
       props.watch
         ? `${getTuning(songProfiles[index].tuning).label} configurado para el ejercicio. No identifica el acordeón de la grabación.`
-        : 'Escucha la versión de referencia. Puedes marcar y repetir frases; las notas originales aún no están transcritas.',
+        : songProfiles[index].song.youtubeId
+          ? 'Escucha la versión de referencia. Puedes marcar y repetir frases.'
+          : 'Arreglo de práctica listo: notas, botones y fuelle salen del chart de la canción.',
     );
   };
   const applyImported = (text: string) => {
@@ -474,15 +480,17 @@ export function SongWorkspace(props: Props) {
         >
           <Music2 size={15} /> Arreglo de práctica
         </button>
-        <button
-          aria-pressed={source === 'reference'}
-          onClick={() => {
-            pause();
-            setSource('reference');
-          }}
-        >
-          <Headphones size={15} /> Grabación de referencia
-        </button>
+        {song.youtubeId && (
+          <button
+            aria-pressed={source === 'reference'}
+            onClick={() => {
+              pause();
+              setSource('reference');
+            }}
+          >
+            <Headphones size={15} /> Grabación de referencia
+          </button>
+        )}
         {imported && (
           <button
             aria-pressed={source === 'imported'}
@@ -564,7 +572,7 @@ export function SongWorkspace(props: Props) {
               base
             </p>
             <p>{chart.status === 'didactic' ? chart.provenance.notes : chart.provenance.source}</p>
-            {chart.status === 'didactic' && (
+            {chart.status === 'didactic' && song.youtubeId && (
               <button
                 onClick={() => {
                   pause();

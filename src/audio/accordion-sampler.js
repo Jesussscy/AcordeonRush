@@ -327,6 +327,18 @@ export async function createAccordionAudio({
         level = (bass ? (notes.length > 1 ? 0.34 : 0.65) : 0.9) * velocity;
       for (const midi of notes) for (const r of reedPlan(notes, part)) rank(midi, r, { level, when, duration, part });
     },
+    /** Schedule absolute (concert-pitch) MIDI notes on a bus, independent of the selected tuning. */
+    scheduleMidi(midis, part, when, duration, velocity = 1) {
+      if (!['melody', 'bass', 'chord'].includes(part) || !Number.isFinite(when) || !(duration > 0))
+        throw Error('Invalid scheduled MIDI note');
+      const level = (part === 'bass' ? 0.65 : part === 'chord' ? 0.34 : 0.9) * velocity;
+      for (const midi of midis)
+        for (const r of reedPlan(midis, part)) rank(midi - tuning, r, { level, when, duration, part });
+    },
+    /** Output bus of a part, for external effects (e.g. the miss detune chain). */
+    partBus(part) {
+      return parts[part];
+    },
     setReedWidth(value) {
       const next = Math.max(0, Math.min(1, value));
       if (Math.abs(reedWidth - next) < 0.0001) return;
