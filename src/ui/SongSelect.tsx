@@ -15,6 +15,8 @@ export type PracticeOptions = {
 };
 
 type Props = {
+  initialSongId?: string;
+  onPrivate(): void;
   mode: GameMode;
   settings: Settings;
   onSettings(next: Settings): void;
@@ -24,8 +26,17 @@ type Props = {
 
 const hats = (n: number) => '🎩'.repeat(n) || '—';
 
-export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Props) {
-  const [songId, setSongId] = useState(songCatalog.find((s) => !s.error)?.id ?? '');
+export function SongSelect({ mode, settings, onSettings, onBack, onStart, initialSongId, onPrivate }: Props) {
+  const [songId, setSongId] = useState(
+    initialSongId ?? songCatalog.find((s) => s.private && !s.error)?.id ?? songCatalog.find((s) => !s.error)?.id ?? '',
+  );
+  const [query, setQuery] = useState('');
+  const [privateOnly, setPrivateOnly] = useState(false);
+  const visibleSongs = songCatalog.filter(
+    (song) =>
+      (!privateOnly || song.private) &&
+      `${song.title} ${song.artist}`.toLocaleLowerCase('es').includes(query.toLocaleLowerCase('es')),
+  );
   const [difficulty, setDifficulty] = useState<Difficulty>(settings.difficulty);
   const [designId, setDesignId] = useState(
     instrumentDesigns.some((d) => d.id === settings.design) ? settings.design : instrumentDesigns[0].id,
@@ -66,13 +77,38 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
       <button className="vh-back" onClick={onBack}>
         ← Menú
       </button>
-      <h1 className="vh-logo" style={{ fontSize: 'clamp(44px, 7vw, 76px)' }}>
+      <h1 className="vh-logo">
         {mode === 'practice' ? 'Práctica' : mode === 'demo' ? 'Demostración' : 'Escoge tu canción'}
       </h1>
 
-      <h2 className="vh-section-title">Canción</h2>
+      <div className="section-heading">
+        <h2 className="vh-section-title">Tu biblioteca</h2>
+        <button className="vh-btn" onClick={onPrivate}>
+          + Importar canción
+        </button>
+      </div>
+      <div className="library-filters">
+        <label className="vh-field">
+          Buscar en tu biblioteca
+          <input
+            type="search"
+            placeholder="Canción o artista"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </label>
+        <label className="vh-check">
+          <input type="checkbox" checked={privateOnly} onChange={(event) => setPrivateOnly(event.target.checked)} />
+          Solo privadas
+        </label>
+      </div>
+      {!visibleSongs.length && (
+        <p className="muted" role="status">
+          No hay canciones que coincidan con tu búsqueda.
+        </p>
+      )}
       <div className="vh-grid" role="list">
-        {songCatalog.map((song) => {
+        {visibleSongs.map((song) => {
           const record = getRecord(song.id, difficulty);
           return (
             <button
@@ -98,6 +134,7 @@ export function SongSelect({ mode, settings, onSettings, onBack, onStart }: Prop
                 </span>
               )}
               {song.private && <span className="vh-chip">Privada</span>}
+              <span className="vh-chip">{song.audioUrl ? 'Con grabación' : 'Acordeón de guía'}</span>
             </button>
           );
         })}

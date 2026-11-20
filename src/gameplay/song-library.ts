@@ -5,7 +5,7 @@ import {
   type BellowsDirection,
   type InstrumentKey,
 } from '../instrument/accordion-catalog';
-import { songs, type Song } from '../ui/studio/studio-songs';
+import { getStudioSongs, type Song } from '../ui/studio/studio-songs';
 import { songCatalog } from './song-catalog';
 
 export type MusicalEvent = {
@@ -28,14 +28,17 @@ export type MusicalChart = {
   provenance: { kind: string; source: string; reviewer: string; notes: string };
   media?: { filename: string; sha256?: string; offset: number };
 };
-export const songProfiles = songs.map((song) => ({
-  song,
-  tuning: songCatalog.find((entry) => entry.id === song.id)?.chart?.tuning ?? 'GCF',
-  recordingTuningVerified: true,
-  referenceKeyVerified: true,
-  referenceVersion: `${song.artist} · ${song.title}`,
-  review: song.source ?? '',
-}));
+export const getSongProfiles = () =>
+  getStudioSongs().map((song) => ({
+    song,
+    tuning: songCatalog.find((entry) => entry.id === song.id)?.chart?.tuning ?? 'GCF',
+    recordingTuningVerified: true,
+    referenceKeyVerified: true,
+    referenceVersion: `${song.artist} · ${song.title}`,
+    review: song.source ?? '',
+  }));
+export const songProfiles = getSongProfiles();
+
 export function didacticChart(song: Song, tuning: string, difficulty = 'complete'): MusicalChart {
   const melody = song.events
     .filter((e) => e.role === 'melody')

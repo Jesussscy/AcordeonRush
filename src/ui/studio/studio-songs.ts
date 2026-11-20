@@ -32,7 +32,7 @@ const KEY_NAMES = ['Do', 'Do♯', 'Re', 'Mi♭', 'Mi', 'Fa', 'Fa♯', 'Sol', 'La
 /** Two beats of silence before the first note, like the game count-in. */
 const LEAD_BEATS = 2;
 
-function fromCatalog(): Song[] {
+export function getStudioSongs(): Song[] {
   return songCatalog
     .filter((entry) => entry.chart)
     .map((entry, index) => {
@@ -46,7 +46,7 @@ function fromCatalog(): Song[] {
         duration: n.dur * beatMs,
         role: 'melody',
       }));
-      const spans = harmonize(chart);
+      const spans = chart.backingStyle === 'melody' ? [] : harmonize(chart);
       for (const span of spans) {
         events.push({
           time: at(span.t),
@@ -75,7 +75,7 @@ function fromCatalog(): Song[] {
         duration: `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`,
         color: PALETTE[index % PALETTE.length],
         accent: PALETTE[(index + 1) % PALETTE.length],
-        key: `${KEY_NAMES[spans[0]?.root ?? 0]} mayor`,
+        key: spans.length ? `${KEY_NAMES[spans[0].root]} mayor` : 'Melodía MIDI',
         youtubeId: '',
         events,
         notes: events.filter((e) => e.role === 'melody').map((e) => e.time),
@@ -85,4 +85,4 @@ function fromCatalog(): Song[] {
     });
 }
 
-export const songs: Song[] = fromCatalog();
+export const songs: Song[] = getStudioSongs();

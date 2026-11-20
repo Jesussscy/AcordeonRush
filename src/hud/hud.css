@@ -2,10 +2,10 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  font-family: 'Bebas Neue', 'Arial Narrow', system-ui, sans-serif;
-  color: #fff4dc;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #eee8de;
   overflow: hidden;
-  --gold: #f2c230;
+  --gold: #ecaa7a;
 }
 
 /* ── Top ─────────────────────────────────────────── */
@@ -28,7 +28,7 @@
   display: block;
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #2fbf4f, #f2c230, #e0393e);
+  background: linear-gradient(90deg, #2fbf4f, #ecaa7a, #e0393e);
 }
 .vh-title {
   transition:
@@ -183,7 +183,7 @@
   box-shadow: 0 0 8px var(--gold);
 }
 .vh-mult {
-  --mult: #fff4dc;
+  --mult: #eee8de;
   width: 74px;
   height: 74px;
   border-radius: 50%;
@@ -386,7 +386,7 @@
   filter: drop-shadow(0 0 4px #2fbf4f);
 }
 .vh-meter .needle path {
-  stroke: #fff4dc;
+  stroke: #eee8de;
   stroke-width: 4;
   stroke-linecap: round;
 }
@@ -521,10 +521,10 @@
   animation: vh-banner 2.2s ease-out forwards;
 }
 .vh-banner-gold {
-  color: #f2c230;
+  color: #ecaa7a;
 }
 .vh-banner-info {
-  color: #fff4dc;
+  color: #eee8de;
 }
 .vh-banner-fail {
   color: #ff4b4b;
@@ -608,7 +608,7 @@
   align-self: center;
 }
 .vh-next-chip {
-  --lane: #f2c230;
+  --lane: #ecaa7a;
   --dir: #3d8bff;
   display: grid;
   justify-items: center;

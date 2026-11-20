@@ -104,9 +104,7 @@ export default function Calibration({ settings, onChange, onBack }: Props) {
       >
         ← Menú
       </button>
-      <h1 className="vh-logo" style={{ fontSize: 'clamp(44px, 7vw, 76px)' }}>
-        Calibración
-      </h1>
+      <h1 className="vh-logo">Calibración</h1>
       <p className="vh-tagline">
         Si las notas te parecen siempre tempranas o tardías, calibra. Usa los mismos audífonos o parlantes con los que
         juegas.

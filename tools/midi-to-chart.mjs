@@ -3,7 +3,7 @@
 //
 // Usage:
 //   node tools/midi-to-chart.mjs song.mid --title "Título" [--artist "…"] [--track N] [--channel 1-16]
-//        [--grid 0.25] [--out songs/<slug>/chart.json]
+//        [--grid 0.25] [--tuning GCF] [--out songs/<slug>/chart.json]
 //
 // Uses the same converter as the game (src/gameplay/midi-import.ts), loaded with Node's TypeScript
 // type stripping (Node 22.18+ / 23.6+).
@@ -28,6 +28,7 @@ const chart = chartFromMidi(new Uint8Array(fs.readFileSync(file)), {
   channel: option('channel') !== undefined ? Number(option('channel')) : undefined,
   grid: option('grid') !== undefined ? Number(option('grid')) : undefined,
 });
+if (option('tuning')) chart.tuning = option('tuning');
 const json = JSON.stringify(chart, null, 2) + '\n';
 const out = option('out');
 if (out) {

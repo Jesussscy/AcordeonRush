@@ -7,7 +7,7 @@ import {
   fingerChart,
   parseChart,
   phraseOpening,
-  songProfiles,
+  getSongProfiles,
   soundingAt,
   type MusicalChart,
 } from '../../gameplay/song-library';
@@ -46,6 +46,7 @@ const defaultSource = (watch: boolean | undefined, song?: { youtubeId?: string }
   watch || !song?.youtubeId ? 'arrangement' : 'reference';
 
 export function SongWorkspace(props: Props) {
+  const [songProfiles] = useState(getSongProfiles);
   const [selected, setSelected] = useState(0),
     [difficulty, setDifficulty] = useState('complete'),
     [part, setPart] = useState('first'),

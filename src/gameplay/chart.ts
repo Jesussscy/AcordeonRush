@@ -24,6 +24,7 @@ export type SongChart = {
   offsetMs: number;
   layout: string;
   tuning: string;
+  backingStyle?: 'melody';
   license?: string;
   /** [start, end) ranges in beats whose notes are golden Parranda gems. */
   parrandaPhrases: [number, number][];
@@ -105,6 +106,7 @@ export function parseSongChart(raw: unknown, source = 'chart.json'): ParsedChart
     offsetMs: offsetMs as number,
     layout: text('layout', 'gcf'),
     tuning: text('tuning', 'GCF'),
+    backingStyle: data.backingStyle === 'melody' ? 'melody' : undefined,
     ...(typeof data.license === 'string' ? { license: data.license } : {}),
     parrandaPhrases: phrases,
     notes,

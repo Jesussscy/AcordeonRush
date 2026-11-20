@@ -60,9 +60,7 @@ export function Results({ request, result, onRetry, onSongs, onMenu }: Props) {
   const difficulty = DIFFICULTIES.find((d) => d.id === request.difficulty)!.label;
   return (
     <main className="vh-screen vh-results">
-      <h1 className="vh-logo" style={{ fontSize: 'clamp(44px, 8vw, 90px)' }}>
-        {result.failed ? '¡Se acabó la parranda!' : '¡Qué parranda!'}
-      </h1>
+      <h1 className="vh-logo">{result.failed ? '¡Se acabó la parranda!' : '¡Qué parranda!'}</h1>
       <p className="vh-tagline">
         {result.title} · {difficulty}
         {result.mode === 'practice' ? ' · práctica' : result.mode === 'demo' ? ' · demostración' : ''}

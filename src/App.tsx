@@ -1,4 +1,6 @@
-import { lazy, Suspense, useCallback, useState } from 'react';
+import { loadPrivateSongs } from './gameplay/private-songs';
+import { PrivateSongs } from './ui/PrivateSongs';
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import type { GameMode, GameResult } from './core/game-session';
 import { loadSettings, saveSettings, type Settings } from './core/settings';
 import type { Difficulty } from './gameplay/difficulty';
@@ -23,7 +25,8 @@ export type PlayRequest = {
 
 type Screen =
   | { name: 'menu' }
-  | { name: 'select'; mode: GameMode }
+  | { name: 'select'; mode: GameMode; songId?: string }
+  | { name: 'private' }
   | { name: 'game'; request: PlayRequest; attempt: number }
   | { name: 'results'; request: PlayRequest; result: GameResult }
   | { name: 'studio' }
@@ -35,6 +38,13 @@ export default function App() {
     location.hash === '#estudio' ? { name: 'studio' } : { name: 'menu' },
   );
   const [settings, setSettingsState] = useState<Settings>(loadSettings);
+  const [libraryReady, setLibraryReady] = useState(false);
+  const [libraryError, setLibraryError] = useState('');
+  useEffect(() => {
+    void loadPrivateSongs()
+      .catch((reason: Error) => setLibraryError(reason.message))
+      .finally(() => setLibraryReady(true));
+  }, []);
   const setSettings = useCallback((next: Settings) => {
     setSettingsState(next);
     saveSettings(next);
@@ -44,9 +54,19 @@ export default function App() {
     setScreen({ name: 'menu' });
   };
 
+  if (!libraryReady)
+    return (
+      <div className="vh-screen" role="status">
+        Abriendo tu biblioteca…
+      </div>
+    );
+  if (screen.name === 'private')
+    return <PrivateSongs onBack={menu} onPlay={(songId) => setScreen({ name: 'select', mode: 'practice', songId })} />;
   if (screen.name === 'menu')
     return (
       <MainMenu
+        libraryError={libraryError}
+        onPrivate={() => setScreen({ name: 'private' })}
         onPlay={(mode) => setScreen({ name: 'select', mode })}
         onStudio={() => {
           location.hash = 'estudio';
@@ -59,6 +79,8 @@ export default function App() {
   if (screen.name === 'select')
     return (
       <SongSelect
+        initialSongId={screen.songId}
+        onPrivate={() => setScreen({ name: 'private' })}
         mode={screen.mode}
         settings={settings}
         onSettings={setSettings}

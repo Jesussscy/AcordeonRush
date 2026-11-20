@@ -4,7 +4,7 @@ import { harmonize, type ChordSpan } from '../gameplay/harmony';
 import { caja, click, guacharaca } from './percussion';
 
 export type AccompanimentEvent =
-  | { beat: number; kind: 'bass'; midis: number[]; beats: number }
+  | { beat: number; kind: 'bass' | 'melody'; midis: number[]; beats: number }
   | { beat: number; kind: 'chord'; midis: number[]; beats: number }
   | { beat: number; kind: 'caja'; stroke: 'tan' | 'pa' | 'ghost' }
   | { beat: number; kind: 'guacharaca'; beats: number; accent: boolean }
@@ -26,10 +26,16 @@ function triad(span: ChordSpan) {
  * chord stab on the off-beat, caja "tan – pa" with ghost notes, guacharaca in eighths with accents.
  * A one-bar count-in of clicks + guacharaca precedes beat 0.
  */
-export function buildAccompaniment(chart: Pick<ParsedChart, 'notes' | 'lengthBeats' | 'timeSignature'>) {
+export function buildAccompaniment(
+  chart: Pick<ParsedChart, 'notes' | 'lengthBeats' | 'timeSignature' | 'backingStyle'>,
+) {
   const events: AccompanimentEvent[] = [];
   const beatsPerBar = chart.timeSignature[0];
   for (let b = -beatsPerBar; b < 0; b++) events.push({ beat: b, kind: 'click', accent: b === -beatsPerBar });
+  if (chart.backingStyle === 'melody') {
+    for (const note of chart.notes) events.push({ beat: note.t, kind: 'melody', midis: [note.midi], beats: note.dur });
+    return events;
+  }
   const spans = harmonize(chart);
   spans.forEach((span, i) => {
     const repeat = i > 0 && spans[i - 1].root === span.root;
@@ -84,11 +90,17 @@ export class AccompanimentPlayer {
       if (this.onlyClicks && e.kind !== 'click') continue;
       const at = Math.max(when, ctx.currentTime);
       const seconds = (beats: number) => (beats * this.secondsPerBeat) / rate;
-      if (e.kind === 'bass' || e.kind === 'chord')
-        this.audio.scheduleMidi(e.midis, e.kind, at, seconds(e.beats), e.kind === 'bass' ? 0.9 : 0.7);
+      if (e.kind === 'bass' || e.kind === 'chord' || e.kind === 'melody')
+        this.audio.scheduleMidi(
+          e.midis,
+          e.kind,
+          at,
+          seconds(e.beats),
+          e.kind === 'melody' ? 0.45 : e.kind === 'bass' ? 0.9 : 0.7,
+        );
       else if (e.kind === 'caja') caja(ctx, this.percussion, at, e.stroke);
       else if (e.kind === 'guacharaca') guacharaca(ctx, this.percussion, at, seconds(e.beats), e.accent);
-      else click(ctx, this.percussion, at, e.accent);
+      else if (e.kind === 'click') click(ctx, this.percussion, at, e.accent);
     }
   }
 

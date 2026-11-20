@@ -367,7 +367,7 @@ export default function Workspace({ onExit }: { onExit?: () => void }) {
     >
       <header className="p-top">
         <a href="#practice" className="p-brand">
-          <AudioLines /> Acorden<span>Rush</span>
+          <AudioLines /> Vallenato<span>Hero</span>
           <small>ESTUDIO MUSICAL</small>
         </a>
         {onExit && (

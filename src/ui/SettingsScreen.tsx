@@ -49,9 +49,7 @@ export default function SettingsScreen({ settings, onChange, onBack }: Props) {
       <button className="vh-back" onClick={onBack}>
         ← Menú
       </button>
-      <h1 className="vh-logo" style={{ fontSize: 'clamp(44px, 7vw, 76px)' }}>
-        Ajustes
-      </h1>
+      <h1 className="vh-logo">Ajustes</h1>
 
       <h2 className="vh-section-title">Juego</h2>
       <label className="vh-check">
