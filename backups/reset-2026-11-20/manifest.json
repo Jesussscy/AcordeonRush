@@ -1,0 +1,3079 @@
+{
+  "project": "AcordeonRush",
+  "backup_date": "2026-11-20",
+  "source_commit": "5a86faa667be356a64d5459c8457d148adc570df",
+  "excluded_directory_names": [
+    ".git",
+    "__pycache__",
+    "backups",
+    "node_modules"
+  ],
+  "scope": "All project files, including ignored files; browser-only storage and files outside the project are not included.",
+  "files": [
+    {
+      "path": ".claude/skills/accordion-layout/SKILL.md",
+      "bytes": 3601,
+      "sha256": "a69d0e1b0462d5c40f3e72d3b04cd611db804888ca32c785262993bd6528baff"
+    },
+    {
+      "path": ".claude/skills/chart-authoring/SKILL.md",
+      "bytes": 2891,
+      "sha256": "634f58a65a47686bba8b0c97d26b3dce69c33b54aa988de245d29972c6b5c05e"
+    },
+    {
+      "path": ".claude/skills/project-architecture/SKILL.md",
+      "bytes": 4270,
+      "sha256": "56fc168b3a6fd1ea2def7d5d7186d2174a7cd8a3ea11ffd698b4b2bb27c67551"
+    },
+    {
+      "path": ".claude/skills/vallenato-hero-design/SKILL.md",
+      "bytes": 5658,
+      "sha256": "a6f20bb3b22f11e1920e783c640f4051e8873470ca743157ebb2895a2c2ba136"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 792,
+      "sha256": "76c8470369d4aa735a73696a17f0c166cc3087cff346b2cc0221d99ba2740cab"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 475,
+      "sha256": "cbb50452e295a7996bdaf6c7390fb3726eba26c5dc6c4ebe9ca8fdeab4a5e4c3"
+    },
+    {
+      "path": ".prettierignore",
+      "bytes": 103,
+      "sha256": "bc3d5f779145b45ad2f1027b71a48b17482e0916e86ddb710e1e28ee209f0f96"
+    },
+    {
+      "path": ".prettierrc.json",
+      "bytes": 94,
+      "sha256": "9a740002958bfbeada844ac6208a6a9c3b7ba9193d6edb8b55772db117cc010a"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN A4.flac",
+      "bytes": 193038,
+      "sha256": "9fa7cee44c82c3f0f8b3a30a950ade0449bf3b28231914b0df785064f200f001"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN A5.flac",
+      "bytes": 259654,
+      "sha256": "62ab39cbfd471b97ad0505231f72d9f2ae164eda75ecdb20b9c69efe3592e1c6"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN B3.flac",
+      "bytes": 156688,
+      "sha256": "11e244ea131b3080cacb2d88257720ed37e8b3140bf298661f10a7e295d1c48b"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN B4.flac",
+      "bytes": 234050,
+      "sha256": "743d7fc39df551de2ba320bcbeae28c8904a7a8767995f104fcdf2f26facf788"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN B5.flac",
+      "bytes": 210967,
+      "sha256": "a57a68c42ae1bfe59335d79944d35be3a9af0f52123035436f694c6bd08a61bb"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN C5.flac",
+      "bytes": 229419,
+      "sha256": "24f31789d716aac1a77d2e496989497510b0a7be9fcc234a83b1f62740c8e60d"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN C6.flac",
+      "bytes": 292127,
+      "sha256": "5ed816a960b2d9abc9dc6e18ec35105ec725055e882da1b16a1d9dc859a7fbea"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN D4.flac",
+      "bytes": 167990,
+      "sha256": "47a5c2e7cc5591980f5a5436a79ea0c6a39c60d6a1deecc7fca29601e07605ba"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN D5.flac",
+      "bytes": 222919,
+      "sha256": "c3a8c7305e61a8aacb310e99cb37c2cb42c89313e05687a833991a560e61180e"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN D6.flac",
+      "bytes": 161065,
+      "sha256": "20f3c0f9266f0ee7deb7e77f840557c659b7e764b0ca1523b0f0c4a7ecd6dfa7"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN E5.flac",
+      "bytes": 230077,
+      "sha256": "d250bec14ee45c881561df7bf243a97487bb7dc0184fc3603075ca0c8b932fd0"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN E6.flac",
+      "bytes": 257352,
+      "sha256": "b437ed39c9f7d7b485360b29df6c19dd5c664be77ceaba2733114677689903f4"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN Fs4.flac",
+      "bytes": 202520,
+      "sha256": "c0579dc3b83a6045a4d7b7c20f5a0800cddcd3b0c8161922f7073379b03c6d0a"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN Fs5.flac",
+      "bytes": 262940,
+      "sha256": "0c1acd40d37acaad3e69364173f684e69ac29dfb0d78c2d0cbe16e7303df1919"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN G4.flac",
+      "bytes": 232745,
+      "sha256": "836629ef91002eda695060221d4401fa1da6038d7c60a649ccfd1d4a44cba2e9"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN G5.flac",
+      "bytes": 264304,
+      "sha256": "5bd803db3e141a53b306490692981070681bc47c05db9e95aca411d7a320118e"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/Button Accordion HN G6.flac",
+      "bytes": 175618,
+      "sha256": "2e5875bf952fdacea75f6e62401c3968badd67bd3cc72903dfc9a401a32f015a"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/LICENSE.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/PRESET Button Accordion HN tuned.sfz",
+      "bytes": 4291,
+      "sha256": "cb3dad068dae0695ad3cde255f0173668f1e880a461cd0f3509cadd2689bef63"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/README.txt",
+      "bytes": 599,
+      "sha256": "e1c60cd66b0d6167eb29f581b43a141fd39dd6abe90e68b69fed7fd625e66957"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN A4_rel.flac",
+      "bytes": 35125,
+      "sha256": "7b52128b98cb7448b652a88fa8ac8aca12d7dc264c90a53ce6c14e410405d8d1"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN A5_rel.flac",
+      "bytes": 39202,
+      "sha256": "6904f9cc0c7e3d904aff2de4bef9fca591e47b07307f3958799553fa119a375c"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN B3_rel.flac",
+      "bytes": 31729,
+      "sha256": "ef07e8f6bebae02a39c6a737e78b3840b8e571ed7062750badd9a9b3ecb58cb7"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN B4_rel.flac",
+      "bytes": 51506,
+      "sha256": "035064d1be7e375b5f444c5a7f91f9e1eec535ad2ac67dd85aa0a36c223a5a8e"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN B5_rel.flac",
+      "bytes": 48230,
+      "sha256": "4bbcf955f38509e6c3d4000da109b1fed81b40b98fd9d8b9f7ea578edc929d59"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN C5_rel.flac",
+      "bytes": 55293,
+      "sha256": "4fd667d1671975de4957d57e050075f6828499b0d779c82e51b5dca18c4edac1"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN C6_rel.flac",
+      "bytes": 48230,
+      "sha256": "4bbcf955f38509e6c3d4000da109b1fed81b40b98fd9d8b9f7ea578edc929d59"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN D4_rel.flac",
+      "bytes": 47403,
+      "sha256": "9128584e2c777d47ce7af2aa5b8e9e3732e3d065a7d9c2f8e5dd8ea99082cca0"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN D5_rel.flac",
+      "bytes": 43802,
+      "sha256": "36749b3e93dbc37cd1b62df50713af47f2b622ecb9021bf117167b4895d6f664"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN D6_rel.flac",
+      "bytes": 30682,
+      "sha256": "b4bfce92d2b7162a6ab4b4c99d93dbd3379c64a11aa37cd017700954456a5c9d"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN E5_rel.flac",
+      "bytes": 35509,
+      "sha256": "5fdd22462e8da0d97d2d55e5936d34c76282a9af2a1387ed4045ebdf0bbe202b"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN E6_rel.flac",
+      "bytes": 36159,
+      "sha256": "110784d1483ca0e00b79f9eb022bd9186cebad9d3b5436ead49054f9759644ac"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN Fs4_rel.flac",
+      "bytes": 39181,
+      "sha256": "7545327783586b1cd1b317749de17635d00a41e57a5589a3b2cc992de736504f"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN Fs5_rel.flac",
+      "bytes": 38995,
+      "sha256": "28fffd3bf73ca89e4c627e0c7ecd94ccf9a27a9bf32fa38246c020c246f4404f"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN G4_rel.flac",
+      "bytes": 56324,
+      "sha256": "e0a0efb5fe062448b7fbf070deed7c273328d6e8974dad0561978ea52dd88918"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN G5_rel.flac",
+      "bytes": 37925,
+      "sha256": "9abf6d4c7ad07f99d6cdf69f82d74129a0de2e3ed75811e8b0bb7f968ab4c918"
+    },
+    {
+      "path": "art/audio-source/button-accordion-hn/rel/Button Accordion HN G6_rel.flac",
+      "bytes": 29827,
+      "sha256": "7bd935a630c22b194213b517ceeb22a852e86f8a71befc6fdd382f3b4ef86c5c"
+    },
+    {
+      "path": "art/audio-source/README.md",
+      "bytes": 4393,
+      "sha256": "f63a1006a144e45bdbb6d9994bf821a165d2de7e1ae6f9e5e9764116c5279dd8"
+    },
+    {
+      "path": "art/audio-source/sfz-nombres-originales-fsharp.sfz",
+      "bytes": 4291,
+      "sha256": "1f273b331061ca72e32321b3673fdff1c66d056a0877456f1ed1499781fec36c"
+    },
+    {
+      "path": "art/blender/01_abanico_review.png",
+      "bytes": 399566,
+      "sha256": "f7b692225a6a67e926cc93a88ed9662449836001dd360a542c3f418b5d5dcef5"
+    },
+    {
+      "path": "art/blender/02_arco_expresivo_review.png",
+      "bytes": 390417,
+      "sha256": "3248857ce629c07825819eabd4d6acb2a96e56ec73b422b16439a25b253e56c9"
+    },
+    {
+      "path": "art/blender/AcordeonVallenato_Animado.blend",
+      "bytes": 1378005,
+      "sha256": "c3a58abec25d012643d2c6422c6f68fc07c6a86eee47228fbeb6558a5598c2f3"
+    },
+    {
+      "path": "art/blender/AcordeonVallenato_Animado.glb",
+      "bytes": 1334700,
+      "sha256": "3b60562b26cd8450e7e4d74aa01869b75122670a2bcebd4abe2b76fad5f35243"
+    },
+    {
+      "path": "art/blender/AcordeonVallenato_cerrado.png",
+      "bytes": 821409,
+      "sha256": "8fc12c8fbeb964ea269e2a8747d1754f6220fc1d5f4af401c63203c2f68242d2"
+    },
+    {
+      "path": "art/blender/AcordeonVallenato_detalle.png",
+      "bytes": 1112506,
+      "sha256": "107f084afff73a11d32298879d6ae2aa9ced2e9798f772a74dc9110ffeefd821"
+    },
+    {
+      "path": "art/blender/AcordeonVallenato_frontal.png",
+      "bytes": 957634,
+      "sha256": "e7c06238ecdf036f4fa140bad8d3bbd9d6c64e4cdad090b7886ddb2ac9fd9eb7"
+    },
+    {
+      "path": "art/blender/AcordeonVallenato_preview.png",
+      "bytes": 896604,
+      "sha256": "3dba19485902383054ff7bf455106b76f991cde16c1de10f96f19ac4a999b70d"
+    },
+    {
+      "path": "art/blender/collection_final_qa.log",
+      "bytes": 1503,
+      "sha256": "5edb58edd0f24baea857882f375babecbbfa128dbf96fc8107d9d42b4dad722b"
+    },
+    {
+      "path": "art/blender/collection_playback.log",
+      "bytes": 317,
+      "sha256": "ee4eed9ab987f9ea1efd1e5e33cc9f14ae4ff668e64708c829837d24150741cd"
+    },
+    {
+      "path": "art/blender/collection_playback_errors.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/blender/collection_renders.log",
+      "bytes": 3261,
+      "sha256": "fb145c9a2fe0bc4e3f286ed3ca47b664e47822f0d5d298aad1203ec9fdcd334b"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/000.png",
+      "bytes": 597978,
+      "sha256": "451f1a9edbdf5561f3b436ecbef6273a90a4068182f7e5d4c7feffb0ddcc1d3f"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/001.png",
+      "bytes": 597543,
+      "sha256": "9531950abe0b816dfa4fb82d926b2811a0781da7a4dd4fe97e0de8dab467db3c"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/002.png",
+      "bytes": 597530,
+      "sha256": "63c385050ed4916e43610cb236dfe1b83a89ed6e4b114fc1f89fe92f3f4f3520"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/003.png",
+      "bytes": 598273,
+      "sha256": "f3ee59c9df2ec35e5cf37dedcd0448578a52c28797701e40d88b20279a5ea751"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/004.png",
+      "bytes": 599030,
+      "sha256": "afd88a9e70035e85fc0860cf0b7f27901c4bd9c38b6195e87c2e3fb1456e0329"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/005.png",
+      "bytes": 599882,
+      "sha256": "aa940a391bdbfbf85777a65600e907ef1747ae95b024b34d87872826246586c8"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/006.png",
+      "bytes": 601160,
+      "sha256": "aa7a6dbd929d41fae8ff20fb471bb6945d3c6eefa16f08d83d6ee6383c9879a0"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/007.png",
+      "bytes": 602477,
+      "sha256": "0e7bd3e003e4236a4eb125bf6808a8bd0ab9e8d1cbc052719e874af63c9b27e1"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/008.png",
+      "bytes": 603934,
+      "sha256": "b044fd75af9b71d9f6f56580a68acdf100d3e80ddcf097098762cfffce9bcb96"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/009.png",
+      "bytes": 605353,
+      "sha256": "77f8626082788ddb4e39f282dfb1e9a9b97d654acb943e07b1a8abae25966eb7"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/010.png",
+      "bytes": 606891,
+      "sha256": "bdb36d5fe7fdff86825d8837d555fda1cdbc3e5e65342f4010b85406e32e670b"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/011.png",
+      "bytes": 608792,
+      "sha256": "af8d6e655f64e7af1b8361e2c39c6a7abd2ef793ca5020fb24b74262f685b45c"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/012.png",
+      "bytes": 610388,
+      "sha256": "ffc760fa1257cb2a976accb3b3115f242a6f35bfccaaeb704021d439c9906ed1"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/013.png",
+      "bytes": 612056,
+      "sha256": "d8d7af952bdd1ef838ab26f79cf3ffa2cf215229b7870ca6e5a69dc8211fd409"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/014.png",
+      "bytes": 613449,
+      "sha256": "153b3107cc93d8b42dac2c6bbb3e48ba0f4fb8fc9dae4d53a84bef942400f939"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/015.png",
+      "bytes": 615417,
+      "sha256": "ec1116e4d98fc95760f9d14bc2f209e333ecd95c13a0f76a83515bbd8e396aa4"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/016.png",
+      "bytes": 616512,
+      "sha256": "47ef81ab7b24475f9bd60ab05b7ddf8aaae5067634e2019421bffd05da6193ca"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/017.png",
+      "bytes": 618350,
+      "sha256": "3c04c403df1c7d415b8d0d6938e85b23c3eafc432ac8d72dd7ff0666d093c7ec"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/018.png",
+      "bytes": 619440,
+      "sha256": "576978bafaa7aa7238addbad76c03761bf6fce6d28430922878d51b006b777e5"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/019.png",
+      "bytes": 620865,
+      "sha256": "e5bd185089805ff21cf461f8cb81dc76f0c5bbcd644dcd21c61e04fc378dbf5b"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/020.png",
+      "bytes": 622162,
+      "sha256": "d92bd82394e4e8221c60d23ae6891419c2ccb3d5337487239ed869f26bd542f5"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/021.png",
+      "bytes": 622897,
+      "sha256": "aa8d4be7006d9112e97c5a4f9eeedc5b469db205a05f2501f5c6738afe8d5cec"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/022.png",
+      "bytes": 624178,
+      "sha256": "6935a291cab13aedf6d78f1095491dfccf6e7c22d48dfe9d3824c2ea0bf18626"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/023.png",
+      "bytes": 624985,
+      "sha256": "7f6571dcf42de694bf8742fd02f3a6eb3a945e75e41c057e92b75edb687bb024"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/024.png",
+      "bytes": 625736,
+      "sha256": "ee67e32eec1a03511cda59c3be700b49a887a0c99bec72f1b347f24b04bab4af"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/025.png",
+      "bytes": 626034,
+      "sha256": "caaeb7fa9d01bca12b0075747f4350490d52bbf196f0bf5044fcf215073934e7"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/026.png",
+      "bytes": 627132,
+      "sha256": "fc06ce7161e5ffb443bdfb31c283f7832069917a7a2cef48597806a07e17924a"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/027.png",
+      "bytes": 627211,
+      "sha256": "837f8c50e298f30fac5a4e1560d3c8ccde1206cc31cc682cd07f0517e025598e"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/028.png",
+      "bytes": 627807,
+      "sha256": "e30b0dd7c7eac29adea5ef6a20260788f596fadd284fefa7e796edfb485da390"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/029.png",
+      "bytes": 627934,
+      "sha256": "e82efd9a36110d2c0799b8345a57ab613f6ca636726f70e191a0fbe1c3acd06f"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/030.png",
+      "bytes": 628542,
+      "sha256": "5484663474f374af703227b312b569c5eb649d49cfef939dc9d5b1fd95a8d11d"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/031.png",
+      "bytes": 628663,
+      "sha256": "b4889065fc15ed4e785b68c7b5c106db1db92f9aabd96fc3b124a09a197e7ba8"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/032.png",
+      "bytes": 629288,
+      "sha256": "67d755720ade0691c930710c8ac246ef88d71fe3839316c44a276c8f7669e039"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/033.png",
+      "bytes": 628676,
+      "sha256": "c097315d0adc8dea777bfff41f44789a217b12fdf39357a8b7208f70ba718095"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/034.png",
+      "bytes": 628448,
+      "sha256": "1568a2d869ebaa0addf0eb3a00d61e736300054b6963d47a26825cc6d30ec5a6"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/035.png",
+      "bytes": 627999,
+      "sha256": "bb6b5cb60ab9b39f5b5267f30c805668f0c09364f67e3367104b4021a35ab622"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/036.png",
+      "bytes": 627809,
+      "sha256": "13d3370c6970202754596a64f8bede4b61dc0bf8ad281c54a9ed354e5b848ce7"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/037.png",
+      "bytes": 627192,
+      "sha256": "78e4c5c3afc06a70229404a94a5491cdf7cb8dc2fdcfb0ab4a9e22c7c2e143db"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/038.png",
+      "bytes": 627168,
+      "sha256": "e4b74ea4f7483f56e8388b648d9c4cd0064ad5d8cdb1a96dd2d7bab381c2f1db"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/039.png",
+      "bytes": 626061,
+      "sha256": "4e917a4d781fdc7ed4fc80af649e9d96d5789cb90268c7009d36b84a7f1783f9"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/040.png",
+      "bytes": 625736,
+      "sha256": "d87c71136bbbc12de2da471ab0bafdfeedcfa2b7d2268b844448c04c1032e9a0"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/041.png",
+      "bytes": 625084,
+      "sha256": "5ea15a2d5d12f4e5e47da13ae32727c1ce042a2a0e7e0c1ca2e3d2dd5eca90d3"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/042.png",
+      "bytes": 624178,
+      "sha256": "ebcd975f9893413c370f7669900b22b0306a04f00fa687e8b22726b579573951"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/043.png",
+      "bytes": 622880,
+      "sha256": "bee36a7110354c052bbc975c7af450bfc437ecde7786bfac07f49060a9cd2484"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/044.png",
+      "bytes": 622162,
+      "sha256": "f72f38304751788f200c6a9618d1b00e7fe0db9be2e944ad3303ab0087793e03"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/045.png",
+      "bytes": 620865,
+      "sha256": "0df0ed33e1723d890741f62c59c0e08d87150925ca7503170ed614dd1f17141d"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/046.png",
+      "bytes": 619470,
+      "sha256": "606ce2b47d216f174cdb3bf7983ec5024fba01322ee3847436c6db5ee01ff3fc"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/047.png",
+      "bytes": 618343,
+      "sha256": "27dbf97944231bc0d6e513894df11ea3efaba3b93802f33179ad7fcaf1d462d7"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/048.png",
+      "bytes": 616512,
+      "sha256": "8623def971b33222f8b3ccd9188cdadbb0838bcf6be81ad04fef1b0cee2d5c74"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/049.png",
+      "bytes": 615390,
+      "sha256": "65933d56d73c34135016ba8fa04f4b30c4e5f43bcc30de03259b26533c9e63e7"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/050.png",
+      "bytes": 613468,
+      "sha256": "9860dea6421fc892a67ea53d89037e27fe4d1e2b94f917aa20a46080ca8eed7c"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/051.png",
+      "bytes": 611935,
+      "sha256": "e014c172a7a7a02c60da497a64fe71110c358d6c0d1b304c94dac6b248c11f74"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/052.png",
+      "bytes": 610388,
+      "sha256": "257506fca8f490dbb3985acfdbc03dadb82d8f16ea31c4a1c0154cb825285fbe"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/053.png",
+      "bytes": 608781,
+      "sha256": "b65c77e26a09be978500ec9fdf3ad8006b68faba408a3334c9fc0f1ee80af267"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/054.png",
+      "bytes": 606966,
+      "sha256": "a710d1b04fbd0b74313eb443aadffbb71fa259da5b138b2c504738f888e20009"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/055.png",
+      "bytes": 605351,
+      "sha256": "1a39d4e34bc01b1c6a25dfc4d091fa7cbfdf01fbb93b094153da28d0c1dfab50"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/056.png",
+      "bytes": 603934,
+      "sha256": "bbdfc13fe3c129c3fe80d52bbd14b8330cf157d39773b5495b35804e9999c0e8"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/057.png",
+      "bytes": 602418,
+      "sha256": "24aa26f837e89418137231fed708a6acfd14ddf5da90601b26b7818f6b116ce8"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/058.png",
+      "bytes": 601269,
+      "sha256": "0bd3fa4120b3155f6562b33a22e67dd95f2a23215d441b8fc92f8c6cb6666a54"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/059.png",
+      "bytes": 599838,
+      "sha256": "28864bc4e55d9b36bfcb20161374442ce9ebf99e91cd2103061a0ea4291565bf"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/060.png",
+      "bytes": 599047,
+      "sha256": "470da379621e9f0d302544c683f7780ecb26f59b22c031adb681716ac09a6127"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/061.png",
+      "bytes": 598290,
+      "sha256": "9e7bf996f48d754cb0b52f39addd589877b85d5a278ec40e3f85fa7eedb7d6ce"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/062.png",
+      "bytes": 597653,
+      "sha256": "ea05799a4e09173d06d23047f773d6dec883379ec8edc1edf9a2fe04803a84bb"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_Expressive_Arc/063.png",
+      "bytes": 597543,
+      "sha256": "793bd62bb168267c96b2e43cbce15bab2b38c80a6e22da3eeb6e03a04f498840"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/000.png",
+      "bytes": 591140,
+      "sha256": "3070175ed2c8f01b51f2ccbd1edaf761058bff69a1e7fcf689f54aca2abe0c54"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/001.png",
+      "bytes": 591462,
+      "sha256": "de463476c2be4820bd001f060f731a467179d1704d28d7cd18cf59113ebde049"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/002.png",
+      "bytes": 592207,
+      "sha256": "31dc333a603de9714a18672ada3863bcc638dd1265a467f1990660b1ceec03dd"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/003.png",
+      "bytes": 594044,
+      "sha256": "e3f6c5e9026dda08cc5efa923812113dcfd9574be26caf4a82617b5e2689ff82"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/004.png",
+      "bytes": 595735,
+      "sha256": "ea25481914abd31baca6a79943b1257a50503447a6da576d23a2e92eb6b738c8"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/005.png",
+      "bytes": 597987,
+      "sha256": "4b46295372faaf568ddddee24ec3b94b771ef5b5b6d3a82a15abd368611bac0c"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/006.png",
+      "bytes": 600989,
+      "sha256": "ee2506bd7756236841cc0c80ea76fd27af80bcc7958d89cb902578c19cd294d0"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/007.png",
+      "bytes": 603941,
+      "sha256": "d0f12d42e9d707f893f979b5bf469c1456b89297ed3d0658bdfd382652a242e4"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/008.png",
+      "bytes": 607969,
+      "sha256": "f072213933a6059a03e13f54f9a4bff05070b59ffcaa654611e6303fd7e68d5d"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/009.png",
+      "bytes": 612598,
+      "sha256": "3cec5e60a2da68e06b04bdb8669f14e62672364aad133ca10ba0bb9adcf98ca1"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/010.png",
+      "bytes": 616008,
+      "sha256": "a072fb48f2b7fa7a2d921647e7220c355e2af4d0a2b327ac2a97fe25d568ed3b"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/011.png",
+      "bytes": 620371,
+      "sha256": "13e2bcc508afb0fae604b76149e10f7a31efdc3fe40c08f2ea7c5f1a94710124"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/012.png",
+      "bytes": 624363,
+      "sha256": "d224fbf3eb8e9b82b706a5dcaaf21c003138c061db589e4623c45f22abcb3c1a"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/013.png",
+      "bytes": 628546,
+      "sha256": "2cf62c721c5afb373f1ae46ca93c66c72292ce4aefec7d1fe5b775e1bc3b86c5"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/014.png",
+      "bytes": 631368,
+      "sha256": "ba91a0545618a3438b84b18db79a5c6f41184e18772ec5b3ec928048671da823"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/015.png",
+      "bytes": 635008,
+      "sha256": "2baf5f6998df5ea69d10a7f8ebcf0fbb46c4b231357111e1e2c8b0879e942baf"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/016.png",
+      "bytes": 637229,
+      "sha256": "9557816aebb0ee33307b15fa8c3cdd31ba240b6b8888f7b8b5fb6915bac423ac"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/017.png",
+      "bytes": 639794,
+      "sha256": "4e8ed6867787c1b853bdff35114d9ba20ae9682f89002c10e94ff88e1a95ac65"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/018.png",
+      "bytes": 641404,
+      "sha256": "ca07f1a55ae987080fca9f5377b6997eecadf4d5fd625fe788703989c36ab977"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/019.png",
+      "bytes": 643304,
+      "sha256": "ed409e847c85e27840ec117215055f7f34088a0c02252fe5918bce2a76d3704d"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/020.png",
+      "bytes": 644189,
+      "sha256": "3a02d46c3e87dbe041f29a3a7e4b30db91ed0ef032a4468526c155b06e6532d0"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/021.png",
+      "bytes": 644650,
+      "sha256": "7eec72d90ddcc3df4dcf5811378280eb91d95cb20817c7c8381248bf69c120ca"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/022.png",
+      "bytes": 645358,
+      "sha256": "5f016251ed754c7695265b26c00aaa352cb396696e55e95a573d1e2cd45de5ef"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/023.png",
+      "bytes": 645299,
+      "sha256": "5f15564f444af21b7eddc199336423a35f06a26791bd747ff13766a083a83dae"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/024.png",
+      "bytes": 645644,
+      "sha256": "822b199cb3acbd5f04c5d8abbbfb839e105b279e6c4a26e957ce1853b497db46"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/025.png",
+      "bytes": 645299,
+      "sha256": "171a755a2ab1d2b1e43e00be8a66ecdc59588bf407581bb87e203c2a9155ee94"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/026.png",
+      "bytes": 645358,
+      "sha256": "007410e90b67c0ab03ba98ca4dc3da3baa5027feac33b6cd442fa65fb63839df"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/027.png",
+      "bytes": 644796,
+      "sha256": "bb3070fa4a0424ea8c83665f4cf6589c09baea0866e1bd5ec288acc5fb69cc28"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/028.png",
+      "bytes": 644186,
+      "sha256": "727a817806a18cf26e7209d9c13d3f78bda6bb95b24ea7429e88318e73c5efcd"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/029.png",
+      "bytes": 643304,
+      "sha256": "2988435c64bc055cbeb61cfa42435d21b18d8b806c9bbe400bf21186fa7eeec1"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/030.png",
+      "bytes": 641407,
+      "sha256": "3902cb1b01d896fe3103232908c3b889c88bbf9e0f7b11bd47526083e3874a78"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/031.png",
+      "bytes": 639794,
+      "sha256": "e4517eb37f96a7c28e898fd7ec28beed31f55746a3982d6775a1f15373e1bd44"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/032.png",
+      "bytes": 637227,
+      "sha256": "2759ee208cdbe9a14c3b68a7aeae98134ae42a79931f5ae833f1f1e446df19d8"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/033.png",
+      "bytes": 635008,
+      "sha256": "02eb2c9969aaa3c844e22ced6c10c2db6a3ad2734386747d6e76668991d3fbbf"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/034.png",
+      "bytes": 631274,
+      "sha256": "c29495dcdfe2e1e4904e3f155a8b4c39b17b605793475435f45e0a85cc1444c2"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/035.png",
+      "bytes": 628546,
+      "sha256": "39e9bb1d340016e646368df3e25986ba23e7427e9ac461f2225a5db5d51e37d3"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/036.png",
+      "bytes": 624363,
+      "sha256": "bf316b9ffdfa9135486256fa96e2a7b6ac8b6a67492dca52fc99e92c22e48b6a"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/037.png",
+      "bytes": 620370,
+      "sha256": "48e4bb1544e4d3c8c604c79fcf0707c65f30c315303dd3be11ac907e902d6df0"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/038.png",
+      "bytes": 616008,
+      "sha256": "f208ca5d0c638fcb6792bd71ab23e191cb5a5e04446d30182e7f5a8aa70f8e86"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/039.png",
+      "bytes": 612602,
+      "sha256": "6643cd9e2a248551033b87d5a9fc2f1d482b7f8bd138d102e638e6510acb4654"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/040.png",
+      "bytes": 607970,
+      "sha256": "e30a6fb794ed548c37503bc430427dfe08642fd50144cb031b59f65fc830ed30"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/041.png",
+      "bytes": 603941,
+      "sha256": "15aadda37fb1275e800def3e7a160ee567a2aacef62845e11c9383283e698f1c"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/042.png",
+      "bytes": 600993,
+      "sha256": "c5af0fbb23f7503bf684e8a8095fcae4f0e29185dee84b77782a0faa504196b2"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/043.png",
+      "bytes": 597987,
+      "sha256": "c340f1edfadf18bb58b900e88279dea87a93f37220c48320de46c9f33bc45fc0"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/044.png",
+      "bytes": 595741,
+      "sha256": "5b809a401fbed1237edc5654162356269d04013860fd9b64d9444c32c4d54650"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/045.png",
+      "bytes": 594072,
+      "sha256": "87faec3ef6827c003a741968716d5e4802a2bf113ef1cb28490f32599a980432"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/046.png",
+      "bytes": 592207,
+      "sha256": "f4265f039e01592a651b42eaccb19a496c64adc1dc939feffbe77c7e1efafb43"
+    },
+    {
+      "path": "art/blender/curved_v2/_motion_frames/Bellows_OpenClose/047.png",
+      "bytes": 591474,
+      "sha256": "012a12d4b167fe179ad3d4c8a129f30c6318bc086c078287e59b126a608220d4"
+    },
+    {
+      "path": "art/blender/curved_v2/coleccion_curva.png",
+      "bytes": 1536967,
+      "sha256": "f65c1037dad5a0e0e056a0ba7d859e168ec561dbb42be0c09ec150653c154bbf"
+    },
+    {
+      "path": "art/blender/curved_v2/collection.json",
+      "bytes": 4616,
+      "sha256": "74b20e1896aa8edc0af832b5d1457c41826a2752a762c945370a79d29aa974b8"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/instrument.blend",
+      "bytes": 1903876,
+      "sha256": "6e3be4102e81981dd77c55db6698aa3294435397e5942fd7b7cba685d420c997"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/instrument.blend1",
+      "bytes": 1896196,
+      "sha256": "83f93a333430e39e9bf733d20a6641032e237a1e42cb9247375d5cf670e8d538"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/qa_report.json",
+      "bytes": 10638,
+      "sha256": "641ad6feca8d6097a9d9bf254cf2715c447d8c1d7de1024c17ead7da92ffc2a0"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/renders/01_frontal_cerrado.png",
+      "bytes": 2638527,
+      "sha256": "0bc623b96343d8ab34e83895515e62ba0940316b499b81262658cf480df1b5aa"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/renders/02_abanico_superior.png",
+      "bytes": 2499739,
+      "sha256": "44a1b9088cde2c8cb5676bd71470b106e28042c1fa351ea50e51090e79b59244"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/renders/03_tres_cuartos_cerrado.png",
+      "bytes": 2600675,
+      "sha256": "6b09f16b679fddecccfe5b540bba0e11edb8e392a3bf1a0bcd626d4ab00591bc"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-esmeralda/renders/04_detalle_teclado_fuelle.png",
+      "bytes": 2659327,
+      "sha256": "ddcde0258eaa4935b20c280f0283c2143ca7f93ab96f4e56840c178935d16e41"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/instrument.blend",
+      "bytes": 1871409,
+      "sha256": "e296d1d2ffaf6bb34f8d5efba340c5519d11510140deaf69a83650ed17f82cac"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/instrument.blend1",
+      "bytes": 1863622,
+      "sha256": "e2ceb917a60fcc84aca48aa2ba6702eceebc285a81e4abac6ff6c7ab68bc4f56"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/qa_report.json",
+      "bytes": 10636,
+      "sha256": "4265b4e38783670f52b9291bc2afc6f6d0f513cf0a95f7e3f0057f9fd32129bd"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/renders/01_frontal_cerrado.png",
+      "bytes": 2551113,
+      "sha256": "0bd67882cead81bec1091f8f3c5f831056120c645809f9a0f13a9f8903d32318"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/renders/02_abanico_superior.png",
+      "bytes": 2425582,
+      "sha256": "a4ff77c5c037c4ab91fd1646799833384355868512e8796bf45ff1d9cfe45b37"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/renders/03_tres_cuartos_cerrado.png",
+      "bytes": 2509089,
+      "sha256": "28b694dc53f9a543fde44c1415d75de1200971f808520453a8f6e9b20e832a7f"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-grafito/renders/04_detalle_teclado_fuelle.png",
+      "bytes": 2594724,
+      "sha256": "2fc3bb274c223a1772b2675b326ea172e2c775cee1c9553f9af6536ec436808f"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/instrument.blend",
+      "bytes": 1908649,
+      "sha256": "e5090426c89f00a494b48704f285200df55eced0864aa47d35352526b1df466f"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/instrument.blend1",
+      "bytes": 1900793,
+      "sha256": "f997ef645361f66b8c2d21dac9f4aa6c15a78910eeec0eb4a430ba77310124bc"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/qa_report.json",
+      "bytes": 10636,
+      "sha256": "18a20c9a2ccdd387f5112903f51908d7813be29905a8a3a8890b0c26c2bdc197"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/renders/01_frontal_cerrado.png",
+      "bytes": 2618964,
+      "sha256": "01a5186cf0107621f398d29ad9ce2339d83ddea4b5f4f89bd39fdf40674f0e6f"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/renders/02_abanico_superior.png",
+      "bytes": 2474162,
+      "sha256": "8f54c6668413db440553584db2d84265253cf69278eeafd0009d3972f0c3b4cc"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/renders/03_tres_cuartos_cerrado.png",
+      "bytes": 2577812,
+      "sha256": "cea2f910a70f0b26d06dfb877c23d9102b5178d99b878c6ea107137282019cb7"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-granate/renders/04_detalle_teclado_fuelle.png",
+      "bytes": 2608998,
+      "sha256": "1baf8358aabf4621c02090602d623785f94b22e4e89021eff1ec77cab0ecf594"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/instrument.blend",
+      "bytes": 1941536,
+      "sha256": "c6bdf9e287ca4c60dc6ed00f9eedec55de27bbf60b566bd0576ae233f4fd0c41"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/instrument.blend1",
+      "bytes": 1932986,
+      "sha256": "3c1299ce9ba540c89abdfd5b51f6e18a68c7305b5393e77d2a4f3140a2db2e50"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/qa_report.json",
+      "bytes": 11838,
+      "sha256": "ffc0a68aee924a77f707781908b1e12de23f2c1d5c09435ccefaf7c892af8350"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/01_frontal_cerrado.png",
+      "bytes": 2681774,
+      "sha256": "1b799b3db72155f6a275048fdbffd3199acf7b5da3464178fa8edfb46e43bd99"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/02_abanico_superior.png",
+      "bytes": 2525335,
+      "sha256": "25d7179b3c065e145af677da5ce8748c7b9da567e01b5c84a70ba0d625e0ea77"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/03_tres_cuartos_cerrado.png",
+      "bytes": 2638967,
+      "sha256": "fd4beb2b6308e0d74d87b9f910255dbd8a9b36dc88b374fd99d5ec4b5a19bf9f"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/04_detalle_teclado_fuelle.png",
+      "bytes": 2645344,
+      "sha256": "ee062eb4ac20910054a5c0e68f3c65be162b8e8f80a50d241b97d0b8e5a51ce5"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/05_abanico_inferior.png",
+      "bytes": 2495210,
+      "sha256": "323456371d39aa7555f75edc36d4374dd0df7e4402db64f72fa7b26125b44905"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/06_bajos_anclados.png",
+      "bytes": 2418700,
+      "sha256": "353d3893a14c4b13e88eedb635e5f7874ef7581476360f30593867bbdc40e367"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/07_apertura_oblicua.png",
+      "bytes": 2483936,
+      "sha256": "7549247c761cb03a807b39d9e4d0aeac504c4d61bb7ea8a2e88205cacb32b92f"
+    },
+    {
+      "path": "art/blender/curved_v2/curva-zafiro/renders/08_arco_expresivo.png",
+      "bytes": 2435013,
+      "sha256": "2bc742355798cd5f11875cbb56ccc0bf70b58b8598ec1090b2838ce9c76854a4"
+    },
+    {
+      "path": "art/blender/curved_v2/LEEME_CONTROLES_Y_QA.md",
+      "bytes": 8901,
+      "sha256": "e4b89f90e1e6b7a4278f04726d8d89d4c04240f0155b002e31d9c9da3010d053"
+    },
+    {
+      "path": "art/blender/curved_v2/motion_previews/01_abanico.gif",
+      "bytes": 9401626,
+      "sha256": "1056138edcde32e91f81fc0ae361f5087597ec78ce6e9959d9e32008a915539f"
+    },
+    {
+      "path": "art/blender/curved_v2/motion_previews/02_arco_expresivo.gif",
+      "bytes": 12511520,
+      "sha256": "f67ba09dd0c7ebd89411372bd07f51e783f45c236825cb647880839441984694"
+    },
+    {
+      "path": "art/blender/curved_v2/poses_del_fuelle.png",
+      "bytes": 2450702,
+      "sha256": "9b6a5f2e48845cf6e8bbfe35acb78851f213d5f7115f6fe4fce9e747c616cd40"
+    },
+    {
+      "path": "art/blender/curved_v2/SHA256SUMS.json",
+      "bytes": 6716,
+      "sha256": "bebc3f7a7cf595e37bc1e93e150459edd44eb784b6a31233a4e4b98eea8daacc"
+    },
+    {
+      "path": "art/blender/curved_v2/ui_playback.json",
+      "bytes": 14178,
+      "sha256": "72400dfbd3e5bf0c2645569a6f1f1f68e27ff0cde4dac9b758861ed9dc2d8674"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_cpu_final_renders.log",
+      "bytes": 1480,
+      "sha256": "7c44c606c2bba02d195e4975746521423d0a21dd2e42c9a3f0e738c895b5a76d"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_cpu_renders.log",
+      "bytes": 589,
+      "sha256": "8e1fab73180464e833d9574e3e7e5c089004fa1e81466f6bbc8e551b28ce3a74"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_qa.log",
+      "bytes": 3528,
+      "sha256": "efab5ea851cadab83b0b3dc125089ef54f740c00f1fd366f9273af35942e7c22"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_renders.log",
+      "bytes": 240,
+      "sha256": "d41c6cd100fb0704403d4eaae9885d844bac8b36a99c2166fed454fc8860cbbb"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_ui.log",
+      "bytes": 137,
+      "sha256": "360e84f0b2a9c3f3f7846a721ed8efb7993390ba8e98b50bd39cae51b8a3bf9b"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_ui_errors.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_ui_retry.log",
+      "bytes": 165,
+      "sha256": "0deb53d5fef2ea2d62f7510b92697f3696d1f40dae482bda7728b1d580d488b7"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_ui_retry_errors.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/blender/curved_v2_all_buttons_update.log",
+      "bytes": 2062,
+      "sha256": "fbc1102f1b2046cb51c9786ce3d1213769958f8bd844f2a0310ce83011897704"
+    },
+    {
+      "path": "art/blender/curved_v2_build.log",
+      "bytes": 3318,
+      "sha256": "8d8ee8d3cc1fa4a97a8b361f8b0497ed177379d87f59c892e040fad871ff3533"
+    },
+    {
+      "path": "art/blender/curved_v2_motion.log",
+      "bytes": 16762,
+      "sha256": "f3d2f7a0d6d9a8d7b4972cb0fe07f212afb875ddc0e0df88cb81a50b2e4fe1b6"
+    },
+    {
+      "path": "art/blender/curved_v2_qa.log",
+      "bytes": 3528,
+      "sha256": "07d57804db1b9a07a4f957ce8b42bef75c0892cc02aa5130cdabff6f669848fd"
+    },
+    {
+      "path": "art/blender/curved_v2_renders.log",
+      "bytes": 4764,
+      "sha256": "c6e0459480d68d2f1ca9f32bb9abaa28cbe68993fd4fa89d6a70877db7b96be2"
+    },
+    {
+      "path": "art/blender/curved_v2_ui.log",
+      "bytes": 165,
+      "sha256": "ccd6c6f52ca503673a52141bc84409cae8acdcab0872e0bab628f62b457957ce"
+    },
+    {
+      "path": "art/blender/curved_v2_ui_errors.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/blender/curved_v2_visual_review.png",
+      "bytes": 2802683,
+      "sha256": "efd5cb513276b9786ff5da3729de05209ec53c6fe2997783837bf0c8f555d665"
+    },
+    {
+      "path": "art/blender/README.md",
+      "bytes": 1913,
+      "sha256": "1e7a9f54217ddfb1d360e4748a4be1bf54a5404a092ac888ec8d70bdfdc738df"
+    },
+    {
+      "path": "art/blender/realistic/accordion-audio.js",
+      "bytes": 5436,
+      "sha256": "d73ff16c8aa315ca45e1e10580b64596523c1ef3ec5ca23ea25b08be2b979a29"
+    },
+    {
+      "path": "art/blender/realistic/AcordeonVallenato_Realista.blend",
+      "bytes": 5728446,
+      "sha256": "6796afe8dd15cea373f13c4f1782c13f9c1281bb55f232b9c058f665943dd781"
+    },
+    {
+      "path": "art/blender/realistic/AcordeonVallenato_Realista.blend1",
+      "bytes": 1565181,
+      "sha256": "e1ee08e0b54d1b84fc5560531a56e693c15f7cd7d596045abe51adffe15ba16a"
+    },
+    {
+      "path": "art/blender/realistic/audio/audio_qa.json",
+      "bytes": 865,
+      "sha256": "1a9caa0fd49777066d19f6c459f71810dc7148aef78d369d7e7e01e1d6c40ae1"
+    },
+    {
+      "path": "art/blender/realistic/audio/blend_audio_qa.json",
+      "bytes": 255,
+      "sha256": "dd0e6232244894ba1d5fcee0bc20dcf6ecad516f551421360b7404a29cc5f94a"
+    },
+    {
+      "path": "art/blender/realistic/audio/file_manifest.json",
+      "bytes": 7879,
+      "sha256": "eedcfd8bc7c8bb46ebe8213f3c79591222b6d3510bc03ebea99ca6334615d6ca"
+    },
+    {
+      "path": "art/blender/realistic/audio/manifest.json",
+      "bytes": 14560,
+      "sha256": "7ebfd0e1050f4b7a8e64d7735400a13d785430e5ecf72ce0fe7100cda0e13b65"
+    },
+    {
+      "path": "art/blender/realistic/audio/README.md",
+      "bytes": 3442,
+      "sha256": "0d2b38cd01b937614fc2787618a39a06c27cf60dc2c689a1228b6e18cb3f4b2b"
+    },
+    {
+      "path": "art/blender/realistic/audio-qa.html",
+      "bytes": 1894,
+      "sha256": "5dd9e87c3e479ff361a7ed327bc3e19fe3a51449fc908537e5c6b7aa61aa6832"
+    },
+    {
+      "path": "art/blender/realistic/button_interaction_qa.json",
+      "bytes": 7318,
+      "sha256": "7561e8d545eb27fdaf6e232332d70a87949fe8dd227a3d0a2ee684f82e163923"
+    },
+    {
+      "path": "art/blender/realistic/Coleccion_AcordenRush.png",
+      "bytes": 2467128,
+      "sha256": "07ee14336de4023d4a9c23b48183813fccf90a436549c3527c9a388de5e3cc96"
+    },
+    {
+      "path": "art/blender/realistic/collection.json",
+      "bytes": 2387,
+      "sha256": "c40c592b260f99f9a64e84b6dd08af6d093caaf87d5ac8f6464518dc9ed6634b"
+    },
+    {
+      "path": "art/blender/realistic/collection_qa.json",
+      "bytes": 8757,
+      "sha256": "70f15fbd771aac8c7775cd8066bb3f69476083f6cb019c4472290ce325ec8742"
+    },
+    {
+      "path": "art/blender/realistic/LEEME_COLECCION.md",
+      "bytes": 2519,
+      "sha256": "fdc1821ac7a8815586c59976a5f1e583b65cd7606811187cbfd71f315c3715ac"
+    },
+    {
+      "path": "art/blender/realistic/NOTAS_ENTREGA.md",
+      "bytes": 7221,
+      "sha256": "b7f8f5d95a4ff1b38241873a0c1c82af7694f412a59c1a522b41085f7c7a2aed"
+    },
+    {
+      "path": "art/blender/realistic/preview.html",
+      "bytes": 9978,
+      "sha256": "0e5e48f6e7af3c53801fff1dc05e7ec7bf27da0bc4479b966c755ba27b8a1316"
+    },
+    {
+      "path": "art/blender/realistic/qa_report.json",
+      "bytes": 9727,
+      "sha256": "31470ce1bf4a154d1e4b068b1ccacccf0fe7470ec5801de343cc97af1819484c"
+    },
+    {
+      "path": "art/blender/realistic/renders/01_front.png",
+      "bytes": 2630977,
+      "sha256": "3bb8dafccd44146b81fd1cdcc3906722982d3a7411503400ee5ed6ef4e55ad0a"
+    },
+    {
+      "path": "art/blender/realistic/renders/02_three_quarter_open.png",
+      "bytes": 2680640,
+      "sha256": "ef2ddd6d2ef2386170c2fda36c08c37b8e8e4493f4f6ebbb1c3c7ce17083254e"
+    },
+    {
+      "path": "art/blender/realistic/renders/03_three_quarter_closed.png",
+      "bytes": 2824375,
+      "sha256": "3b97070ec2cbcdd42a84b69bd8014d77d00e10c60bbedcd7a15ee91c72977ed3"
+    },
+    {
+      "path": "art/blender/realistic/renders/04_detail_buttons_bellows.png",
+      "bytes": 2956223,
+      "sha256": "8aea3a3ad59c86ddba527c8b8454e4cf3c658648775e2e2d030251752d1bd261"
+    },
+    {
+      "path": "art/blender/realistic/ui_playback.json",
+      "bytes": 3197,
+      "sha256": "fde8aacb82cbf18f0ae198846c3e8620225eb830c38caab257885cc164bd0df1"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/instrument.blend",
+      "bytes": 5731494,
+      "sha256": "d33623dda05f8e6de465bfdaf29304864ce63e9e5c7a7732a44a23049a871079"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/instrument.blend1",
+      "bytes": 5705061,
+      "sha256": "33810f8a80fc25f1d597251af449d7703ea4216f38e1bb01099bcdccedb9fc96"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/qa_report.json",
+      "bytes": 1701,
+      "sha256": "5793cce054eff2fe2a6c80e5e1b5de15e68e3c75374ffccca976197129731b07"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/renders/01_front.png",
+      "bytes": 1503155,
+      "sha256": "5fe60d3ab1f99fae28e7e55020a64655b83a87a7c3bf850ebbeee4eb062dfd1b"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/renders/02_three_quarter_open.png",
+      "bytes": 1570812,
+      "sha256": "f6f23662d72a1a8c84f6be889277db95d1281e04ea2f726eb2fa92d4a4150306"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/renders/03_three_quarter_closed.png",
+      "bytes": 1665734,
+      "sha256": "4dae96697756bf68497fa305628471052e5ea9ee848f35dde481167c9a03e29f"
+    },
+    {
+      "path": "art/blender/realistic/variants/azul-caribe/renders/04_detail_buttons_bellows.png",
+      "bytes": 1696443,
+      "sha256": "0d879cdcf1c133c936da5cf994100d7b38f94c559987111fb94ef8189027625f"
+    },
+    {
+      "path": "art/blender/realistic/variants/designs.json",
+      "bytes": 1219,
+      "sha256": "b59bac1ec33f9e1c379c250a38923c8fec68a09f7131b40b2b529b6fcd0ced47"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/instrument.blend",
+      "bytes": 5634683,
+      "sha256": "f467d1021fb4143521e60cd6202fdc74aa3cf09a4e98bfaff58dce5f632e976e"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/instrument.blend1",
+      "bytes": 5614048,
+      "sha256": "36513862fbbb7f865d8c109376d8a898272d26ad4c4eee56e7a251b9c83517be"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/qa_report.json",
+      "bytes": 1706,
+      "sha256": "3e277a80419b9373a8bf2c903902e27611ff4dd4d982be3801541ff18fdf5a08"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/renders/01_front.png",
+      "bytes": 1459654,
+      "sha256": "295414de35ef417711f63f78c52a9b946857be38b7bfcebfbce9903fbbed43e8"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/renders/02_three_quarter_open.png",
+      "bytes": 1527873,
+      "sha256": "f4d96b1bec4e6e7e2227be5419155a0c9d8930b03210f48df54d83ee87906d5d"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/renders/03_three_quarter_closed.png",
+      "bytes": 1611674,
+      "sha256": "12b925989dfb964c8155c1b4b6355c9ca25b1b5b662a669b79dc52c534a9828a"
+    },
+    {
+      "path": "art/blender/realistic/variants/marfil-artesanal/renders/04_detail_buttons_bellows.png",
+      "bytes": 1636310,
+      "sha256": "7bd2416d6ad89275313f97cff6044b841ef00ec30e3af669377f1f1921acb488"
+    },
+    {
+      "path": "art/blender/realistic/variants/negro-escenario/instrument.blend",
+      "bytes": 5584525,
+      "sha256": "72335d519ab1908392476f859d19f1ec4919c595653d1c692544dbae06887438"
+    },
+    {
+      "path": "art/blender/realistic/variants/negro-escenario/qa_report.json",
+      "bytes": 1705,
+      "sha256": "2f45d89f5191923f9ecb0b8751560b4a5450f7fb8866b3afff8bd7a302976323"
+    },
+    {
+      "path": "art/blender/realistic/variants/negro-escenario/renders/01_front.png",
+      "bytes": 1463677,
+      "sha256": "def1025365036cb9a7850140a39b02bb39e017c0615eddb385fb6c77e3e3b18a"
+    },
+    {
+      "path": "art/blender/realistic/variants/negro-escenario/renders/02_three_quarter_open.png",
+      "bytes": 1512304,
+      "sha256": "cf70ea77a776e1f57a6b3587de5a929fb6068234b4a836293c0a0685a38db3be"
+    },
+    {
+      "path": "art/blender/realistic/variants/negro-escenario/renders/03_three_quarter_closed.png",
+      "bytes": 1597987,
+      "sha256": "39ca1a822cfd9c368ab5583c7fb2fbe9fb3417dee5aa0a88d0ad24329af3daf4"
+    },
+    {
+      "path": "art/blender/realistic/variants/negro-escenario/renders/04_detail_buttons_bellows.png",
+      "bytes": 1626832,
+      "sha256": "513bda39f8c4ee95bcd9a309558e8875f39d98bba3f4d7f429f4d214d120c6e9"
+    },
+    {
+      "path": "art/blender/realistic/variants/QA_poses.png",
+      "bytes": 2461983,
+      "sha256": "712bf9c79b022669cf78ed777b5e7494ab1f149b1100e5c25d1b9521368fa736"
+    },
+    {
+      "path": "art/blender/realistic/variants/README.md",
+      "bytes": 3016,
+      "sha256": "c2d09bc059a479fb62cdf8eb51f65ffb9de15326b8652abf50eb9c99a443d559"
+    },
+    {
+      "path": "art/blender/realistic/variants_azul_refine.log",
+      "bytes": 1242,
+      "sha256": "5e2cf9c2efe90410d1c35b8fe1ab52de7d191ff8a5d0538bfeef64486d634dfc"
+    },
+    {
+      "path": "art/blender/realistic/variants_build.log",
+      "bytes": 2976,
+      "sha256": "d24691b640e31f90bf9639281989e4b87b98b76d2da07878d11d850a1197807f"
+    },
+    {
+      "path": "art/blender/realistic_audio_pack.log",
+      "bytes": 515,
+      "sha256": "eebc51ee153bb7c5c0632c93ca60075c4f818340422183fbb24af3ff0c6f0782"
+    },
+    {
+      "path": "art/blender/realistic_build.log",
+      "bytes": 1811,
+      "sha256": "306e99b400635d321549034fa4408a003b6f6ed5fe9c74b4c2f739ee27896015"
+    },
+    {
+      "path": "art/blender/realistic_export.log",
+      "bytes": 798,
+      "sha256": "8ca9579fb6c1e30c4435f97c5dbc2da5fb56368bf70669329ca21bbf0d6c423a"
+    },
+    {
+      "path": "art/blender/realistic_front.log",
+      "bytes": 517,
+      "sha256": "8700195a8a921ca57465ef3089362a860ae23532047cbecd85a1e4133f33f98c"
+    },
+    {
+      "path": "art/blender/realistic_qa.log",
+      "bytes": 2722,
+      "sha256": "6a5a64071ef9920500c2249c362ee62d05bed667c9a96005389f8eed759b4277"
+    },
+    {
+      "path": "art/LICENSE.md",
+      "bytes": 625,
+      "sha256": "f0e9ef7d740efaf140c8f8843adfc0312352a57e7913565c8c4bf2b7b45b63a7"
+    },
+    {
+      "path": "art/previews/azul-caribe.png",
+      "bytes": 1601630,
+      "sha256": "8efd44f9cfee66a58e85091bba0d18b94ea4b5d7a18ad829716f419e1e0c9c12"
+    },
+    {
+      "path": "art/previews/curva-esmeralda.png",
+      "bytes": 2499693,
+      "sha256": "8ec2ee8ab1ef1824b6b17215df4ab5ebd25add0a38a8cecf2fe80ee541a16ee8"
+    },
+    {
+      "path": "art/previews/curva-grafito.png",
+      "bytes": 2425200,
+      "sha256": "a6f939485b33b4321c8db107cab090fbc9b3a73750b6936047ab4b8e82fc93d1"
+    },
+    {
+      "path": "art/previews/curva-granate.png",
+      "bytes": 2474348,
+      "sha256": "b1ea682161e1582e05c801af37ee6a2e37d39fed22cb530454d481f3f7e492d5"
+    },
+    {
+      "path": "art/previews/curva-zafiro.png",
+      "bytes": 2524936,
+      "sha256": "8e3d7f4535518f398039b33e29419cb93caefa19c35f25dfeafb432929a2b10e"
+    },
+    {
+      "path": "art/previews/marfil-artesanal.png",
+      "bytes": 1547768,
+      "sha256": "07ad53d57df8e97b9ea8247d0baf91eecba1c28b67c72813735bfe33bd23a306"
+    },
+    {
+      "path": "art/previews/negro-escenario.png",
+      "bytes": 1538175,
+      "sha256": "d8bef50c836630955ef02ffc897f4dd598f17820ba64e68e8b0cf8549fd43175"
+    },
+    {
+      "path": "art/previews/vino-clasico.png",
+      "bytes": 2680640,
+      "sha256": "ef2ddd6d2ef2386170c2fda36c08c37b8e8e4493f4f6ebbb1c3c7ce17083254e"
+    },
+    {
+      "path": "artifacts/demo/paseo-de-prueba-perfecto-audio.webm",
+      "bytes": 1031822,
+      "sha256": "b445b9aa295153cdd3b2a1f3c94dc494bb81445b44426e1ff49e62fad9360277"
+    },
+    {
+      "path": "artifacts/demo/paseo-de-prueba-perfecto-resultados.png",
+      "bytes": 301627,
+      "sha256": "c5191176591e50c8f61732104b8221765e3ac9de48880a698a77d83286b2ba71"
+    },
+    {
+      "path": "artifacts/demo/paseo-de-prueba-perfecto.webm",
+      "bytes": 34176865,
+      "sha256": "e7fb435016a49122bdc4e1ebdbd11d0963a20fa59f57b56a48df1567e1fb4ec6"
+    },
+    {
+      "path": "artifacts/model-backups/curva-esmeralda-9f7ebde1084a.glb",
+      "bytes": 9867316,
+      "sha256": "9f7ebde1084a0fbc9c569ad586f77f6e0302337aa7c576e411f43f03a897f85d"
+    },
+    {
+      "path": "artifacts/model-backups/curva-grafito-0500cb20b99a.glb",
+      "bytes": 9831928,
+      "sha256": "0500cb20b99a421f41ff89d08b51c34739389b313feaade0e9bd1b7a83b72fa8"
+    },
+    {
+      "path": "artifacts/model-backups/curva-granate-b768735b73ce.glb",
+      "bytes": 9869708,
+      "sha256": "b768735b73ce96b24553d5919ae10fe81f46956b99c82c3ea6786070372b05c7"
+    },
+    {
+      "path": "artifacts/model-backups/curva-zafiro-9f59c19e1b84.glb",
+      "bytes": 9898880,
+      "sha256": "9f59c19e1b84772aa252709a7d294264272b05284b9016c6e5dd94db547f023c"
+    },
+    {
+      "path": "artifacts/qa/.local-media-syntax.mjs",
+      "bytes": 5565,
+      "sha256": "a1a0d8c325d6fb8279999d3e160b42c5897392634a07a3242067c5139025a956"
+    },
+    {
+      "path": "artifacts/redesign-desktop.png",
+      "bytes": 434818,
+      "sha256": "95a326c89b91b9c73bb6a8a0942857dec9a0ad8c722a7423a7498160f37be8a2"
+    },
+    {
+      "path": "artifacts/redesign-game-pause.png",
+      "bytes": 355101,
+      "sha256": "3a89ef5e9ddc7a1d1fe051b603248a2aa9b560c7bcc4576cd41cf1a1994091bc"
+    },
+    {
+      "path": "artifacts/redesign-mobile.png",
+      "bytes": 242571,
+      "sha256": "cda421353cad31e32e8bf823f77878e36f1de8ccc0454e5525f7dfa9384102fb"
+    },
+    {
+      "path": "artifacts/redesign-private-mobile.png",
+      "bytes": 130269,
+      "sha256": "6a13800b2bb7b7911f274d007e1eaf857dc91197134b0d3cf46c8aadd369f549"
+    },
+    {
+      "path": "artifacts/redesign-private.png",
+      "bytes": 312577,
+      "sha256": "c80299f89df0e314ab7e542cf955af5fb5ef34d63c50b011771b43c92f27682d"
+    },
+    {
+      "path": "artifacts/redesign-settings.png",
+      "bytes": 251776,
+      "sha256": "0cf3bc96d7516da718edece8d558b675abf013782022bdf3d282dfeadd85ff9c"
+    },
+    {
+      "path": "artifacts/redesign-studio.png",
+      "bytes": 807287,
+      "sha256": "5b09a380f02fa02fce33bde7e3b6290d22c5c495291a549027fc0f4075332dd1"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN A4.wav",
+      "bytes": 298220,
+      "sha256": "0edff2b2982fc961f78518aa44752bef00f5203438352560962856da2af4573d"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN A5.wav",
+      "bytes": 373860,
+      "sha256": "e511fd7874f07a8a3adb838b412bad0e3cf8c84fac24ec8d6c618951537405d5"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN B3.wav",
+      "bytes": 250664,
+      "sha256": "f1c8f3071c6e499cdf10f608cb99ab73116470a10d18e7f949f056b979ed2259"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN B4.wav",
+      "bytes": 364376,
+      "sha256": "b6ce0da0d29db192167096566ee02bb1a939f653e72778605a82822595387bfb"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN B5.wav",
+      "bytes": 329140,
+      "sha256": "6d117abb3ceb94a70ae54ee495f1bb55fa2e49ef55f4d4c17aaeec2c0141c8b8"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN C5.wav",
+      "bytes": 344848,
+      "sha256": "039f801a5966dd61cfa55dac331ec85de18e03de5a26fe5e1bbb79f22bf19b33"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN C6.wav",
+      "bytes": 435552,
+      "sha256": "224818272e2ba5b3c94491c245f38322fc2e8a4186217fb5e2532d1c8850baba"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN D4.wav",
+      "bytes": 276660,
+      "sha256": "c07ac6ca92336504f4051080e6e5ebd1a525ab633ff6c060daa10e132062c6e3"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN D5.wav",
+      "bytes": 345104,
+      "sha256": "9a575c3376ee1603e4f2545c3e6a41abe5e982a56b51cef50284c088ba099d28"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN D6.wav",
+      "bytes": 237960,
+      "sha256": "483cf22868ebdf6c2244a6ed403b1c5afa31883f238fdb322f15695cb1cbd2e2"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN E5.wav",
+      "bytes": 335184,
+      "sha256": "8e745fe003a207f7416e06d3e2971b12c1b06dd34a9d91ae5ccd4d58a4d3256a"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN E6.wav",
+      "bytes": 372420,
+      "sha256": "5ba71b0f687f8c8d323cc18529bc18ad70213fd10a5cb2a9ae60ee528a707c78"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN Fs4.wav",
+      "bytes": 317516,
+      "sha256": "fdbd1890b970be25ea8971724002649a59bfe9824acc7a5d4511b0a9820e41bb"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN Fs5.wav",
+      "bytes": 378620,
+      "sha256": "2c3c5c8439eb5bfdee04ae8ec593862b6aead9fb02710f8b4c944a3b584f5518"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN G4.wav",
+      "bytes": 373208,
+      "sha256": "6bfe87e14ecb9d64464df83ddc82a582c75b5b2497ee32aa03cdc6aaebd856bc"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN G5.wav",
+      "bytes": 388916,
+      "sha256": "3c1e19cce6b7e1bb0835d710b890b9b27a037e437bc155c7f6e769e1f11442ce"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/Button Accordion HN G6.wav",
+      "bytes": 254268,
+      "sha256": "9b6afb29c491cf6f8db2398419b989ed33855a6089b9f9acc6d59109a3048d16"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/LICENSE.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/manifest.json",
+      "bytes": 19841,
+      "sha256": "bfa8ec179d1b309e9438e5f1d79dbca095eacb98b1f7fedf3fba8e30061aa4ba"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/PROVENANCE.json",
+      "bytes": 14083,
+      "sha256": "e2200ac36b8e3d0d3cc82eab19c32de1544055e36a4ed718b6af4ca02f61eb6d"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN A4_rel.wav",
+      "bytes": 56736,
+      "sha256": "f321510ab59be91b27bb17a61b0833853b153735df65d0065d8dfe873e16970b"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN A5_rel.wav",
+      "bytes": 54488,
+      "sha256": "98250a8337ca531cf0643277469c2906a0ffb00500003b28f50c8f037877a188"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN B3_rel.wav",
+      "bytes": 46752,
+      "sha256": "b68bff3ee7e924ebd7b77acc77942d298621199a24074d6aa130baaeabfe4efa"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN B4_rel.wav",
+      "bytes": 96156,
+      "sha256": "cd44da94121f2ed2a3b49a29bdf6d35a275468d9c511920a9aab85cdbec4bb4c"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN B5_rel.wav",
+      "bytes": 93324,
+      "sha256": "f700afe41ed536c1e0a12005fa0c1e804109f8cb8bd859e981b3bce2ee8b55fe"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN C5_rel.wav",
+      "bytes": 96040,
+      "sha256": "09bc042babf7a478e392db4b3a201808c5239561353e121fa8165bfb32b9f9c2"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN C6_rel.wav",
+      "bytes": 93324,
+      "sha256": "f700afe41ed536c1e0a12005fa0c1e804109f8cb8bd859e981b3bce2ee8b55fe"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN D4_rel.wav",
+      "bytes": 98748,
+      "sha256": "6ce90384a3ed58bffaf118a034e0b73a731fd6aaa04a5dc8787c72390e4868a0"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN D5_rel.wav",
+      "bytes": 76588,
+      "sha256": "23a5035b4356512e5503822a7118354dc16e5c90feaddcd74bd906cce81066ed"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN D6_rel.wav",
+      "bytes": 48444,
+      "sha256": "12ea5653b162bc9340f521b6445db815d8ef1b6ddb4d315997e9ac174e8e6515"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN E5_rel.wav",
+      "bytes": 66544,
+      "sha256": "8202827c471e668557c0fee1d45269724e14954a8cc78673fb7e16b3a85815d6"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN E6_rel.wav",
+      "bytes": 55232,
+      "sha256": "39f8ffeb214c002b69add4716458dcca97809bbe23d83158781f2394bb59a573"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN Fs4_rel.wav",
+      "bytes": 69716,
+      "sha256": "1df98f0052539dcd33fb6fe3b9f3c95c5dca81ae818ceea66bb7e62e9f608bcf"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN Fs5_rel.wav",
+      "bytes": 56284,
+      "sha256": "1e11e871ae8dd3901f1255f601ac56b5f7ad9cf6f19498d9e3a5f8541540386b"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN G4_rel.wav",
+      "bytes": 101136,
+      "sha256": "4260de8ba9228f9506e0bab42f5793c766b4e79fadd7379e2eeaa0b2dc2bd569"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN G5_rel.wav",
+      "bytes": 66396,
+      "sha256": "9b287783d8f9464d382a71ccfeafe02b3e4886f47140b306f3bc33ed42bc4031"
+    },
+    {
+      "path": "assets/audio/samples/hohner-hn/rel/Button Accordion HN G6_rel.wav",
+      "bytes": 48364,
+      "sha256": "2c355dfb6f6e3a0509f66bc83e2b0a51d64b91c502606aa8c9f05140fe5f25f1"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "bytes": 370,
+      "sha256": "ac46d11a93efe64f906abd67838ca6c9f24df46f8edb444b13b0a2484b49b0da"
+    },
+    {
+      "path": "assets/models/accordion/azul-caribe.glb",
+      "bytes": 7396636,
+      "sha256": "444557cc71311e68c601102459837ac1573fcbdb2783905f9e2177fc8f69929b"
+    },
+    {
+      "path": "assets/models/accordion/azul-caribe.webp",
+      "bytes": 19332,
+      "sha256": "38ca080237a714cc4cc63cab6e9bc691ef2a0acccebd166d0bfdc02eae3eaec3"
+    },
+    {
+      "path": "assets/models/accordion/curva-esmeralda.glb",
+      "bytes": 10112612,
+      "sha256": "81d942c94460c957efdbfbc2ff939122707aa3c3bd34c8dcd50d8659ef4542cc"
+    },
+    {
+      "path": "assets/models/accordion/curva-esmeralda.webp",
+      "bytes": 22504,
+      "sha256": "f8d868cc7243b79b733ff2f08039d971ac4875b2631dfd808f263482a0bb4e6f"
+    },
+    {
+      "path": "assets/models/accordion/curva-grafito.glb",
+      "bytes": 10077224,
+      "sha256": "d5d4e8742bec0b1ec6884ae99ce9066f73d729e667bbb93d8795d664d768e852"
+    },
+    {
+      "path": "assets/models/accordion/curva-grafito.webp",
+      "bytes": 21772,
+      "sha256": "9ade36d283d763676399a6c8baaf644b31ed1355f46909401db52b494b9384c1"
+    },
+    {
+      "path": "assets/models/accordion/curva-granate.glb",
+      "bytes": 10115004,
+      "sha256": "9982513a0ab69567f8428a26a0e3e2a80d4dd4800fa007f01d1d17fc9cb1d84c"
+    },
+    {
+      "path": "assets/models/accordion/curva-granate.webp",
+      "bytes": 23282,
+      "sha256": "52d96fbc2692def12d5362381ec5d5be0a7082460a52d02f60e9c8970d1d5e3c"
+    },
+    {
+      "path": "assets/models/accordion/curva-zafiro.glb",
+      "bytes": 10144180,
+      "sha256": "05f4d350b33278e7e0c28111c5c4ac2a7ce10d462998e50ce3c964b366f0558a"
+    },
+    {
+      "path": "assets/models/accordion/curva-zafiro.webp",
+      "bytes": 24032,
+      "sha256": "2f37b890d16212ee05cd7157d6bc872072ce13e3dd2f0a9b00eb29aea45f68df"
+    },
+    {
+      "path": "assets/models/accordion/marfil-artesanal.glb",
+      "bytes": 7035476,
+      "sha256": "94d71ce28c869799026891fc137b856e752eaa2e95daa1111e772e046e1e521d"
+    },
+    {
+      "path": "assets/models/accordion/marfil-artesanal.webp",
+      "bytes": 15106,
+      "sha256": "7712dd70fc03f4a8bcd09f4a2e45568d88ccc770840dcb8d312badca15dbf0eb"
+    },
+    {
+      "path": "assets/models/accordion/negro-escenario.glb",
+      "bytes": 7159144,
+      "sha256": "38c6c5316eec4df989e919ce260cc42e12c125c5a32dd7009e978c046e1c1a27"
+    },
+    {
+      "path": "assets/models/accordion/negro-escenario.webp",
+      "bytes": 15610,
+      "sha256": "7e2efdbbfdd26e5a3c4238aee768a304f4e795b36ac107b4bf8bc0db1449d213"
+    },
+    {
+      "path": "assets/models/accordion/vino-clasico.glb",
+      "bytes": 7698936,
+      "sha256": "a7e7f7d2f7114882d574bdfe886a01d9950685fd807782f895597db653763e8d"
+    },
+    {
+      "path": "assets/models/accordion/vino-clasico.webp",
+      "bytes": 17742,
+      "sha256": "c7b6ca3dc202a8bc81dbcbeb7c0581db3caa57f0e1b3a129ba13d23ec98b2ec3"
+    },
+    {
+      "path": "assets/models/LICENSE.md",
+      "bytes": 625,
+      "sha256": "f0e9ef7d740efaf140c8f8843adfc0312352a57e7913565c8c4bf2b7b45b63a7"
+    },
+    {
+      "path": "data/accordion-models.json",
+      "bytes": 3403,
+      "sha256": "01aebdec94bf0fa8513fed08045dfca73d463462f2e9dd32cceec626502a388f"
+    },
+    {
+      "path": "data/layouts/gcf.json",
+      "bytes": 7516,
+      "sha256": "6d55c3d1e1d7b9724da2a0779dae50376a1cc54a324c09e85ab73e9a58df89f6"
+    },
+    {
+      "path": "dist/assets/accordion-sampler-DgJ1pJm2.js",
+      "bytes": 10541,
+      "sha256": "861ac9e8e38072585a800b2b247ec8b0518919086ee31748a3d61a105cb9e12a"
+    },
+    {
+      "path": "dist/assets/AccordionScene-1G_Rq2OB.js",
+      "bytes": 24355,
+      "sha256": "8ded3f939f88ae53eb29d6faae827733571c6b3d6189238dc698ec0a43bdbdc8"
+    },
+    {
+      "path": "dist/assets/bellows-motion-C_hQVWg7.js",
+      "bytes": 50225,
+      "sha256": "e79bf7dcf0f3e7fb66c0753961c2614e8afbafb8cb8b407dba32a7a4a1c2232b"
+    },
+    {
+      "path": "dist/assets/Calibration-0_m3jgOc.js",
+      "bytes": 3093,
+      "sha256": "beb0cff698818d47ce69ba88958e437f16281efd81ad430c2345b2c4b7f60e1b"
+    },
+    {
+      "path": "dist/assets/GameScreen-CcQUizdT.js",
+      "bytes": 90097,
+      "sha256": "c8aefdb2cc525c3a8621c25df7b7bd70207b98c451789d00027e552189df865c"
+    },
+    {
+      "path": "dist/assets/GameScreen-eEhS7n2b.css",
+      "bytes": 8848,
+      "sha256": "268fa9aaac5a2a48b149700a9f385088a01516878210f072a1dde4f6930e921b"
+    },
+    {
+      "path": "dist/assets/index-DaHve8gt.css",
+      "bytes": 15370,
+      "sha256": "af1ebac60f3f009e5b3e18c8ef9838e27690b605867fb91f597898ded9c62781"
+    },
+    {
+      "path": "dist/assets/index-GVPlKB9Q.js",
+      "bytes": 209354,
+      "sha256": "2f9d103f1b6f5ecf9397e9084c8b7424b84478277587457b3c0d34fd95d49a73"
+    },
+    {
+      "path": "dist/assets/midi-input-CNRT2Dp_.js",
+      "bytes": 1264,
+      "sha256": "6e174bf8cbfb644dde597a7c2a0498804bf886179190ed953584be3eec36b3e9"
+    },
+    {
+      "path": "dist/assets/percussion-BEKBn9Lr.js",
+      "bytes": 1911,
+      "sha256": "ff7b183ee33abfeede242e929ac5e4276be568eefd22743142969d89bebca33c"
+    },
+    {
+      "path": "dist/assets/SettingsScreen-8k5acgNH.js",
+      "bytes": 4136,
+      "sha256": "464be2a70ce9c81942e7028c7a7275a1ffce184e706ce27c05ce9f727dc60c2a"
+    },
+    {
+      "path": "dist/assets/three-OSHjtHY6.js",
+      "bytes": 546372,
+      "sha256": "1d76aef8c5340f7f0dd179849b03a9e438e0df211f14a7bbe96c5850e8012c20"
+    },
+    {
+      "path": "dist/assets/Workspace-7cO2cPmh.css",
+      "bytes": 80226,
+      "sha256": "6d93b07ce5443564333d4f3ff7c9a8f032694742eb1ce5ccec0b04426d8d89ec"
+    },
+    {
+      "path": "dist/assets/Workspace-BQtpJsnt.js",
+      "bytes": 69576,
+      "sha256": "29710ab57af9ac9eda6c46d0179318a445c61f017d12156f394d483889565510"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN A4.wav",
+      "bytes": 298220,
+      "sha256": "0edff2b2982fc961f78518aa44752bef00f5203438352560962856da2af4573d"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN A5.wav",
+      "bytes": 373860,
+      "sha256": "e511fd7874f07a8a3adb838b412bad0e3cf8c84fac24ec8d6c618951537405d5"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN B3.wav",
+      "bytes": 250664,
+      "sha256": "f1c8f3071c6e499cdf10f608cb99ab73116470a10d18e7f949f056b979ed2259"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN B4.wav",
+      "bytes": 364376,
+      "sha256": "b6ce0da0d29db192167096566ee02bb1a939f653e72778605a82822595387bfb"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN B5.wav",
+      "bytes": 329140,
+      "sha256": "6d117abb3ceb94a70ae54ee495f1bb55fa2e49ef55f4d4c17aaeec2c0141c8b8"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN C5.wav",
+      "bytes": 344848,
+      "sha256": "039f801a5966dd61cfa55dac331ec85de18e03de5a26fe5e1bbb79f22bf19b33"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN C6.wav",
+      "bytes": 435552,
+      "sha256": "224818272e2ba5b3c94491c245f38322fc2e8a4186217fb5e2532d1c8850baba"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN D4.wav",
+      "bytes": 276660,
+      "sha256": "c07ac6ca92336504f4051080e6e5ebd1a525ab633ff6c060daa10e132062c6e3"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN D5.wav",
+      "bytes": 345104,
+      "sha256": "9a575c3376ee1603e4f2545c3e6a41abe5e982a56b51cef50284c088ba099d28"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN D6.wav",
+      "bytes": 237960,
+      "sha256": "483cf22868ebdf6c2244a6ed403b1c5afa31883f238fdb322f15695cb1cbd2e2"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN E5.wav",
+      "bytes": 335184,
+      "sha256": "8e745fe003a207f7416e06d3e2971b12c1b06dd34a9d91ae5ccd4d58a4d3256a"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN E6.wav",
+      "bytes": 372420,
+      "sha256": "5ba71b0f687f8c8d323cc18529bc18ad70213fd10a5cb2a9ae60ee528a707c78"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN Fs4.wav",
+      "bytes": 317516,
+      "sha256": "fdbd1890b970be25ea8971724002649a59bfe9824acc7a5d4511b0a9820e41bb"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN Fs5.wav",
+      "bytes": 378620,
+      "sha256": "2c3c5c8439eb5bfdee04ae8ec593862b6aead9fb02710f8b4c944a3b584f5518"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN G4.wav",
+      "bytes": 373208,
+      "sha256": "6bfe87e14ecb9d64464df83ddc82a582c75b5b2497ee32aa03cdc6aaebd856bc"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN G5.wav",
+      "bytes": 388916,
+      "sha256": "3c1e19cce6b7e1bb0835d710b890b9b27a037e437bc155c7f6e769e1f11442ce"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/Button Accordion HN G6.wav",
+      "bytes": 254268,
+      "sha256": "9b6afb29c491cf6f8db2398419b989ed33855a6089b9f9acc6d59109a3048d16"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/LICENSE.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/manifest.json",
+      "bytes": 19841,
+      "sha256": "bfa8ec179d1b309e9438e5f1d79dbca095eacb98b1f7fedf3fba8e30061aa4ba"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/PROVENANCE.json",
+      "bytes": 14083,
+      "sha256": "e2200ac36b8e3d0d3cc82eab19c32de1544055e36a4ed718b6af4ca02f61eb6d"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN A4_rel.wav",
+      "bytes": 56736,
+      "sha256": "f321510ab59be91b27bb17a61b0833853b153735df65d0065d8dfe873e16970b"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN A5_rel.wav",
+      "bytes": 54488,
+      "sha256": "98250a8337ca531cf0643277469c2906a0ffb00500003b28f50c8f037877a188"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN B3_rel.wav",
+      "bytes": 46752,
+      "sha256": "b68bff3ee7e924ebd7b77acc77942d298621199a24074d6aa130baaeabfe4efa"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN B4_rel.wav",
+      "bytes": 96156,
+      "sha256": "cd44da94121f2ed2a3b49a29bdf6d35a275468d9c511920a9aab85cdbec4bb4c"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN B5_rel.wav",
+      "bytes": 93324,
+      "sha256": "f700afe41ed536c1e0a12005fa0c1e804109f8cb8bd859e981b3bce2ee8b55fe"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN C5_rel.wav",
+      "bytes": 96040,
+      "sha256": "09bc042babf7a478e392db4b3a201808c5239561353e121fa8165bfb32b9f9c2"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN C6_rel.wav",
+      "bytes": 93324,
+      "sha256": "f700afe41ed536c1e0a12005fa0c1e804109f8cb8bd859e981b3bce2ee8b55fe"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN D4_rel.wav",
+      "bytes": 98748,
+      "sha256": "6ce90384a3ed58bffaf118a034e0b73a731fd6aaa04a5dc8787c72390e4868a0"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN D5_rel.wav",
+      "bytes": 76588,
+      "sha256": "23a5035b4356512e5503822a7118354dc16e5c90feaddcd74bd906cce81066ed"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN D6_rel.wav",
+      "bytes": 48444,
+      "sha256": "12ea5653b162bc9340f521b6445db815d8ef1b6ddb4d315997e9ac174e8e6515"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN E5_rel.wav",
+      "bytes": 66544,
+      "sha256": "8202827c471e668557c0fee1d45269724e14954a8cc78673fb7e16b3a85815d6"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN E6_rel.wav",
+      "bytes": 55232,
+      "sha256": "39f8ffeb214c002b69add4716458dcca97809bbe23d83158781f2394bb59a573"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN Fs4_rel.wav",
+      "bytes": 69716,
+      "sha256": "1df98f0052539dcd33fb6fe3b9f3c95c5dca81ae818ceea66bb7e62e9f608bcf"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN Fs5_rel.wav",
+      "bytes": 56284,
+      "sha256": "1e11e871ae8dd3901f1255f601ac56b5f7ad9cf6f19498d9e3a5f8541540386b"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN G4_rel.wav",
+      "bytes": 101136,
+      "sha256": "4260de8ba9228f9506e0bab42f5793c766b4e79fadd7379e2eeaa0b2dc2bd569"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN G5_rel.wav",
+      "bytes": 66396,
+      "sha256": "9b287783d8f9464d382a71ccfeafe02b3e4886f47140b306f3bc33ed42bc4031"
+    },
+    {
+      "path": "dist/audio/samples/hohner-hn/rel/Button Accordion HN G6_rel.wav",
+      "bytes": 48364,
+      "sha256": "2c355dfb6f6e3a0509f66bc83e2b0a51d64b91c502606aa8c9f05140fe5f25f1"
+    },
+    {
+      "path": "dist/favicon.svg",
+      "bytes": 370,
+      "sha256": "ac46d11a93efe64f906abd67838ca6c9f24df46f8edb444b13b0a2484b49b0da"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 1000,
+      "sha256": "a5d66f70d48e1a7455f7b564ca9783c41cb9720be36d30d9349dad47ee3a5e6e"
+    },
+    {
+      "path": "dist/models/accordion/azul-caribe.glb",
+      "bytes": 7396636,
+      "sha256": "444557cc71311e68c601102459837ac1573fcbdb2783905f9e2177fc8f69929b"
+    },
+    {
+      "path": "dist/models/accordion/azul-caribe.webp",
+      "bytes": 19332,
+      "sha256": "38ca080237a714cc4cc63cab6e9bc691ef2a0acccebd166d0bfdc02eae3eaec3"
+    },
+    {
+      "path": "dist/models/accordion/curva-esmeralda.glb",
+      "bytes": 10112612,
+      "sha256": "81d942c94460c957efdbfbc2ff939122707aa3c3bd34c8dcd50d8659ef4542cc"
+    },
+    {
+      "path": "dist/models/accordion/curva-esmeralda.webp",
+      "bytes": 22504,
+      "sha256": "f8d868cc7243b79b733ff2f08039d971ac4875b2631dfd808f263482a0bb4e6f"
+    },
+    {
+      "path": "dist/models/accordion/curva-grafito.glb",
+      "bytes": 10077224,
+      "sha256": "d5d4e8742bec0b1ec6884ae99ce9066f73d729e667bbb93d8795d664d768e852"
+    },
+    {
+      "path": "dist/models/accordion/curva-grafito.webp",
+      "bytes": 21772,
+      "sha256": "9ade36d283d763676399a6c8baaf644b31ed1355f46909401db52b494b9384c1"
+    },
+    {
+      "path": "dist/models/accordion/curva-granate.glb",
+      "bytes": 10115004,
+      "sha256": "9982513a0ab69567f8428a26a0e3e2a80d4dd4800fa007f01d1d17fc9cb1d84c"
+    },
+    {
+      "path": "dist/models/accordion/curva-granate.webp",
+      "bytes": 23282,
+      "sha256": "52d96fbc2692def12d5362381ec5d5be0a7082460a52d02f60e9c8970d1d5e3c"
+    },
+    {
+      "path": "dist/models/accordion/curva-zafiro.glb",
+      "bytes": 10144180,
+      "sha256": "05f4d350b33278e7e0c28111c5c4ac2a7ce10d462998e50ce3c964b366f0558a"
+    },
+    {
+      "path": "dist/models/accordion/curva-zafiro.webp",
+      "bytes": 24032,
+      "sha256": "2f37b890d16212ee05cd7157d6bc872072ce13e3dd2f0a9b00eb29aea45f68df"
+    },
+    {
+      "path": "dist/models/accordion/marfil-artesanal.glb",
+      "bytes": 7035476,
+      "sha256": "94d71ce28c869799026891fc137b856e752eaa2e95daa1111e772e046e1e521d"
+    },
+    {
+      "path": "dist/models/accordion/marfil-artesanal.webp",
+      "bytes": 15106,
+      "sha256": "7712dd70fc03f4a8bcd09f4a2e45568d88ccc770840dcb8d312badca15dbf0eb"
+    },
+    {
+      "path": "dist/models/accordion/negro-escenario.glb",
+      "bytes": 7159144,
+      "sha256": "38c6c5316eec4df989e919ce260cc42e12c125c5a32dd7009e978c046e1c1a27"
+    },
+    {
+      "path": "dist/models/accordion/negro-escenario.webp",
+      "bytes": 15610,
+      "sha256": "7e2efdbbfdd26e5a3c4238aee768a304f4e795b36ac107b4bf8bc0db1449d213"
+    },
+    {
+      "path": "dist/models/accordion/vino-clasico.glb",
+      "bytes": 7698936,
+      "sha256": "a7e7f7d2f7114882d574bdfe886a01d9950685fd807782f895597db653763e8d"
+    },
+    {
+      "path": "dist/models/accordion/vino-clasico.webp",
+      "bytes": 17742,
+      "sha256": "c7b6ca3dc202a8bc81dbcbeb7c0581db3caa57f0e1b3a129ba13d23ec98b2ec3"
+    },
+    {
+      "path": "dist/models/LICENSE.md",
+      "bytes": 625,
+      "sha256": "f0e9ef7d740efaf140c8f8843adfc0312352a57e7913565c8c4bf2b7b45b63a7"
+    },
+    {
+      "path": "docs/ANALISIS.md",
+      "bytes": 23815,
+      "sha256": "3a64a3827ce2e976b3e7fa65bad73b5dffe2989bb199c85dd6a615b022bcb65c"
+    },
+    {
+      "path": "docs/frontend-design-prompt.md",
+      "bytes": 3437,
+      "sha256": "1dfd285282cfcca2f2cb403bcc1c0fc2e7273e178b021a9a96005851b465851a"
+    },
+    {
+      "path": "docs/history/implementation-verification.md",
+      "bytes": 11579,
+      "sha256": "12b2d281a48938a1748b79f478dc363ce6c606d9a7e684540df22c41f33fe737"
+    },
+    {
+      "path": "docs/history/las-locuras-mias-status.md",
+      "bytes": 1626,
+      "sha256": "37697d4ca7ba8f56e54e950fc26a0c7adda9cd906d67d9611163f0ea2a1e937b"
+    },
+    {
+      "path": "docs/history/notas-web.md",
+      "bytes": 2684,
+      "sha256": "ca0420d9744d07190b93c79d2de24274910ac9e2c04a314d8f9ea46185ddd502"
+    },
+    {
+      "path": "docs/history/prompt-audio-canciones.md",
+      "bytes": 25122,
+      "sha256": "dd1583c3d9fd62c38b91f11254293122ddeabc7ca446f7af51a4b73bc45d3494"
+    },
+    {
+      "path": "docs/history/prompt-modelo-3d.md",
+      "bytes": 7715,
+      "sha256": "ced265bf9142fdd8bc83b65f074cae6ffd857fa57402c36d6c49f04b9c4bfbc1"
+    },
+    {
+      "path": "docs/history/qa/accordion-selector.jpg",
+      "bytes": 76765,
+      "sha256": "041af1a2654fe9347f1d6de19316eff6bbdf9d333f218cdb7651f19d9c4bc1bd"
+    },
+    {
+      "path": "docs/history/qa/audio/acordeon-natural-vallenato.wav",
+      "bytes": 2112044,
+      "sha256": "adc1004dcf82ec5d926b36e616dd9ad904dd407de1cd2c86069d8a098fe944dd"
+    },
+    {
+      "path": "docs/history/qa/audio/cerrado-abierto.wav",
+      "bytes": 288044,
+      "sha256": "152785476921e68b5cc0b8ad138b60d1a70f4ccc4c38c25759a9461171e2d28a"
+    },
+    {
+      "path": "docs/history/qa/audio/vallenato-anterior-agudo.wav",
+      "bytes": 2496044,
+      "sha256": "781da80a1de689a5b339a5251688dbab15414dd388936e0d27598d18a87dc35a"
+    },
+    {
+      "path": "docs/history/qa/high-register-result.json",
+      "bytes": 555,
+      "sha256": "08f95f2f338ccfb886eae397996ac30726b302bcba2baf5c7a2e44a282d223f2"
+    },
+    {
+      "path": "docs/history/qa/high-register.html",
+      "bytes": 3684,
+      "sha256": "74d17442535f7b410e1e4fd56f48a3fe0d11b7bfce22ffc62268d32464677b2a"
+    },
+    {
+      "path": "docs/history/qa/immersive-final.jpg",
+      "bytes": 98950,
+      "sha256": "577c0932c96e370f41f0429001ec997d983189ddc87164b8a9854274dfeda2e2"
+    },
+    {
+      "path": "docs/history/qa/immersive-practice-result.json",
+      "bytes": 5971,
+      "sha256": "676d23491bb989cdf1dc5bb0c240fd2c084cc8e9af7543c36933c60fc5c0d478"
+    },
+    {
+      "path": "docs/history/qa/immersive-practice.html",
+      "bytes": 5586,
+      "sha256": "3a9cb88bc9d1ceb68139d38c34587eaa3912ececb74968a693ba2cb2b8bb4ae1"
+    },
+    {
+      "path": "docs/history/qa/live-ui-audio-result.json",
+      "bytes": 690,
+      "sha256": "8d7e145bd116d3a6084cba3f44eaf79e1a861462a2ff873602399bc2ac120ea6"
+    },
+    {
+      "path": "docs/history/qa/live-ui-audio-revision-result.json",
+      "bytes": 6,
+      "sha256": "b0577a70927b97f9430ca0d9097906c2ad13409be664a7d77948d4d89edb8228"
+    },
+    {
+      "path": "docs/history/qa/live-ui-audio.html",
+      "bytes": 2470,
+      "sha256": "7d70d824f3d411c76e6e411c18318c73d8931caf71543c4c229f3d3ab4e32f91"
+    },
+    {
+      "path": "docs/history/qa/local-media-clock-result.json",
+      "bytes": 1116,
+      "sha256": "a263e3f505206c4d3dea824b33f77fac6a8ad35fb5e801080ff8374b21ded257"
+    },
+    {
+      "path": "docs/history/qa/local-media-clock.html",
+      "bytes": 6467,
+      "sha256": "dad0e7a97f56e9bb7d49d4fb7c8f68880c3b671037216d2dc6f971ba8ea6f6ec"
+    },
+    {
+      "path": "docs/history/qa/loop-quality.json",
+      "bytes": 4461,
+      "sha256": "d3e396541677aa3802c79f9c7ae0f6f527e88fd04a58c63308f0d25c7efba5b4"
+    },
+    {
+      "path": "docs/history/qa/mobile-practice.html",
+      "bytes": 1518,
+      "sha256": "521c2e9d29a16510d2d03187b8e09b96ad95842841098c4e5394e2274138a717"
+    },
+    {
+      "path": "docs/history/qa/musical-transport-result.json",
+      "bytes": 1713,
+      "sha256": "d67a61901859c7e0a1ca9800a2c1c55ee953a32944c083343d1e0c23ffc4bfc9"
+    },
+    {
+      "path": "docs/history/qa/native-space-result.json",
+      "bytes": 356,
+      "sha256": "87babf7a1ddccb6e4e1510d85ede5313312196ad5e143d071ec07a5d03a47c16"
+    },
+    {
+      "path": "docs/history/qa/phrase-guide-revision.jpg",
+      "bytes": 81959,
+      "sha256": "5541be861185c0657142f697857fb2e87e53a1b31c4dc8cd323d06300af4dd47"
+    },
+    {
+      "path": "docs/history/qa/practice-browser-result.json",
+      "bytes": 5993,
+      "sha256": "3c568a3a8a6360d0c33f082ccbe952607f570c06ebe61eee53a863bec4c02251"
+    },
+    {
+      "path": "docs/history/qa/practice-large.jpg",
+      "bytes": 94063,
+      "sha256": "1137a9afc6ab698fee486af1eff28846e86f80c916bd9302df65e5978f76fd9e"
+    },
+    {
+      "path": "docs/history/qa/practice-mobile-result.json",
+      "bytes": 329,
+      "sha256": "7470bbf71600835dafce77ae73072c49919e7c1f29bc3e15dfc75ca8ce1d0ae1"
+    },
+    {
+      "path": "docs/history/qa/practice-mobile.jpg",
+      "bytes": 73864,
+      "sha256": "8391a5dee52bdb6e3b707af77b76fa5b6c89da97b2a65c361447d02be11140b6"
+    },
+    {
+      "path": "docs/history/qa/practice-runner.html",
+      "bytes": 8991,
+      "sha256": "5e48839bb456e1f75ad61b0ed01df6356baf58b3fbf6ed65189e34392b325289"
+    },
+    {
+      "path": "docs/history/qa/practice-unit.json",
+      "bytes": 1372,
+      "sha256": "bd717676c01ca5eb7777f8a071e374d4fc6c4af95c534048fe71bdc3b3ae83ba"
+    },
+    {
+      "path": "docs/history/qa/practice-verification.md",
+      "bytes": 3604,
+      "sha256": "4dddf27d9cb40c4fad1c43a519b00c0a200ee01ebba6109becf183f040202c1b"
+    },
+    {
+      "path": "docs/history/qa/recorded-audio-result.json",
+      "bytes": 2746,
+      "sha256": "d91fb19fe9e949b62a44f3aa882af31f05415f1a96d64a4d96e5a0b3194fc197"
+    },
+    {
+      "path": "docs/history/qa/recorded-audio.html",
+      "bytes": 3349,
+      "sha256": "acce4f299d3838c734dd0b7a888835e327f79746d8f98a3faf6cd07bb5678c97"
+    },
+    {
+      "path": "docs/history/qa/recordings-validation.json",
+      "bytes": 6500,
+      "sha256": "f6336ad466e708b9fdcbd496a9c5809bf143d2dfe15ff252ad18f55b5ca24c41"
+    },
+    {
+      "path": "docs/history/qa/reed-input-result.json",
+      "bytes": 10,
+      "sha256": "3b3605a2629a9c2f133a7ddaeecb978a6b3bd8e455dba34acb4ed78e4af9a6c3"
+    },
+    {
+      "path": "docs/history/qa/reed-input.html",
+      "bytes": 2743,
+      "sha256": "f6b7a882d38ec4c7d2cb1f9a42b25fa3fde5c2cc25cff1aac369bac007129280"
+    },
+    {
+      "path": "docs/history/qa/reed-realism-result.json",
+      "bytes": 4061,
+      "sha256": "d8bad56b54cd92e3d7a5e94d33b60dccf1091568d54946e65121161b61deec65"
+    },
+    {
+      "path": "docs/history/qa/reed-realism.html",
+      "bytes": 5561,
+      "sha256": "1dd5dbd6bfd17abfdbf1b6d622a70c11bcbb8a350a2dd09a1944c2345af98583"
+    },
+    {
+      "path": "docs/history/qa/responsive-workspace-result.json",
+      "bytes": 389,
+      "sha256": "03f15e361042aeaa6c556b648ead86dfbac90e099a3d12ceb98eb8e443e1002f"
+    },
+    {
+      "path": "docs/history/qa/responsive-workspace.html",
+      "bytes": 2167,
+      "sha256": "ae914a34bbc574744fb1c3a781c52c26f7e24b0491f5710815ba653ff7c2a2c9"
+    },
+    {
+      "path": "docs/history/qa/sound-and-guides-result.json",
+      "bytes": 2442,
+      "sha256": "610e7a38703b9f096c4f6b993c91d12d97a2a54b8c7d1e13c220a5549690949e"
+    },
+    {
+      "path": "docs/history/qa/sound-and-guides.html",
+      "bytes": 5733,
+      "sha256": "bf15087053bb63177e03648bc16fb67e9357f9a8fa2dafa8165b677a161b6e9a"
+    },
+    {
+      "path": "docs/history/qa/studio-redesign.png",
+      "bytes": 42709,
+      "sha256": "dffe0c54f7ccb246c1dfd1a073fbaa1eb9c8a6008efb138c5b874611a03bb68c"
+    },
+    {
+      "path": "docs/history/qa/treble-check-result.json",
+      "bytes": 534,
+      "sha256": "173e04b24c0bab0c86cb81facd4a36c2138d37c2cfe5c9eaa3b02dd4a0a51b6e"
+    },
+    {
+      "path": "docs/history/qa/treble-check.html",
+      "bytes": 1587,
+      "sha256": "119a2907c8dc9ca862be1406bcb8215f40ce245897dfb2bd240336692c1b6541"
+    },
+    {
+      "path": "docs/history/qa/tuning-audit.json",
+      "bytes": 1097152,
+      "sha256": "b296aa578e8e174d9390a7551be155a8249eaedc7b54b1bf67c46c209f538c10"
+    },
+    {
+      "path": "docs/history/qa/tuning-matrix-result.json",
+      "bytes": 31284,
+      "sha256": "7831509b8da0500c6e8e3f0894bb462ea8b80040106a5ec8753e67f65a61be98"
+    },
+    {
+      "path": "docs/history/qa/tuning-matrix.html",
+      "bytes": 6714,
+      "sha256": "d55b73d5ad39c964379dc5262d6b0f5ea7d8bdbcf267d457ae75baec7b445d93"
+    },
+    {
+      "path": "docs/history/qa/vallenato-voices.jpg",
+      "bytes": 81091,
+      "sha256": "9b43b3f6d556fc5dbe39f87cdc775541a729cd7e8685bae44906786c70ba2e32"
+    },
+    {
+      "path": "docs/history/qa/workspace-final-fullscreen.jpg",
+      "bytes": 92450,
+      "sha256": "c777648738935ca32cf53181af9c7c76e2c2d97a292b4f0b961f3de26be2c39f"
+    },
+    {
+      "path": "docs/history/qa/workspace-flow-result.json",
+      "bytes": 9240,
+      "sha256": "27afd926095b835a6157bcbf99d7e96f726f0adb332b59132fe6377deb437e04"
+    },
+    {
+      "path": "docs/history/qa/workspace-flow.html",
+      "bytes": 9624,
+      "sha256": "bd11832c290e65dd304cc2cfb93af090f088bbb15d90452da690b18bfd3b40c3"
+    },
+    {
+      "path": "docs/images/error-boton.jpg",
+      "bytes": 88192,
+      "sha256": "3522269fa37f16f673ccfa5762207c4a9cb74ecd2b03cfa77b419a9009837b35"
+    },
+    {
+      "path": "docs/images/estudio-libre.jpg",
+      "bytes": 96175,
+      "sha256": "d505d45a78f36808016334544d059ca09cb3c5db4ccee0afccce665bbdf028cb"
+    },
+    {
+      "path": "docs/images/menu.jpg",
+      "bytes": 69589,
+      "sha256": "49daa068a7d7f17b451133941a7518d849c306316c6c7f807b333f4ada2bdc55"
+    },
+    {
+      "path": "docs/images/parranda.jpg",
+      "bytes": 86569,
+      "sha256": "b442826fdccf24ff8a1cc2d6b42ec6b161fbf54876d21f8ce5a45477f47b6830"
+    },
+    {
+      "path": "docs/images/partida.jpg",
+      "bytes": 84533,
+      "sha256": "d47a2047277766efb77c0a001783d9f2df498162ecf3aae570bb52579f3df658"
+    },
+    {
+      "path": "docs/images/resultados.jpg",
+      "bytes": 72296,
+      "sha256": "1ffcaf5f1a38371f7087e845eec931403c71ac690e246f690f3499cce69ee64a"
+    },
+    {
+      "path": "docs/PLAN.md",
+      "bytes": 34027,
+      "sha256": "987a9e49542a83804894a7df77a85a129ec55de9c60b576ac22687d376426c43"
+    },
+    {
+      "path": "docs/RESTABLECER-EQUIPO.md",
+      "bytes": 2995,
+      "sha256": "0e5596dc0b639665054691119f864a2a855076ff0522a304509d71823f0db70e"
+    },
+    {
+      "path": "index.html",
+      "bytes": 902,
+      "sha256": "32c37af0a6c1bd5399725a3a0e0ec6b17335a73e3da89290a1d04e836431e316"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1409,
+      "sha256": "d2191bbcffb482cf340afe7c008670d4b68923b6c75cf85d9526a57a60798d38"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 84291,
+      "sha256": "df6057faca8a5512ed3e4a0425e14db170a3b9a596f332bd595b795c518113dc"
+    },
+    {
+      "path": "package.json",
+      "bytes": 855,
+      "sha256": "af384e83ae90e604f10ac9d535be1587a08389ccbe998413ea051b7468ce789a"
+    },
+    {
+      "path": "playwright.config.ts",
+      "bytes": 745,
+      "sha256": "f23f1d301f4e288c6002d8e7919c5933d03f836007aae5bc4526b60afbc2864e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9279,
+      "sha256": "88e081d5ae7f13fe3e44fd260bcddb1507fb5ef3359153425dc5a5c9ab661ee2"
+    },
+    {
+      "path": "songs/_silvestre-niegame-tres-veces/chart.json",
+      "bytes": 15084,
+      "sha256": "ae900c93ccabbacd30088fba582da609de516678db3d75f4ebc9a134739ad549"
+    },
+    {
+      "path": "songs/_silvestre-niegame-tres-veces/niegame-tres-veces.mid",
+      "bytes": 1628,
+      "sha256": "dd7432df3fb0c06460624006d950ac01e139dc64a36c3171e1baf5f08b8306bb"
+    },
+    {
+      "path": "songs/paseo-de-prueba/chart.json",
+      "bytes": 5218,
+      "sha256": "15ed1628158b7389bcec7772afc3bdc75bb9d37b0e4679d36ef9b8a38525088c"
+    },
+    {
+      "path": "songs/paseo-de-prueba/source.json",
+      "bytes": 551,
+      "sha256": "09b6a80f3812fac99a9593ed82ba55ce7c247bc5032cd775567c27ba9aa2d3bd"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 4539,
+      "sha256": "83a0a098d2bcc3cd712d9a8175052bf1f8c47d6bc7c5e0988abf6cafadb66315"
+    },
+    {
+      "path": "src/audio/accompaniment.ts",
+      "bytes": 4830,
+      "sha256": "30f1ca184c7671b09c47dd5f270eb80b078fa16704642e68595f90238b5ef73e"
+    },
+    {
+      "path": "src/audio/accordion-sampler.d.ts",
+      "bytes": 2052,
+      "sha256": "99a23634da64ab8347efc2c97a42f486d57597a8cf313e3e4fd70faaee3b7aec"
+    },
+    {
+      "path": "src/audio/accordion-sampler.js",
+      "bytes": 18818,
+      "sha256": "fd24362f158935b1d6ecd2e38914204fdf4bbe9e94265d429a3953bf7f7dfff1"
+    },
+    {
+      "path": "src/audio/backing-track.ts",
+      "bytes": 3582,
+      "sha256": "03d1b8b73ba65dacd23dcc7dc0ad9dbaa748110ef3f28bd80c7e39ec4446ad29"
+    },
+    {
+      "path": "src/audio/percussion.ts",
+      "bytes": 3873,
+      "sha256": "d70610ec95c80de6e5efba258d1e0c9b5b33c0b84b7fdd79747c30db09388cf3"
+    },
+    {
+      "path": "src/audio/sfx.ts",
+      "bytes": 4254,
+      "sha256": "e5b39103f3699a0c3af145e19115a01097a8c2ca2b1c2373e1c4e4d5c333fdcd"
+    },
+    {
+      "path": "src/core/game-clock.ts",
+      "bytes": 2008,
+      "sha256": "6414ec62a7ff2e62c2839efde8d990d834d890004bb6b0591121923824ec1c78"
+    },
+    {
+      "path": "src/core/game-session.ts",
+      "bytes": 27048,
+      "sha256": "07d5e81e152fed7ae7aca08b0fa08ec038be73aa330beef9ed3875f780435632"
+    },
+    {
+      "path": "src/core/musical-transport.ts",
+      "bytes": 5677,
+      "sha256": "26ca7287989f25f9235f3946c56ede33cb4b658d2a19b9a98a4d90aab0e87b17"
+    },
+    {
+      "path": "src/core/records.ts",
+      "bytes": 1280,
+      "sha256": "66b9632e6bfd95d14638c1d2847728e340329a486cd8f3fc0b71608da0b32023"
+    },
+    {
+      "path": "src/core/settings.ts",
+      "bytes": 1466,
+      "sha256": "2ef3037c23b5d0f876c0cbc00056d1d097d83976d914734d56d67415453f34ab"
+    },
+    {
+      "path": "src/core/storage.ts",
+      "bytes": 515,
+      "sha256": "9e0a1da408de53f578dacc75d00f447606520b6e795dc8b681c53c8340060e56"
+    },
+    {
+      "path": "src/gameplay/chart.ts",
+      "bytes": 5644,
+      "sha256": "667db3d02c9d00d4126714cbad183f16d9f299d408d6bc04eeef151ce20dcc6d"
+    },
+    {
+      "path": "src/gameplay/difficulty.ts",
+      "bytes": 2199,
+      "sha256": "b10bdcd5d73b64f5cc21854655d1a0c95cf8a10dcad9b0e10c526a9dd07f0067"
+    },
+    {
+      "path": "src/gameplay/fingering.ts",
+      "bytes": 4809,
+      "sha256": "ac3a2dfb7d501addf5c73c8661654ea4ec885d17eaeb09a180495b2576d1b151"
+    },
+    {
+      "path": "src/gameplay/harmony.ts",
+      "bytes": 2780,
+      "sha256": "015f1ccfc240792160c474ceebea7eded2a06b65b51f48db46241ea9df7f1753"
+    },
+    {
+      "path": "src/gameplay/highway/highway.ts",
+      "bytes": 17612,
+      "sha256": "b3cd03da259fd49c137e8fc1d3578c51bb0f58730039e72530fcb5f9bc3c1dee"
+    },
+    {
+      "path": "src/gameplay/judge.ts",
+      "bytes": 9732,
+      "sha256": "d5c5cb18d7b67f79a628d2d4f4a50769be900c4ff52be5dd6f13690795366889"
+    },
+    {
+      "path": "src/gameplay/midi-import.ts",
+      "bytes": 5580,
+      "sha256": "bc89b97df7bcf8e1279d7361c5027c9fa4d9c23c75308a73947e01ca38dfd0f6"
+    },
+    {
+      "path": "src/gameplay/phrase-guide.ts",
+      "bytes": 462,
+      "sha256": "1350489be3c71d91f53459aeb34c20310666b4c776d160d82230727eda3a6daa"
+    },
+    {
+      "path": "src/gameplay/private-songs.ts",
+      "bytes": 2830,
+      "sha256": "19a08c870a03bd3db15bac5cc4be3e4bb40004239c3fa9d95ace53d2f4d64359"
+    },
+    {
+      "path": "src/gameplay/scoring.ts",
+      "bytes": 7951,
+      "sha256": "66bca57eaee94a01d9c7cdfc86cc91c7993b9ee31e6d143eb62477b2825ba43d"
+    },
+    {
+      "path": "src/gameplay/song-catalog.ts",
+      "bytes": 2987,
+      "sha256": "f02a817217c81811063a1cd786f1cf1f889142184b2f5d6db0ac2116f1792cf8"
+    },
+    {
+      "path": "src/gameplay/song-library.ts",
+      "bytes": 9874,
+      "sha256": "86dc38c977c22ffa257d2a38b94a9f5cd8cc02c2ee790ee1153fbe66ea5a749b"
+    },
+    {
+      "path": "src/hud/hud-types.ts",
+      "bytes": 1416,
+      "sha256": "d527c22f130c231f6689477aedfa2d2490c5d830331ec4db2603ca1d569a8001"
+    },
+    {
+      "path": "src/hud/hud.css",
+      "bytes": 11832,
+      "sha256": "1dbbfa0b942d90168688f3140eb0a4302df2db1278b66982ac0a2cb046114c9b"
+    },
+    {
+      "path": "src/hud/Hud.ts",
+      "bytes": 15450,
+      "sha256": "61eed333a9a2c75b95cc1af75051a52af4b165c977117045641b5c207c43cc47"
+    },
+    {
+      "path": "src/input/bindings.ts",
+      "bytes": 2665,
+      "sha256": "9418cb0631d04285a1e59731c63975c7d8a9e33f0144d58061883d65e7e2c6c8"
+    },
+    {
+      "path": "src/input/game-input.ts",
+      "bytes": 2745,
+      "sha256": "74932b63222b177be449e224d21feef80d8659d6d2367b62ac8a321954541503"
+    },
+    {
+      "path": "src/input/keyboard-map.ts",
+      "bytes": 1716,
+      "sha256": "25108a02935436cccf078551ec579daf0a00966a5cfaca430c122e2f637002ed"
+    },
+    {
+      "path": "src/input/midi-input.ts",
+      "bytes": 2506,
+      "sha256": "bc6d740544d8ce2132887ed93d395840a2c804dd96ddd55525d611cdb4567a5b"
+    },
+    {
+      "path": "src/instrument/accordion-catalog.ts",
+      "bytes": 5775,
+      "sha256": "57079f1dd8e86fc27ed748cf77442d30d62288d883b17f337678c91184e995ae"
+    },
+    {
+      "path": "src/instrument/accordion-rig.ts",
+      "bytes": 5656,
+      "sha256": "7cd471ea8260187f16f9625cec9606004caff58d8f34b7d1fe15a9e3c50ebb98"
+    },
+    {
+      "path": "src/instrument/AccordionScene.tsx",
+      "bytes": 10276,
+      "sha256": "3c5195b5e12138f224c66ff4ab9f3e9ea05cd314ce4d7258af42f609e14f1817"
+    },
+    {
+      "path": "src/instrument/bellows-motion.ts",
+      "bytes": 2164,
+      "sha256": "e1c468b9a7ed2e478deb80b07a92fe4a2bc1f3653eccb8279a1cb04609c58d30"
+    },
+    {
+      "path": "src/instrument/button-interaction.d.ts",
+      "bytes": 395,
+      "sha256": "ab878bd190a768c7f9e4a7ed95bf634601ecaa37123adf358605852636546198"
+    },
+    {
+      "path": "src/instrument/button-interaction.js",
+      "bytes": 2176,
+      "sha256": "5e8d1e989b5827a636fb64e63e32cbee1d65a12a2c2132b5d1ba18041b23ad31"
+    },
+    {
+      "path": "src/instrument/layout.ts",
+      "bytes": 1801,
+      "sha256": "c9561826705ec93353a030792979f5df6bec5e0a9bc37aa8b33f8bd75b879bc0"
+    },
+    {
+      "path": "src/instrument/useInstrument.ts",
+      "bytes": 8115,
+      "sha256": "a8948a415bb08769c83847404d28822d045ab16629d84f30fb3bec75a0145386"
+    },
+    {
+      "path": "src/main.tsx",
+      "bytes": 215,
+      "sha256": "2e2240a86194df0abbeed145dd76fde14f4cc501fca056e4c8aaead8dc4fc3bc"
+    },
+    {
+      "path": "src/render/game-renderer.ts",
+      "bytes": 5303,
+      "sha256": "a8d5b7d0ba5530137eef6e00a247759a855620b24d1740c793bf43b0b1dfe7d3"
+    },
+    {
+      "path": "src/render/post-processing.ts",
+      "bytes": 1143,
+      "sha256": "257018d78c44c0e6fececd7488d7f9c647c264332771f330c9b9385f7d4a4043"
+    },
+    {
+      "path": "src/render/sparks.ts",
+      "bytes": 3361,
+      "sha256": "40d3031c61e2ebe8318efcca617899d363d2c9663403320ee23673f9c7edcc9a"
+    },
+    {
+      "path": "src/stage/characters.ts",
+      "bytes": 7976,
+      "sha256": "aa7e12c93fa529a70dd34f651aeae83cf9d4ec0c0cc2d125e6e42b0985ca6f72"
+    },
+    {
+      "path": "src/stage/stage.ts",
+      "bytes": 14208,
+      "sha256": "3b21b62f0e0bbabdb80d64ac2d58238a8265ac3991957a7df76d0d0bbffe0d0f"
+    },
+    {
+      "path": "src/ui/Calibration.tsx",
+      "bytes": 5530,
+      "sha256": "cf78f2042e3c431bbd0515f604dda4976bde4002b7b1337b64900bcbf88b9adc"
+    },
+    {
+      "path": "src/ui/GameScreen.tsx",
+      "bytes": 3995,
+      "sha256": "ef078968525e5755a509265936f0f076022d5fe3a5596f3a381ecfa750a25b22"
+    },
+    {
+      "path": "src/ui/MainMenu.tsx",
+      "bytes": 6569,
+      "sha256": "ed4fce9cfd86b1ce5032ff8bef44ecb9daa449d55f30c9132201b0371bb1b324"
+    },
+    {
+      "path": "src/ui/PrivateSongs.tsx",
+      "bytes": 9406,
+      "sha256": "166e55c03772e4a4eb9de9472f9d6d5322bdb52699b035f6f3451e4deb19406a"
+    },
+    {
+      "path": "src/ui/Results.tsx",
+      "bytes": 5100,
+      "sha256": "b821116e52a92f81ad6da2369e8dc52138df190477330d8cf9286800ccf4a198"
+    },
+    {
+      "path": "src/ui/SettingsScreen.tsx",
+      "bytes": 6543,
+      "sha256": "5f1ec0060006cd68d97837b2916b522274107ad8db476644fc8bad34a2f5bd31"
+    },
+    {
+      "path": "src/ui/Sombrero.tsx",
+      "bytes": 1473,
+      "sha256": "7b4e514ce44d6438434083d970a1014d5a60eee3cf68b1b8bbc2c48b340c2364"
+    },
+    {
+      "path": "src/ui/SongSelect.tsx",
+      "bytes": 9612,
+      "sha256": "41bcd21d2b11038725ee86f3611639ece950966547db55f8d6d00aac925d365c"
+    },
+    {
+      "path": "src/ui/studio/base.css",
+      "bytes": 45479,
+      "sha256": "512a885a719f9c8b53be538dbb24882f61b2b1757ed8e5b84d5e6610f8126915"
+    },
+    {
+      "path": "src/ui/studio/OriginalTrack.tsx",
+      "bytes": 4091,
+      "sha256": "8d0f330cf67242a2758bffeb1d86341c4bd37b380f3c72bb993f8c4509464c39"
+    },
+    {
+      "path": "src/ui/studio/performance.css",
+      "bytes": 8183,
+      "sha256": "d53bee752168f91e495ee34dd44d5d6b407b63f587a8cac2856803cf066b1be5"
+    },
+    {
+      "path": "src/ui/studio/practice.css",
+      "bytes": 29225,
+      "sha256": "45a40760e0f87c8d2085f554ddd593fe5e514e0e2e1c66d2ac4f91864922f5b2"
+    },
+    {
+      "path": "src/ui/studio/ReferenceGuide.tsx",
+      "bytes": 3552,
+      "sha256": "5a3b0b8384847d451f04ba90d996cf69e4f3f6f63aa651aba5d17cfacf7c8103"
+    },
+    {
+      "path": "src/ui/studio/songs-workspace.css",
+      "bytes": 17631,
+      "sha256": "5480b6371dab0884ae9c0cbe890b2c44515f64deab1c289f7d66bab7edfdbc99"
+    },
+    {
+      "path": "src/ui/studio/SongWorkspace.tsx",
+      "bytes": 40495,
+      "sha256": "469a9a96837da96d3b2c7e7ac16e8de18e0e12f12143bb8c39aa34e0e9430871"
+    },
+    {
+      "path": "src/ui/studio/studio-songs.ts",
+      "bytes": 2816,
+      "sha256": "72ce6aa7bd10f73148f214bc306157bb0cb0b60c3819c0237506387e7b398d51"
+    },
+    {
+      "path": "src/ui/studio/Workspace.tsx",
+      "bytes": 38094,
+      "sha256": "f840dcdb1c73744ceb014f8f631f25d2d266218fc4465b0243b55fdbeaed16a0"
+    },
+    {
+      "path": "src/ui/theme.css",
+      "bytes": 19095,
+      "sha256": "bb256700006af17e54ac5cb0ce872624f615d39b18633591a9714d6a151ede77"
+    },
+    {
+      "path": "src/utils/notes.ts",
+      "bytes": 1448,
+      "sha256": "e36892a412e648df852116324ecf6856b7f2fcabc08535a8a6921746a0d18e73"
+    },
+    {
+      "path": "test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "tests/e2e/audio.spec.ts",
+      "bytes": 2975,
+      "sha256": "c047471a0c45887a8d894aaf1b402121e59d687fbd992250ce0d513bae1dd804"
+    },
+    {
+      "path": "tests/e2e/bot.ts",
+      "bytes": 2526,
+      "sha256": "a8d4c8d14dc6f08a1679683acb83d6792a98829acf732134e620e1aaf54baa9a"
+    },
+    {
+      "path": "tests/e2e/demo.spec.ts",
+      "bytes": 2382,
+      "sha256": "fdd923145464d29d8e32c079046fdc714cfcd583e366f472d3f45dbf426f5b63"
+    },
+    {
+      "path": "tests/e2e/modes.spec.ts",
+      "bytes": 3793,
+      "sha256": "5cdedfc287ef7f18b4001ed8f9c886564948067593e1565cc7fa7b7aa19f5894"
+    },
+    {
+      "path": "tests/e2e/performance.spec.ts",
+      "bytes": 1641,
+      "sha256": "835f96d45b25ab20f5e08aa9e3485288fab5355bb69bbdb7388a1a37d1fa5258"
+    },
+    {
+      "path": "tests/fixtures/chart-template-v1.json",
+      "bytes": 702,
+      "sha256": "c8fb9e9c461654e8744a3b2ff80633c47504186125968a67e1733b9b8af9f89b"
+    },
+    {
+      "path": "tests/helpers/load-glb.ts",
+      "bytes": 1775,
+      "sha256": "b1bfa78879340e403f5e1dae83e9df5d0a26ad88a44903fa475db91c27d9335a"
+    },
+    {
+      "path": "tests/unit/accordion-models.test.ts",
+      "bytes": 2823,
+      "sha256": "8e6c850633520b4703c6833bb21927fd1dd3bc4d499ab333124715c4adf59f74"
+    },
+    {
+      "path": "tests/unit/gameplay.test.ts",
+      "bytes": 11451,
+      "sha256": "153d13261363f18c8dfd2cc127128646a620e853a861788fa9b7428697f2caa0"
+    },
+    {
+      "path": "tests/unit/keyboard-map.test.ts",
+      "bytes": 1328,
+      "sha256": "4c2064366d5b5b187c09e0dbd299ccd1f3de8af3b0f57b5a00ece5e26e7785e6"
+    },
+    {
+      "path": "tests/unit/musical-transport.test.ts",
+      "bytes": 4978,
+      "sha256": "137ad51f116e68fd99fba5827049b0685593d0f67bd8a8ac638c80dc6650ec88"
+    },
+    {
+      "path": "tools/audio/build-music-audit.mjs",
+      "bytes": 2827,
+      "sha256": "1bf0aab9c0288f1dbcfcf9457b73139003e49ab6d509a06193ad9122e5f803ee"
+    },
+    {
+      "path": "tools/audio/configure-vallenato-audio.mjs",
+      "bytes": 1429,
+      "sha256": "d2c0a20d8f115eff013bb56190a5e5ea504def5002fea97fb06c462dcd641a8e"
+    },
+    {
+      "path": "tools/audio/prepare-recorded-accordion.py",
+      "bytes": 5347,
+      "sha256": "4411dfa5e0cd0b995bd88d59ebc175f131940d8ed48906f0ed9b53044ea3a367"
+    },
+    {
+      "path": "tools/audio/prepare-studio-audio.mjs",
+      "bytes": 1105,
+      "sha256": "4d8969c878215568beb3107e74118f0184a7c23fb510aaceb83ed7a6a7710049"
+    },
+    {
+      "path": "tools/audio/prepare_accordion_audio.py",
+      "bytes": 4579,
+      "sha256": "966fbc5ec01e721fbcc90f8bfe4b10309e803ec716235685a811522fb87b1efb"
+    },
+    {
+      "path": "tools/audio/validate-recorded-audio.py",
+      "bytes": 1768,
+      "sha256": "aef0fd9257a476be7cb33a0821951871c2df4dcd56e71af5512cfee259b1ecba"
+    },
+    {
+      "path": "tools/blender/build_accordion_blender.py",
+      "bytes": 17777,
+      "sha256": "ae51ead186715a503bf350ec74edb6008d7d73e66a3fa6e759de8d71403b74ed"
+    },
+    {
+      "path": "tools/blender/build_accordion_variants.py",
+      "bytes": 15341,
+      "sha256": "b0322b405418a0952ed0e121753836365cb2745e0e9bfbb5ec59963cd830a6df"
+    },
+    {
+      "path": "tools/blender/build_curved_accordions.py",
+      "bytes": 25878,
+      "sha256": "bf613afc22a9536db2eb57bacf3bb208d32d9746393ed4733b0d22841ffac6b5"
+    },
+    {
+      "path": "tools/blender/build_realistic_accordion.py",
+      "bytes": 30140,
+      "sha256": "5184a958dd7a42880f11b79d77f03ac5d8a2ce0464245a70e715e63e6484714e"
+    },
+    {
+      "path": "tools/blender/export_realistic_accordion.py",
+      "bytes": 1453,
+      "sha256": "6bea4fa74e067dd265445d906be17644894d2b669feed73496c7c0466b968d1c"
+    },
+    {
+      "path": "tools/blender/pack_realistic_accordion_audio.py",
+      "bytes": 2399,
+      "sha256": "cf600fc968124fe82d678bee1366609b5211daabad0d2965d8c1b6cf3d136774"
+    },
+    {
+      "path": "tools/blender/package_accordion_asset.py",
+      "bytes": 3592,
+      "sha256": "8a2697a911c4f488f95357b52c141a0504e308da22cd2b8302efde5d2a4a1b0a"
+    },
+    {
+      "path": "tools/blender/package_accordion_collection.py",
+      "bytes": 6933,
+      "sha256": "5265660d5d4006c889488757eb717614f32d2de2652922aa663e3beb45c1b025"
+    },
+    {
+      "path": "tools/blender/package_curved_accordions.py",
+      "bytes": 13762,
+      "sha256": "ceeddb92bdd09faf65ba93ae4da58d1413fea10178ae2082b7a4eeab374e84ae"
+    },
+    {
+      "path": "tools/blender/playback_accordion_collection.py",
+      "bytes": 2651,
+      "sha256": "993daf63531e2e34ddca83744e27c4962f90261b52a1e88e0891978b7f763e9a"
+    },
+    {
+      "path": "tools/blender/playback_curved_accordions.py",
+      "bytes": 2355,
+      "sha256": "9429cac242bc139b75ea300c45d1b002244948e60a993507cd4ab23dc8fbfdab"
+    },
+    {
+      "path": "tools/blender/playback_realistic_accordion.py",
+      "bytes": 2156,
+      "sha256": "41fd85ae09147ae37eb512287c781c6cc30f10aada7a722f9deca8d3ee663993"
+    },
+    {
+      "path": "tools/blender/render_accordion_collection.py",
+      "bytes": 1826,
+      "sha256": "e6a22c47bc65e14d7e921f072fe57abb7c9a0864ba25b3581c9624b4c0e819ea"
+    },
+    {
+      "path": "tools/blender/render_curva_motion_previews.py",
+      "bytes": 1052,
+      "sha256": "fed78749fee43cbb568a13d0a74ab3e82e953205bbe3703f6b4aa5ef89bd6c22"
+    },
+    {
+      "path": "tools/blender/render_curved_accordions.py",
+      "bytes": 2701,
+      "sha256": "906c9e92af3c8e676abbf39e02fdd1c04cccc406951f724fe3cdfd948ef73aba"
+    },
+    {
+      "path": "tools/blender/sync-web-models.py",
+      "bytes": 1888,
+      "sha256": "7c5389538f53ed93a205ee0a6f862eef3f7f38834827e21b448b3fdda90b41f7"
+    },
+    {
+      "path": "tools/blender/update_curva_all_buttons.py",
+      "bytes": 1798,
+      "sha256": "c7879adbda927d50eb04b6505d3016be6bf04cbf999dd9e2660dbeabb79a4e41"
+    },
+    {
+      "path": "tools/blender/validate_accordion_collection.py",
+      "bytes": 1783,
+      "sha256": "607eb2799cd1bed5a4c90a172f1007b0e2b2ca5a9d1b19375ee0eeab81bbe435"
+    },
+    {
+      "path": "tools/blender/validate_curved_accordions.py",
+      "bytes": 10284,
+      "sha256": "297ceda89bd2a4faab7077e68b767727ed3408e068e873433d865fee9c8999dc"
+    },
+    {
+      "path": "tools/blender/validate_realistic_accordion.py",
+      "bytes": 7734,
+      "sha256": "49e1354bae1e4e4a0008e2d9f3a13455079585831e4113f53367caa65f911f61"
+    },
+    {
+      "path": "tools/create-reset-backup.py",
+      "bytes": 2610,
+      "sha256": "7d05d397f364be01826ff3cd3045a1ca67e78ed820cf816accd484f1db1fad88"
+    },
+    {
+      "path": "tools/midi-to-chart.mjs",
+      "bytes": 1740,
+      "sha256": "a93cdb2cf7f0d8674f39d2b8b1e1879392dbd1eb812e6d95b01bc7a486a6da0b"
+    },
+    {
+      "path": "tools/text-to-chart.mjs",
+      "bytes": 2674,
+      "sha256": "91ea7d5936416cb9c9636e34e912b82255d5d7dd3bd117a77a6efe87bef8c132"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 655,
+      "sha256": "c7aeaa99a307e8223f408982c0ac1d5e2f9a5edda5f59f752aacccd5254a1009"
+    },
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "bytes": 2062,
+      "sha256": "e96efe1a68aac1ae89b1ff8505b57a3f1dc69cea07fc5a9c7a34c0bbe5d97b17"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 1216,
+      "sha256": "04bfd2960b9500a042120b3f2b21c61fe69dfe163ca3329cbf4f9d3d18093792"
+    },
+    {
+      "path": "vitest.config.ts",
+      "bytes": 188,
+      "sha256": "4ebabbb49347175f4ee8a79c898a93f7178d112d539d8a7b659ef96915103d05"
+    }
+  ]
+}
